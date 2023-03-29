@@ -9,7 +9,7 @@ import '../utiels/navigation_Services.dart';
 
 Widget floatingButton({required BuildContext context,required Function fct}) {
   Size size=MediaQuery.of(context).size;
-  return GestureDetector(
+  return InkWell(
     onTap:(){fct();} ,
     child: Container(
       height: size.height*0.15,

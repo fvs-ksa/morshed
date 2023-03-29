@@ -7,7 +7,7 @@ class BoardingCubit extends Cubit<BoardingState>{
   BoardingCubit():super(InitialBoardingState());
   static BoardingCubit get(context)=>BlocProvider.of(context);
   bool isLastBoarding=false;
-  changeBoarding(){
+  changeLastBoarding(){
     isLastBoarding = true;
     emit(ChangeBoardingState());
   }

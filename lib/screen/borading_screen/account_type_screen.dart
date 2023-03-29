@@ -48,20 +48,12 @@ class AccountTypeScreen extends StatelessWidget {
                       return accountType(
                           context: context, model: typeModel[index]);
                     },
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     separatorBuilder: (BuildContext context, int index) {
                       return CustomPaint(
                           size: Size(1, double.infinity),
                           painter: DashedLineVerticalPainter(),
                       );
-                      // return DottedBorder(
-                      //   child: SizedBox(),
-                      //   strokeCap: StrokeCap.butt,
-                      //   borderType: BorderType.RRect,
-                      //   dashPattern: const [8, 4],
-                      //   color: whiteColor,
-                      //  // width: size.width * 0.1,
-                      // );
                     },
                   ),
                 )
