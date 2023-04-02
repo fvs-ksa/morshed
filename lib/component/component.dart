@@ -83,3 +83,30 @@ navigateForwardReplace(Widget page, {arguments}) {
 navigateForwardPop(Widget page, {arguments}) {
   NavigationService.navigate().goBack(page);
 }
+Widget textFormField(
+    {required String labelText,
+    required String hintText,
+      required BuildContext context,
+    required TextEditingController controller,
+      TextInputType? keyboardType,
+      bool isEnabled=true,
+    Function? validator}){
+  Size size=MediaQuery.of(context).size;
+  return Padding(
+    padding:  EdgeInsets.only(bottom:size.height*0.02 ),
+    child: TextFormField(
+      decoration: InputDecoration(
+          labelText: labelText,
+          hintText: hintText,
+          border:
+          OutlineInputBorder(borderRadius: BorderRadius.circular(20.sp))),
+      controller: controller,
+      validator: (val){
+        validator!();
+        return null;
+      },
+      keyboardType: keyboardType,
+      enabled: isEnabled,
+    ),
+  );
+}

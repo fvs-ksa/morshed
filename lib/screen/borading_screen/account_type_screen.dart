@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:morshed/bloc/boarding_cubit/cubit.dart';
 import 'package:morshed/component/component.dart';
 import 'package:morshed/component/const_color.dart';
+import 'package:morshed/screen/auth_screen/register_Screen.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../bloc/boarding_cubit/state.dart';
@@ -69,7 +70,9 @@ class AccountTypeScreen extends StatelessWidget {
                       ),
                     ),
                     Spacer(),
-                    floatingButton(context: context, fct: (){},iconColor: lightMainColor,backgroundColor: whiteColor)
+                    floatingButton(context: context, fct: (){
+                      navigateForward(RegisterScreen());
+                    },iconColor: lightMainColor,backgroundColor: whiteColor)
                   ],
                 ),
               )
