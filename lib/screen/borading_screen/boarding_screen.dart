@@ -75,20 +75,20 @@ class BoardingScreen extends StatelessWidget {
                       floatingButton(
                           context: context,
                           fct: () {
-                            navigateForward(AccountTypeScreen());
-                            // if (boardingCubit.isLastBoarding == true) {
-                            //   print('object');
-                            //   Navigator.of(context).push(
-                            //     MaterialPageRoute(
-                            //         builder: (context) => AccountTypeScreen()),
-                            //   );
-                            //   //navigateForward(AccountTypeScreen());
-                            //   // Get.to(const AccountTypeScreen());
-                            // } else {
-                            //   pageController.nextPage(
-                            //       duration: const Duration(milliseconds: 750),
-                            //       curve: Curves.fastLinearToSlowEaseIn);
-                            // }
+                           // navigateForward(AccountTypeScreen());
+                            if (boardingCubit.isLastBoarding == true) {
+                              print('object');
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                    builder: (context) => AccountTypeScreen()),
+                              );
+                              //navigateForward(AccountTypeScreen());
+                              // Get.to(const AccountTypeScreen());
+                            } else {
+                              pageController.nextPage(
+                                  duration: const Duration(milliseconds: 750),
+                                  curve: Curves.fastLinearToSlowEaseIn);
+                            }
                           }),
                     ],
                   ),
