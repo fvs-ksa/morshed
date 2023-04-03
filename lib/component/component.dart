@@ -87,15 +87,18 @@ Widget textFormField(
     {required String labelText,
     required String hintText,
       required BuildContext context,
-    required TextEditingController controller,
+     TextEditingController? controller,
       TextInputType? keyboardType,
+      Widget? suffixIcon,
       bool isEnabled=true,
     Function? validator}){
   Size size=MediaQuery.of(context).size;
   return Padding(
     padding:  EdgeInsets.only(bottom:size.height*0.02 ),
     child: TextFormField(
+
       decoration: InputDecoration(
+        suffixIcon: suffixIcon,
           labelText: labelText,
           hintText: hintText,
           border:
@@ -107,6 +110,87 @@ Widget textFormField(
       },
       keyboardType: keyboardType,
       enabled: isEnabled,
+    ),
+  );
+}
+Widget dropDownButton(
+    {required List<DropdownMenuItem> items,
+      required var value,
+      required String hint,
+      required Function fct,
+      required BuildContext context,
+      required Function validator}) {
+  Size screenSize = MediaQuery.of(context).size;
+  return Align(
+    alignment: AlignmentDirectional.topStart,
+    child: Padding(
+        padding: EdgeInsetsDirectional.only(bottom: screenSize.height*0.02,top: screenSize.height*0.02),
+        child: Container(
+
+            padding: EdgeInsets.only(right: 5.w, left: 5.w),
+            height: screenSize.height * 0.08,
+            width: double.infinity,
+            decoration: BoxDecoration(
+                color: whiteColor,
+                borderRadius: BorderRadius.circular(20.sp),
+                border: Border.all(color: greyColor)),
+            child: Row(
+              children: [
+                Expanded(
+                  child: ButtonTheme(
+                    alignedDropdown: true,
+                    child: DropdownButtonFormField(
+                      //  hint: Text('اختيار نوع '),
+                      isExpanded: true,
+                      decoration: const InputDecoration(border: InputBorder.none),
+                      //underline: SizedBox(),
+                      hint: Text(hint),
+                      iconSize: 0.0,
+                      // hint: Text('ggg'),
+                      borderRadius: BorderRadius.circular(12.sp),
+                      value: value,
+
+                      items: items,
+                      onChanged: (v) {
+                        fct(v);
+                      },
+                      validator: (v) {
+                        return validator(v);
+                      },
+                    ),
+                  ),
+                ),
+                SvgPicture.asset('assets/svg/dropdown.svg')
+              ],
+            ))),
+  );
+}
+Widget mainButton(
+    {required double width,
+      required double height,
+      FontWeight? fontWeight,
+      required String text,
+      required Color color,
+      // TextStyle? textStyle,
+      required BuildContext context,
+      required Function fct}) {
+  return InkWell(
+    onTap: () {
+      fct();
+    },
+    child: Container(
+      height: height,
+      width: width,
+      decoration:
+      BoxDecoration(color: color, borderRadius: BorderRadius.circular(35.sp)),
+      child: Align(
+        alignment: Alignment.center,
+        child: Text(
+          textAlign: TextAlign.center,
+          text,
+          style: Theme.of(context).textTheme.button,
+        ),
+      ),
     ),
   );
 }

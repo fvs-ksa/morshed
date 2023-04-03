@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:morshed/bloc/boarding_cubit/cubit.dart';
+import 'package:morshed/bloc/register_cubit/cubit.dart';
 import 'package:morshed/component/const_color.dart';
 import 'package:morshed/screen/borading_screen/boarding_screen.dart';
 import 'package:morshed/utiels/navigation_Services.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
         providers: [
           BlocProvider<BoardingCubit>(create: (context) => BoardingCubit()..initialization()),
+          BlocProvider<RegisterCubit>(create: (context) => RegisterCubit()),
         ],
         child: Sizer(
           builder: (context, orientation, deviceType) {
@@ -66,7 +68,18 @@ class MyApp extends StatelessWidget {
                     color: darkMainColor,
                     fontSize: 15.sp,
                     fontWeight: FontWeight.w500
-                  )
+                  ),
+                    bodyText2: TextStyle(
+                        color: blackColor,
+                        fontSize: 10.sp,
+                        fontWeight: FontWeight.w800
+                ),
+                  button: TextStyle(color: whiteColor,fontSize: 15.sp,fontWeight: FontWeight.w700)
+                  // headline3: TextStyle(
+                  //     color: lightMainColor,
+                  //     fontSize: 15.sp,
+                  //     fontWeight: FontWeight.w500
+                  // ),
                 ),
               ),
               home: BoardingScreen(),
