@@ -15,7 +15,7 @@ class MainScreen extends StatelessWidget {
       listener: (context,state){},
       builder: (context,state){
         return Scaffold(
-          body:generalCubit.screens[generalCubit.currentIndex] ,
+          body:generalCubit.screens[generalCubit.currentIndex],
           bottomNavigationBar: BottomNavigationBar(
             showUnselectedLabels: true,
             selectedItemColor: darkMainColor,
@@ -26,11 +26,11 @@ class MainScreen extends StatelessWidget {
             unselectedItemColor: greyColor,
             selectedIconTheme: IconThemeData(color: darkMainColor),
             items: [
-              BottomNavigationBarItem(icon: SvgPicture.asset(generalCubit.currentIndex==0?'assets/svg/home.svg':'assets/svg/home_active.svg'),label: 'الرئيسيه'),
-              BottomNavigationBarItem(icon: SvgPicture.asset(generalCubit.currentIndex==1?'assets/svg/notifi.svg':'assets/svg/notifi_active.svg'),label: 'الاشعارات'),
-              BottomNavigationBarItem(icon: SvgPicture.asset(generalCubit.currentIndex==2?'assets/svg/qr.svg':'assets/svg/qr_active.svg'),label: 'باركودي'),
-              BottomNavigationBarItem(icon: SvgPicture.asset(generalCubit.currentIndex==3?'assets/svg/support.svg':'assets/svg/support_active.svg'),label: 'الدعم'),
-              BottomNavigationBarItem(icon: SvgPicture.asset(generalCubit.currentIndex==4?'assets/svg/more.svg':'assets/svg/more_active.svg'),label: 'المزيد'),
+              BottomNavigationBarItem(icon: SvgPicture.asset(generalCubit.currentIndex==0?'assets/svg/home_active.svg':'assets/svg/home.svg'),label: 'الرئيسيه'),
+              BottomNavigationBarItem(icon: SvgPicture.asset(generalCubit.currentIndex==1?'assets/svg/notifi_active.svg':'assets/svg/notifi.svg'),label: 'الاشعارات'),
+              BottomNavigationBarItem(icon: SvgPicture.asset(generalCubit.currentIndex==2?'assets/svg/qr_active.svg':'assets/svg/qr.svg'),label: 'باركودي'),
+              BottomNavigationBarItem(icon: SvgPicture.asset(generalCubit.currentIndex==3?'assets/svg/support_active.svg':'assets/svg/support.svg'),label: 'الدعم'),
+              BottomNavigationBarItem(icon: SvgPicture.asset(generalCubit.currentIndex==4?'assets/svg/more_active.svg':'assets/svg/more.svg'),label: 'المزيد'),
 
             ],
           ),

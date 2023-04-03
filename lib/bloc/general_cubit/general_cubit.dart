@@ -11,7 +11,7 @@ import 'package:morshed/screen/bottom_navigations_screens/support_screen.dart';
 class GeneralCubit extends Cubit<GeneralState>{
   GeneralCubit():super(InitialGeneralState());
   static GeneralCubit get(context)=>BlocProvider.of(context);
-  List<Widget>screens=const[
+  List<Widget>screens=[
     HomeScreen(),
     NotificationsScreen(),
     QrScreen(),
