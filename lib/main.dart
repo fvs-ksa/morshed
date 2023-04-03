@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:morshed/bloc/boarding_cubit/cubit.dart';
+import 'package:morshed/bloc/general_cubit/general_cubit.dart';
 import 'package:morshed/bloc/register_cubit/cubit.dart';
 import 'package:morshed/component/const_color.dart';
 import 'package:morshed/screen/borading_screen/boarding_screen.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider<BoardingCubit>(create: (context) => BoardingCubit()..initialization()),
           BlocProvider<RegisterCubit>(create: (context) => RegisterCubit()),
+          BlocProvider<GeneralCubit>(create: (context) => GeneralCubit()),
         ],
         child: Sizer(
           builder: (context, orientation, deviceType) {

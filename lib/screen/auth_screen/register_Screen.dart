@@ -5,6 +5,7 @@ import 'package:morshed/bloc/register_cubit/cubit.dart';
 import 'package:morshed/bloc/register_cubit/state.dart';
 import 'package:morshed/component/component.dart';
 import 'package:morshed/component/const_color.dart';
+import 'package:morshed/screen/bottom_navigations_screens/main_screen.dart';
 import 'package:sizer/sizer.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -338,7 +339,9 @@ class RegisterScreen extends StatelessWidget {
                             TextSpan(text: 'الشروط و الاحكام',style: TextStyle(color: darkMainColor,decoration: TextDecoration.underline))
                           ]),),
                       SizedBox(height: size.height*0.04,),
-                      mainButton(width: double.infinity, height: size.height*0.07, text: 'تسجيل', color: darkMainColor, context: context, fct: (){}),
+                      mainButton(width: double.infinity, height: size.height*0.07, text: 'تسجيل', color: darkMainColor, context: context, fct: (){
+                        navigateForward(MainScreen());
+                      }),
                           SizedBox(height: size.height*0.02,),
                       RichText(text: TextSpan(text: 'لديك حساب ؟ ',style: Theme.of(context).textTheme.bodyText2,children: [
                         TextSpan(text: 'الدخول الان',style: TextStyle(color: darkMainColor,decoration: TextDecoration.underline,fontWeight: FontWeight.w800))
