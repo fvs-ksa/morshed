@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:morshed/bloc/boarding_cubit/cubit.dart';
+import 'package:morshed/bloc/chat_cubit/chat_with_support_cubit/chat_support_cubit.dart';
 import 'package:morshed/bloc/general_cubit/general_cubit.dart';
 import 'package:morshed/bloc/register_cubit/cubit.dart';
 import 'package:morshed/component/const_color.dart';
+import 'package:morshed/pallete.dart';
 import 'package:morshed/screen/borading_screen/boarding_screen.dart';
 import 'package:morshed/utiels/navigation_Services.dart';
 import 'package:sizer/sizer.dart';
@@ -38,6 +40,7 @@ class MyApp extends StatelessWidget {
           BlocProvider<BoardingCubit>(create: (context) => BoardingCubit()..initialization()),
           BlocProvider<RegisterCubit>(create: (context) => RegisterCubit()),
           BlocProvider<GeneralCubit>(create: (context) => GeneralCubit()),
+          BlocProvider<ChatWithSupportCubit>(create: (context) => ChatWithSupportCubit()),
         ],
         child: Sizer(
           builder: (context, orientation, deviceType) {
@@ -47,35 +50,49 @@ class MyApp extends StatelessWidget {
               locale: context.locale,
               supportedLocales: context.supportedLocales,
               localizationsDelegates: context.localizationDelegates,
-              title: 'Flutter Demo',
+              title: 'مرشد',
+
               theme: ThemeData(
-                primarySwatch: Colors.blue,
+                primarySwatch: Palette.primaryColor,
+
                 textTheme: TextTheme(
                   headline1: TextStyle(
                     color: blackColor,
                     fontSize: 20.sp,
                     fontWeight: FontWeight.bold,
+                    fontFamily: 'Cairo-Bold'
                   ),
                   caption: TextStyle(
                     color: greyColor,
                     fontSize: 15.sp,
                     fontWeight: FontWeight.w300,
+                    fontFamily: 'Cairo-Regular'
                   ),
+                  subtitle1: TextStyle(
+                  color: whiteGreyColor,
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w300,
+                      fontFamily: 'Cairo-Regular'
+                ),
                   headline2: TextStyle(
                     color: whiteColor,
                     fontSize: 19.sp,
-                    fontWeight: FontWeight.bold
+                    fontWeight: FontWeight.bold,
+                      fontFamily: 'Cairo-Bold'
                   ),
                   bodyText1: TextStyle(
                     color: darkMainColor,
                     fontSize: 15.sp,
-                    fontWeight: FontWeight.w500
+                    fontWeight: FontWeight.w500,
+                      fontFamily: 'Cairo-Medium'
                   ),
                     bodyText2: TextStyle(
                         color: blackColor,
                         fontSize: 14.sp,
-                        fontWeight: FontWeight.w800
+                        fontWeight: FontWeight.w800,
+                        fontFamily: 'cairo-Black'
                 ),
+                  headline4: TextStyle(color: orangeColor,fontWeight: FontWeight.w800,fontSize: 20.sp,decoration: TextDecoration.underline),
                   headline3: TextStyle(color: Colors.red,fontWeight: FontWeight.w500,fontSize: 15.sp),
                   button: TextStyle(color: whiteColor,fontSize: 15.sp,fontWeight: FontWeight.w700)
                   // headline3: TextStyle(
@@ -84,6 +101,7 @@ class MyApp extends StatelessWidget {
                   //     fontWeight: FontWeight.w500
                   // ),
                 ),
+                fontFamily: 'cairo-Black',
               ),
               home: BoardingScreen(),
             );

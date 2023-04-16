@@ -69,7 +69,7 @@ class AccountTypeScreen extends StatelessWidget {
                         },
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     floatingButton(context: context, fct: (){
                       navigateForward(RegisterScreen());
                     },iconColor: lightMainColor,backgroundColor: whiteColor)

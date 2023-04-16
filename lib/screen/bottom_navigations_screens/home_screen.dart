@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:morshed/component/const_color.dart';
+import 'package:morshed/component/floating_Container.dart';
 import 'package:sizer/sizer.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -102,38 +103,10 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Align(
-                alignment: AlignmentDirectional.bottomStart,
-                child: Container(
-                  height: size.height * 0.07,
-                  width: size.width * 0.4,
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(25.sp),color: darkMainColor),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                    SvgPicture.asset('assets/svg/Icon ionic-ios-add.svg'),
-                    SizedBox(width: size.width*0.02,),
-                    Text('اضافه مرافق',style: Theme.of(context).textTheme.button,)
-                  ],),
-                ),
-              ),
-              Align(
-                alignment: AlignmentDirectional.bottomStart,
-                child: Container(
-                  height: size.height * 0.07,
-                  width: size.width * 0.7,
-                  decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(25.sp),color: orangeColor),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset('assets/svg/on map.svg'),
-                      SizedBox(width: size.width*0.02,),
-                      Text('مكاتب الارشاد والمرشدين',style: Theme.of(context).textTheme.button,)
-                    ],),
-                ),
-              ),
+              floatingContainer(context: context, svgAssets: 'assets/svg/Icon ionic-ios-add.svg', title: 'اضافه مرافق', width: size.width * 0.4,color:darkMainColor ),
+              SizedBox(height: size.height*0.02,),
+              floatingContainer(context: context, svgAssets: 'assets/svg/on map.svg', title: 'مكاتب الارشاد والمرشدين', width: size.width * 0.7,color:orangeColor ),
+
             ],
           ),
         )
