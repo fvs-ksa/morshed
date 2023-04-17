@@ -5,6 +5,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:morshed/bloc/boarding_cubit/cubit.dart';
 import 'package:morshed/bloc/chat_cubit/chat_with_support_cubit/chat_support_cubit.dart';
 import 'package:morshed/bloc/general_cubit/general_cubit.dart';
+import 'package:morshed/bloc/profile_cubit/cubit.dart';
 import 'package:morshed/bloc/register_cubit/cubit.dart';
 import 'package:morshed/component/const_color.dart';
 import 'package:morshed/pallete.dart';
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
           BlocProvider<RegisterCubit>(create: (context) => RegisterCubit()),
           BlocProvider<GeneralCubit>(create: (context) => GeneralCubit()),
           BlocProvider<ChatWithSupportCubit>(create: (context) => ChatWithSupportCubit()),
+          BlocProvider<ProfileCubit>(create: (context) => ProfileCubit()),
         ],
         child: Sizer(
           builder: (context, orientation, deviceType) {
@@ -91,6 +93,12 @@ class MyApp extends StatelessWidget {
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w800,
                         fontFamily: 'cairo-Black'
+                ),
+                  headline5:  TextStyle(
+                    color: blackColor,
+                    fontSize: 10.sp,
+                    fontWeight: FontWeight.normal,
+                    fontFamily: 'cairo-Black'
                 ),
                   headline4: TextStyle(color: orangeColor,fontWeight: FontWeight.w800,fontSize: 20.sp,decoration: TextDecoration.underline),
                   headline3: TextStyle(color: Colors.red,fontWeight: FontWeight.w500,fontSize: 15.sp),

@@ -1,6 +1,7 @@
 
 
 import 'package:morshed/component/component.dart';
+import 'package:morshed/screen/inner_screen/guides_screen.dart';
 import 'package:morshed/screen/inner_screen/profile_screen.dart';
 
 class MoreScreenModel{
@@ -10,8 +11,8 @@ class MoreScreenModel{
   MoreScreenModel({required this.title,required this.onTap,required this.svgImage});
 }
 List<MoreScreenModel> moreList=[
-  MoreScreenModel(title: 'الحساب', onTap: (){return navigateForward(ProfileScreen());}, svgImage: 'assets/svg/profile.svg'),
-  MoreScreenModel(title: 'المرشدين', onTap: (){}, svgImage: 'assets/svg/file (-1.svg'),
+  MoreScreenModel(title: 'الحساب', onTap: (){navigateForward(const ProfileScreen());}, svgImage: 'assets/svg/profile.svg'),
+  MoreScreenModel(title: 'المرشدين', onTap: (){navigateForward(const GuidesScreen());}, svgImage: 'assets/svg/file (-1.svg'),
   MoreScreenModel(title: 'المرافقين', onTap: (){}, svgImage: 'assets/svg/Group -1.svg'),
   MoreScreenModel(title: 'بلاغاتي', onTap: (){}, svgImage: 'assets/svg/file (1).svg'),
   MoreScreenModel(title: 'سكني ورحلاتي', onTap: (){}, svgImage: 'assets/svg/me.svg'),

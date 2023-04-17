@@ -8,6 +8,8 @@ import 'package:morshed/component/const_color.dart';
 import 'package:morshed/screen/bottom_navigations_screens/main_screen.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../component/info_profile_component.dart';
+
 class RegisterScreen extends StatelessWidget {
   // const RegisterScreen({Key? key}) : super(key: key);
   TextEditingController arabicNameController = TextEditingController();
@@ -131,14 +133,15 @@ class RegisterScreen extends StatelessWidget {
                                     controller: phoneNumberController),
                               ),
                               SizedBox(width: size.width*0.07,),
-                              Container(
-                                height: size.height*0.05,
-                                width: size.width*0.2,
-                                child:Center(child: Text('+966',style: Theme.of(context).textTheme.bodyText1,textAlign: TextAlign.center,)),
-                                decoration: BoxDecoration(
-                                    color: babyBlueColor,
-                                    borderRadius: BorderRadius.circular(35.sp)),
-                              ),
+                              decorationContainerWidget(context: context,child:Text('+966',style: Theme.of(context).textTheme.bodyText1,textAlign: TextAlign.center,)),
+                              // Container(
+                              //   height: size.height*0.05,
+                              //   width: size.width*0.2,
+                              //   child:Center(child: Text('+966',style: Theme.of(context).textTheme.bodyText1,textAlign: TextAlign.center,)),
+                              //   decoration: BoxDecoration(
+                              //       color: babyBlueColor,
+                              //       borderRadius: BorderRadius.circular(35.sp)),
+                              // ),
                             ],
                           ),
                           dropDownButton(
@@ -170,14 +173,7 @@ class RegisterScreen extends StatelessWidget {
                                   onTap: () async {
                                   registerCubit.chooseDateTime(context: context);
                                   },
-                                child: Container(
-                                  height: size.height*0.05,
-                                  width: size.width*0.2,
-                                  child:Center(child: SvgPicture.asset('assets/svg/Calendar.svg')),
-                                  decoration: BoxDecoration(
-                                      color: babyBlueColor,
-                                      borderRadius: BorderRadius.circular(35.sp)),
-                                ),
+                                child: decorationContainerWidget(context: context, child: SvgPicture.asset('assets/svg/Calendar.svg'))
                               ),
                             ],
                           ),

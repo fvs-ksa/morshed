@@ -6,6 +6,7 @@ import 'package:morshed/models/account_type_model.dart';
 import 'package:sizer/sizer.dart';
 
 import '../utiels/navigation_Services.dart';
+import 'info_profile_component.dart';
 
 Widget floatingButton({
   required BuildContext context,
@@ -194,3 +195,35 @@ Widget mainButton(
     ),
   );
 }
+// PreferredSize mainHeaderForGuideAndEscorts({required BuildContext context}){
+//   Size screenSize=MediaQuery.of(context).size;
+//   return PreferredSize(
+//       child: Stack(
+//         children: [
+//           Container(
+//             height: screenSize.height * 0.2,
+//             child: Center(child: Text('الحساب',style: Theme.of(context).textTheme.headline2,)),
+//             decoration: const BoxDecoration(
+//                 image: DecorationImage(
+//                     image: AssetImage('assets/images/header1.png'),fit: BoxFit.cover)),
+//           ),
+//           Padding(
+//             padding:  EdgeInsetsDirectional.only(top: screenSize.width*0.03),
+//             child: Column(
+//               mainAxisAlignment: MainAxisAlignment.center,
+//               children: [
+//                 backButtonWidget(fct: (){Navigator.pop(context);}),
+//                 SizedBox(height: screenSize.height*0.05,),
+//                 Padding(
+//                   padding:  EdgeInsetsDirectional.only(start: screenSize.width*0.03),
+//                   child: CircleAvatar(backgroundColor: darkMainColor,child: Image.asset('assets/images/profile.png'),
+//                     radius: screenSize.height*0.05,
+//                   ),
+//                 )
+//               ],
+//             ),
+//           )
+//         ],
+//       ),
+//       preferredSize: Size.fromHeight(screenSize.height * 0.25));
+// }
