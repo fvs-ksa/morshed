@@ -86,18 +86,21 @@ navigateForwardPop(Widget page, {arguments}) {
 }
 Widget textFormField(
     {required String labelText,
-    required String hintText,
+     String? hintText,
       required BuildContext context,
      TextEditingController? controller,
       TextInputType? keyboardType,
       Widget? suffixIcon,
+      int? length,
+      int? lines,
       bool isEnabled=true,
     Function? validator}){
   Size size=MediaQuery.of(context).size;
   return Padding(
     padding:  EdgeInsets.only(bottom:size.height*0.02 ),
     child: TextFormField(
-
+      maxLines: lines,
+      maxLength: length,
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
           labelText: labelText,

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import 'component.dart';
 import 'const_color.dart';
 import 'info_profile_component.dart';
 
@@ -15,7 +16,7 @@ Widget circleAvtarWidget({required String svgImage,}){
           child: SvgPicture.asset(
               svgImage)));
 }
-PreferredSize preferredHeaderWithGuide({required BuildContext context,required String title,required Widget rowWidget}){
+PreferredSize preferredHeaderWithGuide({required BuildContext context,bool isActive=true,required String title, TextEditingController? searchController, Function? fct}){
   Size screenSize=MediaQuery.of(context).size;
   return PreferredSize(
       child: Card(
@@ -47,10 +48,78 @@ PreferredSize preferredHeaderWithGuide({required BuildContext context,required S
               SizedBox(
                 height: screenSize.height * 0.04,
               ),
-              rowWidget
+             isActive? Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                      child: textFormField(
+                        controller: searchController,
+                          labelText: 'بحث بالأسم أو رقم الجوال',
+                          hintText: 'بحث بالأسم أو رقم الجوال',
+                          context: context)),
+                  SizedBox(
+                    width: screenSize.width * 0.02,
+                  ),
+                  Padding(
+                      padding: EdgeInsetsDirectional.only(
+                          bottom: screenSize.height * 0.01),
+                      child: mainButton(
+                          width: screenSize.width * 0.2,
+                          height: screenSize.height * 0.06,
+                          text: 'بحث',
+                          color: darkMainColor,
+                          context: context,
+                          fct: () {fct!();}))
+                ],
+              ):const SizedBox()
             ],
           ),
         ),
       ),
-      preferredSize: Size.fromHeight(screenSize.height * 0.22));
+      preferredSize: Size.fromHeight(isActive?screenSize.height * 0.22:screenSize.height*0.15));
+}
+Widget itemContainerOfGuidesAndEscorts({required BuildContext context,Widget? contactColumn,required String image,required String name,required String phone}){
+  Size screenSize=MediaQuery.of(context).size;
+  return Container(
+    margin: EdgeInsetsDirectional.only(
+        bottom: screenSize.height * 0.01),
+    padding:
+    EdgeInsetsDirectional.only(end: screenSize.width * 0.02),
+    height: screenSize.height * 0.15,
+    decoration: BoxDecoration(
+        color: whiteColor,
+        borderRadius:
+        BorderRadius.circular(screenSize.width * 0.04)),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Expanded(
+          child: ListTile(
+            title: Text(
+              name,
+              style: Theme.of(context).textTheme.headline1,
+            ),
+            subtitle: RichText(
+              text: TextSpan(
+                  text: 'رقم الجوال : ',
+                  style: Theme.of(context).textTheme.caption,
+                  children: [
+                    TextSpan(
+                        text: phone,
+                        style:
+                        Theme.of(context).textTheme.headline5)
+                  ]),
+            ),
+            leading: CircleAvatar(
+              radius: 30,
+              backgroundColor: darkMainColor,
+              child: Image.asset(image,
+                  fit: BoxFit.cover),
+            ),
+          ),
+        ),
+        contactColumn??const SizedBox()
+      ],
+    ),
+  );
 }

@@ -7,6 +7,7 @@ import 'package:morshed/bloc/chat_cubit/chat_with_support_cubit/chat_support_cub
 import 'package:morshed/bloc/general_cubit/general_cubit.dart';
 import 'package:morshed/bloc/profile_cubit/cubit.dart';
 import 'package:morshed/bloc/register_cubit/cubit.dart';
+import 'package:morshed/bloc/setting_cubit/cubit.dart';
 import 'package:morshed/component/const_color.dart';
 import 'package:morshed/pallete.dart';
 import 'package:morshed/screen/borading_screen/boarding_screen.dart';
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
           BlocProvider<GeneralCubit>(create: (context) => GeneralCubit()),
           BlocProvider<ChatWithSupportCubit>(create: (context) => ChatWithSupportCubit()),
           BlocProvider<ProfileCubit>(create: (context) => ProfileCubit()),
+          BlocProvider<SettingCubit>(create: (context) => SettingCubit()),
         ],
         child: Sizer(
           builder: (context, orientation, deviceType) {
@@ -85,7 +87,7 @@ class MyApp extends StatelessWidget {
                   bodyText1: TextStyle(
                     color: darkMainColor,
                     fontSize: 15.sp,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w700,
                       fontFamily: 'Cairo-Medium'
                   ),
                     bodyText2: TextStyle(
@@ -100,6 +102,12 @@ class MyApp extends StatelessWidget {
                     fontWeight: FontWeight.normal,
                     fontFamily: 'cairo-Black'
                 ),
+                  headline6: TextStyle(
+                      color: orangeColor,
+                      fontSize: 15.sp,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'Cairo-Medium'
+                  ),
                   headline4: TextStyle(color: orangeColor,fontWeight: FontWeight.w800,fontSize: 20.sp,decoration: TextDecoration.underline),
                   headline3: TextStyle(color: Colors.red,fontWeight: FontWeight.w500,fontSize: 15.sp),
                   button: TextStyle(color: whiteColor,fontSize: 15.sp,fontWeight: FontWeight.w700)

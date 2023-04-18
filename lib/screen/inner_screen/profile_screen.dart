@@ -38,9 +38,9 @@ class ProfileScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                          backButtonWidget(fct: (){Navigator.pop(context);}),
-                          SizedBox(height: screenSize.height*0.05,),
+                          SizedBox(height: screenSize.height*0.03,),
                           Padding(
-                            padding:  EdgeInsetsDirectional.only(start: screenSize.width*0.03),
+                            padding:  EdgeInsetsDirectional.only(start: screenSize.width*0.03,),
                             child: CircleAvatar(backgroundColor: darkMainColor,child: Image.asset('assets/images/profile.png'),
                             radius: screenSize.height*0.05,
                             ),
