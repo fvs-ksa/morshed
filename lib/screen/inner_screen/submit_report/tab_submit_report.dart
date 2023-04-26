@@ -80,7 +80,7 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
                                   Text(
                                     'تقديم بلاغ',
                                     style:
-                                        Theme.of(context).textTheme.headline2,
+                                        Theme.of(context).textTheme. headline2,
                                   )
                                 ],
                               ),
