@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:morshed/component/component.dart';
+import 'package:sizer/sizer.dart';
 
 import '../../../component/const_color.dart';
 import '../../../component/guide_escorts_component.dart';
@@ -55,6 +56,7 @@ class MyReportsDetailsScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: screenSize.height*0.05,),
+                    textFormField(labelText: 'رقم البلاغ',  context: context,isEnabled: false),
                     textFormField(labelText: 'رقم الجواز',  context: context,isEnabled: false),
                     textFormField(labelText: 'موقع البلاغ',  context: context,isEnabled: false),
                     SizedBox(
@@ -83,7 +85,49 @@ class MyReportsDetailsScreen extends StatelessWidget {
                     index==0?Align(alignment: AlignmentDirectional.center,child: Padding(
                       padding:  EdgeInsets.symmetric(vertical: screenSize.height*0.06,horizontal: screenSize.width*0.03),
                       child: mainButton(width: screenSize.width*0.8, height: screenSize.height*0.08, text: 'الغاء البلاغ', color: orangeColor, context: context, fct: (){}),
-                    )):const SizedBox()
+                    )):const SizedBox(),
+
+                    index==1?Card(
+                      elevation: 3,
+                      margin: EdgeInsetsDirectional.only(top: screenSize.height*0.05),
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(screenSize.width*0.05)),
+                      child: Container(
+
+                        padding: EdgeInsetsDirectional.only(end: screenSize.width*0.04),
+                        height: screenSize.height*0.18,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                           // color: darkMainColor,
+                            borderRadius: BorderRadius.circular(screenSize.width*0.05)),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Center(
+                                child: ListTile(
+
+                                    leading: CircleAvatar(radius: 20.sp,backgroundImage: AssetImage('assets/images/profile.png'),),
+                                  title: Text('احمد علي',style:Theme.of(context).textTheme.headline1 ,),
+                                  subtitle: RichText(text: TextSpan(text: 'رقم الجوال : ',style: Theme.of(context).textTheme.caption,children: [
+                                    TextSpan(text: '966542136547+',style: Theme.of(context).textTheme.headline5,)
+                                  ]),),
+
+
+                                ),
+                              ),
+                            ),
+                             Column(
+                               mainAxisSize: MainAxisSize.min,
+                               // mainAxisAlignment: MainAxisAlignment.center,
+                               children: [
+                                 circleAvtarWidget(svgImage: 'assets/svg/end call.svg'),
+                                 circleAvtarWidget(svgImage: 'assets/svg/msg.svg')
+                               ],
+                             ),
+                          ],
+                        ),
+                      ),
+                    ):SizedBox()
                   ],
                 ),
               ),

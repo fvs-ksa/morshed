@@ -15,6 +15,19 @@ Widget myReportsContainerWidget({required BuildContext context,required String r
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+
+        Padding(
+          padding: EdgeInsetsDirectional.only(start:screenSize.width * 0.04,top: screenSize.width * 0.02),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('بلاغ رقم : #${reportId}',style: Theme.of(context).textTheme.headline1,),
+              Text('ملاحظات البلاغ عن الشخص التائه يمكنك تقديم البلاغ بسهوله',style: Theme.of(context).textTheme.headline5,),
+              Align(alignment: AlignmentDirectional.bottomEnd,child: solutionWidget,)
+            ],
+          ),
+        ),
+        Spacer(),
         Stack(
           alignment: AlignmentDirectional.centerEnd,
           clipBehavior: Clip.antiAlias,
@@ -25,9 +38,9 @@ Widget myReportsContainerWidget({required BuildContext context,required String r
               height: screenSize.height * 0.06,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
-                      topRight:
+                      bottomRight:
                       Radius.circular(screenSize.width * 0.04),
-                      topLeft:
+                      bottomLeft:
                       Radius.circular(screenSize.width * 0.04)),
                   image:  DecorationImage(
                       image:
@@ -44,17 +57,6 @@ Widget myReportsContainerWidget({required BuildContext context,required String r
             )
           ],
         ),
-        Padding(
-          padding: EdgeInsetsDirectional.only(start:screenSize.width * 0.04 ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('بلاغ رقم : #${reportId}',style: Theme.of(context).textTheme.headline1,),
-              Text('ملاحظات البلاغ عن الشخص التائه يمكنك تقديم البلاغ بسهوله',style: Theme.of(context).textTheme.headline5,),
-              Align(alignment: AlignmentDirectional.bottomEnd,child: solutionWidget)
-            ],
-          ),
-        )
       ],
     ),
   );

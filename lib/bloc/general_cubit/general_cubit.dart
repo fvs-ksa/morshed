@@ -6,7 +6,9 @@ import 'package:morshed/screen/bottom_navigations_screens/home_screen.dart';
 import 'package:morshed/screen/bottom_navigations_screens/more_screen.dart';
 import 'package:morshed/screen/bottom_navigations_screens/notification_screen.dart';
 import 'package:morshed/screen/bottom_navigations_screens/qr_screen.dart';
-import 'package:morshed/screen/bottom_navigations_screens/support_screen.dart';
+import 'package:morshed/screen/inner_screen/support_screen.dart';
+
+import '../../screen/bottom_navigations_screens/my_residence_and_travels.dart';
 
 class GeneralCubit extends Cubit<GeneralState>{
   GeneralCubit():super(InitialGeneralState());
@@ -15,7 +17,8 @@ class GeneralCubit extends Cubit<GeneralState>{
     HomeScreen(),
     NotificationsScreen(),
     QrScreen(),
-    SupportScreen(),
+    MyResidenceAndTravels(),
+    //SupportScreen(),
     MoreScreen(),
   ];
   int currentIndex=0;

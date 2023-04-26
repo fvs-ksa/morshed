@@ -6,7 +6,7 @@ import 'package:morshed/component/reports_widgets.dart';
 
 import '../../../component/guide_escorts_component.dart';
 import '../../../models/my_reports_model.dart';
-import 'mt_reports_details.dart';
+import 'my_reports_details.dart';
 
 class MyReports extends StatelessWidget {
   const MyReports({Key? key}) : super(key: key);

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:morshed/component/component.dart';
 import 'package:morshed/component/const_color.dart';
 import 'package:morshed/component/floating_Container.dart';
 import 'package:sizer/sizer.dart';
+
+import '../inner_screen/submit_report/tab_submit_report.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -53,19 +56,22 @@ class HomeScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    height: size.height * 0.15,
-                    width: size.width * 0.2,
-                    child: Column(
-                      children: [
-                        Image.asset('assets/images/report.png'),
-                        Text(
-                          'تقديم بلاغ لحاله توهان',
-                          style: Theme.of(context).textTheme.headline3,
-                          softWrap: true,
-                          textAlign: TextAlign.center,
-                        )
-                      ],
+                  GestureDetector(
+                    onTap:(){navigateForward(TabBarSubmitReport());},
+                    child: Container(
+                      height: size.height * 0.15,
+                      width: size.width * 0.2,
+                      child: Column(
+                        children: [
+                          Image.asset('assets/images/report.png'),
+                          Text(
+                            'تقديم بلاغ لحاله توهان',
+                            style: Theme.of(context).textTheme.headline3,
+                            softWrap: true,
+                            textAlign: TextAlign.center,
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(

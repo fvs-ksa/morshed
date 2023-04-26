@@ -8,6 +8,7 @@ import 'package:morshed/bloc/general_cubit/general_cubit.dart';
 import 'package:morshed/bloc/profile_cubit/cubit.dart';
 import 'package:morshed/bloc/register_cubit/cubit.dart';
 import 'package:morshed/bloc/setting_cubit/cubit.dart';
+import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
 import 'package:morshed/component/const_color.dart';
 import 'package:morshed/pallete.dart';
 import 'package:morshed/screen/borading_screen/boarding_screen.dart';
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
           BlocProvider<ChatWithSupportCubit>(create: (context) => ChatWithSupportCubit()),
           BlocProvider<ProfileCubit>(create: (context) => ProfileCubit()),
           BlocProvider<SettingCubit>(create: (context) => SettingCubit()),
+          BlocProvider<SubmitReportCubit>(create: (context) => SubmitReportCubit()),
         ],
         child: Sizer(
           builder: (context, orientation, deviceType) {
