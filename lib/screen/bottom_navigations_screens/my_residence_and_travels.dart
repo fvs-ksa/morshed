@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:sizer/sizer.dart';
 
 import '../../component/component.dart';
 import '../../component/const_color.dart';
@@ -61,7 +62,7 @@ class MyResidenceAndTravels extends StatelessWidget {
                           onTap: () async {
                           //  profileCubit.chooseDateTime(context: context);
                           },
-                          child: decorationContainerWidget(context: context, child: SvgPicture.asset('assets/svg/Calendar.svg'))
+                          child: decorationContainerWidget(radius: 35.sp,context: context, child: SvgPicture.asset('assets/svg/Calendar.svg'))
                       ),
                     ],
                   ),
@@ -82,7 +83,7 @@ class MyResidenceAndTravels extends StatelessWidget {
                           onTap: () async {
                             //  profileCubit.chooseDateTime(context: context);
                           },
-                          child: decorationContainerWidget(context: context, child: SvgPicture.asset('assets/svg/Calendar.svg'))
+                          child: decorationContainerWidget(radius: 35.sp,context: context, child: SvgPicture.asset('assets/svg/Calendar.svg'))
                       ),
                     ],
                   ),

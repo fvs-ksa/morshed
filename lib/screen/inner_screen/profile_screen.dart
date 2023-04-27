@@ -63,7 +63,7 @@ class ProfileScreen extends StatelessWidget {
                       children: [
                         Expanded(child: textFormField(labelText: 'رقم الجوال', hintText: 'hintText', context: context,keyboardType: TextInputType.number)),
                         SizedBox(width: screenSize.width*0.06,),
-                        decorationContainerWidget(context: context,child:Text('+966',style: Theme.of(context).textTheme.bodyText1,textAlign: TextAlign.center,)),
+                        decorationContainerWidget(radius: 35.sp,context: context,child:Text('+966',style: Theme.of(context).textTheme.bodyText1,textAlign: TextAlign.center,)),
                       ],
                     ),
                     dropDownButton(
@@ -94,7 +94,7 @@ class ProfileScreen extends StatelessWidget {
                           onTap: () async {
                             profileCubit.chooseDateTime(context: context);
                           },
-                          child: decorationContainerWidget(context: context, child: SvgPicture.asset('assets/svg/Calendar.svg'))
+                          child: decorationContainerWidget(radius: 35.sp,context: context, child: SvgPicture.asset('assets/svg/Calendar.svg'))
                         ),
                       ],
                     ),

@@ -133,7 +133,7 @@ class RegisterScreen extends StatelessWidget {
                                     controller: phoneNumberController),
                               ),
                               SizedBox(width: size.width*0.07,),
-                              decorationContainerWidget(context: context,child:Text('+966',style: Theme.of(context).textTheme.bodyText1,textAlign: TextAlign.center,)),
+                              decorationContainerWidget(radius: 35.sp,context: context,child:Text('+966',style: Theme.of(context).textTheme.bodyText1,textAlign: TextAlign.center,)),
                               // Container(
                               //   height: size.height*0.05,
                               //   width: size.width*0.2,
@@ -173,7 +173,7 @@ class RegisterScreen extends StatelessWidget {
                                   onTap: () async {
                                   registerCubit.chooseDateTime(context: context);
                                   },
-                                child: decorationContainerWidget(context: context, child: SvgPicture.asset('assets/svg/Calendar.svg'))
+                                child: decorationContainerWidget(radius: 35.sp,context: context, child: SvgPicture.asset('assets/svg/Calendar.svg'))
                               ),
                             ],
                           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:morshed/component/component.dart';
+import 'package:morshed/component/info_profile_component.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../component/const_color.dart';
@@ -59,25 +60,26 @@ class MyReportsDetailsScreen extends StatelessWidget {
                     textFormField(labelText: 'رقم البلاغ',  context: context,isEnabled: false),
                     textFormField(labelText: 'رقم الجواز',  context: context,isEnabled: false),
                     textFormField(labelText: 'موقع البلاغ',  context: context,isEnabled: false),
-                    SizedBox(
-                      height: screenSize.height*0.17,
-                     // color: Colors.red,
-                      child: Stack(
-                        alignment: AlignmentDirectional.topEnd,
-                        children: [
-                          Padding(
-                            padding:  EdgeInsetsDirectional.only(top: screenSize.height*0.03),
-                            child: textFormField(labelText: 'ملاحظات',  context: context,lines: 5,isEnabled: false),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.only(end: screenSize.height*0.05),
-                            child: CircleAvatar(
-                              radius: screenSize.width*0.07,
-                              backgroundColor: babyBlueColor,child: SvgPicture.asset('assets/svg/file (1).svg'),),
-                          )
-                        ],
-                      ),
-                    ),
+                    bigTextFieldForNotes(context: context, hint: 'ملاحظات'),
+                    // SizedBox(
+                    //   height: screenSize.height*0.17,
+                    //  // color: Colors.red,
+                    //   child: Stack(
+                    //     alignment: AlignmentDirectional.topEnd,
+                    //     children: [
+                    //       Padding(
+                    //         padding:  EdgeInsetsDirectional.only(top: screenSize.height*0.03),
+                    //         child: textFormField(labelText: 'ملاحظات',  context: context,lines: 5,isEnabled: false),
+                    //       ),
+                    //       Padding(
+                    //         padding: EdgeInsetsDirectional.only(end: screenSize.height*0.05),
+                    //         child: CircleAvatar(
+                    //           radius: screenSize.width*0.07,
+                    //           backgroundColor: babyBlueColor,child: SvgPicture.asset('assets/svg/file (1).svg'),),
+                    //       )
+                    //     ],
+                    //   ),
+                    // ),
                     //SizedBox(height: screenSize.height*0.06,),
                     Text('كيف يمكننا مساعدتك؟',style: Theme.of(context).textTheme.headline1,),
                     SizedBox(height: screenSize.height*0.01,),

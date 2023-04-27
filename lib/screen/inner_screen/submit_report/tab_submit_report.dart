@@ -6,6 +6,7 @@ import 'package:morshed/bloc/submitting_report/submit_report_state.dart';
 import 'package:morshed/component/info_profile_component.dart';
 
 import '../../../component/guide_escorts_component.dart';
+import 'my_submit_report.dart';
 
 class TabBarSubmitReport extends StatefulWidget {
   const TabBarSubmitReport({Key? key}) : super(key: key);
@@ -119,11 +120,7 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
                 controller: tabController,
                 children: [
                   // Widget for first tab
-                  Container(
-                    child: Center(
-                      child: Text('Tab 1'),
-                    ),
-                  ),
+                  const MySubmitReport(),
                   // Widget for second tab
                   Container(
                     child: Center(

@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_state.dart';
+import 'package:morshed/models/help_ways.dart';
 
 class SubmitReportCubit extends Cubit<SubmitReportState>{
   SubmitReportCubit():super(InitialSubmitReportState());
@@ -9,5 +10,72 @@ class SubmitReportCubit extends Cubit<SubmitReportState>{
   changeTabBarIndex({required var value}){
     index=value;
     emit(ChangeTabBarSubmitReportState());
+  }
+  // changeCheckBox(value,int i){
+  //   helpWays[i].value=value;
+  //   emit(ChangeHelpWayReportState());
+  // }
+  changeHelpWaysFirstIndexState(var value){
+    // helpWays[i].value =! helpWays[i].value;
+    // emit(ChangeHelpWayReportState());
+    if(helpWays[0].value==false) {
+      helpWays[0].value=value;
+    }
+      helpWays[1].value=false;
+      helpWays[2].value=false;
+      helpWays[3].value=false;
+      print('index = 0 is :${helpWays[0].value}');
+    print('index = 1 is :${helpWays[1].value}');
+    print('index = 2 is :${helpWays[2].value}');
+    print('index = 3 is :${helpWays[3].value}');
+      emit(ChangeHelpWayReportState());
+  }
+  changeHelpWaysSecondIndexState(var value){
+    // helpWays[i].value =! helpWays[i].value;
+    // emit(ChangeHelpWayReportState());
+    if(helpWays[1].value==false) {
+      helpWays[1].value=value;
+    }
+      helpWays[0].value=false;
+      helpWays[2].value=false;
+      helpWays[3].value=false;
+      print('index = 1 is :${helpWays[1].value}');
+    print('index = 0 is :${helpWays[0].value}');
+    print('index = 2 is :${helpWays[2].value}');
+    print('index = 3 is :${helpWays[3].value}');
+      emit(ChangeHelpWayReportState());
+
+  }
+  changeHelpWaysThirdIndexState(var value){
+    // helpWays[i].value =! helpWays[i].value;
+    // emit(ChangeHelpWayReportState());
+    if(helpWays[2].value==false) {
+      helpWays[2].value=value;
+    }
+      helpWays[1].value=false;
+      helpWays[0].value=false;
+      helpWays[3].value=false;
+      print('index = 2 is :${helpWays[2].value}');
+    print('index = 1 is :${helpWays[1].value}');
+    print('index = 0 is :${helpWays[0].value}');
+    print('index = 3 is :${helpWays[3].value}');
+      emit(ChangeHelpWayReportState());
+
+  }
+  changeHelpWaysLastIndexState(var value){
+    // helpWays[i].value =! helpWays[i].value;
+    // emit(ChangeHelpWayReportState());
+    if(helpWays[3].value==false) {
+      helpWays[3].value=value;
+    }
+      helpWays[1].value=false;
+      helpWays[2].value=false;
+      helpWays[0].value=false;
+      print('index = 3 is :${helpWays[3].value}');
+    print('index = 1 is :${helpWays[1].value}');
+    print('index = 2 is :${helpWays[2].value}');
+    print('index = 0 is :${helpWays[0].value}');
+      emit(ChangeHelpWayReportState());
+
   }
 }
