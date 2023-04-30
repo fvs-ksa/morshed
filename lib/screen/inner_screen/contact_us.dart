@@ -3,6 +3,8 @@ import 'package:morshed/component/component.dart';
 import 'package:morshed/component/info_profile_component.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../component/const_color.dart';
+
 class ContactUs extends StatelessWidget {
   const ContactUs({Key? key}) : super(key: key);
 
@@ -41,53 +43,80 @@ class ContactUs extends StatelessWidget {
               )
             ],
           ),
-          preferredSize: Size.fromHeight(screenSize.height * 0.27)),
-      body: Padding(
-        padding: EdgeInsetsDirectional.only(
-            top: screenSize.height * 0.04,
-            start: screenSize.width * 0.04,
-            end: screenSize.width * 0.04),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'تواصل معنا عبر الهاتف',
-              style: Theme.of(context).textTheme.bodyText2,
-              textAlign: TextAlign.start,
-            ),
-            SizedBox(
-              height: screenSize.height * 0.03,
-            ),
-            GestureDetector(
-                onTap: () {
-                  navigateToCallUs(context);
-                },
-                child: textFormField(
-                  labelText: '9665078945612+',
-                  hintText: 'hintText',
-                  context: context,
-                  isEnabled: false,
-                )),
-            SizedBox(
-              height: screenSize.height * 0.03,
-            ),
-            Text(
-              'تواصل معنا عبر البريد الإلكتروني',
-              style: Theme.of(context).textTheme.bodyText2,
-            ),
-            SizedBox(
-              height: screenSize.height * 0.03,
-            ),
-            GestureDetector(
-                onTap: () {
-                  navigateToMail(context);
-                },
-                child: textFormField(
-                    labelText: 'info@guide.com',
+          preferredSize: Size.fromHeight(screenSize.height * 0.22)),
+      body:SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsetsDirectional.only(
+              top: screenSize.height * 0.04,
+              start: screenSize.width * 0.04,
+              end: screenSize.width * 0.04),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'تواصل معنا عبر الهاتف',
+                style: Theme.of(context).textTheme.subtitle2,
+                textAlign: TextAlign.start,
+              ),
+              SizedBox(
+                height: screenSize.height * 0.02,
+              ),
+              GestureDetector(
+                  onTap: () {
+                    navigateToCallUs(context);
+                  },
+                  child: textFormField(
+                    labelText: '9665078945612+',
                     hintText: 'hintText',
                     context: context,
-                    isEnabled: false)),
-          ],
+                    isEnabled: false,
+                  )),
+              SizedBox(
+                height: screenSize.height * 0.02,
+              ),
+              Text(
+                'تواصل معنا عبر البريد الإلكتروني',
+                style: Theme.of(context).textTheme.subtitle2,
+              ),
+              SizedBox(
+                height: screenSize.height * 0.02,
+              ),
+              GestureDetector(
+                  onTap: () {
+                    navigateToMail(context);
+                  },
+                  child: textFormField(
+                      labelText: 'info@guide.com',
+                      hintText: 'hintText',
+                      context: context,
+                      isEnabled: false)),
+              SizedBox(
+                height: screenSize.height * 0.02,
+              ),
+              Text(
+                'يسرنا الإجابة على استفساراتكم',
+                style: Theme.of(context).textTheme.subtitle2,
+              ),
+              bigTextFieldForNotes(
+                  context: context, hint: 'اكتب هنا'),
+              Padding(
+                padding: EdgeInsetsDirectional.only(
+                    top: screenSize.height * 0.04,
+                    bottom: screenSize.height * 0.02,
+                    start: screenSize.width * 0.03,
+                    end: screenSize.width * 0.03),
+                child: Align(
+                    alignment: Alignment.center,
+                    child: mainButton(
+                        width: screenSize.width * 0.8,
+                        height: screenSize.height * 0.07,
+                        text: 'ارسال الاستفسار',
+                        color: darkMainColor,
+                        context: context,
+                        fct: () {})),
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -78,4 +78,26 @@ class SubmitReportCubit extends Cubit<SubmitReportState>{
       emit(ChangeHelpWayReportState());
 
   }
+  ////////////////////////////_submit_report_another_person
+  String? chooseCountry;
+  var country = [
+    'المملكه العربيه السعوديه',
+    'جمهوريه مصر العربيه',
+    'الجزائر',
+    'اندونسيا',
+    'الكويت',
+    'باكستان',
+    'تونس',
+  ];
+
+  onChangeCountryName(onChange) {
+    chooseCountry = onChange;
+    emit(ChangeNationalityReportState());
+  }
+  String? sex;
+  var sexList=['ذكر','انثى'];
+  onChangeSex(onChange) {
+    sex = onChange;
+    emit(ChangeNationalityReportState());
+  }
 }

@@ -83,10 +83,10 @@ class MyReportsDetailsScreen extends StatelessWidget {
                     //SizedBox(height: screenSize.height*0.06,),
                     Text('كيف يمكننا مساعدتك؟',style: Theme.of(context).textTheme.headline1,),
                     SizedBox(height: screenSize.height*0.01,),
-                    Text('اود المساعده للوصول الي الفندق',style: Theme.of(context).textTheme.bodyText2,),
+                    Text('اود المساعده للوصول الي الفندق',style: Theme.of(context).textTheme.subtitle2,),
                     index==0?Align(alignment: AlignmentDirectional.center,child: Padding(
                       padding:  EdgeInsets.symmetric(vertical: screenSize.height*0.06,horizontal: screenSize.width*0.03),
-                      child: mainButton(width: screenSize.width*0.8, height: screenSize.height*0.08, text: 'الغاء البلاغ', color: orangeColor, context: context, fct: (){}),
+                      child: mainButton(width: screenSize.width*0.8, height: screenSize.height*0.07, text: 'الغاء البلاغ', color: orangeColor, context: context, fct: (){}),
                     )):const SizedBox(),
 
                     index==1?Card(

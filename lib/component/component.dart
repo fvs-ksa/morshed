@@ -91,6 +91,7 @@ Widget textFormField(
      TextEditingController? controller,
       TextInputType? keyboardType,
       Widget? suffixIcon,
+      Function? onTap,
       int? length,
       int? lines,
       bool isEnabled=true,
@@ -99,12 +100,18 @@ Widget textFormField(
   return Padding(
     padding:  EdgeInsets.only(bottom:size.height*0.02 ),
     child: TextFormField(
+      style: Theme.of(context).textTheme.bodyText2,
+      onTap: (){
+        onTap??print('');
+      },
       maxLines: lines,
       maxLength: length,
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
           labelText: labelText,
+          labelStyle: Theme.of(context).textTheme.caption,
           hintText: hintText,
+          hintStyle: Theme.of(context).textTheme.caption,
           border:
           OutlineInputBorder(borderRadius: BorderRadius.circular(20.sp))),
       controller: controller,
@@ -128,25 +135,29 @@ Widget dropDownButton(
   return Align(
     alignment: AlignmentDirectional.topStart,
     child: Padding(
-        padding: EdgeInsetsDirectional.only(bottom: screenSize.height*0.02,top: screenSize.height*0.02),
+        padding: EdgeInsetsDirectional.only(bottom: screenSize.height*0.01,top: screenSize.height*0.01),
         child: Container(
 
-            padding: EdgeInsets.only(right: 5.w, left: 5.w),
-            height: screenSize.height * 0.08,
+            padding: EdgeInsets.symmetric(horizontal: screenSize.width*0.04),
+            height: screenSize.height * 0.07,
             width: double.infinity,
             decoration: BoxDecoration(
-                color: whiteColor,
+                color: Colors.transparent,
                 borderRadius: BorderRadius.circular(20.sp),
                 border: Border.all(color: greyColor)),
             child: Row(
               children: [
                 Expanded(
                   child: ButtonTheme(
+
+                   // height: screenSize.height*0.04,
                     alignedDropdown: true,
                     child: DropdownButtonFormField(
+
+                     // itemHeight: screenSize.height*0.05,
                       //  hint: Text('اختيار نوع '),
                       isExpanded: true,
-                      decoration: const InputDecoration(border: InputBorder.none),
+                      decoration: const InputDecoration(border: InputBorder.none,),
                       //underline: SizedBox(),
                       hint: Text(hint),
                       iconSize: 0.0,
@@ -198,35 +209,3 @@ Widget mainButton(
     ),
   );
 }
-// PreferredSize mainHeaderForGuideAndEscorts({required BuildContext context}){
-//   Size screenSize=MediaQuery.of(context).size;
-//   return PreferredSize(
-//       child: Stack(
-//         children: [
-//           Container(
-//             height: screenSize.height * 0.2,
-//             child: Center(child: Text('الحساب',style: Theme.of(context).textTheme.headline2,)),
-//             decoration: const BoxDecoration(
-//                 image: DecorationImage(
-//                     image: AssetImage('assets/images/header1.png'),fit: BoxFit.cover)),
-//           ),
-//           Padding(
-//             padding:  EdgeInsetsDirectional.only(top: screenSize.width*0.03),
-//             child: Column(
-//               mainAxisAlignment: MainAxisAlignment.center,
-//               children: [
-//                 backButtonWidget(fct: (){Navigator.pop(context);}),
-//                 SizedBox(height: screenSize.height*0.05,),
-//                 Padding(
-//                   padding:  EdgeInsetsDirectional.only(start: screenSize.width*0.03),
-//                   child: CircleAvatar(backgroundColor: darkMainColor,child: Image.asset('assets/images/profile.png'),
-//                     radius: screenSize.height*0.05,
-//                   ),
-//                 )
-//               ],
-//             ),
-//           )
-//         ],
-//       ),
-//       preferredSize: Size.fromHeight(screenSize.height * 0.25));
-// }

@@ -12,7 +12,7 @@ class EscortsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size screenSize=MediaQuery.of(context).size;
     return Scaffold(
-      appBar: preferredHeaderWithGuide(context: context, title: 'المرافقين', fct: (){},searchController:searchController ),
+      appBar: preferredHeaderWithGuide(context: context, title: 'المرافقين', fct: (){},searchController:searchController,isGuide: false ),
       backgroundColor: whiteGreyColor,
       body: Padding(
         padding: EdgeInsetsDirectional.only(

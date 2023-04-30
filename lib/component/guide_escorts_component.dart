@@ -16,7 +16,7 @@ Widget circleAvtarWidget({required String svgImage,}){
           child: SvgPicture.asset(
               svgImage)));
 }
-PreferredSize preferredHeaderWithGuide({required BuildContext context,bool isActive=true,required String title, TextEditingController? searchController, Function? fct}){
+PreferredSize preferredHeaderWithGuide({required BuildContext context,bool isActive=true,required String title,bool isGuide=true ,TextEditingController? searchController, Function? fct}){
   Size screenSize=MediaQuery.of(context).size;
   return PreferredSize(
       child: Card(
@@ -57,6 +57,11 @@ PreferredSize preferredHeaderWithGuide({required BuildContext context,bool isAct
                           labelText: 'بحث بالأسم أو رقم الجوال',
                           hintText: 'بحث بالأسم أو رقم الجوال',
                           context: context)),
+                  isGuide?  Container(
+                    height: screenSize.height * 0.06,
+                    width: screenSize.width * 0.2,
+                    color: darkMainColor,
+                  ):SizedBox(),
                   SizedBox(
                     width: screenSize.width * 0.02,
                   ),
@@ -76,7 +81,7 @@ PreferredSize preferredHeaderWithGuide({required BuildContext context,bool isAct
           ),
         ),
       ),
-      preferredSize: Size.fromHeight(isActive?screenSize.height * 0.22:screenSize.height*0.15));
+      preferredSize: Size.fromHeight(isActive?screenSize.height * 0.23:screenSize.height*0.16));
 }
 Widget itemContainerOfGuidesAndEscorts({required BuildContext context,Widget? contactColumn,required String image,required String name,required String phone}){
   Size screenSize=MediaQuery.of(context).size;

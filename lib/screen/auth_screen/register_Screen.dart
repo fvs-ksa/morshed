@@ -331,16 +331,16 @@ class RegisterScreen extends StatelessWidget {
                               labelText: 'تأكيد كلمه المرور',
                               hintText: 'تأكيد كلمه المرور',
                               controller: arabicNameController),
-                          RichText(text: TextSpan(text: 'بالقيام بالتجسيل فأنت توافق على ',style: Theme.of(context).textTheme.bodyText2,children: [
-                            TextSpan(text: 'الشروط و الاحكام',style: TextStyle(color: darkMainColor,decoration: TextDecoration.underline))
+                          RichText(text: TextSpan(text: 'بالقيام بالتسجيل فأنت توافق على ',style: Theme.of(context).textTheme.headline5,children: [
+                            TextSpan(text: 'الشروط و الاحكام',style: TextStyle(color: darkMainColor,decoration: TextDecoration.underline,fontWeight: FontWeight.bold))
                           ]),),
                       SizedBox(height: size.height*0.04,),
                       mainButton(width: double.infinity, height: size.height*0.07, text: 'تسجيل', color: darkMainColor, context: context, fct: (){
                         navigateForward(MainScreen());
                       }),
                           SizedBox(height: size.height*0.02,),
-                      RichText(text: TextSpan(text: 'لديك حساب ؟ ',style: Theme.of(context).textTheme.bodyText2,children: [
-                        TextSpan(text: 'الدخول الان',style: TextStyle(color: darkMainColor,decoration: TextDecoration.underline,fontWeight: FontWeight.w800))
+                      RichText(text: TextSpan(text: 'لديك حساب ؟ ',style: Theme.of(context).textTheme.headline5,children: [
+                        TextSpan(text: 'الدخول الان',style: TextStyle(color: darkMainColor,decoration: TextDecoration.underline,fontWeight: FontWeight.bold))
                         ])),
                           SizedBox(height: size.height*0.02,),
                         ],

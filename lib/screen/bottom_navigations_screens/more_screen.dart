@@ -11,7 +11,7 @@ class MoreScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return SingleChildScrollView(
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       child: Column(
         children: [
           SizedBox(
@@ -19,10 +19,7 @@ class MoreScreen extends StatelessWidget {
             child: Stack(
               fit: StackFit.expand,
               children: [
-                Image.asset(
-                  'assets/images/header1.png',
-                  fit: BoxFit.fitHeight,
-                ),
+                Image.asset('assets/images/header1.png', fit: BoxFit.fitHeight,),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: size.width * 0.06),
                   child: Row(
@@ -69,7 +66,7 @@ class MoreScreen extends StatelessWidget {
                           ),
                           Text(
                             moreList[index].title,
-                            style: Theme.of(context).textTheme.bodyText2,
+                            style: Theme.of(context).textTheme.subtitle2,
                           ),
                         ],
                       ),
@@ -77,7 +74,7 @@ class MoreScreen extends StatelessWidget {
                   ),
                 );
               },
-              itemCount: moreList.length+1,
+              itemCount: moreList.length,
             ),
           ),
           // SingleChildScrollView(

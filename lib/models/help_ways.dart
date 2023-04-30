@@ -5,7 +5,7 @@ class HelpWay{
 }
 List<HelpWay>helpWays=[
   HelpWay(value: false, title: 'اود المساعده في الموصول الي الفندق'),
-  HelpWay(value: false, title: 'التواصل عهبر الاتصال المرئي'),
+  HelpWay(value: false, title: 'التواصل عبر الاتصال المرئي'),
   HelpWay(value: false, title: 'اود المساعده للوصول الي المخيم'),
-  HelpWay(value: false, title: 'اود المساعده للألأتحاق بالمجموعه'),
+  HelpWay(value: false, title: 'اود المساعده للألتحاق بالمجموعه'),
 ];

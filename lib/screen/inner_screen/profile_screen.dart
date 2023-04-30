@@ -22,35 +22,7 @@ class ProfileScreen extends StatelessWidget {
         return GestureDetector(
           onTap: (){FocusManager.instance.primaryFocus?.unfocus();},
           child: Scaffold(
-            appBar: PreferredSize(
-                child: Stack(
-                  children: [
-                    Container(
-                      height: screenSize.height * 0.2,
-                      child: Center(child: Text('الحساب',style: Theme.of(context).textTheme.headline2,)),
-                      decoration: const BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/images/header1.png'),fit: BoxFit.cover)),
-                    ),
-                    Padding(
-                      padding:  EdgeInsetsDirectional.only(top: screenSize.width*0.03),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                         backButtonWidget(fct: (){Navigator.pop(context);}),
-                          SizedBox(height: screenSize.height*0.03,),
-                          Padding(
-                            padding:  EdgeInsetsDirectional.only(start: screenSize.width*0.03,),
-                            child: CircleAvatar(backgroundColor: darkMainColor,child: Image.asset('assets/images/profile.png'),
-                            radius: screenSize.height*0.05,
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-                preferredSize: Size.fromHeight(screenSize.height * 0.25)),
+            appBar: headerInfoPerson(context: context, title: 'الحساب',isProfile: true),
             body: SingleChildScrollView(
               child: Padding(
                 padding:  EdgeInsetsDirectional.only(start: screenSize.width*0.06,end: screenSize.width*0.06),
@@ -105,7 +77,7 @@ class ProfileScreen extends StatelessWidget {
                     textFormField(labelText: 'اسم الوكيل', hintText: 'hintText', context: context),
                     Padding(
                       padding:  EdgeInsets.symmetric(vertical: screenSize.height*0.06,horizontal: screenSize.width*0.03),
-                      child: mainButton(width: screenSize.width*0.8, height: screenSize.height*0.08, text: 'تعديل', color: orangeColor, context: context, fct: (){}),
+                      child: mainButton(width: screenSize.width*0.8, height: screenSize.height*0.07, text: 'تعديل', color: orangeColor, context: context, fct: (){}),
                     )
 
 

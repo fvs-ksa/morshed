@@ -3,9 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_state.dart';
+import 'package:morshed/component/const_color.dart';
 import 'package:morshed/component/info_profile_component.dart';
-
-import '../../../component/guide_escorts_component.dart';
+import '../../../component/horizontal_dotted_line.dart';
+import 'another_person_submit_report.dart';
 import 'my_submit_report.dart';
 
 class TabBarSubmitReport extends StatefulWidget {
@@ -51,17 +52,10 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
                       Image.asset('assets/images/header1.png',
                           fit: BoxFit.cover),
                       Padding(
-                        padding: EdgeInsetsDirectional.only(bottom: screenSize.height*0.02,),
+                        padding: EdgeInsetsDirectional.only(bottom: screenSize.height*0.02,top: screenSize.height*0.15),
                         child: Align(
                           alignment: AlignmentDirectional.bottomCenter,
-                          child:  CustomPaint(
-                            painter: DottedLinePainter(),
-                            child: SizedBox(
-
-                              width: screenSize.width*0.01,
-                              height: screenSize.width*0.12,
-                             ),
-                          ),
+                          child:  DashedLine(color: whiteColor),
                         ),
                       ),
                       Padding(
@@ -118,15 +112,11 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
                   preferredSize: Size.fromHeight(screenSize.height * 0.2)),
               body: TabBarView(
                 controller: tabController,
-                children: [
+                children: const [
                   // Widget for first tab
-                  const MySubmitReport(),
+                  MySubmitReport(),
                   // Widget for second tab
-                  Container(
-                    child: Center(
-                      child: Text('Tab 2'),
-                    ),
-                  ),
+                  SubmitReportAnotherPerson(),
                 ],
               ),
             );
@@ -135,41 +125,5 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
   }
 }
 
-class DottedLinePainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = Colors.white
-      ..strokeWidth = 2
-      ..style = PaintingStyle.stroke;
 
-    final dashWidth = 5;
-    final dashSpace = 5;
-    double startY = 0;
 
-    while (startY < size.height) {
-      canvas.drawLine(Offset(0, startY), Offset(0, startY + dashWidth), paint);
-      startY += dashWidth + dashSpace;
-    }
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return false;
-  }
-}
-// AppBar(
-//
-// title: Text('My App'),
-// bottom: TabBar(
-// controller: tabController,
-// tabs: [
-// Tab(
-// text: 'Tab 1',
-// ),
-// Tab(
-// text: 'Tab 2',
-// ),
-// ],
-// ),
-// ),

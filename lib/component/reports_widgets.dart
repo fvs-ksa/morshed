@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:sizer/sizer.dart';
 
+import 'component.dart';
 import 'const_color.dart';
+import 'info_profile_component.dart';
 
 Widget myReportsContainerWidget(
     {required BuildContext context,
@@ -16,7 +20,7 @@ Widget myReportsContainerWidget(
         vertical: screenSize.height * 0.02,
         horizontal: screenSize.width * 0.02),
     // padding: EdgeInsetsDirectional.only(start:screenSize.width * 0.04 ),
-    height: screenSize.height * 0.19,
+    height: screenSize.height * 0.2,
     decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(screenSize.width * 0.04),
         color: whiteColor),
@@ -70,5 +74,44 @@ Widget myReportsContainerWidget(
         ),
       ],
     ),
+  );
+}
+locationWidget({required BuildContext context}){
+  Size screenSize = MediaQuery.of(context).size;
+  return Column(
+    children: [
+      Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Expanded(
+              child: textFormField(
+                  labelText: 'الموقع',
+                  hintText: 'hintText',
+                  context: context,
+                  isEnabled: false)),
+          SizedBox(
+            width: screenSize.width * 0.06,
+          ),
+          decorationContainerWidget(
+              context: context,
+              radius: 20.sp,
+              width: screenSize.width * 0.14,
+              height: screenSize.height * 0.06,
+              child: SvgPicture.asset('assets/svg/loc.svg')),
+        ],
+      ),
+      TextButton(
+        child: Align(
+          alignment: Alignment.center,
+          child: Text(
+            'تغيير الموقع',
+            style: TextStyle(
+                color: darkMainColor, decoration: TextDecoration.underline),
+            textAlign: TextAlign.center,
+          ),
+        ),
+        onPressed: () {},
+      ),
+    ],
   );
 }
