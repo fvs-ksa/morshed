@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:morshed/component/info_profile_component.dart';
 import 'package:morshed/models/guides_for_hajji_model.dart';
-
 import '../../../../component/const_color.dart';
 
 class GuidesForHajjiScreen extends StatelessWidget {
@@ -15,7 +14,6 @@ class GuidesForHajjiScreen extends StatelessWidget {
           child: AppBar(
             automaticallyImplyLeading: false,
             flexibleSpace: Stack(
-              // fit: StackFit.expand,
               children: [
                 Positioned.fill(child: Image.asset('assets/images/header1.png',fit: BoxFit.cover,)),
                 FlexibleSpaceBar.createSettings(currentExtent: 10, child:  Padding(
@@ -40,12 +38,9 @@ class GuidesForHajjiScreen extends StatelessWidget {
                 Padding(
                   padding:  EdgeInsetsDirectional.only(top: screenSize.height*0.02),
                   child: FlexibleSpaceBar(
-
                     title: Align(
                       alignment: AlignmentDirectional.centerEnd,
                       child: Image.asset(
-
-
                           'assets/images/whiteMorshed.png',
                         height: screenSize.height * 0.07,
                                     width: screenSize.width * 0.4,
@@ -60,7 +55,6 @@ class GuidesForHajjiScreen extends StatelessWidget {
                 ),
               ],
             ),
-
             //   backgroundColor: Colors.transparent,
             // foregroundColor: Colors.transparent,
             // centerTitle: true,
