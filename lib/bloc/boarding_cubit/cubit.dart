@@ -21,7 +21,7 @@ class BoardingCubit extends Cubit<BoardingState>{
   int i=-1;
   changeTypeOfAccount(int index){
     i=index;
-    typeModel[i].isTabbed=!  typeModel[i].isTabbed;
+    typeModel[i].isTabbed=! typeModel[i].isTabbed;
     emit(ChangeAccountTypeState());
   }
 }

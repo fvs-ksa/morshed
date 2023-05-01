@@ -35,7 +35,7 @@ Widget floatingButton({
 }
 
 Widget accountType(
-    {required BuildContext context, required AccountTypeModel model,required Function fct}) {
+    {required BuildContext context, required AccountTypeModel model,required Function fct,required bool checkBoxValue}) {
   Size size = MediaQuery.of(context).size;
   return Padding(
     padding: EdgeInsetsDirectional.only(start: size.width * 0.12),
@@ -59,8 +59,10 @@ Widget accountType(
             ],
           ),
         ),
+
+        //CheckboxListTile(value: value, onChanged: onChanged,)
         Checkbox(
-          value: model.isTabbed, onChanged: (onChanged) {
+          value: checkBoxValue, onChanged: (onChanged) {
             fct(onChanged);
         },
           activeColor: whiteColor,
@@ -73,17 +75,7 @@ Widget accountType(
   );
 }
 
-navigateForward(Widget page, {arguments}) {
-  NavigationService.navigate().navigateToScreen(page, arguments: arguments);
-}
 
-navigateForwardReplace(Widget page, {arguments}) {
-  NavigationService.navigate().replaceScreen(page, arguments: arguments);
-}
-
-navigateForwardPop(Widget page, {arguments}) {
-  NavigationService.navigate().goBack(page);
-}
 Widget textFormField(
     {required String labelText,
      String? hintText,

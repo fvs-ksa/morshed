@@ -5,6 +5,7 @@ import 'package:morshed/component/const_color.dart';
 import 'package:morshed/component/reports_widgets.dart';
 
 import '../../../component/guide_escorts_component.dart';
+import '../../../component/navigation_functions.dart';
 import '../../../models/my_reports_model.dart';
 import 'my_reports_details.dart';
 

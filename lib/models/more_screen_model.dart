@@ -8,6 +8,7 @@ import 'package:morshed/screen/inner_screen/my_card_screen.dart';
 import 'package:morshed/screen/inner_screen/profile_screen.dart';
 import 'package:morshed/screen/inner_screen/setting_screen.dart';
 
+import '../component/navigation_functions.dart';
 import '../screen/inner_screen/contact_us.dart';
 import '../screen/inner_screen/my_reports/my_reports.dart';
 import '../screen/inner_screen/support_screen.dart';

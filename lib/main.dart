@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:morshed/bloc/account_type_cubit/cubit.dart';
 import 'package:morshed/bloc/boarding_cubit/cubit.dart';
 import 'package:morshed/bloc/chat_cubit/chat_with_support_cubit/chat_support_cubit.dart';
 import 'package:morshed/bloc/general_cubit/general_cubit.dart';
@@ -48,6 +49,7 @@ class MyApp extends StatelessWidget {
           BlocProvider<ProfileCubit>(create: (context) => ProfileCubit()),
           BlocProvider<SettingCubit>(create: (context) => SettingCubit()),
           BlocProvider<SubmitReportCubit>(create: (context) => SubmitReportCubit()),
+          BlocProvider<AccountTypeCubit>(create: (context)=>AccountTypeCubit()),
         ],
         child: Sizer(
           builder: (context, orientation, deviceType) {
@@ -109,7 +111,7 @@ class MyApp extends StatelessWidget {
                 ),
                   headline5:  GoogleFonts.cairo(
                     color: blackColor,
-                    fontSize: 10.sp,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.normal,
                     //fontFamily: 'cairo-Black'
                 ),

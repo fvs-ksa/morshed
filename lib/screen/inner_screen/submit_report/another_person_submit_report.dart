@@ -9,6 +9,7 @@ import 'package:sizer/sizer.dart';
 
 import '../../../component/const_color.dart';
 import '../../../component/info_profile_component.dart';
+import '../../../component/navigation_functions.dart';
 import '../../../component/reports_widgets.dart';
 
 class SubmitReportAnotherPerson extends StatelessWidget {

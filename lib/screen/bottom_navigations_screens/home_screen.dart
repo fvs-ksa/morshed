@@ -8,6 +8,7 @@ import 'package:morshed/screen/inner_screen/my_card_screen.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../component/horizontal_dotted_line.dart';
+import '../../component/navigation_functions.dart';
 import '../inner_screen/another_services_screens/another_services_screen.dart';
 import '../inner_screen/submit_report/tab_submit_report.dart';
 

@@ -1,6 +1,7 @@
 import 'package:morshed/component/component.dart';
 import 'package:morshed/screen/inner_screen/another_services_screens/transportation_screen.dart';
 
+import '../component/navigation_functions.dart';
 import '../screen/inner_screen/another_services_screens/guides_screens/guides_for_hajji_screen.dart';
 
 class AnotherServicesModel{

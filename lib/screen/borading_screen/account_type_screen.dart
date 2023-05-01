@@ -1,13 +1,13 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:morshed/bloc/boarding_cubit/cubit.dart';
+import 'package:morshed/bloc/account_type_cubit/cubit.dart';
+import 'package:morshed/bloc/account_type_cubit/state.dart';
 import 'package:morshed/component/component.dart';
 import 'package:morshed/component/const_color.dart';
+import 'package:morshed/screen/auth_screen/login_screen.dart';
 import 'package:morshed/screen/auth_screen/register_Screen.dart';
-import 'package:sizer/sizer.dart';
-
-import '../../bloc/boarding_cubit/state.dart';
+import '../../component/animation_component.dart';
+import '../../component/navigation_functions.dart';
 import '../../models/account_type_model.dart';
 
 class AccountTypeScreen extends StatelessWidget {
@@ -16,8 +16,8 @@ class AccountTypeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    var boardingCubit=BoardingCubit.get(context);
-    return BlocConsumer<BoardingCubit,BoardingState>(
+    var accountTypeCubit=AccountTypeCubit.get(context);
+    return BlocConsumer<AccountTypeCubit,AccountTypeState>(
       listener:(context,state){},
       builder: (context,state) {
         return Scaffold(
@@ -54,14 +54,23 @@ class AccountTypeScreen extends StatelessWidget {
                         itemCount: typeModel.length,
                         itemBuilder: (context, index) {
                           return accountType(
-                            fct: (index){
-                              boardingCubit.changeTypeOfAccount(index);
+                            fct: (onChange){
+                              if(index==0){
+                                accountTypeCubit.changeMotamer(value: onChange);
+                              }else{
+                                accountTypeCubit.changeHajji(value: onChange);
+                              }
                             },
-                              context: context, model: typeModel[index]);
+                              context: context, model: typeModel[index],
+                              checkBoxValue: index==0?accountTypeCubit.isUmrah:accountTypeCubit.isHajji);
                         },
                         physics: const NeverScrollableScrollPhysics(),
                         separatorBuilder: (BuildContext context, int index) {
-                          return const SizedBox();
+                          return SizedBox();
+                          // return  Padding(
+                          //   padding:  EdgeInsets.only(horizontal: size.width*0.02),
+                          //   child: DashedLine(color: whiteColor,),
+                          // );
                           // return CustomPaint(
                           //     size: Size(1, double.infinity),
                           //     painter: DashedLineVerticalPainter(),
@@ -71,7 +80,13 @@ class AccountTypeScreen extends StatelessWidget {
                     ),
                     const Spacer(),
                     floatingButton(context: context, fct: (){
-                      navigateForward(RegisterScreen());
+                      if(accountTypeCubit.isHajji==false && accountTypeCubit.isUmrah ==false){
+                        showToast(text: 'من فضلك اختار نوع التسجيل', state: ToastState.WARNING);
+                        print('hijji: ${accountTypeCubit.isHajji} || Umrah: ${accountTypeCubit.isUmrah}');
+                      }else{
+                        navigateForward(LoginScreen());
+                        print('hijji: ${accountTypeCubit.isHajji} || Umrah: ${accountTypeCubit.isUmrah}');
+                      }
                     },iconColor: lightMainColor,backgroundColor: whiteColor)
                   ],
                 ),
@@ -83,19 +98,3 @@ class AccountTypeScreen extends StatelessWidget {
     );
   }
 }
-// class DashedLineVerticalPainter extends CustomPainter {
-//   @override
-//   void paint(Canvas canvas, Size size) {
-//     double dashHeight = 5, dashSpace = 3, startY = 0;
-//     final paint = Paint()
-//       ..color = whiteColor
-//       ..strokeWidth = size.width;
-//     while (startY < size.height) {
-//       canvas.drawLine(Offset(0, startY), Offset(0, startY + dashHeight), paint);
-//       startY = dashHeight + dashSpace;
-//     }
-//   }
-//
-//   @override
-//   bool shouldRepaint(CustomPainter oldDelegate) => false;
-// }
