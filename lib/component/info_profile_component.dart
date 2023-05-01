@@ -55,7 +55,7 @@ bigTextFieldForNotes({required BuildContext context,required String hint}){
     ),
   );
 }
-headerInfoPerson({required BuildContext context,bool isProfile=false,required String title,bool isHeaderProfile=true}){
+headerInfoPerson({required BuildContext context,bool isProfile=false,required String title,bool isHeaderProfile=true,required Widget avatarChild}){
   Size screenSize = MediaQuery.of(context).size;
   return PreferredSize(
       child: Stack(
@@ -79,7 +79,7 @@ headerInfoPerson({required BuildContext context,bool isProfile=false,required St
                 SizedBox(height: screenSize.height*0.03,),
                 isHeaderProfile?  Padding(
                   padding:  EdgeInsetsDirectional.only(start: screenSize.width*0.03,),
-                  child: CircleAvatar(backgroundColor: darkMainColor,child: Image.asset('assets/images/profile.png'),
+                  child: CircleAvatar(backgroundColor: darkMainColor,child: avatarChild,
                     radius: screenSize.height*0.05,
                   ),
                 ):SizedBox()

@@ -22,7 +22,7 @@ class ProfileScreen extends StatelessWidget {
         return GestureDetector(
           onTap: (){FocusManager.instance.primaryFocus?.unfocus();},
           child: Scaffold(
-            appBar: headerInfoPerson(context: context, title: 'الحساب',isProfile: true),
+            appBar: headerInfoPerson(context: context, title: 'الحساب',isProfile: true,avatarChild: Image.asset('assets/images/profile.png')),
             body: SingleChildScrollView(
               child: Padding(
                 padding:  EdgeInsetsDirectional.only(start: screenSize.width*0.06,end: screenSize.width*0.06),

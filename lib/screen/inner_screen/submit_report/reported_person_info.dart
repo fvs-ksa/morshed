@@ -50,6 +50,7 @@ class ReportedPersonInfo extends StatelessWidget {
       builder:(context,state){
         return Scaffold(
           appBar: headerInfoPerson(
+            avatarChild: Image.asset('assets/images/profile.png'),
               context: context, title: 'بيانات المعتمر', isProfile: false),
          backgroundColor: whiteLightColor,
           body: SingleChildScrollView(
