@@ -106,9 +106,13 @@ class HomeScreen extends StatelessWidget {
                     child: MySeparator(color: greyColor),
                   ),
                   homeComponentWidget(fct: (){navigateForward(AnotherServicesScreen());},context: context, image: 'assets/images/other_services.png', title: 'خدمات اخرى'),
-                  floatingContainer(context: context, svgAssets: 'assets/svg/Icon ionic-ios-add.svg', title: 'اضافه مرافق', width: size.width * 0.4,color:darkMainColor ),
+                  floatingContainer(
+                      alignment: AlignmentDirectional.bottomStart,
+                      context: context, svgAssets: 'assets/svg/Icon ionic-ios-add.svg', title: 'اضافه مرافق', width: size.width * 0.4,color:darkMainColor ),
                   SizedBox(height: size.height*0.02,),
-                  floatingContainer(context: context, svgAssets: 'assets/svg/on map.svg', title: 'مكاتب الارشاد والمرشدين', width: size.width * 0.7,color:orangeColor ),
+                  floatingContainer(
+                      alignment: AlignmentDirectional.bottomStart,
+                      context: context, svgAssets: 'assets/svg/on map.svg', title: 'مكاتب الارشاد والمرشدين', width: size.width * 0.7,color:orangeColor ),
 
                 ],
               ),

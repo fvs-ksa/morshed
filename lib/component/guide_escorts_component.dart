@@ -107,12 +107,12 @@ Widget itemContainerOfGuidesAndEscorts({required BuildContext context,Widget? co
             subtitle: RichText(
               text: TextSpan(
                   text: 'رقم الجوال : ',
-                  style: Theme.of(context).textTheme.caption,
+                  style: Theme.of(context).textTheme.overline,
                   children: [
                     TextSpan(
                         text: phone,
                         style:
-                        Theme.of(context).textTheme.headline5)
+                        Theme.of(context).textTheme.headlineLarge)
                   ]),
             ),
             leading: CircleAvatar(

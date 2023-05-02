@@ -20,7 +20,8 @@ class EscortsScreen extends StatelessWidget {
             start: screenSize.width * 0.02,
             end: screenSize.width * 0.02),
         child: Stack(
-          textDirection:TextDirection.ltr,
+         // textDirection:TextDirection.ltr,
+         // alignment: AlignmentDirectional.bottomEnd,
           children: [
             ListView.builder(
                 itemCount: 10,
@@ -34,7 +35,10 @@ class EscortsScreen extends StatelessWidget {
                 }),
             Padding(
               padding:EdgeInsetsDirectional.only(bottom: screenSize.height*0.02,start: screenSize.width*0.02),
-              child: Align(alignment: AlignmentDirectional.bottomEnd,child: floatingContainer(context: context, svgAssets: 'assets/svg/Icon ionic-ios-add.svg', title: 'مرافق', width: screenSize.width * 0.27,color:darkMainColor )),
+              child: floatingContainer(
+                  alignment: AlignmentDirectional.bottomEnd,
+                  context: context, svgAssets: 'assets/svg/Icon ionic-ios-add.svg',
+                  title: 'مرافق', width: screenSize.width * 0.27,color:darkMainColor ),
             ),
           ],
         ),

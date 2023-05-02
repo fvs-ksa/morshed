@@ -81,14 +81,14 @@ class MyApp extends StatelessWidget {
                   // ),
                   caption: GoogleFonts.cairo(
                     color: greyColor,
-                    fontSize: 10.sp,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
                    // fontFamily: 'Cairo-Regular'
                   ),
                   subtitle1: GoogleFonts.cairo(
                   color: whiteGreyColor,
-                  fontSize: 12.sp,
-                  fontWeight: FontWeight.w300,
+                  fontSize: 13.sp,
+                  fontWeight: FontWeight.w500,
                      // fontFamily: 'Cairo-Regular'
                 ),
                   headline2: GoogleFonts.cairo(
@@ -115,6 +115,18 @@ class MyApp extends StatelessWidget {
                     fontWeight: FontWeight.normal,
                     //fontFamily: 'cairo-Black'
                 ),
+                  headlineLarge:GoogleFonts.cairo(
+                    color: blackColor,
+                    fontSize: 10.sp,
+                    fontWeight: FontWeight.normal,
+                    //fontFamily: 'cairo-Black'
+                  ),
+                  overline: GoogleFonts.cairo(
+                    color: greyColor,
+                    fontSize: 10.sp,
+                    fontWeight: FontWeight.w400,
+                    // fontFamily: 'Cairo-Regular'
+                  ),
                   subtitle2:GoogleFonts.cairo(
                     color: blackColor,
                     fontSize: 13.sp,
@@ -127,6 +139,7 @@ class MyApp extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                      // fontFamily: 'Cairo-Medium'
                   ),
+
                   headline4: GoogleFonts.cairo(color: orangeColor,fontWeight: FontWeight.w700,fontSize: 18.sp,decoration: TextDecoration.underline),
                   headline3: GoogleFonts.cairo(color: Colors.red,fontWeight: FontWeight.w500,fontSize: 15.sp),
                   button: GoogleFonts.cairo(color: whiteColor,fontSize: 15.sp,fontWeight: FontWeight.w700)

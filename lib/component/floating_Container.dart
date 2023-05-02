@@ -5,10 +5,10 @@ import 'package:sizer/sizer.dart';
 
 import 'const_color.dart';
 
-Widget floatingContainer({required BuildContext context,required String svgAssets,required String title,required double width,required Color color}){
+Widget floatingContainer({required AlignmentDirectional alignment,required BuildContext context,required String svgAssets,required String title,required double width,required Color color}){
   Size size = MediaQuery.of(context).size;
   return  Align(
-    alignment: AlignmentDirectional.bottomStart,
+    alignment: alignment,
     child: Container(
       padding: EdgeInsetsDirectional.only(start: size.width*0.06),
       height: size.height * 0.07,

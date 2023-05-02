@@ -43,6 +43,7 @@ dependencies:
   url_launcher: ^6.1.10
   google_fonts: ^4.0.4
   fluttertoast: ^8.2.1
+  flutter_launcher_icons: ^0.13.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -75,6 +76,7 @@ flutter:
     - assets/langs/
     - assets/images/
     - assets/svg/
+    - android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

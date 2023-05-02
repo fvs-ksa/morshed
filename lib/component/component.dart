@@ -15,7 +15,7 @@ Widget floatingButton({
   Color? iconColor,
 }) {
   Size size = MediaQuery.of(context).size;
-  return InkWell(
+  return GestureDetector(
     onTap: () {
       fct();
     },
@@ -62,13 +62,20 @@ Widget accountType(
 
         //CheckboxListTile(value: value, onChanged: onChanged,)
         Checkbox(
+
           value: checkBoxValue, onChanged: (onChanged) {
             fct(onChanged);
         },
           activeColor: whiteColor,
+         // checkColor: whiteColor,
+          side: BorderSide(color: whiteColor),
+          // overlayColor: MaterialStateColor.resolveWith((states) => whiteColor),
           //checkColor: whiteColor,
           shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.sp)),
+
+            side: BorderSide(color: whiteColor,),
+
+              borderRadius: BorderRadius.circular(10.sp),),
         )
       ],
     ),
@@ -101,9 +108,9 @@ Widget textFormField(
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
           labelText: labelText,
-          labelStyle: Theme.of(context).textTheme.caption,
+          labelStyle: Theme.of(context).textTheme.overline,
           hintText: hintText,
-          hintStyle: Theme.of(context).textTheme.caption,
+          hintStyle: Theme.of(context).textTheme.overline,
           border:
           OutlineInputBorder(borderRadius: BorderRadius.circular(20.sp))),
       controller: controller,
