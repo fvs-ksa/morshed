@@ -10,7 +10,6 @@ import 'package:morshed/component/component.dart';
 import 'package:morshed/component/const_color.dart';
 import 'package:morshed/screen/bottom_navigations_screens/main_screen.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../component/info_profile_component.dart';
 import '../../component/navigation_functions.dart';
 import 'login_screen.dart';
