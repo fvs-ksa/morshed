@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -17,7 +16,6 @@ import '../../component/navigation_functions.dart';
 import 'login_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
-  // const RegisterScreen({Key? key}) : super(key: key);
   TextEditingController arabicNameController = TextEditingController();
   TextEditingController englishNameController = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();

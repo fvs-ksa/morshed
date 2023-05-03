@@ -14,7 +14,6 @@ import '../bottom_navigations_screens/main_screen.dart';
 class LoginScreen extends StatelessWidget {
   TextEditingController userNameController=TextEditingController();
   TextEditingController passwordNameController=TextEditingController();
- // const LoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

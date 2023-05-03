@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
 
-import 'const_color.dart';
-
 Widget floatingContainer({required AlignmentDirectional alignment,required BuildContext context,required String svgAssets,required String title,required double width,required Color color}){
   Size size = MediaQuery.of(context).size;
   return  Align(
