@@ -65,28 +65,6 @@ class ReportDetailsWidget extends StatelessWidget {
                             onChange);
                       },
                     );
-                    // return Row(
-                    //   children: [
-                    //     Checkbox(
-                    //       value: helpWays[index].value,
-                    //       onChanged: (onChange) {
-                    //         reportCubit.changeCheckBox(onChange,index);
-                    //         // index == 0
-                    //         //     ? reportCubit
-                    //         //         .changeHelpWaysFirstIndexState(onChange)
-                    //         //     : index == 1
-                    //         //         ? reportCubit
-                    //         //             .changeHelpWaysSecondIndexState(onChange)
-                    //         //         : index == 2
-                    //         //             ? reportCubit
-                    //         //                 .changeHelpWaysThirdIndexState(onChange)
-                    //         //             : reportCubit
-                    //         //                 .changeHelpWaysLastIndexState(onChange);
-                    //       },
-                    //     ),
-                    //     Expanded(child: Text(helpWays[index].title))
-                    //   ],
-                    // );
                   }),
             ):Container(),
             bigTextFieldForNotes(
@@ -164,28 +142,6 @@ class ReportDetailsWidget extends StatelessWidget {
                             onChange);
                       },
                     );
-                    // return Row(
-                    //   children: [
-                    //     Checkbox(
-                    //       value: helpWays[index].value,
-                    //       onChanged: (onChange) {
-                    //         reportCubit.changeCheckBox(onChange,index);
-                    //         // index == 0
-                    //         //     ? reportCubit
-                    //         //         .changeHelpWaysFirstIndexState(onChange)
-                    //         //     : index == 1
-                    //         //         ? reportCubit
-                    //         //             .changeHelpWaysSecondIndexState(onChange)
-                    //         //         : index == 2
-                    //         //             ? reportCubit
-                    //         //                 .changeHelpWaysThirdIndexState(onChange)
-                    //         //             : reportCubit
-                    //         //                 .changeHelpWaysLastIndexState(onChange);
-                    //       },
-                    //     ),
-                    //     Expanded(child: Text(helpWays[index].title))
-                    //   ],
-                    // );
                   }),
             ):Container(),
 

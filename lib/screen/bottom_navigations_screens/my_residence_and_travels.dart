@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../component/component.dart';
 import '../../component/const_color.dart';
 import '../../component/info_profile_component.dart';

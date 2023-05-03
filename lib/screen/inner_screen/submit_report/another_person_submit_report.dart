@@ -5,10 +5,7 @@ import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_state.dart';
 import 'package:morshed/component/component.dart';
 import 'package:morshed/screen/inner_screen/submit_report/reported_person_info.dart';
-import 'package:sizer/sizer.dart';
-
 import '../../../component/const_color.dart';
-import '../../../component/info_profile_component.dart';
 import '../../../component/navigation_functions.dart';
 import '../../../component/reports_widgets.dart';
 

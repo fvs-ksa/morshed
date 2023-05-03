@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:morshed/component/const_color.dart';
 
 class MySeparator extends StatelessWidget {
   const MySeparator({Key? key, this.height = 1, required this.color})

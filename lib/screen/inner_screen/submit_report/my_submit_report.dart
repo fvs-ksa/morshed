@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:morshed/component/const_color.dart';
-import 'package:morshed/component/info_profile_component.dart';
 import 'package:morshed/component/report_Details_widget.dart';
-import 'package:morshed/models/help_ways.dart';
-import 'package:sizer/sizer.dart';
-
 import '../../../bloc/submitting_report/submit_report_cubit.dart';
 import '../../../bloc/submitting_report/submit_report_state.dart';
-import '../../../component/component.dart';
 
 class MySubmitReport extends StatelessWidget {
   const MySubmitReport({Key? key}) : super(key: key);

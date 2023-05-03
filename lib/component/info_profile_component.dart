@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
-
 import 'component.dart';
 import 'const_color.dart';
 
@@ -37,7 +36,6 @@ bigTextFieldForNotes({required BuildContext context,required String hint}){
   Size screenSize=MediaQuery.of(context).size;
   return  SizedBox(
     height: screenSize.height*0.17,
-    // color: Colors.red,
     child: Stack(
       alignment: AlignmentDirectional.topEnd,
       children: [
@@ -90,15 +88,4 @@ headerInfoPerson({required BuildContext context,bool isProfile=false,required St
       ),
       preferredSize: Size.fromHeight(screenSize.height * 0.25));
 }
-// rowTextFieldWidget({required BuildContext context}){
-//   Size screenSize=MediaQuery.of(context).size;
-//   return Row(
-//     crossAxisAlignment: CrossAxisAlignment.center,
-//     children: [
-//       Expanded(child: textFormField(labelText: 'رقم الجوال', hintText: 'hintText', context: context,keyboardType: TextInputType.number)),
-//       SizedBox(width: screenSize.width*0.06,),
-//       decorationContainerWidget(context: context,child:Text('+966',style: Theme.of(context).textTheme.bodyText1,textAlign: TextAlign.center,)),
-//     ],
-//   ),
-// }
 

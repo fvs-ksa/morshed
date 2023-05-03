@@ -59,18 +59,12 @@ Widget accountType(
             ],
           ),
         ),
-
-        //CheckboxListTile(value: value, onChanged: onChanged,)
         Checkbox(
-
           value: checkBoxValue, onChanged: (onChanged) {
             fct(onChanged);
         },
           activeColor: whiteColor,
-         // checkColor: whiteColor,
           side: BorderSide(color: whiteColor),
-          // overlayColor: MaterialStateColor.resolveWith((states) => whiteColor),
-          //checkColor: whiteColor,
           shape: RoundedRectangleBorder(
 
             side: BorderSide(color: whiteColor,),
@@ -148,19 +142,12 @@ Widget dropDownButton(
               children: [
                 Expanded(
                   child: ButtonTheme(
-
-                   // height: screenSize.height*0.04,
                     alignedDropdown: true,
                     child: DropdownButtonFormField(
-
-                     // itemHeight: screenSize.height*0.05,
-                      //  hint: Text('اختيار نوع '),
                       isExpanded: true,
                       decoration: const InputDecoration(border: InputBorder.none,),
-                      //underline: SizedBox(),
                       hint: Text(hint),
                       iconSize: 0.0,
-                      // hint: Text('ggg'),
                       borderRadius: BorderRadius.circular(12.sp),
                       value: value,
 

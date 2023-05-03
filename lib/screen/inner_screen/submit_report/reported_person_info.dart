@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_state.dart';
 import 'package:morshed/component/component.dart';
-import 'package:sizer/sizer.dart';
-
 import '../../../component/const_color.dart';
 import '../../../component/info_profile_component.dart';
 import '../../../component/report_Details_widget.dart';
-import '../../../models/help_ways.dart';
 
 class ReportedPersonInfo extends StatelessWidget {
-  // const ReportedPersonInfo({Key? key}) : super(key: key);
   TextEditingController arabicNameController =
       TextEditingController(text: 'محمد احمد علي');
   TextEditingController englishNameController =
@@ -134,14 +129,10 @@ class ReportedPersonInfo extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                       color: whiteColor,
-                      borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10) )),
+                      borderRadius: const BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10) )),
                   padding: EdgeInsets.symmetric(
                       vertical: screenSize.height * 0.03,
                       horizontal: screenSize.width * 0.03),
-                  // margin: EdgeInsets.zero,
-                  // padding: EdgeInsets.zero,
-                  // clipBehavior: Clip.none,
-                  // height: screenSize.height * 0.8,
 
                   child: SingleChildScrollView(
                     child: ReportDetailsWidget(index: 0),

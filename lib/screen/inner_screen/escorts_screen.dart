@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:morshed/component/guide_escorts_component.dart';
-
 import '../../component/const_color.dart';
 import '../../component/floating_Container.dart';
 
@@ -20,8 +18,6 @@ class EscortsScreen extends StatelessWidget {
             start: screenSize.width * 0.02,
             end: screenSize.width * 0.02),
         child: Stack(
-         // textDirection:TextDirection.ltr,
-         // alignment: AlignmentDirectional.bottomEnd,
           children: [
             ListView.builder(
                 itemCount: 10,

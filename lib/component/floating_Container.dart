@@ -16,7 +16,6 @@ Widget floatingContainer({required AlignmentDirectional alignment,required Build
       decoration:
       BoxDecoration(borderRadius: BorderRadius.circular(25.sp),color: color),
       child: Row(
-       // mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SvgPicture.asset(svgAssets),
           SizedBox(width: size.width*0.02,),

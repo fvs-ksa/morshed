@@ -76,7 +76,8 @@ Widget myReportsContainerWidget(
     ),
   );
 }
-locationWidget({required BuildContext context}){
+
+locationWidget({required BuildContext context}) {
   Size screenSize = MediaQuery.of(context).size;
   return Column(
     children: [
@@ -84,11 +85,13 @@ locationWidget({required BuildContext context}){
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
-              child: textFormField(
-                  labelText: 'الموقع',
-                  hintText: 'hintText',
-                  context: context,
-                  isEnabled: false)),
+            child: textFormField(
+              labelText: 'الموقع',
+              hintText: 'hintText',
+              context: context,
+              isEnabled: false,
+            ),
+          ),
           SizedBox(
             width: screenSize.width * 0.06,
           ),

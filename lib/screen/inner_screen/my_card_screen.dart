@@ -15,8 +15,6 @@ class MyCardScreen extends StatelessWidget {
         children: [
           Container(
             padding: EdgeInsetsDirectional.symmetric(vertical: screenSize.height*0.04),
-            // height: screenSize.height*0.2,
-            // width: double.infinity,
             child: Center(child: Image.asset('assets/images/card.png',fit: BoxFit.cover,width: double.infinity,)),
           ),
         ],

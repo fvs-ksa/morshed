@@ -21,7 +21,6 @@ class NotificationsScreen extends StatelessWidget {
           ),
           //Divider(),
           Expanded(
-           // height: size.height*0.76,
             child: ListView.separated(itemBuilder: (context,index){
               return Container(
                 padding: EdgeInsetsDirectional.only(start: size.width*0.03,end: size.width*0.03),
