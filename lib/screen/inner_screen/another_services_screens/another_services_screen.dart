@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:morshed/component/const_color.dart';
+import 'package:morshed/constant/const_color.dart';
 
 import '../../../component/another_services_widget.dart';
 import '../../../component/info_profile_component.dart';
 import '../../../models/another_services_model.dart';
+import '../../../translation/locale_keys.g.dart';
 
 class AnotherServicesScreen extends StatelessWidget {
   const AnotherServicesScreen({Key? key}) : super(key: key);
@@ -13,7 +15,7 @@ class AnotherServicesScreen extends StatelessWidget {
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: whiteGreyColor,
-      appBar: headerAnotherServices(context: context, title: 'خدمات اخرى'),
+      appBar: headerAnotherServices(context: context, title:LocaleKeys.otherServices.tr() ),
       body: ListView.builder(
           itemCount: anotherServicesList.length,
           itemBuilder: (context,index){

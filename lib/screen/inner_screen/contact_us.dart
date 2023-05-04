@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:morshed/component/component.dart';
 import 'package:morshed/component/info_profile_component.dart';
+import 'package:morshed/translation/locale_keys.g.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../component/const_color.dart';
+import '../../constant/const_color.dart';
 
 class ContactUs extends StatelessWidget {
   const ContactUs({Key? key}) : super(key: key);
@@ -35,7 +37,7 @@ class ContactUs extends StatelessWidget {
                       height: screenSize.height * 0.07,
                     ),
                     Text(
-                      'تواصل معنا',
+                      LocaleKeys.contactUs.tr(),
                       style: Theme.of(context).textTheme.headline1,
                     )
                   ],
@@ -54,7 +56,7 @@ class ContactUs extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'تواصل معنا عبر الهاتف',
+                LocaleKeys.contactViaWhatsApp.tr(),
                 style: Theme.of(context).textTheme.subtitle2,
                 textAlign: TextAlign.start,
               ),
@@ -67,7 +69,7 @@ class ContactUs extends StatelessWidget {
                   },
                   child: textFormField(
                     labelText: '9665078945612+',
-                    hintText: 'hintText',
+                   // hintText: 'hintText',
                     context: context,
                     isEnabled: false,
                   )),
@@ -75,7 +77,7 @@ class ContactUs extends StatelessWidget {
                 height: screenSize.height * 0.02,
               ),
               Text(
-                'تواصل معنا عبر البريد الإلكتروني',
+                LocaleKeys.contactViaEmail.tr(),
                 style: Theme.of(context).textTheme.subtitle2,
               ),
               SizedBox(
@@ -87,18 +89,18 @@ class ContactUs extends StatelessWidget {
                   },
                   child: textFormField(
                       labelText: 'info@guide.com',
-                      hintText: 'hintText',
+                      //hintText: 'hintText',
                       context: context,
                       isEnabled: false)),
               SizedBox(
                 height: screenSize.height * 0.02,
               ),
               Text(
-                'يسرنا الإجابة على استفساراتكم',
+                LocaleKeys.weArePleasedToAnswerYourInquiry.tr(),
                 style: Theme.of(context).textTheme.subtitle2,
               ),
               bigTextFieldForNotes(
-                  context: context, hint: 'اكتب هنا'),
+                  context: context, hint:LocaleKeys.writeHere.tr()),
               Padding(
                 padding: EdgeInsetsDirectional.only(
                     top: screenSize.height * 0.04,
@@ -110,7 +112,7 @@ class ContactUs extends StatelessWidget {
                     child: mainButton(
                         width: screenSize.width * 0.8,
                         height: screenSize.height * 0.07,
-                        text: 'ارسال الاستفسار',
+                        text:LocaleKeys.sendInquiry.tr(),
                         color: darkMainColor,
                         context: context,
                         fct: () {})),
@@ -129,9 +131,9 @@ navigateToCallUs(BuildContext context) async {
     await launchUrl(url);
   } else {
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
+       SnackBar(
         backgroundColor: Colors.red,
-        content: Text("حدث خطا اثناء الانتقال الي الجيميل"),
+        content: Text(LocaleKeys.errorWhileMovingToWhatsApp.tr()),
       ),
     );
   }
@@ -143,9 +145,9 @@ navigateToMail(BuildContext context) async {
     await launchUrl(url);
   } else {
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
+       SnackBar(
         backgroundColor: Colors.red,
-        content: Text("حدث خطا اثناء الانتقال الي الجيميل"),
+        content: Text(LocaleKeys.errorWhileMovingToEmail.tr()),
       ),
     );
   }

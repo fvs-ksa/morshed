@@ -1,5 +1,6 @@
 
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:morshed/component/component.dart';
 import 'package:morshed/screen/bottom_navigations_screens/my_residence_and_travels.dart';
 import 'package:morshed/screen/inner_screen/escorts_screen.dart';
@@ -12,6 +13,7 @@ import '../component/navigation_functions.dart';
 import '../screen/inner_screen/contact_us.dart';
 import '../screen/inner_screen/my_reports/my_reports.dart';
 import '../screen/inner_screen/support_screen.dart';
+import '../translation/locale_keys.g.dart';
 
 class MoreScreenModel{
   String title;
@@ -20,14 +22,14 @@ class MoreScreenModel{
   MoreScreenModel({required this.title,required this.onTap,required this.svgImage});
 }
 List<MoreScreenModel> moreList=[
-  MoreScreenModel(title: 'الحساب', onTap: (){navigateForward(const ProfileScreen());}, svgImage: 'assets/svg/profile.svg'),
-  MoreScreenModel(title: 'المرشدين', onTap: (){navigateForward(GuidesScreen());}, svgImage: 'assets/svg/file (-1.svg'),
-  MoreScreenModel(title: 'المرافقين', onTap: (){navigateForward(EscortsScreen());}, svgImage: 'assets/svg/Group -1.svg'),
-  MoreScreenModel(title: 'بلاغاتي', onTap: (){navigateForward(const MyReports());}, svgImage: 'assets/svg/file (1).svg'),
-  MoreScreenModel(title: 'بطاقاتي', onTap: (){navigateForward(const MyCardScreen());}, svgImage: 'assets/svg/file (1).svg'),
-  MoreScreenModel(title: 'الدعم الفني', onTap: (){navigateForward( SupportScreen());}, svgImage: 'assets/svg/support.svg'),
-  MoreScreenModel(title: 'التواصل', onTap: (){navigateForward(const ContactUs());}, svgImage: 'assets/svg/end call-1.svg'),
-  MoreScreenModel(title: 'الشروط والأحكام', onTap: (){}, svgImage: 'assets/svg/file (1).svg'),
-  MoreScreenModel(title: 'الإعدادات', onTap: (){navigateForward(const SettingScreen());}, svgImage: 'assets/svg/settings.svg'),
-  MoreScreenModel(title: 'شارك مرشد', onTap: (){}, svgImage: 'assets/svg/share.svg'),
+  MoreScreenModel(title: LocaleKeys.profile.tr(), onTap: (){navigateForward(const ProfileScreen());}, svgImage: 'assets/svg/profile.svg'),
+  MoreScreenModel(title: LocaleKeys.guides.tr(), onTap: (){navigateForward(GuidesScreen());}, svgImage: 'assets/svg/file (-1.svg'),
+  MoreScreenModel(title: LocaleKeys.Companions.tr(), onTap: (){navigateForward(EscortsScreen());}, svgImage: 'assets/svg/Group -1.svg'),
+  MoreScreenModel(title: LocaleKeys.myReports.tr(), onTap: (){navigateForward(const MyReports());}, svgImage: 'assets/svg/file (1).svg'),
+  MoreScreenModel(title: LocaleKeys.myCard.tr(), onTap: (){navigateForward(const MyCardScreen());}, svgImage: 'assets/svg/file (1).svg'),
+  MoreScreenModel(title:LocaleKeys.technicalSupport.tr(), onTap: (){navigateForward( SupportScreen());}, svgImage: 'assets/svg/support.svg'),
+  MoreScreenModel(title: LocaleKeys.contactUs.tr(), onTap: (){navigateForward(const ContactUs());}, svgImage: 'assets/svg/end call-1.svg'),
+  MoreScreenModel(title:LocaleKeys.privacyPolicy.tr(), onTap: (){}, svgImage: 'assets/svg/file (1).svg'),
+  MoreScreenModel(title:LocaleKeys.settings.tr(), onTap: (){navigateForward(const SettingScreen());}, svgImage: 'assets/svg/settings.svg'),
+  MoreScreenModel(title: LocaleKeys.shareMorshed.tr(), onTap: (){}, svgImage: 'assets/svg/share.svg'),
 ];

@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:morshed/component/const_color.dart';
+import 'package:morshed/constant/const_color.dart';
+import 'package:morshed/translation/locale_keys.g.dart';
 
 class QrScreen extends StatelessWidget {
   const QrScreen({Key? key}) : super(key: key);
@@ -39,7 +41,7 @@ class QrScreen extends StatelessWidget {
                 height: screenSize.height * 0.01,
               ),
               Text(
-                'قم باظهار رمز الكود الخاص بك لأي مرشد أو مكتب ارشادي لمساعدتك',
+                LocaleKeys.provideYourCodeToAssistYou.tr(),
                 style: Theme.of(context).textTheme.headline2,
                 textAlign: TextAlign.center,
               ),
@@ -52,7 +54,7 @@ class QrScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                     border: Border.all(color: whiteColor,),
-                    image: DecorationImage(
+                    image: const DecorationImage(
                         image: AssetImage('assets/images/qrCode.png'),)),
                 //child: Image.asset('assets/images/qrCode.png')
               )

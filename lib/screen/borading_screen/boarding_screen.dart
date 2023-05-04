@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:morshed/bloc/boarding_cubit/cubit.dart';
 import 'package:morshed/bloc/boarding_cubit/state.dart';
 import 'package:morshed/component/component.dart';
-import 'package:morshed/component/const_color.dart';
+import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/models/boarding_model.dart';
 import 'package:sizer/sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -120,14 +120,14 @@ Widget boardingWidget(BoardingModel model, BuildContext context) {
       ),
       Text(
         model.title,
-        style: Theme.of(context).textTheme.displayLarge,
+        style: Theme.of(context).textTheme.headline1,
       ),
       SizedBox(
         height: 1.sp,
       ),
       Text(
         model.subTitle,
-        style: Theme.of(context).textTheme.bodySmall,
+        style: Theme.of(context).textTheme.caption,
       )
     ],
   );

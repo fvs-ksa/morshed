@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:sizer/sizer.dart';
-import 'const_color.dart';
+import '../constant/const_color.dart';
 
 void showToast({required String text,required ToastState state})=>Fluttertoast.showToast(
     msg: text,

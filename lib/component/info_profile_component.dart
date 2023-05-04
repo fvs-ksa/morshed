@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
 import 'component.dart';
-import 'const_color.dart';
+import '../constant/const_color.dart';
 
 Widget decorationContainerWidget(
     {required BuildContext context, required Widget child,required double radius,double? width,double? height}) {

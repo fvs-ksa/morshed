@@ -1,14 +1,17 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:morshed/component/animation_component.dart';
 import 'package:morshed/component/component.dart';
 import 'package:morshed/component/info_profile_component.dart';
 import 'package:morshed/screen/auth_screen/register_Screen.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../component/const_color.dart';
+import '../../constant/const_color.dart';
 import '../../component/navigation_functions.dart';
+import '../../translation/locale_keys.g.dart';
 import '../bottom_navigations_screens/main_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -18,6 +21,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size screenSize=MediaQuery.of(context).size;
+    double baseFontSize = screenSize.width < 600 ? 14 : 16;
     return Scaffold(
       body: Column(
         children: [
@@ -33,7 +37,7 @@ class LoginScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   backButtonWidget(fct: (){Navigator.pop(context);}),
-                  Text('دخول الآن',style: Theme.of(context).textTheme.headline1,),
+                  Text(LocaleKeys.loginNow.tr(),style: Theme.of(context).textTheme.headline1,),
                 ],
               ),
               Image.asset('assets/images/مرشد.png',height: screenSize.height * 0.2,
@@ -45,16 +49,20 @@ class LoginScreen extends StatelessWidget {
             padding: EdgeInsetsDirectional.symmetric(horizontal: screenSize.width*0.08,vertical: screenSize.height*0.04),
             child: Column(
               children: [
-                textFormField(labelText: 'اسم المستخدم', context: context,controller: userNameController),
-                textFormField(labelText: 'كلمه المرور', context: context,controller: passwordNameController,suffixIcon: Icon(Icons.visibility)),
+                textFormField(labelText:LocaleKeys.userName.tr(), context: context,controller: userNameController),
+                textFormField(labelText:LocaleKeys.password.tr(), context: context,controller: passwordNameController,
+                    suffixIcon: Icon(Icons.visibility)),
                 SizedBox(height: screenSize.height*0.07,),
-                mainButton(width: double.infinity, height: screenSize.height*0.07, text: 'دخول الآن', color: darkMainColor, context: context, fct: (){
+                mainButton(width: double.infinity, height: screenSize.height*0.07,
+                    text:LocaleKeys.loginNow.tr(), color: darkMainColor, context: context, fct: (){
                   navigateForward(MainScreen());
                 }),
                 SizedBox(height: screenSize.height*0.02,),
-                richText(navigation:()=> navigateForward(RegisterScreen()), text: 'ليس لديك حساب؟  ', tappedText: 'سجل الآن', context: context),
+                richText(navigation:()=> navigateForward(RegisterScreen()), text:LocaleKeys.notHaveAnAccount.tr(), tappedText:LocaleKeys.registerNow.tr(), context: context),
                 SizedBox(height: screenSize.height*0.02,),
-                Text('الدخول كزائر',style: TextStyle(color: darkMainColor,decoration: TextDecoration.underline,fontWeight: FontWeight.bold),),
+                Text(LocaleKeys.signAsGuest.tr(),style: GoogleFonts.cairo(
+                    fontSize:baseFontSize*1.4 ,
+                    color: darkMainColor,decoration: TextDecoration.underline,fontWeight: FontWeight.bold),),
 
               ],
             ),
@@ -67,19 +75,20 @@ class LoginScreen extends StatelessWidget {
                 context: context, builder: (context){
               return AlertDialog(
 
-                title: Text('التواصل السريع',style: Theme.of(context).textTheme.bodyText1,textAlign: TextAlign.center,),
+                title: Text(LocaleKeys.FastCommunication.tr(),style: Theme.of(context).textTheme.bodyText1,textAlign: TextAlign.center,),
                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.sp)),
                 content: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('الإتصال الموحد',style: Theme.of(context).textTheme.headline5,),
-                    GestureDetector(onTap: (){launchWhatsapp(context);},child: textFormField(labelText: '966506977241+', context: context,isEnabled: false)),
+                    Text(LocaleKeys.unifiedCommunications.tr(),style: Theme.of(context).textTheme.headline5,),
+                    GestureDetector(onTap: (){launchWhatsapp(context);},child: textFormField(
+                        labelText: '966506977241+', context: context,isEnabled: false)),
                     Row(
                       children: [
                         SvgPicture.asset('assets/svg/Icon ionic-logo-whatsapp.svg'),
                         SizedBox(width: screenSize.width*0.03,),
-                        Text('واتساب مرشد يحولك للدردشة مباشرة',style: Theme.of(context).textTheme.headline5,),
+                        Text(LocaleKeys.communicationWhatsApp.tr(),style: Theme.of(context).textTheme.headline5,),
 
                       ],
                     ),
@@ -89,7 +98,7 @@ class LoginScreen extends StatelessWidget {
               );
             });
 
-          },child: Text('الدخول السريع',style: Theme.of(context).textTheme.headline4,textAlign: TextAlign.center,)),
+          },child: Text(LocaleKeys.FastCommunication.tr(),style: Theme.of(context).textTheme.headline4,textAlign: TextAlign.center,)),
           Image.asset('assets/images/pattern2.png',fit: BoxFit.contain,)
         ],
       ),

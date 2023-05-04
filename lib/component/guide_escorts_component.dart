@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:morshed/translation/locale_keys.g.dart';
 
 import 'component.dart';
-import 'const_color.dart';
+import '../constant/const_color.dart';
 import 'info_profile_component.dart';
 
 Widget circleAvtarWidget({required String svgImage,}){
@@ -54,8 +56,8 @@ PreferredSize preferredHeaderWithGuide({required BuildContext context,bool isAct
                   Expanded(
                       child: textFormField(
                         controller: searchController,
-                          labelText: 'بحث بالأسم أو رقم الجوال',
-                          hintText: 'بحث بالأسم أو رقم الجوال',
+                          labelText:LocaleKeys.findingInfoByNamePHoneOrLang.tr(),
+                         // hintText: 'بحث بالأسم أو رقم الجوال',
                           context: context)),
                   isGuide?  Container(
                     height: screenSize.height * 0.06,
@@ -71,7 +73,7 @@ PreferredSize preferredHeaderWithGuide({required BuildContext context,bool isAct
                       child: mainButton(
                           width: screenSize.width * 0.2,
                           height: screenSize.height * 0.06,
-                          text: 'بحث',
+                          text:LocaleKeys.search.tr(),
                           color: darkMainColor,
                           context: context,
                           fct: () {fct!();}))
@@ -106,7 +108,7 @@ Widget itemContainerOfGuidesAndEscorts({required BuildContext context,Widget? co
             ),
             subtitle: RichText(
               text: TextSpan(
-                  text: 'رقم الجوال : ',
+                  text: '${LocaleKeys.phoneNumber.tr()} : ',
                   style: Theme.of(context).textTheme.overline,
                   children: [
                     TextSpan(

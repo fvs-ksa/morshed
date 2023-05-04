@@ -14,12 +14,12 @@ class GeneralCubit extends Cubit<GeneralState>{
   GeneralCubit():super(InitialGeneralState());
   static GeneralCubit get(context)=>BlocProvider.of(context);
   List<Widget>screens=[
-    HomeScreen(),
-    NotificationsScreen(),
-    QrScreen(),
-    MyResidenceAndTravels(),
+    const HomeScreen(),
+    const NotificationsScreen(),
+    const QrScreen(),
+    const MyResidenceAndTravels(),
     //SupportScreen(),
-    MoreScreen(),
+    const MoreScreen(),
   ];
   int currentIndex=0;
   changeCurrentScreen(int i){

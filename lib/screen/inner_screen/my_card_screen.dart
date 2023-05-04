@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:morshed/translation/locale_keys.g.dart';
 
 import '../../component/guide_escorts_component.dart';
 
@@ -10,7 +12,7 @@ class MyCardScreen extends StatelessWidget {
     Size screenSize=MediaQuery.of(context).size;
     return Scaffold(
       appBar: preferredHeaderWithGuide(
-          context: context, title: 'بطاقتي', isActive: false),
+          context: context, title:LocaleKeys.myCard.tr(), isActive: false),
       body: Column(
         children: [
           Container(

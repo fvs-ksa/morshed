@@ -1,10 +1,12 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:morshed/bloc/chat_cubit/chat_with_support_cubit/chat_support_state.dart';
+import 'package:morshed/translation/locale_keys.g.dart';
 import 'package:sizer/sizer.dart';
 import '../../bloc/chat_cubit/chat_with_support_cubit/chat_support_cubit.dart';
-import '../../component/const_color.dart';
+import '../../constant/const_color.dart';
 import '../../component/guide_escorts_component.dart';
 
 class SupportScreen extends StatelessWidget {
@@ -19,7 +21,7 @@ class SupportScreen extends StatelessWidget {
       builder: (context,state) {
         return Scaffold(
           appBar: preferredHeaderWithGuide(
-              context: context, title: 'الدعم الفني', isActive: false),
+              context: context, title: LocaleKeys.technicalSupport.tr(), isActive: false),
           backgroundColor: whiteGreyColor,
           body: GestureDetector(
 
@@ -91,7 +93,7 @@ class SupportScreen extends StatelessWidget {
                         controller: messageController,
                         style: Theme.of(context).textTheme.caption,
                         decoration: InputDecoration(
-                            hintText: 'ارسل رساله',
+                            hintText: LocaleKeys.sendMessage.tr(),
                             focusColor: greyColor,
                             focusedBorder: UnderlineInputBorder(
                               borderSide: BorderSide(color: whiteColor),

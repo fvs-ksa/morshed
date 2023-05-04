@@ -1,13 +1,15 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_state.dart';
+import 'package:morshed/translation/locale_keys.g.dart';
 import 'package:sizer/sizer.dart';
 
 import '../models/help_ways.dart';
 import 'component.dart';
-import 'const_color.dart';
+import '../constant/const_color.dart';
 import 'info_profile_component.dart';
 
 class ReportDetailsWidget extends StatelessWidget {
@@ -25,7 +27,7 @@ class ReportDetailsWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
            index==0? Text(
-              'كيف يمكننا مساعدته؟',
+           LocaleKeys.WhatCanWeDoToAssistHim.tr(),
               style: Theme.of(context).textTheme.headline1,
             ):Container(),
            index==0? Container(
@@ -68,14 +70,14 @@ class ReportDetailsWidget extends StatelessWidget {
                   }),
             ):Container(),
             bigTextFieldForNotes(
-                context: context, hint: 'ملاحظات | طريقه المساعده'),
+                context: context, hint:LocaleKeys.commentsAndAssistance.tr()),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Expanded(
                     child: textFormField(
-                        labelText: 'الموقع',
-                        hintText: 'hintText',
+                        labelText: LocaleKeys.reportLocation.tr(),
+                       // hintText: 'hintText',
                         context: context,
                         isEnabled: false)),
                 SizedBox(
@@ -93,7 +95,7 @@ class ReportDetailsWidget extends StatelessWidget {
               child: Align(
                 alignment: Alignment.center,
                 child: Text(
-                  'تغيير الموقع',
+                  LocaleKeys.changeLocation.tr(),
                   style: TextStyle(
                       color: darkMainColor,
                       decoration: TextDecoration.underline),
@@ -103,7 +105,7 @@ class ReportDetailsWidget extends StatelessWidget {
               onPressed: () {},
             ),
             index==1? Text(
-              'كيف يمكننا مساعدته؟',
+              LocaleKeys.WhatCanWeDoToAssistYou.tr(),
               style: Theme.of(context).textTheme.headline1,
             ):Container(),
             index==1? Container(
@@ -156,7 +158,7 @@ class ReportDetailsWidget extends StatelessWidget {
                   child: mainButton(
                       width: screenSize.width * 0.8,
                       height: screenSize.height * 0.07,
-                      text: 'تقديم البلاغ',
+                      text:LocaleKeys.reporting.tr(),
                       color: darkMainColor,
                       context: context,
                       fct: () {})),

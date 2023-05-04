@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_state.dart';
 import 'package:morshed/component/component.dart';
-import '../../../component/const_color.dart';
+import 'package:morshed/translation/locale_keys.g.dart';
+import '../../../constant/const_color.dart';
 import '../../../component/info_profile_component.dart';
 import '../../../component/report_Details_widget.dart';
 
@@ -46,7 +48,7 @@ class ReportedPersonInfo extends StatelessWidget {
         return Scaffold(
           appBar: headerInfoPerson(
             avatarChild: Image.asset('assets/images/profile.png'),
-              context: context, title: 'بيانات المعتمر', isProfile: false),
+              context: context, title:LocaleKeys.moetamerInfo.tr() , isProfile: false),
          backgroundColor: whiteLightColor,
           body: SingleChildScrollView(
             child: Column(
@@ -58,67 +60,67 @@ class ReportedPersonInfo extends StatelessWidget {
                   child: Column(
                     children: [
                       textFormField(
-                          labelText: 'الأسم بالعربيه',
+                          labelText:LocaleKeys.arabicNamePassport.tr() ,
                           context: context,
                           isEnabled: false,
                           controller: arabicNameController),
                       textFormField(
-                          labelText: 'الأسم بالانجليزيه',
+                          labelText:LocaleKeys.englishNamePassport.tr() ,
                           context: context,
                           isEnabled: false,
                           controller: englishNameController),
                       textFormField(
-                          labelText: 'الجنسيه',
+                          labelText:LocaleKeys.nationality.tr() ,
                           context: context,
                           isEnabled: false,
                           controller: nationalityController),
                       textFormField(
-                          labelText: 'السن',
+                          labelText:LocaleKeys.age.tr(),
                           context: context,
                           isEnabled: false,
                           controller: ageController),
                       textFormField(
-                          labelText: 'البريد الالكتروني',
+                          labelText:LocaleKeys.email.tr(),
                           context: context,
                           isEnabled: false,
                           controller: emailController),
                       textFormField(
-                          labelText: 'رقم الحدود',
+                          labelText:LocaleKeys.boardNo.tr(),
                           context: context,
                           isEnabled: false,
                           controller: borderNumberController),
                       textFormField(
-                          labelText: 'رقم التأشيرة',
+                          labelText:LocaleKeys.visaNo.tr(),
                           context: context,
                           isEnabled: false,
                           controller: visaNumberController),
                       textFormField(
-                          labelText: 'رقم جواز السفر',
+                          labelText:LocaleKeys.passportNo.tr() ,
                           context: context,
                           isEnabled: false,
                           controller: passportController),
                       textFormField(
-                          labelText: 'تاريخ الوصول',
+                          labelText:LocaleKeys.arriveDate.tr() ,
                           context: context,
                           isEnabled: false,
                           controller: arrivalDateController),
                       textFormField(
-                          labelText: 'تاريخ المغادره',
+                          labelText:LocaleKeys.leaveDate.tr(),
                           context: context,
                           isEnabled: false,
                           controller: leaveController),
                       textFormField(
-                          labelText: 'مدينه الأقامه',
+                          labelText:LocaleKeys.residentialAddress.tr() ,
                           context: context,
                           isEnabled: false,
                           controller: residencyController),
                       textFormField(
-                          labelText: 'شركه السياحه',
+                          labelText:LocaleKeys.officialMissionName.tr(),
                           context: context,
                           isEnabled: false,
                           controller: touristCompanyController),
                       textFormField(
-                          labelText: 'اسم الوكيل',
+                          labelText:LocaleKeys.agentName.tr(),
                           context: context,
                           isEnabled: false,
                           controller: saudiRepresentativeController),

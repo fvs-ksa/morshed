@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:morshed/component/const_color.dart';
+import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/models/account_type_model.dart';
 import 'package:sizer/sizer.dart';
 
@@ -147,6 +147,7 @@ Widget dropDownButton(
                       isExpanded: true,
                       decoration: const InputDecoration(border: InputBorder.none,),
                       hint: Text(hint),
+                      style: Theme.of(context).textTheme.overline,
                       iconSize: 0.0,
                       borderRadius: BorderRadius.circular(12.sp),
                       value: value,

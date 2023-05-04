@@ -7,14 +7,14 @@ homeComponentWidget({required BuildContext context,required String image,require
     onTap: (){fct();},
     child: Container(
       height:isTall?size.height * 0.17: size.height * 0.15,
-      width:isWide? size.width * 0.25: size.width * 0.2,
+      width:isWide? size.width * 0.29: size.width * 0.2,
       child: Column(
         children: [
           Image.asset(image,width:size.width * 0.2 ,),
           Text(
             title,
             style: style??Theme.of(context).textTheme.bodyText2,
-             softWrap: true,
+            // softWrap: true,
             textAlign: TextAlign.center,
              overflow: TextOverflow.clip,
           )

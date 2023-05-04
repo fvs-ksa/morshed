@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:morshed/translation/locale_keys.g.dart';
 
 class NotificationsScreen extends StatelessWidget {
   const NotificationsScreen({Key? key}) : super(key: key);
@@ -16,7 +18,7 @@ class NotificationsScreen extends StatelessWidget {
             child: Container(
               height:size.height*0.15 ,
               padding: EdgeInsetsDirectional.only(top: size.height*0.02),
-              child: Center(child: Text('الاشعارات',style: Theme.of(context).textTheme.headline1,textAlign: TextAlign.center,)),
+              child: Center(child: Text(LocaleKeys.notifications.tr(),style: Theme.of(context).textTheme.headline1,textAlign: TextAlign.center,)),
             ),
           ),
           //Divider(),

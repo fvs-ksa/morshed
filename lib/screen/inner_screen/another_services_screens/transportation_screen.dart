@@ -1,6 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:morshed/component/info_profile_component.dart';
 import 'package:sizer/sizer.dart';
+
+import '../../../translation/locale_keys.g.dart';
 
 class TransportationScreen extends StatelessWidget {
   const TransportationScreen({Key? key}) : super(key: key);
@@ -9,7 +12,7 @@ class TransportationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: headerInfoPerson(context: context, title: 'وسائل النقل', avatarChild: Image.asset('assets/images/trasportation.png')
+      appBar: headerInfoPerson(context: context, title:LocaleKeys.transports.tr(), avatarChild: Image.asset('assets/images/trasportation.png')
           ,isProfile: true),
       body: Padding(
         padding:  EdgeInsets.symmetric(horizontal: screenSize.width*0.04),
@@ -32,7 +35,7 @@ class TransportationScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Expanded(child: Image.asset('assets/images/taxi.png',height:screenSize.height*0.13 ,width: screenSize.width*0.25,)),
-                  Text('حافلات مكه',softWrap: true,)
+                  Text(LocaleKeys.maccaTransports.tr(),softWrap: true,)
                 ],
               ),
             ),

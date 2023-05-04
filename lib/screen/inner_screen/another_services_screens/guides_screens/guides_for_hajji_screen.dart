@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:morshed/component/info_profile_component.dart';
 import 'package:morshed/models/guides_for_hajji_model.dart';
-import '../../../../component/const_color.dart';
+import '../../../../constant/const_color.dart';
+import '../../../../translation/locale_keys.g.dart';
 
 class GuidesForHajjiScreen extends StatelessWidget {
   const GuidesForHajjiScreen({Key? key}) : super(key: key);
@@ -30,7 +32,7 @@ class GuidesForHajjiScreen extends StatelessWidget {
                       ),
                       Padding(
                         padding:EdgeInsetsDirectional.only(start: screenSize.width*0.03),
-                        child: Text('إرشادات',style:  Theme.of(context).textTheme.headline2,),
+                        child: Text(LocaleKeys.Instructions.tr(),style:  Theme.of(context).textTheme.headline2,),
                       )
                     ],
                   ),

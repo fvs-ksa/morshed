@@ -1,14 +1,16 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:morshed/bloc/account_type_cubit/cubit.dart';
 import 'package:morshed/bloc/account_type_cubit/state.dart';
 import 'package:morshed/component/component.dart';
-import 'package:morshed/component/const_color.dart';
+import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/screen/auth_screen/login_screen.dart';
 import 'package:morshed/screen/auth_screen/register_Screen.dart';
 import '../../component/animation_component.dart';
 import '../../component/navigation_functions.dart';
 import '../../models/account_type_model.dart';
+import '../../translation/locale_keys.g.dart';
 
 class AccountTypeScreen extends StatelessWidget {
   const AccountTypeScreen({Key? key}) : super(key: key);
@@ -41,7 +43,7 @@ class AccountTypeScreen extends StatelessWidget {
                       height: size.height * 0.05,
                     ),
                     Text(
-                      'اختر صفه التسجيل',
+                      LocaleKeys.chooseAccountType.tr(),
                       style: Theme.of(context).textTheme.headline2,
                     ),
                     SizedBox(
@@ -81,7 +83,7 @@ class AccountTypeScreen extends StatelessWidget {
                     const Spacer(),
                     floatingButton(context: context, fct: (){
                       if(accountTypeCubit.isHajji==false && accountTypeCubit.isUmrah ==false){
-                        showToast(text: 'من فضلك اختار نوع التسجيل', state: ToastState.WARNING);
+                        showToast(text:LocaleKeys.pleaseChooseType.tr() , state: ToastState.WARNING);
                         print('hijji: ${accountTypeCubit.isHajji} || Umrah: ${accountTypeCubit.isUmrah}');
                       }else{
                         navigateForward(LoginScreen());

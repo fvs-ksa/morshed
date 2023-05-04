@@ -1,6 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:morshed/component/guide_for_hajj_widget.dart';
+
+import '../../../../translation/locale_keys.g.dart';
 
 class GuideToGettingLostScreen extends StatelessWidget {
   const GuideToGettingLostScreen({Key? key}) : super(key: key);
@@ -9,7 +12,7 @@ class GuideToGettingLostScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size screenSize=MediaQuery.of(context).size;
     return Scaffold(
-      appBar: headerForHijGuides(context: context, title: 'دليل التوهان', image: 'assets/images/lost.png'),
+      appBar: headerForHijGuides(context: context, title:LocaleKeys.GuidebookForLostPersons.tr(), image: 'assets/images/lost.png'),
       body: Padding(
         padding:  EdgeInsets.symmetric(horizontal: screenSize.width*0.03),
         child: Column(

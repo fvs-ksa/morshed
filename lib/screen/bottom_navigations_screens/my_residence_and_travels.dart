@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:morshed/translation/locale_keys.g.dart';
 import 'package:sizer/sizer.dart';
 import '../../component/component.dart';
-import '../../component/const_color.dart';
+import '../../constant/const_color.dart';
 import '../../component/info_profile_component.dart';
 
 class MyResidenceAndTravels extends StatelessWidget {
@@ -18,7 +20,7 @@ class MyResidenceAndTravels extends StatelessWidget {
               children: [
                 Container(
                   height: screenSize.height * 0.2,
-                  child: Center(child: Text('سكني ورحلاتي',style: Theme.of(context).textTheme.headline2,)),
+                  child: Center(child: Text(LocaleKeys.myAccommodationAndTrips.tr(),style: Theme.of(context).textTheme.headline2,)),
                   decoration: const BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage('assets/images/header1.png'),fit: BoxFit.cover)),

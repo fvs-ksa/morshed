@@ -1,8 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:morshed/component/component.dart';
-import 'package:morshed/component/const_color.dart';
+import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/component/reports_widgets.dart';
+import 'package:morshed/translation/locale_keys.g.dart';
 
 import '../../../component/guide_escorts_component.dart';
 import '../../../component/navigation_functions.dart';
@@ -19,7 +20,7 @@ class MyReports extends StatelessWidget {
         .size;
     return Scaffold(
       appBar: preferredHeaderWithGuide(
-          context: context, title: 'بلاغاتي', isActive: false),
+          context: context, title:LocaleKeys.myReports.tr() , isActive: false),
       backgroundColor: whiteGreyColor,
       body: ListView.builder(
         itemBuilder: (context, index) {
@@ -37,10 +38,10 @@ class MyReports extends StatelessWidget {
                   circleAvtarWidget(svgImage: 'assets/svg/msg.svg'),
                 ],):const SizedBox() ,
                 reportStatus: reportsList[index].status == 0
-                    ? 'تحت المعالجه'
+                    ?LocaleKeys.underProcessing.tr()
                     : reportsList[index].status == 1
-                    ? 'المرشد في الطريق'
-                    : 'تمت المعالجه',
+                    ?LocaleKeys.guideOnTheWay.tr()
+                    :LocaleKeys.Resolved.tr() ,
                 reportId: reportsList[index].reportNumber,
                 backgroundImage:reportsList[index].status == 0
                     ? 'assets/images/Group 204373.png'

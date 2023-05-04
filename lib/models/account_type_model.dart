@@ -1,3 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
+
+import '../translation/locale_keys.g.dart';
+
 class AccountTypeModel{
   int id;
   bool isTabbed;
@@ -7,6 +11,6 @@ class AccountTypeModel{
 
 }
 List<AccountTypeModel> typeModel=[
-  AccountTypeModel(image: 'assets/images/umrah.png', id: 0, name: 'معتمر', isTabbed: false),
-  AccountTypeModel(image: 'assets/images/hajj.png', id: 1, name: 'حاج', isTabbed: false),
+  AccountTypeModel(image: 'assets/images/umrah.png', id: 0, name:LocaleKeys.moetmer.tr(), isTabbed: false),
+  AccountTypeModel(image: 'assets/images/hajj.png', id: 1, name:LocaleKeys.hajji.tr(), isTabbed: false),
 ];

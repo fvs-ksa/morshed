@@ -1,10 +1,12 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:morshed/component/component.dart';
-import 'package:morshed/component/const_color.dart';
+import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/component/floating_Container.dart';
 import 'package:morshed/component/home_screen_widget.dart';
 import 'package:morshed/screen/inner_screen/my_card_screen.dart';
+import 'package:morshed/translation/locale_keys.g.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../component/horizontal_dotted_line.dart';
@@ -66,7 +68,7 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    'أهلا بك في تطبيق مرشد لا تقلق نحن هنا لخدمتك',
+                    LocaleKeys.welcomeToMorshed.tr(),
                     style: Theme.of(context).textTheme.headline1,
                     softWrap: true,
                     textAlign: TextAlign.center,
@@ -78,27 +80,13 @@ class HomeScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       homeComponentWidget(style:Theme.of(context).textTheme.headline3 ,context: context, image: 'assets/images/report.png',
-                          title: 'تقديم بلاغ لحاله توهان', fct: (){navigateForward(TabBarSubmitReport());}),
+                          title:LocaleKeys.reportingCaseOfMentalBreakdown.tr(), fct: (){navigateForward(TabBarSubmitReport());}),
                       Padding(
                         padding: EdgeInsetsDirectional.only(end: size.width*0.09,start: size.width*0.09),
                         child: DashedLine(color: greyColor),
                       ),
-                      // Padding(
-                      //   padding: EdgeInsetsDirectional.only(end: size.width*0.09,start: size.width*0.09),
-                      //   child: Align(
-                      //     alignment: AlignmentDirectional.bottomCenter,
-                      //     child: CustomPaint(
-                      //       painter: DottedLinePainter(color: whiteGreyColor),
-                      //       size: const Size(double.infinity, 20),
-                      //       child: SizedBox(
-                      //
-                      //         width: size.width*0.01,
-                      //         height: size.width*0.12,
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ),
-                      homeComponentWidget(fct: (){},context: context, image: 'assets/images/vedio.png', title: 'الاتصال المرئي',isWide: false),
+                      homeComponentWidget(fct: (){},context: context,
+                          image: 'assets/images/vedio.png', title:LocaleKeys.videoCall.tr(),isWide: false),
                     ],
                   ),
                   Padding(
@@ -108,11 +96,12 @@ class HomeScreen extends StatelessWidget {
                   homeComponentWidget(fct: (){navigateForward(AnotherServicesScreen());},context: context, image: 'assets/images/other_services.png', title: 'خدمات اخرى'),
                   floatingContainer(
                       alignment: AlignmentDirectional.bottomStart,
-                      context: context, svgAssets: 'assets/svg/Icon ionic-ios-add.svg', title: 'اضافه مرافق', width: size.width * 0.4,color:darkMainColor ),
+                      context: context, svgAssets: 'assets/svg/Icon ionic-ios-add.svg', title:LocaleKeys.addCompanion.tr(), width: size.width * 0.4,color:darkMainColor ),
                   SizedBox(height: size.height*0.02,),
                   floatingContainer(
                       alignment: AlignmentDirectional.bottomStart,
-                      context: context, svgAssets: 'assets/svg/on map.svg', title: 'مكاتب الارشاد والمرشدين', width: size.width * 0.7,color:orangeColor ),
+                      context: context, svgAssets: 'assets/svg/on map.svg',
+                      title:LocaleKeys.counselingOfficesAndCounselors.tr(), width: size.width * 0.7,color:orangeColor ),
 
                 ],
               ),

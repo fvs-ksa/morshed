@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:morshed/translation/locale_keys.g.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../models/more_screen_model.dart';
@@ -43,7 +45,7 @@ class MoreScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 return index==9?Padding(
                   padding:  EdgeInsetsDirectional.only(top: size.height*0.02),
-                  child: Text('تسجيل خروج',style: Theme.of(context).textTheme.headline4,textAlign: TextAlign.center,),
+                  child: Text(LocaleKeys.logOut.tr(),style: Theme.of(context).textTheme.headline4,textAlign: TextAlign.center,),
                 ):GestureDetector(
                   onTap:()=> moreList[index].onTap(),
                   child: Card(

@@ -11,12 +11,14 @@ import 'package:morshed/bloc/profile_cubit/cubit.dart';
 import 'package:morshed/bloc/register_cubit/cubit.dart';
 import 'package:morshed/bloc/setting_cubit/cubit.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
-import 'package:morshed/component/const_color.dart';
+import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/pallete.dart';
 import 'package:morshed/screen/borading_screen/boarding_screen.dart';
+import 'package:morshed/translation/codegen_loader.g.dart';
 import 'package:morshed/utiels/navigation_Services.dart';
 import 'package:sizer/sizer.dart';
 import 'bloc_observe.dart';
+import 'constant/text_theme.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -24,12 +26,13 @@ void main() async {
    Bloc.observer=MyBlocObserver();
   await EasyLocalization.ensureInitialized();
   runApp(EasyLocalization(
+
       supportedLocales: [
         Locale('ar'),
         Locale('en')],
       path: 'assets/langs',
-
-      startLocale: const Locale('ar'),
+      assetLoader: const CodegenLoader(),
+      startLocale: const Locale('en'),
       fallbackLocale: const Locale('ar'),
       child: const MyApp()));
 }
@@ -40,6 +43,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // final mediaQueryData = MediaQuery.of(context);
+    // double scaleFactor = mediaQueryData.textScaleFactor;
     return MultiBlocProvider(
         providers: [
           BlocProvider<BoardingCubit>(create: (context) => BoardingCubit()..initialization()),
@@ -51,109 +56,103 @@ class MyApp extends StatelessWidget {
           BlocProvider<SubmitReportCubit>(create: (context) => SubmitReportCubit()),
           BlocProvider<AccountTypeCubit>(create: (context)=>AccountTypeCubit()),
         ],
-        child: Sizer(
-          builder: (context, orientation, deviceType) {
-            return MaterialApp(
-              navigatorKey: NavigationService.navigate().navigationKey,
-              debugShowCheckedModeBanner: false,
-              locale: context.locale,
-              supportedLocales: context.supportedLocales,
-              localizationsDelegates: context.localizationDelegates,
-              title: 'مرشد',
+        child: MediaQuery(
+          data: MediaQueryData(),
+          child: Sizer(
+            builder: (ctx, orientation, deviceType) {
 
+              return MaterialApp(
+                navigatorKey: NavigationService.navigate().navigationKey,
+                debugShowCheckedModeBanner: false,
+                locale: context.locale,
+                supportedLocales: context.supportedLocales,
+                localizationsDelegates: context.localizationDelegates,
+                title: 'مرشد',
+                theme: ThemeData(
+                 // fontFamily: GoogleFonts.cairo(),
+                  primarySwatch: Palette.primaryColor,
 
+                  textTheme:responsiveTextTheme(ctx),
 
-              theme: ThemeData(
-               // fontFamily: GoogleFonts.cairo(),
-                primarySwatch: Palette.primaryColor,
-
-                textTheme: TextTheme(
-                  headline1: GoogleFonts.cairo(
-                      color: blackColor,
-                      fontSize: 20.sp,
-                      fontWeight: FontWeight.bold,
-                  ),
-                  // headline1: TextStyle(
-                  //   color: blackColor,
-                  //   fontSize: 20.sp,
-                  //   fontWeight: FontWeight.bold,
-                  // //  fontFamily: 'Cairo-Bold'
-                  // ),
-                  caption: GoogleFonts.cairo(
-                    color: greyColor,
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w400,
-                   // fontFamily: 'Cairo-Regular'
-                  ),
-                  subtitle1: GoogleFonts.cairo(
-                  color: whiteGreyColor,
-                  fontSize: 13.sp,
-                  fontWeight: FontWeight.w500,
-                     // fontFamily: 'Cairo-Regular'
                 ),
-                  headline2: GoogleFonts.cairo(
-                    color: whiteColor,
-                    fontSize: 19.sp,
-                    fontWeight: FontWeight.bold,
-                     // fontFamily: 'Cairo-Bold'
-                  ),
-                  bodyText1: GoogleFonts.cairo(
-                    color: darkMainColor,
-                    fontSize: 15.sp,
-                    fontWeight: FontWeight.w700,
-                     // fontFamily: 'Cairo-Medium'
-                  ),
-                    bodyText2: GoogleFonts.cairo(
-                        color: blackColor,
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w800,
-                        //fontFamily: 'cairo-Black'
-                ),
-                  headline5:  GoogleFonts.cairo(
-                    color: blackColor,
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.normal,
-                    //fontFamily: 'cairo-Black'
-                ),
-                  headlineLarge:GoogleFonts.cairo(
-                    color: blackColor,
-                    fontSize: 10.sp,
-                    fontWeight: FontWeight.normal,
-                    //fontFamily: 'cairo-Black'
-                  ),
-                  overline: GoogleFonts.cairo(
-                    color: greyColor,
-                    fontSize: 10.sp,
-                    fontWeight: FontWeight.w400,
-                    // fontFamily: 'Cairo-Regular'
-                  ),
-                  subtitle2:GoogleFonts.cairo(
-                    color: blackColor,
-                    fontSize: 13.sp,
-                    fontWeight: FontWeight.w700,
-                    // fontFamily: 'Cairo-Medium'
-                  ) ,
-                  headline6: GoogleFonts.cairo(
-                      color: orangeColor,
-                      fontSize: 15.sp,
-                      fontWeight: FontWeight.w500,
-                     // fontFamily: 'Cairo-Medium'
-                  ),
-
-                  headline4: GoogleFonts.cairo(color: orangeColor,fontWeight: FontWeight.w700,fontSize: 18.sp,decoration: TextDecoration.underline),
-                  headline3: GoogleFonts.cairo(color: Colors.red,fontWeight: FontWeight.w500,fontSize: 15.sp),
-                  button: GoogleFonts.cairo(color: whiteColor,fontSize: 15.sp,fontWeight: FontWeight.w700)
-                  // headline3: GoogleFonts.cairo(
-                  //     color: lightMainColor,
-                  //     fontSize: 15.sp,
-                  //     fontWeight: FontWeight.w500
-                  // ),
-                ),
-
-              ),
-              home: BoardingScreen(),
-            );
-          }
+                home: BoardingScreen(),
+              );
+            }
+          ),
         ));
   }
+
 }
+// TextTheme(
+//
+// headline1: GoogleFonts.cairo(
+// color: blackColor,
+// fontSize: 20*scaleFactor,
+// fontWeight: FontWeight.bold,
+// ),
+// caption: GoogleFonts.cairo(
+// fontSize: 14*scaleFactor,
+// color: greyColor,
+//
+// fontWeight: FontWeight.w400,
+// // fontFamily: 'Cairo-Regular'
+// ),
+// subtitle1: GoogleFonts.cairo(
+// fontSize: 13*scaleFactor,
+// color: whiteGreyColor,
+// fontWeight: FontWeight.w500,
+// // fontFamily: 'Cairo-Regular'
+// ),
+// headline2: GoogleFonts.cairo(
+// color: whiteColor,
+// fontWeight: FontWeight.bold,
+// fontSize: 19*scaleFactor,
+// // fontFamily: 'Cairo-Bold'
+// ),
+// bodyText1: GoogleFonts.cairo(
+// fontSize: 15*scaleFactor,
+// color: darkMainColor,
+// fontWeight: FontWeight.w700,
+// // fontFamily: 'Cairo-Medium'
+// ),
+// bodyText2: GoogleFonts.cairo(
+// fontSize: 14*scaleFactor,
+// color: blackColor,
+// fontWeight: FontWeight.w800,
+// //fontFamily: 'cairo-Black'
+// ),
+// headline5:  GoogleFonts.cairo(
+// color: blackColor,
+// fontWeight: FontWeight.normal,
+// fontSize: 14*scaleFactor,
+// //fontFamily: 'cairo-Black'
+// ),
+// headlineLarge:GoogleFonts.cairo(
+// color: blackColor,
+// fontWeight: FontWeight.normal,
+// fontSize: 10*scaleFactor,
+// //fontFamily: 'cairo-Black'
+// ),
+// overline: GoogleFonts.cairo(
+// color: greyColor,
+// fontWeight: FontWeight.w400,
+// fontSize: 10*scaleFactor,
+// // fontFamily: 'Cairo-Regular'
+// ),
+// subtitle2:GoogleFonts.cairo(
+// color: blackColor,
+// fontWeight: FontWeight.w700,
+// fontSize: 13*scaleFactor,
+// // fontFamily: 'Cairo-Medium'
+// ) ,
+// headline6: GoogleFonts.cairo(
+// color: orangeColor,
+//
+// fontWeight: FontWeight.w500,
+// fontSize: 15*scaleFactor,
+// // fontFamily: 'Cairo-Medium'
+// ),
+// headline4: GoogleFonts.cairo(color: orangeColor,fontWeight: FontWeight.w700,fontSize: 18*scaleFactor,decoration: TextDecoration.underline),
+// headline3: GoogleFonts.cairo(color: Colors.red,fontWeight: FontWeight.w500,fontSize: 15*scaleFactor),
+// button: GoogleFonts.cairo(color: whiteColor,fontSize: 15*scaleFactor,fontWeight: FontWeight.w700)
+// )

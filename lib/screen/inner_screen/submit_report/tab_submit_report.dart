@@ -1,10 +1,12 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_state.dart';
-import 'package:morshed/component/const_color.dart';
+import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/component/info_profile_component.dart';
+import 'package:morshed/translation/locale_keys.g.dart';
 import '../../../component/horizontal_dotted_line.dart';
 import 'another_person_submit_report.dart';
 import 'my_submit_report.dart';
@@ -60,7 +62,8 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.only(
-                            top: screenSize.height * 0.07,
+                            top: screenSize.height * 0.05,
+                            bottom:screenSize.height * 0.02 ,
                             start: screenSize.width * 0.04),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -73,7 +76,7 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
                                     width: screenSize.width * 0.24,
                                   ),
                                   Text(
-                                    'تقديم بلاغ',
+                                    LocaleKeys.reporting.tr(),
                                     style:
                                         Theme.of(context).textTheme. headline2,
                                   )
@@ -83,25 +86,25 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
                             TabBar(controller: tabController, tabs: [
                               Tab(
                                 child: Text(
-                                  'انا تائه',
+                                  LocaleKeys.iLost.tr(),
                                   style: tabController.index == 0
                                       ? Theme.of(context).textTheme.button
                                       : Theme.of(context).textTheme.subtitle1,
                                 ),
                                 icon: SvgPicture.asset(
-                                    'assets/svg/me-1.svg'),
+                                    tabController.index == 1? 'assets/svg/iLostActive.svg':'assets/svg/iLostInActive.svg'),
                                 // text: 'انا تائه'
                               ),
 
                               Tab(
                                 child: Text(
-                                  'شخص اخر',
+                                  LocaleKeys.anotherOneIsLost.tr(),
                                   style: tabController.index == 1
                                       ? Theme.of(context).textTheme.button
                                       : Theme.of(context).textTheme.subtitle1,
                                 ),
                                 icon: SvgPicture.asset(
-                                    'assets/svg/Group 204379.svg'),
+                                    tabController.index == 0? 'assets/svg/anotherActive.svg':'assets/svg/anotherInActive.svg'),
                               ),
                             ])
                           ],

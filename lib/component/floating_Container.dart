@@ -8,7 +8,7 @@ Widget floatingContainer({required AlignmentDirectional alignment,required Build
   return  Align(
     alignment: alignment,
     child: Container(
-      padding: EdgeInsetsDirectional.only(start: size.width*0.06),
+      padding: EdgeInsetsDirectional.only(start: size.width*0.06,end: size.width*0.02),
       height: size.height * 0.07,
       width: width,
       decoration:
@@ -17,7 +17,7 @@ Widget floatingContainer({required AlignmentDirectional alignment,required Build
         children: [
           SvgPicture.asset(svgAssets),
           SizedBox(width: size.width*0.02,),
-          Text(title,style: Theme.of(context).textTheme.button,)
+          Expanded(child: Text(title,style: Theme.of(context).textTheme.button,))
         ],),
     ),
   );

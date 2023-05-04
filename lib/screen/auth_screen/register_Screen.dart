@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -7,11 +8,12 @@ import 'package:morshed/bloc/register_cubit/cubit.dart';
 import 'package:morshed/bloc/register_cubit/state.dart';
 import 'package:morshed/component/animation_component.dart';
 import 'package:morshed/component/component.dart';
-import 'package:morshed/component/const_color.dart';
+import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/screen/bottom_navigations_screens/main_screen.dart';
 import 'package:sizer/sizer.dart';
 import '../../component/info_profile_component.dart';
 import '../../component/navigation_functions.dart';
+import '../../translation/locale_keys.g.dart';
 import 'login_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -55,7 +57,7 @@ class RegisterScreen extends StatelessWidget {
                             children: [
                               backButtonWidget(fct: (){Navigator.pop(context);}),
                               Text(
-                                accountTypeCubit.isUmrah?'تسجيل معتمر جديد': 'تسجيل حاج جديد',
+                                accountTypeCubit.isUmrah?LocaleKeys.registerNewMoetamer.tr():LocaleKeys.registerNewHajji.tr(),
                                 style: Theme.of(context).textTheme.headline1,
                               )
                             ],
@@ -80,20 +82,21 @@ class RegisterScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               textFormField(
-                                  labelText: 'الاسم بالكامل بالعربي حسب الجواز',
-                                  hintText: 'الاسم بالكامل بالعربي حسب الجواز',
+                                  labelText:LocaleKeys.arabicNamePassport.tr(),
+                                 // hintText: 'الاسم بالكامل بالعربي حسب الجواز',
                                   context: context,
                                   controller: arabicNameController),
                               textFormField(
                                   context: context,
-                                  labelText: 'الاسم بالكامل بالانجليزيه حسب الجواز',
-                                  hintText: 'الاسم بالكامل بالانجليزيه حسب الجواز',
+
+                                  labelText:LocaleKeys.englishNamePassport.tr(),
+                                 // hintText: 'الاسم بالكامل بالانجليزيه حسب الجواز',
                                   controller: arabicNameController),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'صوره شخصية',
+                                    LocaleKeys.profilePic.tr(),
                                     style: Theme.of(context).textTheme.headline1,
                                   ),
                                   Stack(
@@ -121,12 +124,13 @@ class RegisterScreen extends StatelessWidget {
                                     child: textFormField(
                                         context: context,
                                         keyboardType: TextInputType.phone,
-                                        labelText: 'رقم الجوال',
-                                        hintText: 'رقم الجوال',
+                                        labelText:LocaleKeys.phoneNumber.tr(),
+                                       // hintText: 'رقم الجوال',
                                         controller: phoneNumberController),
                                   ),
                                   SizedBox(width: size.width*0.07,),
-                                  decorationContainerWidget(radius: 35.sp,context: context,child:Text('+966',style: Theme.of(context).textTheme.bodyText1,textAlign: TextAlign.center,)),
+                                  decorationContainerWidget(radius: 35.sp,context: context,
+                                      child:Text('+966',style: Theme.of(context).textTheme.bodyText1,textAlign: TextAlign.center,)),
                                 ],
                               ),
                               dropDownButton(
@@ -134,7 +138,7 @@ class RegisterScreen extends StatelessWidget {
                                     return DropdownMenuItem(child: Text(e.toString()),value: e.toString(),);
                                   }).toList(),
                                   value: registerCubit.chooseNationality,
-                                  hint: 'الجنسيه',
+                                  hint:LocaleKeys.nationality.tr(),
                                   fct: (onChange){
                                     registerCubit.onChangeCountryName(onChange);
                                   },
@@ -149,8 +153,8 @@ class RegisterScreen extends StatelessWidget {
                                     child: textFormField(
                                       isEnabled: false,
                                         context: context,
-                                        labelText:registerCubit.convertedDateTime??'تاريخ الميلاد',
-                                        hintText:registerCubit.convertedDateTime?? 'تاريخ الميلاد',
+                                        labelText:registerCubit.convertedDateTime??LocaleKeys.dateOfBirth.tr(),
+                                       // hintText:registerCubit.convertedDateTime??LocaleKeys.dateOfBirth.tr(),
                                          ),
                                   ),
                                   SizedBox(width: size.width*0.07,),
@@ -166,23 +170,23 @@ class RegisterScreen extends StatelessWidget {
 
                               textFormField(
                                   context: context,
-                                  labelText: 'البريد الالكتروني',
-                                  hintText: 'البريد الالكتروني',
+                                  labelText:LocaleKeys.email.tr(),
+                                 // hintText: 'البريد الالكتروني',
                                   controller: emailController),
                               textFormField(
                                   context: context,
-                                  labelText: 'رقم الجواز',
-                                  hintText: 'رقم الجواز',
+                                  labelText:LocaleKeys.passportNo.tr(),
+                                 // hintText: 'رقم الجواز',
                                   controller: passportController),
                               textFormField(
                                   context: context,
-                                  labelText: 'رقم التأشيره',
-                                  hintText: 'رقم التأشيره',
+                                  labelText:LocaleKeys.visaNo.tr(),
+                                 // hintText: 'رقم التأشيره',
                                   controller: visaNumberController),
                               textFormField(
                                   context: context,
-                                  labelText: 'رقم الحدود',
-                                  hintText: 'رقم الحدود',
+                                  labelText:LocaleKeys.boardNo.tr(),
+                                 // hintText: 'رقم الحدود',
                                   controller:borderNumberController),
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -193,8 +197,8 @@ class RegisterScreen extends StatelessWidget {
                                     child: textFormField(
                                       isEnabled: false,
                                       context: context,
-                                      labelText:registerCubit.convertedDateTime??'تاريخ الوصول',
-                                      hintText:registerCubit.convertedDateTime?? 'تاريخ الوصول',
+                                      labelText:registerCubit.convertedDateTime??LocaleKeys.arriveDate.tr(),
+                                     // hintText:registerCubit.convertedDateTime?? 'تاريخ الوصول',
                                     ),
                                   ),
                                   SizedBox(width: size.width*0.07,),
@@ -222,8 +226,8 @@ class RegisterScreen extends StatelessWidget {
                                     child: textFormField(
                                       isEnabled: false,
                                       context: context,
-                                      labelText:registerCubit.convertedDateTime??'تاريخ المغادره',
-                                      hintText:registerCubit.convertedDateTime?? 'تاريخ المغادره',
+                                      labelText:registerCubit.convertedDateTime??LocaleKeys.leaveDate.tr(),
+                                     // hintText:registerCubit.convertedDateTime?? 'تاريخ المغادره',
                                     ),
                                   ),
                                   SizedBox(width: size.width*0.07,),
@@ -247,7 +251,7 @@ class RegisterScreen extends StatelessWidget {
                                     return DropdownMenuItem(child: Text(e['residenceName'].toString()),value: e['id'].toString(),);
                                   }).toList(),
                                   value: registerCubit.chooseResidence,
-                                  hint: 'مقر السكن مكه | المدينه',
+                                  hint:LocaleKeys.residentialAddress.tr(),
                                   fct: (onChange){
                                     registerCubit.onChangeResidence(onChange);
                                     print(onChange);
@@ -256,29 +260,29 @@ class RegisterScreen extends StatelessWidget {
                                   validator: (){}),
                               registerCubit.chooseResidence=='1'?textFormField(
                                   context: context,
-                                  labelText: 'رقم المخيم  (منى)',
-                                  hintText: 'رقم المخيم  (منى)',
+                                  labelText:LocaleKeys.mennaNo.tr() ,
+                                 // hintText: 'رقم المخيم  (منى)',
                                   controller: arabicNameController):const SizedBox(),
                               registerCubit.chooseResidence=='1'? textFormField(
                                   context: context,
-                                  labelText: 'رقم المخيم  (عرفه)',
-                                  hintText: 'رقم المخيم  (عرفه)',
+                                  labelText:LocaleKeys.arfaNo.tr(),
+                                 // hintText: 'رقم المخيم  (عرفه)',
                                   controller: arabicNameController):const SizedBox(),
                               registerCubit.chooseResidence=='1'? textFormField(
                                   context: context,
-                                  labelText: 'رقم المخيم  (المزدلفه)',
-                                  hintText: 'رقم المخيم  (المزدلفه)',
+                                  labelText:LocaleKeys.mozdalefaNo.tr(),
+                                  //hintText: 'رقم المخيم  (المزدلفه)',
                                   controller: arabicNameController):const SizedBox(),
                               textFormField(
                                   context: context,
-                                  labelText: 'اسم الفندق',
-                                  hintText: 'اسم الفندق',
+                                  labelText:LocaleKeys.maccaHotelName.tr(),
+                                 // hintText: 'اسم الفندق',
                                   controller: arabicNameController),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'هل تعاني من اعاقة؟',
+                                    LocaleKeys.haveDisability.tr(),
                                     style: Theme.of(context).textTheme.headline1,
                                   ),
                                   Switch.adaptive(value: registerCubit.isDisability, onChanged: (onChanged){
@@ -289,10 +293,11 @@ class RegisterScreen extends StatelessWidget {
                               ),
                              registerCubit.isDisability? dropDownButton(
                                   items: registerCubit.disabilities.map((e){
-                                    return DropdownMenuItem(child: Text(e.toString()),value: e.toString(),);
+                                    return DropdownMenuItem(child: Text(e.toString(),style: Theme.of(context).textTheme.overline,),value: e.toString(),);
                                   }).toList(),
                                   value: registerCubit.chooseDisability,
-                                  hint: 'نوع الاعاقه',
+
+                                  hint:LocaleKeys.disabilityType.tr() ,
                                   fct: (onChange){
                                     registerCubit.onChangeDisability(onChange);
                                     print(onChange);
@@ -301,29 +306,32 @@ class RegisterScreen extends StatelessWidget {
                                   validator: (){}):const SizedBox(),
                               textFormField(
                                   context: context,
-                                  labelText: 'اسم الوكيل',
-                                  hintText: 'اسم الوكيل',
+                                  labelText:LocaleKeys.agentName.tr(),
+                                 // hintText: 'اسم الوكيل',
                                   controller: arabicNameController),
                               textFormField(
                                 suffixIcon: IconButton(onPressed: (){}, icon: Icon(Icons.visibility)),
                                   context: context,
-                                  labelText: 'كلمه المرور',
-                                  hintText: 'كلمه المرور',
+                                  labelText:LocaleKeys.password.tr() ,
+                                //  hintText: 'كلمه المرور',
                                   controller: arabicNameController),
                               textFormField(
                                   context: context,
                                   suffixIcon: IconButton(onPressed: (){}, icon: Icon(Icons.visibility)),
-                                  labelText: 'تأكيد كلمه المرور',
-                                  hintText: 'تأكيد كلمه المرور',
+                                  labelText:LocaleKeys.confirmPassword.tr(),
+                                 // hintText: 'تأكيد كلمه المرور',
                                   controller: arabicNameController),
-                              richText(navigation: ()=>navigateForward(RegisterScreen()), text: 'بالقيام بالتسجيل فأنت توافق على ',
-                                  tappedText: 'الشروط و الاحكام', context: context),
+                              richText(navigation: ()=>navigateForward(RegisterScreen()),
+                                  text:LocaleKeys.whenYouRegisterYouAgree.tr() ,
+                                  tappedText: LocaleKeys.privacyPolicy.tr(), context: context),
                           SizedBox(height: size.height*0.04,),
-                          mainButton(width: double.infinity, height: size.height*0.07, text: 'تسجيل', color: darkMainColor, context: context, fct: (){
+                          mainButton(width: double.infinity, height: size.height*0.07, text:LocaleKeys.registerNow.tr(), color: darkMainColor, context: context, fct: (){
                             navigateForward(MainScreen());
                           }),
                               SizedBox(height: size.height*0.02,),
-                              richText(navigation: ()=>navigateForward(LoginScreen()), text: 'لديك حساب ؟ ', tappedText: 'الدخول الآن', context: context),
+                              richText(navigation: ()=>navigateForward(LoginScreen()),
+                                  text:LocaleKeys.haveAccount.tr(),
+                                  tappedText:LocaleKeys.loginNow.tr(), context: context),
                               SizedBox(height: size.height*0.02,),
                             ],
                           ),

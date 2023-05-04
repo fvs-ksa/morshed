@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:morshed/component/guide_escorts_component.dart';
-import '../../component/const_color.dart';
+import 'package:morshed/translation/locale_keys.g.dart';
+import '../../constant/const_color.dart';
 import '../../component/floating_Container.dart';
 
 class EscortsScreen extends StatelessWidget {
@@ -10,7 +12,7 @@ class EscortsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size screenSize=MediaQuery.of(context).size;
     return Scaffold(
-      appBar: preferredHeaderWithGuide(context: context, title: 'المرافقين', fct: (){},searchController:searchController,isGuide: false ),
+      appBar: preferredHeaderWithGuide(context: context, title:LocaleKeys.Companions.tr(), fct: (){},searchController:searchController,isGuide: false ),
       backgroundColor: whiteGreyColor,
       body: Padding(
         padding: EdgeInsetsDirectional.only(
@@ -34,7 +36,7 @@ class EscortsScreen extends StatelessWidget {
               child: floatingContainer(
                   alignment: AlignmentDirectional.bottomEnd,
                   context: context, svgAssets: 'assets/svg/Icon ionic-ios-add.svg',
-                  title: 'مرافق', width: screenSize.width * 0.27,color:darkMainColor ),
+                  title: LocaleKeys.Companions.tr(), width: screenSize.width * 0.33,color:darkMainColor ),
             ),
           ],
         ),

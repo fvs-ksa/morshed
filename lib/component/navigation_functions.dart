@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:morshed/translation/locale_keys.g.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../utiels/navigation_Services.dart';
 
@@ -23,8 +25,8 @@ launchWhatsapp(context) async {
     await launchUrl(url);
   } else {
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text("WhatsApp is not installed on the device"),
+       SnackBar(
+        content: Text(LocaleKeys.errorWhileMovingToWhatsApp.tr()),
       ),
     );
   }

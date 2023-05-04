@@ -9,8 +9,10 @@ class BoardingModel{
 
 }
 List<BoardingModel> boardingList=[
-  BoardingModel(image: 'assets/images/i1.png', title: 'شخص تائه؟', subTitle: 'قم بالتبليغ عن الشخص التائه بسهولة'),
-  BoardingModel(image: 'assets/images/i2.png', title:'تريد إرشاد؟' , subTitle:'أحصل على جميع الإرشادات الخاصة بك' ),
+  BoardingModel(image: 'assets/images/i1.png', title:LocaleKeys.boardingTitle1.tr(),
+      subTitle:LocaleKeys.boardingSubTitle1.tr() ),
+  BoardingModel(image: 'assets/images/i2.png', title:LocaleKeys.boardingTitle2.tr() ,
+      subTitle:LocaleKeys.boardingSubTitle2.tr() ),
 ];
 //LocaleKeys.boardingTitle1.tr()
 //LocaleKeys.boardingTitle2.tr()
