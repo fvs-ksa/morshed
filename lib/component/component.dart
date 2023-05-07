@@ -173,7 +173,8 @@ Widget mainButton(
       FontWeight? fontWeight,
       required String text,
       required Color color,
-      // TextStyle? textStyle,
+      Color? borderColor,
+      TextStyle? textStyle,
       required BuildContext context,
       required Function fct}) {
   return InkWell(
@@ -184,13 +185,18 @@ Widget mainButton(
       height: height,
       width: width,
       decoration:
-      BoxDecoration(color: color, borderRadius: BorderRadius.circular(35.sp)),
+      BoxDecoration(
+          border: Border.all(
+            color: borderColor??Colors.transparent,
+           // width: 2.0,
+          ),
+          color: color, borderRadius: BorderRadius.circular(35.sp)),
       child: Align(
         alignment: Alignment.center,
         child: Text(
           textAlign: TextAlign.center,
           text,
-          style: Theme.of(context).textTheme.button,
+          style:textStyle?? Theme.of(context).textTheme.button,
         ),
       ),
     ),

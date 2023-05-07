@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:morshed/bloc/account_type_cubit/cubit.dart';
 import 'package:morshed/bloc/boarding_cubit/cubit.dart';
 import 'package:morshed/bloc/chat_cubit/chat_with_support_cubit/chat_support_cubit.dart';
@@ -11,7 +10,6 @@ import 'package:morshed/bloc/profile_cubit/cubit.dart';
 import 'package:morshed/bloc/register_cubit/cubit.dart';
 import 'package:morshed/bloc/setting_cubit/cubit.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
-import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/pallete.dart';
 import 'package:morshed/screen/borading_screen/boarding_screen.dart';
 import 'package:morshed/translation/codegen_loader.g.dart';
@@ -22,17 +20,14 @@ import 'constant/text_theme.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-   Bloc.observer=MyBlocObserver();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  Bloc.observer = MyBlocObserver();
   await EasyLocalization.ensureInitialized();
   runApp(EasyLocalization(
-
-      supportedLocales: [
-        Locale('ar'),
-        Locale('en')],
+      supportedLocales: const [Locale('ar'), Locale('en')],
       path: 'assets/langs',
       assetLoader: const CodegenLoader(),
-      startLocale: const Locale('en'),
+      startLocale: const Locale('ar'),
       fallbackLocale: const Locale('ar'),
       child: const MyApp()));
 }
@@ -43,45 +38,40 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // final mediaQueryData = MediaQuery.of(context);
-    // double scaleFactor = mediaQueryData.textScaleFactor;
     return MultiBlocProvider(
         providers: [
-          BlocProvider<BoardingCubit>(create: (context) => BoardingCubit()..initialization()),
+          BlocProvider<BoardingCubit>(
+              create: (context) => BoardingCubit()..initialization()),
           BlocProvider<RegisterCubit>(create: (context) => RegisterCubit()),
           BlocProvider<GeneralCubit>(create: (context) => GeneralCubit()),
-          BlocProvider<ChatWithSupportCubit>(create: (context) => ChatWithSupportCubit()),
+          BlocProvider<ChatWithSupportCubit>(
+              create: (context) => ChatWithSupportCubit()),
           BlocProvider<ProfileCubit>(create: (context) => ProfileCubit()),
           BlocProvider<SettingCubit>(create: (context) => SettingCubit()),
-          BlocProvider<SubmitReportCubit>(create: (context) => SubmitReportCubit()),
-          BlocProvider<AccountTypeCubit>(create: (context)=>AccountTypeCubit()),
+          BlocProvider<SubmitReportCubit>(
+              create: (context) => SubmitReportCubit()),
+          BlocProvider<AccountTypeCubit>(
+              create: (context) => AccountTypeCubit()),
         ],
         child: MediaQuery(
-          data: MediaQueryData(),
-          child: Sizer(
-            builder: (ctx, orientation, deviceType) {
-
-              return MaterialApp(
-                navigatorKey: NavigationService.navigate().navigationKey,
-                debugShowCheckedModeBanner: false,
-                locale: context.locale,
-                supportedLocales: context.supportedLocales,
-                localizationsDelegates: context.localizationDelegates,
-                title: 'مرشد',
-                theme: ThemeData(
-                 // fontFamily: GoogleFonts.cairo(),
-                  primarySwatch: Palette.primaryColor,
-
-                  textTheme:responsiveTextTheme(ctx),
-
-                ),
-                home: BoardingScreen(),
-              );
-            }
-          ),
+          data: const MediaQueryData(),
+          child: Sizer(builder: (ctx, orientation, deviceType) {
+            return MaterialApp(
+              navigatorKey: NavigationService.navigate().navigationKey,
+              debugShowCheckedModeBanner: false,
+              locale: context.locale,
+              supportedLocales: context.supportedLocales,
+              localizationsDelegates: context.localizationDelegates,
+              title: 'مرشد',
+              theme: ThemeData(
+                primarySwatch: Palette.primaryColor,
+                textTheme: responsiveTextTheme(ctx),
+              ),
+              home: BoardingScreen(),
+            );
+          }),
         ));
   }
-
 }
 // TextTheme(
 //
