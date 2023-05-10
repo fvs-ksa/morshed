@@ -1,14 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:morshed/component/component.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/component/floating_Container.dart';
 import 'package:morshed/component/home_screen_widget.dart';
 import 'package:morshed/screen/inner_screen/my_card_screen.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
-import 'package:sizer/sizer.dart';
-
 import '../../component/horizontal_dotted_line.dart';
 import '../../component/navigation_functions.dart';
 import '../inner_screen/another_services_screens/another_services_screen.dart';
@@ -69,7 +65,7 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   Text(
                     LocaleKeys.welcomeToMorshed.tr(),
-                    style: Theme.of(context).textTheme.headline1,
+                    style: Theme.of(context).textTheme.displayLarge,
                     softWrap: true,
                     textAlign: TextAlign.center,
                   ),
@@ -79,21 +75,22 @@ class HomeScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      homeComponentWidget(style:Theme.of(context).textTheme.headline3 ,context: context, image: 'assets/images/report.png',
+                      homeComponentWidget(style:Theme.of(context).textTheme.displaySmall ,context: context, image: 'assets/images/report.png',
                           title:LocaleKeys.reportingCaseOfMentalBreakdown.tr(), fct: (){navigateForward(TabBarSubmitReport());}),
                       Padding(
-                        padding: EdgeInsetsDirectional.only(end: size.width*0.09,start: size.width*0.09),
+                        padding: EdgeInsetsDirectional.only(end: size.width*0.04,start: size.width*0.01),
                         child: DashedLine(color: greyColor),
                       ),
                       homeComponentWidget(fct: (){},context: context,
-                          image: 'assets/images/vedio.png', title:LocaleKeys.videoCall.tr(),isWide: false),
+                          image: 'assets/images/vedio.png', title:LocaleKeys.videoCall.tr(),isWide: true),
                     ],
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.only(bottom: size.height*0.04,top: size.height*0.01),
                     child: MySeparator(color: greyColor),
                   ),
-                  homeComponentWidget(fct: (){navigateForward(AnotherServicesScreen());},context: context, image: 'assets/images/other_services.png', title: 'خدمات اخرى'),
+                  homeComponentWidget(fct: (){navigateForward(AnotherServicesScreen());},context: context,
+                      image: 'assets/images/other_services.png', title: LocaleKeys.otherServices.tr()),
                   floatingContainer(
                       alignment: AlignmentDirectional.bottomStart,
                       context: context, svgAssets: 'assets/svg/Icon ionic-ios-add.svg', title:LocaleKeys.addCompanion.tr(), width: size.width * 0.4,color:darkMainColor ),

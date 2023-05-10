@@ -18,7 +18,9 @@ Widget circleAvtarWidget({required String svgImage,}){
           child: SvgPicture.asset(
               svgImage)));
 }
-PreferredSize preferredHeaderWithGuide({required BuildContext context,bool isActive=true,required String title,bool isGuide=true ,TextEditingController? searchController, Function? fct}){
+PreferredSize preferredHeaderWithGuide({required BuildContext context,
+  Widget? dropDownWidget,
+  bool isActive=true,required String title,bool isGuide=true ,TextEditingController? searchController, Function? fct}){
   Size screenSize=MediaQuery.of(context).size;
   return PreferredSize(
       child: Card(
@@ -43,7 +45,7 @@ PreferredSize preferredHeaderWithGuide({required BuildContext context,bool isAct
                   ),
                   Text(
                     title,
-                    style: Theme.of(context).textTheme.headline1,
+                    style: Theme.of(context).textTheme.displayLarge,
                   ),
                 ],
               ),
@@ -59,11 +61,12 @@ PreferredSize preferredHeaderWithGuide({required BuildContext context,bool isAct
                           labelText:LocaleKeys.findingInfoByNamePHoneOrLang.tr(),
                          // hintText: 'بحث بالأسم أو رقم الجوال',
                           context: context)),
-                  isGuide?  Container(
-                    height: screenSize.height * 0.06,
-                    width: screenSize.width * 0.2,
-                    color: darkMainColor,
-                  ):SizedBox(),
+                  isGuide?dropDownWidget!:SizedBox(),
+                  // isGuide?  Container(
+                  //   height: screenSize.height * 0.06,
+                  //   width: screenSize.width * 0.2,
+                  //   color: darkMainColor,
+                  // ):SizedBox(),
                   SizedBox(
                     width: screenSize.width * 0.02,
                   ),
@@ -104,12 +107,12 @@ Widget itemContainerOfGuidesAndEscorts({required BuildContext context,Widget? co
           child: ListTile(
             title: Text(
               name,
-              style: Theme.of(context).textTheme.headline1,
+              style: Theme.of(context).textTheme.displayLarge,
             ),
             subtitle: RichText(
               text: TextSpan(
                   text: '${LocaleKeys.phoneNumber.tr()} : ',
-                  style: Theme.of(context).textTheme.overline,
+                  style: Theme.of(context).textTheme.labelSmall,
                   children: [
                     TextSpan(
                         text: phone,

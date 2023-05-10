@@ -37,7 +37,7 @@ class LoginScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   backButtonWidget(fct: (){Navigator.pop(context);}),
-                  Text(LocaleKeys.loginNow.tr(),style: Theme.of(context).textTheme.headline1,),
+                  Text(LocaleKeys.loginNow.tr(),style: Theme.of(context).textTheme.displayLarge,),
                 ],
               ),
               Image.asset('assets/images/مرشد.png',height: screenSize.height * 0.2,
@@ -75,20 +75,20 @@ class LoginScreen extends StatelessWidget {
                 context: context, builder: (context){
               return AlertDialog(
 
-                title: Text(LocaleKeys.FastCommunication.tr(),style: Theme.of(context).textTheme.bodyText1,textAlign: TextAlign.center,),
+                title: Text(LocaleKeys.FastCommunication.tr(),style: Theme.of(context).textTheme.bodyLarge,textAlign: TextAlign.center,),
                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.sp)),
                 content: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(LocaleKeys.unifiedCommunications.tr(),style: Theme.of(context).textTheme.headline5,),
+                    Text(LocaleKeys.unifiedCommunications.tr(),style: Theme.of(context).textTheme.headlineSmall,),
                     GestureDetector(onTap: (){launchWhatsapp(context);},child: textFormField(
                         labelText: '966506977241+', context: context,isEnabled: false)),
                     Row(
                       children: [
                         SvgPicture.asset('assets/svg/Icon ionic-logo-whatsapp.svg'),
                         SizedBox(width: screenSize.width*0.03,),
-                        Text(LocaleKeys.communicationWhatsApp.tr(),style: Theme.of(context).textTheme.headline5,),
+                        Text(LocaleKeys.communicationWhatsApp.tr(),style: Theme.of(context).textTheme.headlineSmall,),
 
                       ],
                     ),
@@ -98,7 +98,7 @@ class LoginScreen extends StatelessWidget {
               );
             });
 
-          },child: Text(LocaleKeys.FastCommunication.tr(),style: Theme.of(context).textTheme.headline4,textAlign: TextAlign.center,)),
+          },child: Text(LocaleKeys.FastCommunication.tr(),style: Theme.of(context).textTheme.headlineMedium,textAlign: TextAlign.center,)),
           Image.asset('assets/images/pattern2.png',fit: BoxFit.contain,)
         ],
       ),

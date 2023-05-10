@@ -6,6 +6,7 @@ import 'package:morshed/bloc/account_type_cubit/cubit.dart';
 import 'package:morshed/bloc/boarding_cubit/cubit.dart';
 import 'package:morshed/bloc/chat_cubit/chat_with_support_cubit/chat_support_cubit.dart';
 import 'package:morshed/bloc/general_cubit/general_cubit.dart';
+import 'package:morshed/bloc/guides_cubit/cubit.dart';
 import 'package:morshed/bloc/profile_cubit/cubit.dart';
 import 'package:morshed/bloc/register_cubit/cubit.dart';
 import 'package:morshed/bloc/setting_cubit/cubit.dart';
@@ -14,15 +15,19 @@ import 'package:morshed/pallete.dart';
 import 'package:morshed/screen/borading_screen/boarding_screen.dart';
 import 'package:morshed/translation/codegen_loader.g.dart';
 import 'package:morshed/utiels/navigation_Services.dart';
+import 'package:morshed/utiels/shared_pref.dart';
 import 'package:sizer/sizer.dart';
 import 'bloc_observe.dart';
+import 'constant/const_color.dart';
 import 'constant/text_theme.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   Bloc.observer = MyBlocObserver();
+  await CacheHelper.init();
   await EasyLocalization.ensureInitialized();
+  ///CacheHelper.getData(key: 'isEnglish');
   runApp(EasyLocalization(
       supportedLocales: const [Locale('ar'), Locale('en')],
       path: 'assets/langs',
@@ -38,6 +43,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    myLocale = EasyLocalization.of(context)?.currentLocale;
+    print('my locale ${myLocale}');
+    isEnglish=CacheHelper.getData(key: 'isEnglish')??false;
     return MultiBlocProvider(
         providers: [
           BlocProvider<BoardingCubit>(
@@ -52,6 +60,8 @@ class MyApp extends StatelessWidget {
               create: (context) => SubmitReportCubit()),
           BlocProvider<AccountTypeCubit>(
               create: (context) => AccountTypeCubit()),
+          BlocProvider<GuidesCubit>(
+              create: (context) => GuidesCubit()),
         ],
         child: MediaQuery(
           data: const MediaQueryData(),

@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
@@ -17,7 +17,7 @@ Widget floatingContainer({required AlignmentDirectional alignment,required Build
         children: [
           SvgPicture.asset(svgAssets),
           SizedBox(width: size.width*0.02,),
-          Expanded(child: Text(title,style: Theme.of(context).textTheme.button,))
+          Expanded(child: Text(title,style: Theme.of(context).textTheme.labelLarge,))
         ],),
     ),
   );

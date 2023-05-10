@@ -35,14 +35,14 @@ class QrScreen extends StatelessWidget {
               ),
               Text(
                 'محمد أحمد',
-                style: Theme.of(context).textTheme.headline2,
+                style: Theme.of(context).textTheme.displayMedium,
               ),
               SizedBox(
                 height: screenSize.height * 0.01,
               ),
               Text(
                 LocaleKeys.provideYourCodeToAssistYou.tr(),
-                style: Theme.of(context).textTheme.headline2,
+                style: Theme.of(context).textTheme.displayMedium,
                 textAlign: TextAlign.center,
               ),
               SizedBox(

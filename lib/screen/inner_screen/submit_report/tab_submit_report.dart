@@ -78,7 +78,7 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
                                   Text(
                                     LocaleKeys.reporting.tr(),
                                     style:
-                                        Theme.of(context).textTheme. headline2,
+                                        Theme.of(context).textTheme. displayMedium,
                                   )
                                 ],
                               ),
@@ -88,8 +88,8 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
                                 child: Text(
                                   LocaleKeys.iLost.tr(),
                                   style: tabController.index == 0
-                                      ? Theme.of(context).textTheme.button
-                                      : Theme.of(context).textTheme.subtitle1,
+                                      ? Theme.of(context).textTheme.labelLarge
+                                      : Theme.of(context).textTheme.titleMedium,
                                 ),
                                 icon: SvgPicture.asset(
                                     tabController.index == 1? 'assets/svg/iLostActive.svg':'assets/svg/iLostInActive.svg'),
@@ -100,8 +100,8 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
                                 child: Text(
                                   LocaleKeys.anotherOneIsLost.tr(),
                                   style: tabController.index == 1
-                                      ? Theme.of(context).textTheme.button
-                                      : Theme.of(context).textTheme.subtitle1,
+                                      ? Theme.of(context).textTheme.labelLarge
+                                      : Theme.of(context).textTheme.titleMedium,
                                 ),
                                 icon: SvgPicture.asset(
                                     tabController.index == 0? 'assets/svg/anotherActive.svg':'assets/svg/anotherInActive.svg'),

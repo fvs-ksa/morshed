@@ -64,7 +64,7 @@ class ProfileScreen extends StatelessWidget {
                               context: context,
                               child: Text(
                                 '+966',
-                                style: Theme.of(context).textTheme.bodyText1,
+                                style: Theme.of(context).textTheme.bodyLarge,
                                 textAlign: TextAlign.center,
                               )),
                         ],
@@ -74,7 +74,7 @@ class ProfileScreen extends StatelessWidget {
                             return DropdownMenuItem(
                               child: Text(
                                 e.toString(),
-                                style: Theme.of(context).textTheme.caption,
+                                style: Theme.of(context).textTheme.bodySmall,
                               ),
                               value: e.toString(),
                             );

@@ -44,7 +44,7 @@ class AccountTypeScreen extends StatelessWidget {
                     ),
                     Text(
                       LocaleKeys.chooseAccountType.tr(),
-                      style: Theme.of(context).textTheme.headline2,
+                      style: Theme.of(context).textTheme.displayMedium,
                     ),
                     SizedBox(
                       height: size.height * 0.04,

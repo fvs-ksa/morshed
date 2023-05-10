@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:morshed/constant/const_color.dart';
 
 homeComponentWidget({required BuildContext context,required String image,required String title,TextStyle?style,required Function fct,bool isWide=true,bool isTall=true}){
   Size size = MediaQuery.of(context).size;
@@ -7,16 +8,19 @@ homeComponentWidget({required BuildContext context,required String image,require
     onTap: (){fct();},
     child: Container(
       height:isTall?size.height * 0.17: size.height * 0.15,
-      width:isWide? size.width * 0.29: size.width * 0.2,
+      width:isWide? size.width * 0.35: size.width * 0.3,
       child: Column(
         children: [
           Image.asset(image,width:size.width * 0.2 ,),
-          Text(
-            title,
-            style: style??Theme.of(context).textTheme.bodyText2,
-            // softWrap: true,
-            textAlign: TextAlign.center,
-             overflow: TextOverflow.clip,
+          FittedBox(
+            child: Text(
+              title,
+              style: style??Theme.of(context).textTheme.bodyMedium,
+              maxLines: 2,
+              // softWrap: true,
+              textAlign:myLocale=='en'?TextAlign.start: TextAlign.center,
+               overflow: TextOverflow.clip,
+            ),
           )
         ],
       ),

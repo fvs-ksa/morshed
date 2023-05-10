@@ -31,8 +31,6 @@ class SubmitReportCubit extends Cubit<SubmitReportState>{
       emit(ChangeHelpWayReportState());
   }
   changeHelpWaysSecondIndexState(var value){
-    // helpWays[i].value =! helpWays[i].value;
-    // emit(ChangeHelpWayReportState());
     if(helpWays[1].value==false) {
       helpWays[1].value=value;
     }

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:morshed/constant/const_color.dart';
 
 import '../../../component/another_services_widget.dart';
-import '../../../component/info_profile_component.dart';
 import '../../../models/another_services_model.dart';
 import '../../../translation/locale_keys.g.dart';
 
@@ -30,7 +29,7 @@ class AnotherServicesScreen extends StatelessWidget {
             child: Align(
               alignment: AlignmentDirectional.center,
               child: ListTile(
-                title: Text(anotherServicesList[index].title,style: Theme.of(context).textTheme.bodyText2,),
+                title: Text(anotherServicesList[index].title,style: Theme.of(context).textTheme.bodyMedium,),
                 leading: Image.asset(anotherServicesList[index].image),),
             ),
           ),

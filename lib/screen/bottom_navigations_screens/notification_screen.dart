@@ -18,7 +18,7 @@ class NotificationsScreen extends StatelessWidget {
             child: Container(
               height:size.height*0.15 ,
               padding: EdgeInsetsDirectional.only(top: size.height*0.02),
-              child: Center(child: Text(LocaleKeys.notifications.tr(),style: Theme.of(context).textTheme.headline1,textAlign: TextAlign.center,)),
+              child: Center(child: Text(LocaleKeys.notifications.tr(),style: Theme.of(context).textTheme.displayLarge,textAlign: TextAlign.center,)),
             ),
           ),
           //Divider(),
@@ -36,17 +36,17 @@ class NotificationsScreen extends StatelessWidget {
                         SizedBox(width: size.width*0.01,),
                         Text(
                           'تم ايجاد مرشد لك',
-                          style: Theme.of(context).textTheme.bodyText2,
+                          style: Theme.of(context).textTheme.bodyMedium,
                         ),
                         Spacer(),
                         Text(
                           '15/12/2023',
-                          style: Theme.of(context).textTheme.subtitle1,
+                          style: Theme.of(context).textTheme.titleMedium,
                         ),
                       ],
                     ),
                     SizedBox(height: size.height*0.012,),
-                    Text('تم ايجاد مرشد لك خاص ببلاغ #1245',style: Theme.of(context).textTheme.caption,textAlign: TextAlign.start,),
+                    Text('تم ايجاد مرشد لك خاص ببلاغ #1245',style: Theme.of(context).textTheme.bodySmall,textAlign: TextAlign.start,),
                   ],
                 ),
               );

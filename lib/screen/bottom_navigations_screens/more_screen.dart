@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:morshed/component/navigation_functions.dart';
-import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/screen/inner_screen/subscription_screen.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
 import 'package:sizer/sizer.dart';
@@ -55,27 +54,11 @@ class MoreScreen extends StatelessWidget {
                                   image: const DecorationImage(
                                       image: AssetImage('assets/images/supscription.png'), fit: BoxFit.cover)),
                             ),
-                            Text(LocaleKeys.morshedSubscription.tr(),textAlign: TextAlign.center,style: Theme.of(context).textTheme.button,)
+                            Text(LocaleKeys.morshedSubscription.tr(),textAlign: TextAlign.center,style: Theme.of(context).textTheme.labelLarge,)
 
                           ],
                         ),
                       ),
-                  // ClipRRect(
-                  //   clipBehavior: Clip.antiAlias,
-                  //   borderRadius: BorderRadius.circular(60.sp),
-                  //   //borderRadius: BorderRadius.only(bottomLeft:Radius.circular(60)),
-                  //   child: Image.asset('assets/images/supscription.png',height: size.height*.12,width: size.width*0.3,
-                  //    fit: BoxFit.fitWidth,),
-                  // )
-                      // Container(
-                      //     height: size.height*.091,width: size.width*0.3,
-                      //     decoration: BoxDecoration(
-                      //       image: DecorationImage(image: AssetImage('assets/images/supscription.png'),),
-                      //        // color: whiteColor,
-                      //         borderRadius: BorderRadius.circular(16)),
-                      //     // child: Image.asset('assets/images/supscription.png',height: size.height*.12,width: size.width*0.15,
-                      //     //   fit: BoxFit.fitWidth,)
-                      // )
                     ],
                   ),
                 )
@@ -89,7 +72,7 @@ class MoreScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 return index==9?Padding(
                   padding:  EdgeInsetsDirectional.only(top: size.height*0.02),
-                  child: Text(LocaleKeys.logOut.tr(),style: Theme.of(context).textTheme.headline4,textAlign: TextAlign.center,),
+                  child: Text(LocaleKeys.logOut.tr(),style: Theme.of(context).textTheme.headlineMedium,textAlign: TextAlign.center,),
                 ):GestureDetector(
                   onTap:()=> moreList[index].onTap(),
                   child: Card(
@@ -112,7 +95,7 @@ class MoreScreen extends StatelessWidget {
                           ),
                           Text(
                             moreList[index].title,
-                            style: Theme.of(context).textTheme.subtitle2,
+                            style: Theme.of(context).textTheme.titleSmall,
                           ),
                         ],
                       ),

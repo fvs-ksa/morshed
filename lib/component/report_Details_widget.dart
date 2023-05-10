@@ -28,12 +28,12 @@ class ReportDetailsWidget extends StatelessWidget {
           children: [
            index==0? Text(
            LocaleKeys.WhatCanWeDoToAssistHim.tr(),
-              style: Theme.of(context).textTheme.headline1,
+              style: Theme.of(context).textTheme.displayLarge,
             ):Container(),
            index==0? Container(
               height: screenSize.height * 0.26,
               child: ListView.builder(
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemCount: helpWays.length,
                   itemBuilder: (context, index) {
                     return CheckboxListTile(
@@ -47,7 +47,7 @@ class ReportDetailsWidget extends StatelessWidget {
                       title: Text(
 
                         helpWays[index].title,
-                        style: Theme.of(context).textTheme.subtitle2,
+                        style: Theme.of(context).textTheme.titleSmall,
                       ),
                       onChanged: (onChange) {
                         // reportCubit.changeCheckBox(onChange,index);
@@ -106,7 +106,7 @@ class ReportDetailsWidget extends StatelessWidget {
             ),
             index==1? Text(
               LocaleKeys.WhatCanWeDoToAssistYou.tr(),
-              style: Theme.of(context).textTheme.headline1,
+              style: Theme.of(context).textTheme.displayLarge,
             ):Container(),
             index==1? Container(
               height: screenSize.height * 0.26,
@@ -124,7 +124,7 @@ class ReportDetailsWidget extends StatelessWidget {
                       value: helpWays[index].value,
                       title: Text(
                         helpWays[index].title,
-                        style: Theme.of(context).textTheme.subtitle2,
+                        style: Theme.of(context).textTheme.titleSmall,
                       ),
                       onChanged: (onChange) {
                         // reportCubit.changeCheckBox(onChange,index);

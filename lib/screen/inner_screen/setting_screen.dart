@@ -6,10 +6,16 @@ import 'package:morshed/bloc/setting_cubit/state.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/component/guide_escorts_component.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
+import 'package:morshed/utiels/shared_pref.dart';
 
-class SettingScreen extends StatelessWidget {
+class SettingScreen extends StatefulWidget {
   const SettingScreen({Key? key}) : super(key: key);
 
+  @override
+  State<SettingScreen> createState() => _SettingScreenState();
+}
+
+class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
     Size screenSize=MediaQuery.of(context).size;
@@ -40,32 +46,36 @@ class SettingScreen extends StatelessWidget {
                         Text(LocaleKeys.language.tr(), style: Theme
                             .of(context)
                             .textTheme
-                            .bodyText2,),
+                            .bodyMedium,),
                         Row(
                           children: [
                             Text('Ar', style: Theme
                                 .of(context)
                                 .textTheme
-                                .bodyText1,),
+                                .bodyLarge,),
                             Switch.adaptive(
                                 inactiveThumbColor: darkMainColor,
                                 inactiveTrackColor: whiteGreyColor,
                                 activeColor: orangeColor,
                                 activeTrackColor: whiteGreyColor,
-                                value: settingCubit.isEnglish,
+                              value: isEnglish!,
+                              // value: CacheHelper.getData(key: 'isEnglish'),
                                 onChanged: (onChange) {
-                                  settingCubit.changeLanguage();
+                                  setState(() {
+                                    settingCubit.changeLanguage(context);
+                                  });
+
                                 }),
                             Text('En', style: Theme
                                 .of(context)
                                 .textTheme
-                                .headline6,)
+                                .titleLarge,)
                           ],
                         )
                       ],),
                   ),
                   SizedBox(height: screenSize.height*0.04,),
-                  TextButton( onPressed: () {  }, child: Text(LocaleKeys.deleteAccount.tr(),style: Theme.of(context).textTheme.headline4,),)
+                  TextButton( onPressed: () {  }, child: Text(LocaleKeys.deleteAccount.tr(),style: Theme.of(context).textTheme.headlineMedium,),)
                 ],
               ),
             ),

@@ -49,7 +49,7 @@ class SupportScreen extends StatelessWidget {
                           ),
                           child: Text(
                             chatWithSupportCubit.messages[index],
-                            style: Theme.of(context).textTheme.caption,
+                            style: Theme.of(context).textTheme.bodySmall,
                           ),
                         ),
                       );
@@ -91,7 +91,7 @@ class SupportScreen extends StatelessWidget {
                               controller: messageController);
                         },
                         controller: messageController,
-                        style: Theme.of(context).textTheme.caption,
+                        style: Theme.of(context).textTheme.bodySmall,
                         decoration: InputDecoration(
                             hintText: LocaleKeys.sendMessage.tr(),
                             focusColor: greyColor,

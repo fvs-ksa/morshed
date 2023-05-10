@@ -47,7 +47,7 @@ bigTextFieldForNotes({required BuildContext context,required String hint}){
           padding: EdgeInsetsDirectional.only(end: screenSize.height*0.05),
           child: CircleAvatar(
             radius: screenSize.width*0.07,
-            backgroundColor: babyBlueColor,child: SvgPicture.asset('assets/svg/file (1).svg'),),
+            backgroundColor: babyBlueColor,child: SvgPicture.asset('assets/svg/imageForBigContainer.svg'),),
         )
       ],
     ),
@@ -62,7 +62,8 @@ headerInfoPerson({required BuildContext context,bool isProfile=false,required St
             height: screenSize.height * 0.2,
             child: Padding(
               padding:  EdgeInsetsDirectional.only(end: !isProfile?screenSize.width*0.04:0,bottom:!isProfile?screenSize.height*0.02:0 ),
-              child: Align(alignment: isProfile?AlignmentDirectional.center:AlignmentDirectional.bottomEnd,child: Text(title,style: Theme.of(context).textTheme.headline2,)),
+              child: Align(alignment: isProfile?AlignmentDirectional.center:AlignmentDirectional.bottomEnd,child: Text(title,
+                style: Theme.of(context).textTheme.displayMedium,)),
             ),
             decoration: const BoxDecoration(
                 image: DecorationImage(

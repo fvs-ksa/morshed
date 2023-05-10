@@ -58,7 +58,7 @@ class RegisterScreen extends StatelessWidget {
                               backButtonWidget(fct: (){Navigator.pop(context);}),
                               Text(
                                 accountTypeCubit.isUmrah?LocaleKeys.registerNewMoetamer.tr():LocaleKeys.registerNewHajji.tr(),
-                                style: Theme.of(context).textTheme.headline1,
+                                style: Theme.of(context).textTheme.displayLarge,
                               )
                             ],
                           ),
@@ -97,7 +97,7 @@ class RegisterScreen extends StatelessWidget {
                                 children: [
                                   Text(
                                     LocaleKeys.profilePic.tr(),
-                                    style: Theme.of(context).textTheme.headline1,
+                                    style: Theme.of(context).textTheme.displayLarge,
                                   ),
                                   Stack(
                                     alignment: Alignment.center,
@@ -130,7 +130,7 @@ class RegisterScreen extends StatelessWidget {
                                   ),
                                   SizedBox(width: size.width*0.07,),
                                   decorationContainerWidget(radius: 35.sp,context: context,
-                                      child:Text('+966',style: Theme.of(context).textTheme.bodyText1,textAlign: TextAlign.center,)),
+                                      child:Text('+966',style: Theme.of(context).textTheme.bodyLarge,textAlign: TextAlign.center,)),
                                 ],
                               ),
                               dropDownButton(
@@ -283,7 +283,7 @@ class RegisterScreen extends StatelessWidget {
                                 children: [
                                   Text(
                                     LocaleKeys.haveDisability.tr(),
-                                    style: Theme.of(context).textTheme.headline1,
+                                    style: Theme.of(context).textTheme.displayLarge,
                                   ),
                                   Switch.adaptive(value: registerCubit.isDisability, onChanged: (onChanged){
                                     registerCubit.changeDisabilityValue();
@@ -293,7 +293,7 @@ class RegisterScreen extends StatelessWidget {
                               ),
                              registerCubit.isDisability? dropDownButton(
                                   items: registerCubit.disabilities.map((e){
-                                    return DropdownMenuItem(child: Text(e.toString(),style: Theme.of(context).textTheme.overline,),value: e.toString(),);
+                                    return DropdownMenuItem(child: Text(e.toString(),style: Theme.of(context).textTheme.labelSmall,),value: e.toString(),);
                                   }).toList(),
                                   value: registerCubit.chooseDisability,
 

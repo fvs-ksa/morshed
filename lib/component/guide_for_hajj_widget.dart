@@ -25,7 +25,7 @@ PreferredSize headerForHijGuides({required BuildContext context,required String 
             child: Align(
               alignment: AlignmentDirectional.center,
               child: ListTile(
-                title: Text(title,style: Theme.of(context).textTheme.bodyText2,),
+                title: Text(title,style: Theme.of(context).textTheme.bodyMedium,),
                 leading: Image.asset(image),),
             ),
           ),

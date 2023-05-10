@@ -20,7 +20,7 @@ class MyResidenceAndTravels extends StatelessWidget {
               children: [
                 Container(
                   height: screenSize.height * 0.2,
-                  child: Center(child: Text(LocaleKeys.myAccommodationAndTrips.tr(),style: Theme.of(context).textTheme.headline2,)),
+                  child: Center(child: Text(LocaleKeys.myAccommodationAndTrips.tr(),style: Theme.of(context).textTheme.displayMedium,)),
                   decoration: const BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage('assets/images/header1.png'),fit: BoxFit.cover)),

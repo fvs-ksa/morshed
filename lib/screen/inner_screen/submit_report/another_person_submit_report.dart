@@ -27,7 +27,7 @@ class SubmitReportAnotherPerson extends StatelessWidget {
               child: Column(
                 children: [
                   textFormField(
-                    suffixIcon: SvgPicture.asset('assets/svg/code1.svg',height: screenSize.height*0.001,width: screenSize.width*0.001,),
+                    suffixIcon: SvgPicture.asset('assets/svg/scanQR.svg',fit: BoxFit.none),
                       labelText:LocaleKeys.findingInformationByScanningQrCode.tr(),
                       context: context,
                       onTap: () {
@@ -50,7 +50,7 @@ class SubmitReportAnotherPerson extends StatelessWidget {
                   dropDownButton(
                       items: submitReport.country.map((e) {
                         return DropdownMenuItem(
-                          child: Text(e,style: Theme.of(context).textTheme.overline,),
+                          child: Text(e,style: Theme.of(context).textTheme.labelSmall,),
                           value: e,
                         );
                       }).toList(),
@@ -64,7 +64,7 @@ class SubmitReportAnotherPerson extends StatelessWidget {
                   dropDownButton(
                       items: submitReport.sexList.map((e) {
                         return DropdownMenuItem(
-                          child: Text(e,style: Theme.of(context).textTheme.overline,),
+                          child: Text(e,style: Theme.of(context).textTheme.labelSmall,),
                           value: e,
                         );
                       }).toList(),

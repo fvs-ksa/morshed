@@ -32,7 +32,7 @@ class GuidesForHajjiScreen extends StatelessWidget {
                       ),
                       Padding(
                         padding:EdgeInsetsDirectional.only(start: screenSize.width*0.03),
-                        child: Text(LocaleKeys.Instructions.tr(),style:  Theme.of(context).textTheme.headline2,),
+                        child: Text(LocaleKeys.Instructions.tr(),style:  Theme.of(context).textTheme.displayMedium,),
                       )
                     ],
                   ),
@@ -117,7 +117,7 @@ class GuidesForHajjiScreen extends StatelessWidget {
                   child: Align(
                     alignment: AlignmentDirectional.center,
                     child: ListTile(
-                      title: Text(guidesForHajjiList[index].title,style: Theme.of(context).textTheme.bodyText2,),
+                      title: Text(guidesForHajjiList[index].title,style: Theme.of(context).textTheme.bodyMedium,),
                       leading: Image.asset(guidesForHajjiList[index].image),),
                   ),
                 ),

@@ -28,7 +28,7 @@ class MyReports extends StatelessWidget {
             onTap: (){navigateForward( MyReportsDetailsScreen(index:reportsList[index].status ,));},
             child: myReportsContainerWidget(
                 context: context,
-                style:reportsList[index].status == 2? Theme.of(context).textTheme.bodyText1:null,
+                style:reportsList[index].status == 2? Theme.of(context).textTheme.bodyLarge:null,
                 solutionWidget:reportsList[index].status == 0?IconButton(onPressed: (){}, icon: SvgPicture.asset('assets/svg/delete.svg')):
                 reportsList[index].status == 1?Row(
                   mainAxisAlignment: MainAxisAlignment.end,

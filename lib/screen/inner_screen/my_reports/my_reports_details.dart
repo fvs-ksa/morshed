@@ -47,8 +47,8 @@ class MyReportsDetailsScreen extends StatelessWidget {
                             ?LocaleKeys.guideOnTheWay.tr()
                             :LocaleKeys.Resolved.tr() ,
                     style: index == 2
-                        ? Theme.of(context).textTheme.bodyText1
-                        : Theme.of(context).textTheme.button,
+                        ? Theme.of(context).textTheme.bodyLarge
+                        : Theme.of(context).textTheme.labelLarge,
                   ),
 
                 ],
@@ -83,9 +83,9 @@ class MyReportsDetailsScreen extends StatelessWidget {
                     //   ),
                     // ),
                     //SizedBox(height: screenSize.height*0.06,),
-                    Text(LocaleKeys.WhatCanWeDoToAssistYou.tr(),style: Theme.of(context).textTheme.headline1,),
+                    Text(LocaleKeys.WhatCanWeDoToAssistYou.tr(),style: Theme.of(context).textTheme.displayLarge,),
                     SizedBox(height: screenSize.height*0.01,),
-                    Text(LocaleKeys.iWouldLikeHelpWithReachingTheHotel.tr(),style: Theme.of(context).textTheme.subtitle2,),
+                    Text(LocaleKeys.iWouldLikeHelpWithReachingTheHotel.tr(),style: Theme.of(context).textTheme.titleSmall,),
                     index==0?Align(alignment: AlignmentDirectional.center,child: Padding(
                       padding:  EdgeInsets.symmetric(vertical: screenSize.height*0.06,horizontal: screenSize.width*0.03),
                       child: mainButton(width: screenSize.width*0.8, height: screenSize.height*0.07,
@@ -112,9 +112,9 @@ class MyReportsDetailsScreen extends StatelessWidget {
                                 child: ListTile(
 
                                     leading: CircleAvatar(radius: 20.sp,backgroundImage: AssetImage('assets/images/profile.png'),),
-                                  title: Text('احمد علي',style:Theme.of(context).textTheme.headline1 ,),
-                                  subtitle: RichText(text: TextSpan(text: '${LocaleKeys.phoneNumber.tr()} : ',style: Theme.of(context).textTheme.caption,children: [
-                                    TextSpan(text: '966542136547+',style: Theme.of(context).textTheme.headline5,)
+                                  title: Text('احمد علي',style:Theme.of(context).textTheme.displayLarge ,),
+                                  subtitle: RichText(text: TextSpan(text: '${LocaleKeys.phoneNumber.tr()} : ',style: Theme.of(context).textTheme.bodySmall,children: [
+                                    TextSpan(text: '966542136547+',style: Theme.of(context).textTheme.headlineSmall,)
                                   ]),),
 
 

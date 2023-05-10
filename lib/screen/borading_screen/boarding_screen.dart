@@ -80,7 +80,7 @@ class BoardingScreen extends StatelessWidget {
                               print('object');
                               Navigator.of(context).push(
                                 MaterialPageRoute(
-                                    builder: (context) => AccountTypeScreen()),
+                                    builder: (context) => const AccountTypeScreen()),
                               );
                               //navigateForward(AccountTypeScreen());
                               // Get.to(const AccountTypeScreen());
@@ -120,14 +120,14 @@ Widget boardingWidget(BoardingModel model, BuildContext context) {
       ),
       Text(
         model.title,
-        style: Theme.of(context).textTheme.headline1,
+        style: Theme.of(context).textTheme.displayLarge,
       ),
       SizedBox(
         height: 1.sp,
       ),
       Text(
         model.subTitle,
-        style: Theme.of(context).textTheme.caption,
+        style: Theme.of(context).textTheme.bodySmall,
       )
     ],
   );

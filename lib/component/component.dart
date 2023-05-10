@@ -5,9 +5,6 @@ import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/models/account_type_model.dart';
 import 'package:sizer/sizer.dart';
 
-import '../utiels/navigation_Services.dart';
-import 'info_profile_component.dart';
-
 Widget floatingButton({
   required BuildContext context,
   required Function fct,
@@ -54,7 +51,7 @@ Widget accountType(
               Expanded(child: Image.asset(model.image, height: size.height * 0.11,width:size.width * .28 ,fit: BoxFit.contain,)),
               Text(
                 model.name,
-                style: Theme.of(context).textTheme.headline2,
+                style: Theme.of(context).textTheme.displayMedium,
               )
             ],
           ),
@@ -93,7 +90,7 @@ Widget textFormField(
   return Padding(
     padding:  EdgeInsets.only(bottom:size.height*0.02 ),
     child: TextFormField(
-      style: Theme.of(context).textTheme.bodyText2,
+      style: Theme.of(context).textTheme.bodyMedium,
       onTap: (){
         onTap??print('');
       },
@@ -102,9 +99,9 @@ Widget textFormField(
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
           labelText: labelText,
-          labelStyle: Theme.of(context).textTheme.overline,
+          labelStyle: Theme.of(context).textTheme.labelSmall,
           hintText: hintText,
-          hintStyle: Theme.of(context).textTheme.overline,
+          hintStyle: Theme.of(context).textTheme.labelSmall,
           border:
           OutlineInputBorder(borderRadius: BorderRadius.circular(20.sp))),
       controller: controller,
@@ -147,7 +144,7 @@ Widget dropDownButton(
                       isExpanded: true,
                       decoration: const InputDecoration(border: InputBorder.none,),
                       hint: Text(hint),
-                      style: Theme.of(context).textTheme.overline,
+                      style: Theme.of(context).textTheme.labelSmall,
                       iconSize: 0.0,
                       borderRadius: BorderRadius.circular(12.sp),
                       value: value,
@@ -196,7 +193,7 @@ Widget mainButton(
         child: Text(
           textAlign: TextAlign.center,
           text,
-          style:textStyle?? Theme.of(context).textTheme.button,
+          style:textStyle?? Theme.of(context).textTheme.labelLarge,
         ),
       ),
     ),

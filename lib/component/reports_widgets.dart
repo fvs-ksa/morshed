@@ -37,11 +37,11 @@ Widget myReportsContainerWidget(
             children: [
               Text(
                 'بلاغ رقم : #${reportId}',
-                style: Theme.of(context).textTheme.headline1,
+                style: Theme.of(context).textTheme.displayLarge,
               ),
               Text(
                 'ملاحظات البلاغ عن الشخص التائه يمكنك تقديم البلاغ بسهوله',
-                style: Theme.of(context).textTheme.headline5,
+                style: Theme.of(context).textTheme.headlineSmall,
               ),
               Align(
                 alignment: AlignmentDirectional.bottomEnd,
@@ -69,7 +69,7 @@ Widget myReportsContainerWidget(
               padding: EdgeInsetsDirectional.only(end: screenSize.width * 0.06),
               child: Text(
                 reportStatus,
-                style: style ?? Theme.of(context).textTheme.button,
+                style: style ?? Theme.of(context).textTheme.labelLarge,
               ),
             )
           ],

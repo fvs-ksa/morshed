@@ -25,6 +25,7 @@ class SubscriptionScreen extends StatelessWidget {
             Stack(
               children: [
                 Container(
+                 // margin: EdgeInsetsDirectional.only(start: screenSize.width*0.03),
                   padding: EdgeInsetsDirectional.only(end: screenSize.width * 0.04),
                   height: screenSize.height * 0.26,
                   width: screenSize.width,
@@ -38,10 +39,12 @@ class SubscriptionScreen extends StatelessWidget {
                           image: AssetImage('assets/images/bundle bg.png'), fit: BoxFit.cover)),
                 ),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
+                     // padding: EdgeInsetsDirectional.only(start: screenSize.width*0.03),
                       margin: EdgeInsetsDirectional.symmetric(vertical: screenSize.height*0.02,horizontal: screenSize.width*0.06),
-                      child: Center(child: Text(LocaleKeys.theSubscriptionPackage.tr(),style: Theme.of(context).textTheme.headline6,
+                      child: Center(child: Text(LocaleKeys.theSubscriptionPackage.tr(),style: Theme.of(context).textTheme.titleLarge,
                        // textAlign: TextAlign.center,
                       )),
                       width:screenSize.width*0.8 ,
@@ -50,10 +53,20 @@ class SubscriptionScreen extends StatelessWidget {
                           color: whiteColor,
                           borderRadius: BorderRadius.circular(20)),
                     ),
-                    RichText(text: TextSpan(children: [
-                      TextSpan(text: LocaleKeys.unlimitedDuringSubscription.tr(),style: Theme.of(context).textTheme.bodySmall)
+                    Padding(
+                      padding: EdgeInsetsDirectional.only(start: screenSize.width*0.05),
 
-                    ],text: LocaleKeys.availableNumberOfReports.tr(),style: Theme.of(context).textTheme.bodySmall),)
+                      child: RichText(text: TextSpan(children: [
+                        TextSpan(text: LocaleKeys.unlimitedDuringSubscription.tr(),style: Theme.of(context).textTheme.labelMedium)
+
+                      ],text: LocaleKeys.availableNumberOfReports.tr(),style: Theme.of(context).textTheme.labelMedium),),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.only(start: screenSize.width*0.05),
+                      child: RichText(text: TextSpan(children: [
+                        TextSpan(text:'2' ,style: Theme.of(context).textTheme.labelMedium)
+                      ],text: LocaleKeys.numberOfReportsYouHaveMade.tr(),style: Theme.of(context).textTheme.labelMedium),),
+                    )
                   ],
                 )
               ],
@@ -62,13 +75,14 @@ class SubscriptionScreen extends StatelessWidget {
             // borderRadius: Bo,child: Image.asset('assets/images/bundle bg.png',width: screenSize.width*0.9,)),
             Spacer(),
             mainButton(width: double.infinity, height: screenSize.height*0.07,
-                textStyle: Theme.of(context).textTheme.bodyText1,
+                textStyle: Theme.of(context).textTheme.bodyLarge,
                 borderColor: darkMainColor,
                 text:LocaleKeys.renewSubscription.tr(), color: whiteColor, context: context, fct: (){
                   navigateForward(MainScreen());
                 }),
+           SizedBox(height: screenSize.height*0.02,),
            // mainButton(width: screenSize.width*0.7, height: height, text: text, color: color, context: context, fct: fct)
-            Text(LocaleKeys.cancelSubscription.tr(),style: Theme.of(context).textTheme.headline4,),
+            Text(LocaleKeys.cancelSubscription.tr(),style: Theme.of(context).textTheme.headlineMedium,),
           ],
         ),
       ),
