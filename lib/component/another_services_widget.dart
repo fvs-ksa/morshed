@@ -13,22 +13,28 @@ headerAnotherServices(
         automaticallyImplyLeading: false,
         flexibleSpace: Stack(
           children: [
-            Positioned.fill(child: Image.asset('assets/images/header1.png',fit: BoxFit.cover,)),
+            Positioned.fill(
+                child: Image.asset(
+              'assets/images/header1.png',
+              fit: BoxFit.cover,
+            )),
             FlexibleSpaceBar.createSettings(
-
-              currentExtent: 10, child:  Align(
-              alignment:context.locale.languageCode=='ar'? Alignment.centerRight:Alignment.centerLeft,
-              child: Padding(
-                padding:EdgeInsetsDirectional.only(start: screenSize.width*0.03),
-                child: backButtonWidget(fct: () {
-                  Navigator.pop(context);
-                }, context: context),
+              currentExtent: 10,
+              child: Align(
+                alignment: context.locale.languageCode == 'ar'
+                    ? Alignment.centerRight
+                    : Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsetsDirectional.only(
+                      start: screenSize.width * 0.03),
+                  child: backButtonWidget(context: context),
+                ),
               ),
-            ),),
+            ),
             Padding(
-              padding:  EdgeInsetsDirectional.only(top: screenSize.height*0.02),
+              padding:
+                  EdgeInsetsDirectional.only(top: screenSize.height * 0.02),
               child: FlexibleSpaceBar(
-
                 title: Align(
                   alignment: AlignmentDirectional.center,
                   child: Text(

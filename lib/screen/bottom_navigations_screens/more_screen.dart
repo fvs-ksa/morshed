@@ -14,58 +14,57 @@ class MoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return SingleChildScrollView(
-      physics: const NeverScrollableScrollPhysics(),
-      child: Column(
-        children: [
-          SizedBox(
-            height: size.height * 0.25,
-            child: Stack(
-              fit: StackFit.expand,
-              children: [
-                Image.asset('assets/images/header1.png', fit: BoxFit.fitHeight,),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: size.width * 0.06),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Image.asset(
-                        'assets/images/whiteMorshed.png',
-                        height: size.height * 0.2,
-                        width: size.width * 0.4,
-                        fit: BoxFit.contain,
-                      ),
-                      GestureDetector(
-                        onTap:()=> navigateForward(const SubscriptionScreen()),
-                        child: Stack(
-                        //  fit: StackFit.passthrough,
-                          alignment: Alignment.center,
-                          children: [
-                            Container(
-                              padding: EdgeInsetsDirectional.only(end: size.width * 0.04),
-                              height: size.height * 0.07,
-                              width: size.width*0.35,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(size.width * 0.04),
-                                      topRight: Radius.circular(size.width * 0.04),
-                                      bottomRight: Radius.circular(size.width * 0.04),
-                                      bottomLeft: Radius.circular(size.width * 0.04)),
-                                  image: const DecorationImage(
-                                      image: AssetImage('assets/images/supscription.png'), fit: BoxFit.cover)),
-                            ),
-                            FittedBox(child: Text(LocaleKeys.morshedSubscription.tr(),textAlign: TextAlign.center,style: Theme.of(context).textTheme.labelLarge,))
+    return Column(
+      children: [
+        SizedBox(
+          height: size.height * 0.25,
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              Image.asset('assets/images/header1.png', fit: BoxFit.fitHeight,),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: size.width * 0.06),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Image.asset(
+                      'assets/images/whiteMorshed.png',
+                      height: size.height * 0.2,
+                      width: size.width * 0.4,
+                      fit: BoxFit.contain,
+                    ),
+                    GestureDetector(
+                      onTap:()=> navigateForward(const SubscriptionScreen()),
+                      child: Stack(
+                      //  fit: StackFit.passthrough,
+                        alignment: Alignment.center,
+                        children: [
+                          Container(
+                            padding: EdgeInsetsDirectional.only(end: size.width * 0.04),
+                            height: size.height * 0.07,
+                            width: size.width*0.35,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(size.width * 0.04),
+                                    topRight: Radius.circular(size.width * 0.04),
+                                    bottomRight: Radius.circular(size.width * 0.04),
+                                    bottomLeft: Radius.circular(size.width * 0.04)),
+                                image: const DecorationImage(
+                                    image: AssetImage('assets/images/supscription.png'), fit: BoxFit.cover)),
+                          ),
+                          FittedBox(child: Text(LocaleKeys.morshedSubscription.tr(),textAlign: TextAlign.center,style: Theme.of(context).textTheme.labelLarge,))
 
-                          ],
-                        ),
+                        ],
                       ),
-                    ],
-                  ),
-                )
-              ],
-            ),
+                    ),
+                  ],
+                ),
+              )
+            ],
           ),
-          SizedBox(
+        ),
+        Expanded(
+          child: SizedBox(
             height: size.height * 0.65,
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
@@ -106,8 +105,8 @@ class MoreScreen extends StatelessWidget {
               itemCount: moreList.length,
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

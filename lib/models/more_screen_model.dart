@@ -1,5 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:morshed/screen/inner_screen/escorts_screen.dart';
+import 'package:morshed/screen/inner_screen/companions_screen.dart';
 import 'package:morshed/screen/inner_screen/guides_screen.dart';
 import 'package:morshed/screen/inner_screen/my_card_screen.dart';
 import 'package:morshed/screen/inner_screen/profile_screen.dart';

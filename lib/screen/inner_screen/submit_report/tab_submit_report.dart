@@ -73,7 +73,7 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
                                 mainAxisAlignment: MainAxisAlignment.start,
 
                                 children: [
-                                  backButtonWidget(fct: () {Navigator.pop(context);}, context: context),
+                                  backButtonWidget(context: context),
                                   // SizedBox(
                                   //   width: screenSize.width * 0.24,
                                   // ),

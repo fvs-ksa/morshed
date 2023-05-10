@@ -19,9 +19,7 @@ headerAuthScreen({required BuildContext context,required String title}){
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            backButtonWidget(
-
-                fct: (){Navigator.pop(context);}, context: context),
+            backButtonWidget(context: context),
             SizedBox(height: screenSize.height*0.03,),
             Text(title,style: Theme.of(context).textTheme.displayLarge,),
           ],

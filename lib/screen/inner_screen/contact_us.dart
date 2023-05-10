@@ -30,9 +30,7 @@ class ContactUs extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    backButtonWidget(fct: () {
-                      Navigator.pop(context);
-                    }, context: context),
+                    backButtonWidget(context: context),
                     SizedBox(
                       height: screenSize.height * 0.07,
                     ),

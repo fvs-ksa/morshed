@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/component/floating_Container.dart';
 import 'package:morshed/component/home_screen_widget.dart';
+import 'package:morshed/screen/inner_screen/add_companions_screen.dart';
 import 'package:morshed/screen/inner_screen/my_card_screen.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
 import '../../component/horizontal_dotted_line.dart';
@@ -96,10 +97,14 @@ class HomeScreen extends StatelessWidget {
                   homeComponentWidget(fct: (){navigateForward(AnotherServicesScreen());},context: context,
                       image: 'assets/images/other_services.png', title: LocaleKeys.otherServices.tr()),
                   floatingContainer(
+                    fct: (){navigateForward(const AddCompanionsScreen());},
                       alignment: AlignmentDirectional.bottomStart,
-                      context: context, svgAssets: 'assets/svg/Icon ionic-ios-add.svg', title:LocaleKeys.addCompanion.tr(), width: size.width * 0.4,color:darkMainColor ),
+                      context: context,
+                      svgAssets: 'assets/svg/Icon ionic-ios-add.svg',
+                      title:LocaleKeys.addCompanion.tr(), width: size.width * 0.4,color:darkMainColor ),
                   SizedBox(height: size.height*0.02,),
                   floatingContainer(
+                    fct: (){},
                       alignment: AlignmentDirectional.bottomStart,
                       context: context, svgAssets: 'assets/svg/on map.svg',
                       title:LocaleKeys.counselingOfficesAndCounselors.tr(), width: size.width * 0.7,color:orangeColor ),

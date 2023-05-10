@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,6 +18,7 @@ import 'package:morshed/translation/codegen_loader.g.dart';
 import 'package:morshed/utiels/navigation_Services.dart';
 import 'package:morshed/utiels/shared_pref.dart';
 import 'package:sizer/sizer.dart';
+import 'bloc/add_companions_cubit/cubit.dart';
 import 'bloc_observe.dart';
 import 'constant/const_color.dart';
 import 'constant/text_theme.dart';
@@ -27,14 +29,18 @@ void main() async {
   Bloc.observer = MyBlocObserver();
   await CacheHelper.init();
   await EasyLocalization.ensureInitialized();
+
   ///CacheHelper.getData(key: 'isEnglish');
-  runApp(EasyLocalization(
-      supportedLocales: const [Locale('ar'), Locale('en')],
-      path: 'assets/langs',
-      assetLoader: const CodegenLoader(),
-      startLocale: const Locale('ar'),
-      fallbackLocale: const Locale('ar'),
-      child: const MyApp()));
+  runApp(DevicePreview(
+    enabled: false,
+    builder:(context)=> EasyLocalization(
+        supportedLocales: const [Locale('ar'), Locale('en')],
+        path: 'assets/langs',
+        assetLoader: const CodegenLoader(),
+        startLocale: const Locale('ar'),
+        fallbackLocale: const Locale('ar'),
+        child: const MyApp()),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -45,7 +51,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     myLocale = EasyLocalization.of(context)?.currentLocale;
     print('my locale ${myLocale}');
-    isEnglish=CacheHelper.getData(key: 'isEnglish')??false;
+    isEnglish = CacheHelper.getData(key: 'isEnglish') ?? false;
     return MultiBlocProvider(
         providers: [
           BlocProvider<BoardingCubit>(
@@ -60,8 +66,10 @@ class MyApp extends StatelessWidget {
               create: (context) => SubmitReportCubit()),
           BlocProvider<AccountTypeCubit>(
               create: (context) => AccountTypeCubit()),
-          BlocProvider<GuidesCubit>(
-              create: (context) => GuidesCubit()),
+          BlocProvider<AddCompanionsCubit>(
+            create: (context) => AddCompanionsCubit(),
+          ),
+          BlocProvider<GuidesCubit>(create: (context) => GuidesCubit()),
         ],
         child: MediaQuery(
           data: const MediaQueryData(),
@@ -69,7 +77,9 @@ class MyApp extends StatelessWidget {
             return MaterialApp(
               navigatorKey: NavigationService.navigate().navigationKey,
               debugShowCheckedModeBanner: false,
-              locale: context.locale,
+              locale: DevicePreview.locale(context),
+              builder: DevicePreview.appBuilder,
+             // locale: context.locale,
               supportedLocales: context.supportedLocales,
               localizationsDelegates: context.localizationDelegates,
               title: 'مرشد',

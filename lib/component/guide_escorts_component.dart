@@ -38,14 +38,15 @@ PreferredSize preferredHeaderWithGuide({required BuildContext context,
             children: [
               Row(
                 children: [
-                  backButtonWidget(fct: () {
-                    Navigator.pop(context);
-                  }, context: context),
-
-                  Center(
-                    child: Text(
-                      title,
-                      style: Theme.of(context).textTheme.displayLarge,
+                  backButtonWidget( context: context),
+                  Expanded(
+                    flex: 1,
+                    child: Center(
+                      child: Text(
+                        title,
+                        style: Theme.of(context).textTheme.displayLarge,
+                        textAlign: TextAlign.start,
+                      ),
                     ),
                   ),
                 ],
@@ -62,12 +63,7 @@ PreferredSize preferredHeaderWithGuide({required BuildContext context,
                           labelText:LocaleKeys.findingInfoByNamePHoneOrLang.tr(),
                          // hintText: 'بحث بالأسم أو رقم الجوال',
                           context: context)),
-                  isGuide?dropDownWidget!:SizedBox(),
-                  // isGuide?  Container(
-                  //   height: screenSize.height * 0.06,
-                  //   width: screenSize.width * 0.2,
-                  //   color: darkMainColor,
-                  // ):SizedBox(),
+                  isGuide?dropDownWidget!:const SizedBox(),
                   SizedBox(
                     width: screenSize.width * 0.02,
                   ),
@@ -103,9 +99,7 @@ headerOfTechnicalSupport({required BuildContext context,required String title}){
     leading: Container(
       height:screenSize.height * 0.07  ,
       child: FittedBox(
-        child: backButtonWidget(fct: () {
-          Navigator.pop(context);
-        }, context: context),
+        child: backButtonWidget( context: context),
       ),
     ),
 

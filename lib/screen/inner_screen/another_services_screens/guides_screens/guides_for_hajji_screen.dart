@@ -29,10 +29,7 @@ class GuidesForHajjiScreen extends StatelessWidget {
                         Align(
                           alignment:context.locale.languageCode=='ar'? Alignment.centerRight:Alignment.centerLeft,
                           child: backButtonWidget(
-                              context: context,
-                              fct: () {
-                            Navigator.pop(context);
-                          }),
+                              context: context),
                         ),
                         Text(LocaleKeys.Instructions.tr(),style:  Theme.of(context).textTheme.displayMedium,)
                       ],

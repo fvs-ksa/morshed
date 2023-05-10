@@ -10,7 +10,7 @@ PreferredSize headerForHijGuides({required BuildContext context,required String 
     child: Stack(
       children: [
         Container(height: screenSize.height*0.17,
-          child: Align(alignment: AlignmentDirectional.centerStart,child: backButtonWidget(fct: ()=>Navigator.pop(context), context: context),),
+          child: Align(alignment: AlignmentDirectional.centerStart,child: backButtonWidget(context: context),),
           decoration: const BoxDecoration(image: DecorationImage(image: AssetImage('assets/images/header1.png'),fit: BoxFit.cover)),),
 
         Container(
