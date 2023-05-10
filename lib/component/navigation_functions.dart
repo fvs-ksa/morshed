@@ -44,4 +44,17 @@ launchCall(context) async {
     );
   }
 }
+navigateToMail(BuildContext context) async {
+  Uri url = Uri.parse("mailto:info@guide.com");
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url);
+  } else {
+    ScaffoldMessenger.of(context).showSnackBar(
+       SnackBar(
+        backgroundColor: Colors.red,
+        content: Text(LocaleKeys.errorWhileMovingToEmail.tr()),
+      ),
+    );
+  }
+}
 

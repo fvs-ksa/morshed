@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:morshed/component/component.dart';
 import 'package:morshed/component/info_profile_component.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
-import 'package:url_launcher/url_launcher.dart';
-
+import '../../component/navigation_functions.dart';
 import '../../constant/const_color.dart';
 
 class ContactUs extends StatelessWidget {
@@ -16,7 +15,6 @@ class ContactUs extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
           child: Stack(
-            //  alignment: AlignmentDirectional.topStart,
             fit: StackFit.expand,
             children: [
               Image.asset(
@@ -63,11 +61,10 @@ class ContactUs extends StatelessWidget {
               ),
               GestureDetector(
                   onTap: () {
-                    navigateToCallUs(context);
+                    launchWhatsapp(context);
                   },
                   child: textFormField(
                     labelText: '9665078945612+',
-                   // hintText: 'hintText',
                     context: context,
                     isEnabled: false,
                   )),
@@ -87,7 +84,6 @@ class ContactUs extends StatelessWidget {
                   },
                   child: textFormField(
                       labelText: 'info@guide.com',
-                      //hintText: 'hintText',
                       context: context,
                       isEnabled: false)),
               SizedBox(
@@ -124,30 +120,4 @@ class ContactUs extends StatelessWidget {
   }
 }
 
-navigateToCallUs(BuildContext context) async {
-  var url = Uri.parse("tel:966506912345");
-  if (await canLaunchUrl(url)) {
-    await launchUrl(url);
-  } else {
-    ScaffoldMessenger.of(context).showSnackBar(
-       SnackBar(
-        backgroundColor: Colors.red,
-        content: Text(LocaleKeys.errorWhileMovingToWhatsApp.tr()),
-      ),
-    );
-  }
-}
 
-navigateToMail(BuildContext context) async {
-  Uri url = Uri.parse("mailto:info@guide.com");
-  if (await canLaunchUrl(url)) {
-    await launchUrl(url);
-  } else {
-    ScaffoldMessenger.of(context).showSnackBar(
-       SnackBar(
-        backgroundColor: Colors.red,
-        content: Text(LocaleKeys.errorWhileMovingToEmail.tr()),
-      ),
-    );
-  }
-}
