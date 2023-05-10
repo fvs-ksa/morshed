@@ -1,9 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
-
 import '../translation/locale_keys.g.dart';
 import 'component.dart';
 import '../constant/const_color.dart';
@@ -21,7 +19,6 @@ Widget myReportsContainerWidget(
     margin: EdgeInsetsDirectional.symmetric(
         vertical: screenSize.height * 0.02,
         horizontal: screenSize.width * 0.02),
-    // padding: EdgeInsetsDirectional.only(start:screenSize.width * 0.04 ),
     height: screenSize.height * 0.2,
     decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(screenSize.width * 0.04),
@@ -36,7 +33,7 @@ Widget myReportsContainerWidget(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'بلاغ رقم : #${reportId}',
+                'بلاغ رقم : #$reportId',
                 style: Theme.of(context).textTheme.displayLarge,
               ),
               Text(
@@ -88,8 +85,8 @@ locationWidget({required BuildContext context}) {
         children: [
           Expanded(
             child: textFormField(
-              labelText:LocaleKeys.reportLocation.tr(),
-           //  hintText: 'hintText',
+              labelText: LocaleKeys.reportLocation.tr(),
+              //  hintText: 'hintText',
               context: context,
               isEnabled: false,
             ),
