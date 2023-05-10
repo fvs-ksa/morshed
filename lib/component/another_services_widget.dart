@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'info_profile_component.dart';
 
@@ -13,11 +14,16 @@ headerAnotherServices(
         flexibleSpace: Stack(
           children: [
             Positioned.fill(child: Image.asset('assets/images/header1.png',fit: BoxFit.cover,)),
-            FlexibleSpaceBar.createSettings(currentExtent: 10, child:  Align(
-              alignment: Alignment.centerRight,
-              child: backButtonWidget(fct: () {
-                Navigator.pop(context);
-              }),
+            FlexibleSpaceBar.createSettings(
+
+              currentExtent: 10, child:  Align(
+              alignment:context.locale.languageCode=='ar'? Alignment.centerRight:Alignment.centerLeft,
+              child: Padding(
+                padding:EdgeInsetsDirectional.only(start: screenSize.width*0.03),
+                child: backButtonWidget(fct: () {
+                  Navigator.pop(context);
+                }, context: context),
+              ),
             ),),
             Padding(
               padding:  EdgeInsetsDirectional.only(top: screenSize.height*0.02),

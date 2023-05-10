@@ -8,10 +8,13 @@ homeComponentWidget({required BuildContext context,required String image,require
     onTap: (){fct();},
     child: Container(
       height:isTall?size.height * 0.17: size.height * 0.15,
-      width:isWide? size.width * 0.35: size.width * 0.3,
+      width:isWide? size.width * 0.3: size.width * 0.23,
       child: Column(
         children: [
-          Image.asset(image,width:size.width * 0.2 ,),
+          Padding(
+            padding:EdgeInsetsDirectional.only(bottom: size.height*0.01),
+            child: Image.asset(image,width:size.width * 0.2 ,),
+          ),
           FittedBox(
             child: Text(
               title,

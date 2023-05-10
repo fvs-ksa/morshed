@@ -54,7 +54,7 @@ class MoreScreen extends StatelessWidget {
                                   image: const DecorationImage(
                                       image: AssetImage('assets/images/supscription.png'), fit: BoxFit.cover)),
                             ),
-                            Text(LocaleKeys.morshedSubscription.tr(),textAlign: TextAlign.center,style: Theme.of(context).textTheme.labelLarge,)
+                            FittedBox(child: Text(LocaleKeys.morshedSubscription.tr(),textAlign: TextAlign.center,style: Theme.of(context).textTheme.labelLarge,))
 
                           ],
                         ),

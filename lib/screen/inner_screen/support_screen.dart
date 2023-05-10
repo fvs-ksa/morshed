@@ -20,8 +20,9 @@ class SupportScreen extends StatelessWidget {
       listener: (context,state){},
       builder: (context,state) {
         return Scaffold(
-          appBar: preferredHeaderWithGuide(
-              context: context, title: LocaleKeys.technicalSupport.tr(), isActive: false),
+          appBar: headerOfTechnicalSupport(context: context, title:  LocaleKeys.technicalSupport.tr()),
+          // appBar: preferredHeaderWithGuide(
+          //     context: context, title: LocaleKeys.technicalSupport.tr(), isActive: false),
           backgroundColor: whiteGreyColor,
           body: GestureDetector(
 

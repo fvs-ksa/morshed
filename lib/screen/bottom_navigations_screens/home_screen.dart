@@ -67,7 +67,9 @@ class HomeScreen extends StatelessWidget {
                     LocaleKeys.welcomeToMorshed.tr(),
                     style: Theme.of(context).textTheme.displayLarge,
                     softWrap: true,
+
                     textAlign: TextAlign.center,
+
                   ),
                   SizedBox(
                     height: size.width * 0.07,
@@ -77,8 +79,10 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       homeComponentWidget(style:Theme.of(context).textTheme.displaySmall ,context: context, image: 'assets/images/report.png',
                           title:LocaleKeys.reportingCaseOfMentalBreakdown.tr(), fct: (){navigateForward(TabBarSubmitReport());}),
+
+
                       Padding(
-                        padding: EdgeInsetsDirectional.only(end: size.width*0.04,start: size.width*0.01),
+                        padding: EdgeInsetsDirectional.only(start: size.width*0.04),
                         child: DashedLine(color: greyColor),
                       ),
                       homeComponentWidget(fct: (){},context: context,

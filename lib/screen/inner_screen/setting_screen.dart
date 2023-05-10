@@ -63,6 +63,7 @@ class _SettingScreenState extends State<SettingScreen> {
                                 onChanged: (onChange) {
                                   setState(() {
                                     settingCubit.changeLanguage(context);
+                                    myLocale=context.locale.languageCode;
                                   });
 
                                 }),

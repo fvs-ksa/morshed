@@ -32,7 +32,7 @@ class ContactUs extends StatelessWidget {
                   children: [
                     backButtonWidget(fct: () {
                       Navigator.pop(context);
-                    }),
+                    }, context: context),
                     SizedBox(
                       height: screenSize.height * 0.07,
                     ),

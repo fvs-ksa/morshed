@@ -9,15 +9,14 @@ class NotificationsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return
-      Column(
+    return Column(
         children: [
           Card(
             margin: EdgeInsets.zero,
             elevation: 3,
             child: Container(
               height:size.height*0.15 ,
-              padding: EdgeInsetsDirectional.only(top: size.height*0.02),
+              padding: EdgeInsetsDirectional.only(top: size.height*0.03),
               child: Center(child: Text(LocaleKeys.notifications.tr(),style: Theme.of(context).textTheme.displayLarge,textAlign: TextAlign.center,)),
             ),
           ),

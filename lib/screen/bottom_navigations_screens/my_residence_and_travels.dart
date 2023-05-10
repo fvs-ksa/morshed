@@ -20,7 +20,7 @@ class MyResidenceAndTravels extends StatelessWidget {
               children: [
                 Container(
                   height: screenSize.height * 0.2,
-                  child: Center(child: Text(LocaleKeys.myAccommodationAndTrips.tr(),style: Theme.of(context).textTheme.displayMedium,)),
+                  child: Center(child: FittedBox(child: Text(LocaleKeys.myAccommodationAndTrips.tr(),style: Theme.of(context).textTheme.displayMedium,))),
                   decoration: const BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage('assets/images/header1.png'),fit: BoxFit.cover)),
@@ -41,11 +41,11 @@ class MyResidenceAndTravels extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  textFormField(labelText: 'مقر السكن (مكه المكرمه)', hintText: 'hintText', context: context,),
-                  textFormField(labelText: 'رقم مخيم (منى)', hintText: 'hintText', context: context),
-                  textFormField(labelText: 'رقم مخيم (عرفه)', hintText: 'hintText', context: context),
-                  textFormField(labelText: 'رقم مخيم (المزدلفه)', hintText: 'hintText', context: context),
-                  textFormField(labelText: 'رقم التأشيره', hintText: 'hintText', context: context),
+                  textFormField(labelText: LocaleKeys.residentialAddress.tr(),  context: context,),
+                  textFormField(labelText: LocaleKeys.mennaNo.tr(),  context: context),
+                  textFormField(labelText: LocaleKeys.arfaNo.tr(), context: context),
+                  textFormField(labelText: LocaleKeys.mozdalefaNo.tr(),  context: context),
+                  textFormField(labelText: LocaleKeys.visaNo.tr(),  context: context),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [

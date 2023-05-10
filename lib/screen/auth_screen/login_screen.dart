@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:morshed/component/animation_component.dart';
+import 'package:morshed/component/auth_header_widget.dart';
 import 'package:morshed/component/component.dart';
 import 'package:morshed/component/info_profile_component.dart';
 import 'package:morshed/screen/auth_screen/register_Screen.dart';
@@ -25,26 +26,30 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          SafeArea(child: Container(
-            padding: EdgeInsetsDirectional.symmetric(horizontal: screenSize.width*0.04),
-            height: screenSize.height*0.15,
-          child: Row(
-
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  backButtonWidget(fct: (){Navigator.pop(context);}),
-                  Text(LocaleKeys.loginNow.tr(),style: Theme.of(context).textTheme.displayLarge,),
-                ],
-              ),
-              Image.asset('assets/images/مرشد.png',height: screenSize.height * 0.2,
-                width: screenSize.width * 0.3,),
-            ],
-          ),
-          )),
+          headerAuthScreen(context: context, title: LocaleKeys.loginNow.tr()),
+          // SafeArea(child: Container(
+          //   padding: EdgeInsetsDirectional.symmetric(horizontal: screenSize.width*0.04),
+          //   height: screenSize.height*0.15,
+          // child: Row(
+          //
+          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //   children: [
+          //     Column(
+          //       crossAxisAlignment: CrossAxisAlignment.start,
+          //       mainAxisAlignment: MainAxisAlignment.center,
+          //       children: [
+          //         backButtonWidget(
+          //
+          //             fct: (){Navigator.pop(context);}, context: context),
+          //         SizedBox(height: screenSize.height*0.03,),
+          //         Text(LocaleKeys.loginNow.tr(),style: Theme.of(context).textTheme.displayLarge,),
+          //       ],
+          //     ),
+          //     Image.asset('assets/images/مرشد.png',height: screenSize.height * 0.2,
+          //       width: screenSize.width * 0.3,),
+          //   ],
+          // ),
+          // )),
           Padding(
             padding: EdgeInsetsDirectional.symmetric(horizontal: screenSize.width*0.08,vertical: screenSize.height*0.04),
             child: Column(
@@ -82,15 +87,20 @@ class LoginScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(LocaleKeys.unifiedCommunications.tr(),style: Theme.of(context).textTheme.headlineSmall,),
-                    GestureDetector(onTap: (){launchWhatsapp(context);},child: textFormField(
-                        labelText: '966506977241+', context: context,isEnabled: false)),
-                    Row(
-                      children: [
-                        SvgPicture.asset('assets/svg/Icon ionic-logo-whatsapp.svg'),
-                        SizedBox(width: screenSize.width*0.03,),
-                        Text(LocaleKeys.communicationWhatsApp.tr(),style: Theme.of(context).textTheme.headlineSmall,),
+                    InkWell(onTap: (){launchCall(context);},child: textFormField(
+                        labelText: '966506977241', context: context,isEnabled: false)),
+                    InkWell(
+                      onTap:(){launchWhatsapp(context);} ,
+                      child: FittedBox(
+                        child: Row(
+                          children: [
+                            SvgPicture.asset('assets/svg/Icon ionic-logo-whatsapp.svg'),
+                            SizedBox(width: screenSize.width*0.03,),
+                            Text(LocaleKeys.communicationWhatsApp.tr(),style: Theme.of(context).textTheme.headlineSmall,),
 
-                      ],
+                          ],
+                        ),
+                      ),
                     ),
                     SizedBox(height: screenSize.height*0.03,)
                   ],
@@ -98,7 +108,9 @@ class LoginScreen extends StatelessWidget {
               );
             });
 
-          },child: Text(LocaleKeys.FastCommunication.tr(),style: Theme.of(context).textTheme.headlineMedium,textAlign: TextAlign.center,)),
+          },
+              child: Text(LocaleKeys.FastCommunication.tr(),
+            style: Theme.of(context).textTheme.headlineMedium,textAlign: TextAlign.center,)),
           Image.asset('assets/images/pattern2.png',fit: BoxFit.contain,)
         ],
       ),

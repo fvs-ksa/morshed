@@ -7,6 +7,7 @@ import 'package:morshed/bloc/account_type_cubit/state.dart';
 import 'package:morshed/bloc/register_cubit/cubit.dart';
 import 'package:morshed/bloc/register_cubit/state.dart';
 import 'package:morshed/component/animation_component.dart';
+import 'package:morshed/component/auth_header_widget.dart';
 import 'package:morshed/component/component.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/screen/bottom_navigations_screens/main_screen.dart';
@@ -42,34 +43,9 @@ class RegisterScreen extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 child: Column(
                   children: [
-                    Container(
-                      height: size.height * 0.19,
-                      padding: EdgeInsetsDirectional.only(
-                          top: size.height * 0.07,
-                          start: size.width * 0.07,
-                          end: size.width * 0.07),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              backButtonWidget(fct: (){Navigator.pop(context);}),
-                              Text(
-                                accountTypeCubit.isUmrah?LocaleKeys.registerNewMoetamer.tr():LocaleKeys.registerNewHajji.tr(),
-                                style: Theme.of(context).textTheme.displayLarge,
-                              )
-                            ],
-                          ),
-                          Image.asset(
-                            'assets/images/مرشد.png',
-                            height: size.height * 0.2,
-                            width: size.width * 0.3,
-                          )
-                        ],
-                      ),
-                    ),
+                    headerAuthScreen(context: context,
+                      title: accountTypeCubit.isUmrah?LocaleKeys.registerNewMoetamer.tr():LocaleKeys.registerNewHajji.tr(),),
+
                     SizedBox(
                       height: size.height*0.81,
                       child: SingleChildScrollView(

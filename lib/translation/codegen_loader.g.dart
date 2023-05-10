@@ -215,7 +215,7 @@ class CodegenLoader extends AssetLoader {
     "madinaHotelName": "Hotel name in Medina",
     "welcomeToMorshed":
         "Welcome to the Morshed app. Don't worry, we're here to serve you",
-    "reportingCaseOfMentalBreakdown": "Report a case of disorientation",
+    "reportingCaseOfMentalBreakdown": "Report a case \n of disorientation",
     "videoCall": "Video call",
     "otherServices": "Other services",
     "counselingOfficesAndCounselors": "Counseling and guidance offices",

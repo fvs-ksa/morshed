@@ -1,8 +1,4 @@
-
-
 import 'package:easy_localization/easy_localization.dart';
-import 'package:morshed/component/component.dart';
-import 'package:morshed/screen/bottom_navigations_screens/my_residence_and_travels.dart';
 import 'package:morshed/screen/inner_screen/escorts_screen.dart';
 import 'package:morshed/screen/inner_screen/guides_screen.dart';
 import 'package:morshed/screen/inner_screen/my_card_screen.dart';
@@ -26,7 +22,7 @@ List<MoreScreenModel> moreList=[
   MoreScreenModel(title: LocaleKeys.guides.tr(), onTap: (){navigateForward(GuidesScreen());}, svgImage: 'assets/svg/file (-1.svg'),
   MoreScreenModel(title: LocaleKeys.Companions.tr(), onTap: (){navigateForward(EscortsScreen());}, svgImage: 'assets/svg/Group -1.svg'),
   MoreScreenModel(title: LocaleKeys.myReports.tr(), onTap: (){navigateForward(const MyReports());}, svgImage: 'assets/svg/file (1).svg'),
-  MoreScreenModel(title: LocaleKeys.myCard.tr(), onTap: (){navigateForward(const MyCardScreen());}, svgImage: 'assets/svg/card.svg'),
+  MoreScreenModel(title: LocaleKeys.myCard.tr(), onTap: (){navigateForward(const MyCardScreen());}, svgImage: 'assets/svg/Icon awesome-id-card.svg'),
   MoreScreenModel(title: LocaleKeys.technicalSupport.tr(), onTap: (){navigateForward( SupportScreen());}, svgImage: 'assets/svg/support.svg'),
   MoreScreenModel(title: LocaleKeys.contactUs.tr(), onTap: (){navigateForward(const ContactUs());}, svgImage: 'assets/svg/end call-1.svg'),
   MoreScreenModel(title: LocaleKeys.privacyPolicy.tr(), onTap: (){}, svgImage: 'assets/svg/file (1).svg'),

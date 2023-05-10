@@ -70,15 +70,26 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
                           children: [
                             Expanded(
                               child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+
                                 children: [
-                                  backButtonWidget(fct: () {Navigator.pop(context);}),
-                                  SizedBox(
-                                    width: screenSize.width * 0.24,
+                                  backButtonWidget(fct: () {Navigator.pop(context);}, context: context),
+                                  // SizedBox(
+                                  //   width: screenSize.width * 0.24,
+                                  // ),
+                                  Expanded(
+                                    flex: 4,
+                                    child: Text(
+
+                                      LocaleKeys.reporting.tr(),
+                                      textAlign: TextAlign.center,
+                                      style:
+                                          Theme.of(context).textTheme. displayMedium,
+                                    ),
                                   ),
-                                  Text(
-                                    LocaleKeys.reporting.tr(),
-                                    style:
-                                        Theme.of(context).textTheme. displayMedium,
+                                  Expanded(
+                                    flex: 1,
+                                    child: Container(),
                                   )
                                 ],
                               ),

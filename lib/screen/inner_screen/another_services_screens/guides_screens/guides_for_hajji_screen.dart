@@ -20,21 +20,23 @@ class GuidesForHajjiScreen extends StatelessWidget {
                 Positioned.fill(child: Image.asset('assets/images/header1.png',fit: BoxFit.cover,)),
                 FlexibleSpaceBar.createSettings(currentExtent: 10, child:  Padding(
                   padding:EdgeInsetsDirectional.only(top: screenSize.height*0.03),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: backButtonWidget(fct: () {
-                          Navigator.pop(context);
-                        }),
-                      ),
-                      Padding(
-                        padding:EdgeInsetsDirectional.only(start: screenSize.width*0.03),
-                        child: Text(LocaleKeys.Instructions.tr(),style:  Theme.of(context).textTheme.displayMedium,),
-                      )
-                    ],
+                  child: Padding(
+                    padding:EdgeInsetsDirectional.only(start: screenSize.width*0.03),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Align(
+                          alignment:context.locale.languageCode=='ar'? Alignment.centerRight:Alignment.centerLeft,
+                          child: backButtonWidget(
+                              context: context,
+                              fct: () {
+                            Navigator.pop(context);
+                          }),
+                        ),
+                        Text(LocaleKeys.Instructions.tr(),style:  Theme.of(context).textTheme.displayMedium,)
+                      ],
+                    ),
                   ),
                 ),),
                 Padding(

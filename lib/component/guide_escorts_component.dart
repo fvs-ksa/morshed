@@ -20,7 +20,8 @@ Widget circleAvtarWidget({required String svgImage,}){
 }
 PreferredSize preferredHeaderWithGuide({required BuildContext context,
   Widget? dropDownWidget,
-  bool isActive=true,required String title,bool isGuide=true ,TextEditingController? searchController, Function? fct}){
+  bool isActive=true,required String title,bool isGuide=true ,
+  TextEditingController? searchController, Function? fct}){
   Size screenSize=MediaQuery.of(context).size;
   return PreferredSize(
       child: Card(
@@ -39,13 +40,13 @@ PreferredSize preferredHeaderWithGuide({required BuildContext context,
                 children: [
                   backButtonWidget(fct: () {
                     Navigator.pop(context);
-                  }),
-                  SizedBox(
-                    width: screenSize.width * 0.25,
-                  ),
-                  Text(
-                    title,
-                    style: Theme.of(context).textTheme.displayLarge,
+                  }, context: context),
+
+                  Center(
+                    child: Text(
+                      title,
+                      style: Theme.of(context).textTheme.displayLarge,
+                    ),
                   ),
                 ],
               ),
@@ -87,6 +88,28 @@ PreferredSize preferredHeaderWithGuide({required BuildContext context,
         ),
       ),
       preferredSize: Size.fromHeight(isActive?screenSize.height * 0.23:screenSize.height*0.16));
+}
+headerOfTechnicalSupport({required BuildContext context,required String title}){
+  Size screenSize=MediaQuery.of(context).size;
+  return AppBar(
+    elevation: 1,
+    backgroundColor: whiteColor,
+    toolbarHeight:screenSize.height * 0.16 ,
+    title: Text(
+      title,
+      style: Theme.of(context).textTheme.displayLarge,
+    ),
+    centerTitle: true,
+    leading: Container(
+      height:screenSize.height * 0.07  ,
+      child: FittedBox(
+        child: backButtonWidget(fct: () {
+          Navigator.pop(context);
+        }, context: context),
+      ),
+    ),
+
+  );
 }
 Widget itemContainerOfGuidesAndEscorts({required BuildContext context,Widget? contactColumn,required String image,required String name,required String phone}){
   Size screenSize=MediaQuery.of(context).size;

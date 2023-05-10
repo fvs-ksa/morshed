@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -17,7 +18,7 @@ Widget decorationContainerWidget(
   );
 }
 
-Widget backButtonWidget({required Function fct}) {
+Widget backButtonWidget({required Function fct,required BuildContext context}) {
   return Card(
     clipBehavior: Clip.antiAliasWithSaveLayer,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.sp)),
@@ -26,10 +27,14 @@ Widget backButtonWidget({required Function fct}) {
         onTap: () {
           fct();
         },
-        child: CircleAvatar(
+        child:CircleAvatar(
           backgroundColor: whiteColor,
-          child: SvgPicture.asset('assets/svg/dropdown-1.svg'),
-        )),
+          child: SvgPicture.asset(context.locale.languageCode=='en'?'assets/svg/dropdown-2en.svg':'assets/svg/dropdown-1.svg'),
+         // child: SvgPicture.asset(myLocale=='en'?'assets/svg/dropdown-2en.svg':'assets/svg/dropdown-1.svg'),
+        )
+            //:CircleAvatar(backgroundColor: whiteColor,child: SvgPicture.asset('assets/svg/dropdown-1.svg'))
+
+    ),
   );
 }
 bigTextFieldForNotes({required BuildContext context,required String hint}){
@@ -53,7 +58,8 @@ bigTextFieldForNotes({required BuildContext context,required String hint}){
     ),
   );
 }
-headerInfoPerson({required BuildContext context,bool isProfile=false,required String title,bool isHeaderProfile=true,required Widget avatarChild}){
+headerInfoPerson({required BuildContext context,bool isProfile=false,required String title,
+  bool isHeaderProfile=true,required Widget avatarChild}){
   Size screenSize = MediaQuery.of(context).size;
   return PreferredSize(
       child: Stack(
@@ -70,18 +76,18 @@ headerInfoPerson({required BuildContext context,bool isProfile=false,required St
                     image: AssetImage('assets/images/header1.png'),fit: BoxFit.cover)),
           ),
           Padding(
-            padding:  EdgeInsetsDirectional.only(top: screenSize.width*0.03),
+            padding:  EdgeInsetsDirectional.only(top: screenSize.width*0.07),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                backButtonWidget(fct: (){Navigator.pop(context);}),
-                SizedBox(height: screenSize.height*0.03,),
+                backButtonWidget(fct: (){Navigator.pop(context);}, context: context),
+                SizedBox(height: screenSize.height*0.02,),
                 isHeaderProfile?  Padding(
                   padding:  EdgeInsetsDirectional.only(start: screenSize.width*0.03,),
                   child: CircleAvatar(backgroundColor: darkMainColor,child: avatarChild,
                     radius: screenSize.height*0.05,
                   ),
-                ):SizedBox()
+                ):const SizedBox()
               ],
             ),
           )
