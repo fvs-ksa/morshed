@@ -27,7 +27,7 @@ class CodegenLoader extends AssetLoader {
     "edit": "تعديل",
     "sendInquiry": "إرسال استفسار",
     "errorWhileMovingToEmail": "حذث خطأ اثناء الإنتقال الي الإيميل",
-  "errorWhileMovingToWhatsApp": "حذث خطأ اثناء الإنتقال الي الواتس اب",
+    "errorWhileMovingToWhatsApp": "حذث خطأ اثناء الإنتقال الي الواتس اب",
     "userName": "اسم المستخدم",
     "password": "كلمة المرور",
     "notHaveAnAccount": "ليس لديك حساب؟ ",
@@ -166,7 +166,7 @@ class CodegenLoader extends AssetLoader {
   };
   static const Map<String, dynamic> en = {
     "boardingTitle1": "Lost person?",
-  "addCompanion": "Add companion",
+    "addCompanion": "Add companion",
     "boardingTitle2": "Do you need guidance?",
     "boardingSubTitle1": "Report the lost person easily",
     "boardingSubTitle2": "Get all your instructions",
