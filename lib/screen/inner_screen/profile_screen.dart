@@ -8,7 +8,6 @@ import 'package:morshed/component/component.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../component/info_profile_component.dart';
 
 class ProfileScreen extends StatelessWidget {
