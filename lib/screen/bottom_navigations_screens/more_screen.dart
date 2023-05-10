@@ -5,7 +5,6 @@ import 'package:morshed/component/navigation_functions.dart';
 import 'package:morshed/screen/inner_screen/subscription_screen.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../models/more_screen_model.dart';
 
 class MoreScreen extends StatelessWidget {
