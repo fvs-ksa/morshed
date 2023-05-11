@@ -31,7 +31,7 @@ class ReportDetailsWidget extends StatelessWidget {
               style: Theme.of(context).textTheme.displayLarge,
             ):Container(),
            index==0? Container(
-              height: 204.h,
+              height: 225.h,
               child: ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: helpWays.length,
@@ -39,9 +39,9 @@ class ReportDetailsWidget extends StatelessWidget {
                     return CheckboxListTile(
                       controlAffinity: ListTileControlAffinity.leading,
                       checkboxShape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5)),
+                          borderRadius: BorderRadius.circular(5.sp)),
                       contentPadding: EdgeInsetsDirectional.symmetric(
-                          horizontal: screenSize.width * 0.01,
+                          horizontal: 5.w,
                           vertical: 0),
                       value: helpWays[index].value,
                       title: Text(
@@ -81,13 +81,13 @@ class ReportDetailsWidget extends StatelessWidget {
                         context: context,
                         isEnabled: false)),
                 SizedBox(
-                  width: screenSize.width * 0.06,
+                  width: 12.w,
                 ),
                 decorationContainerWidget(
                     context: context,
-                    radius: 20.sp,
-                    width: screenSize.width * 0.14,
-                    height: screenSize.height * 0.06,
+                    radius: 30.sp,
+                    width: 54.w,
+                    height:54.h,
                     child: SvgPicture.asset('assets/svg/loc.svg')),
               ],
             ),
@@ -109,7 +109,7 @@ class ReportDetailsWidget extends StatelessWidget {
               style: Theme.of(context).textTheme.displayLarge,
             ):Container(),
             index==1? Container(
-              height: screenSize.height * 0.26,
+              height:  225.h,
               child: ListView.builder(
                   physics: NeverScrollableScrollPhysics(),
                   itemCount: helpWays.length,

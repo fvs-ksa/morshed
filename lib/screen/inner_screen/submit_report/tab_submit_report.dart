@@ -78,9 +78,6 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
 
                                   children: [
                                     backButtonWidget(context: context),
-                                    // SizedBox(
-                                    //   width: screenSize.width * 0.24,
-                                    // ),
                                     Expanded(
                                       flex: 4,
                                       child: Text(
@@ -127,13 +124,11 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
                         )
                       ],
                     ),
-                    preferredSize: Size.fromHeight(screenSize.height * 0.2)),
+                    preferredSize: Size.fromHeight(180.h)),
                 body: TabBarView(
                   controller: tabController,
                   children: const [
-                    // Widget for first tab
                     MySubmitReport(),
-                    // Widget for second tab
                     SubmitReportAnotherPerson(),
                   ],
                 ),

@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_state.dart';
@@ -24,7 +25,7 @@ class SubmitReportAnotherPerson extends StatelessWidget {
           return GestureDetector(
             onTap: (){FocusManager.instance.primaryFocus?.unfocus();},
             child: Padding(
-              padding:  EdgeInsetsDirectional.symmetric(horizontal: screenSize.width*0.04,vertical: screenSize.height*0.02),
+              padding:  EdgeInsetsDirectional.symmetric(horizontal: 30.w,vertical: screenSize.height*0.02),
               child: SingleChildScrollView(
                 child: Column(
                   children: [

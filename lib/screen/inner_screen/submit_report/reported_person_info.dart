@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_state.dart';
 import 'package:morshed/component/component.dart';
@@ -55,8 +56,8 @@ class ReportedPersonInfo extends StatelessWidget {
               children: [
                 Container(
             margin: EdgeInsets.symmetric(
-            vertical: screenSize.height * 0.03,
-            horizontal: screenSize.width * 0.03),
+            vertical: 10.h,
+            horizontal: 10.w),
                   child: Column(
                     children: [
                       textFormField(
@@ -131,7 +132,7 @@ class ReportedPersonInfo extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                       color: whiteColor,
-                      borderRadius: const BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10) )),
+                      borderRadius:  BorderRadius.only(topLeft: Radius.circular(10.sp),topRight: Radius.circular(10.sp) )),
                   padding: EdgeInsets.symmetric(
                       vertical: screenSize.height * 0.03,
                       horizontal: screenSize.width * 0.03),
