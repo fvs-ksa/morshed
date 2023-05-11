@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'info_profile_component.dart';
 
 headerAnotherServices(
@@ -7,7 +8,6 @@ headerAnotherServices(
     bool isProfile = false,
     required String title,
     bool isHeaderProfile = true}) {
-  Size screenSize = MediaQuery.of(context).size;
   return PreferredSize(
       child: AppBar(
         automaticallyImplyLeading: false,
@@ -26,14 +26,14 @@ headerAnotherServices(
                     : Alignment.centerLeft,
                 child: Padding(
                   padding: EdgeInsetsDirectional.only(
-                      start: screenSize.width * 0.03),
+                      start: 15.w),
                   child: backButtonWidget(context: context),
                 ),
               ),
             ),
             Padding(
               padding:
-                  EdgeInsetsDirectional.only(top: screenSize.height * 0.02),
+                  EdgeInsetsDirectional.only(top: 10.h),
               child: FlexibleSpaceBar(
                 title: Align(
                   alignment: AlignmentDirectional.center,
@@ -48,5 +48,5 @@ headerAnotherServices(
           ],
         ),
       ),
-      preferredSize: Size.fromHeight(screenSize.height * 0.15));
+      preferredSize: Size.fromHeight(150.h));
 }

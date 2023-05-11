@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:morshed/component/guide_for_hajj_widget.dart';
 import '../../../../translation/locale_keys.g.dart';
@@ -9,14 +10,13 @@ class HijAndOmraInfoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: headerForHijGuides(
           context: context,
           title: LocaleKeys.umrahAndHajjInformation.tr(),
           image: 'assets/images/umrah.png'),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: screenSize.width * 0.03),
+        padding: EdgeInsets.symmetric(horizontal: 15.w),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -24,7 +24,7 @@ class HijAndOmraInfoScreen extends StatelessWidget {
                 children: [
                   SvgPicture.asset('assets/svg/Path 198320.svg'),
                   SizedBox(
-                    width: screenSize.width * 0.03,
+                    width: 15.w,
                   ),
                   Text('الحج')
                 ],
@@ -39,7 +39,7 @@ class HijAndOmraInfoScreen extends StatelessWidget {
                 children: [
                   SvgPicture.asset('assets/svg/Path 198320.svg'),
                   SizedBox(
-                    width: screenSize.width * 0.03,
+                    width: 15.w,
                   ),
                   Text('العمره')
                 ],

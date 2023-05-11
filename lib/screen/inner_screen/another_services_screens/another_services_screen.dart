@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:morshed/constant/const_color.dart';
 
 import '../../../component/another_services_widget.dart';
@@ -11,7 +12,6 @@ class AnotherServicesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: whiteGreyColor,
       appBar: headerAnotherServices(context: context, title:LocaleKeys.otherServices.tr() ),
@@ -21,11 +21,11 @@ class AnotherServicesScreen extends StatelessWidget {
         return  GestureDetector(
           onTap: ()=>anotherServicesList[index].fct(),
           child: Container(
-            height: screenSize.height*0.13,
-            margin: EdgeInsetsDirectional.only(start: screenSize.width*0.03,end:screenSize.width*0.03 ,top: screenSize.height*0.03),
+            height: 115.h,
+            margin: EdgeInsetsDirectional.only(start: 10.w,end:10.w ,top: 20.w),
             decoration: BoxDecoration(
                 color: whiteColor,
-                borderRadius: BorderRadius.circular(15)),
+                borderRadius: BorderRadius.circular(15.sp)),
             child: Align(
               alignment: AlignmentDirectional.center,
               child: ListTile(
