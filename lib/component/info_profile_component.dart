@@ -1,9 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:morshed/component/navigation_functions.dart';
-import 'package:sizer/sizer.dart';
 import 'component.dart';
 import '../constant/const_color.dart';
 
@@ -45,14 +44,16 @@ Widget backButtonWidget(
 bigTextFieldForNotes({required BuildContext context, required String hint}) {
   Size screenSize = MediaQuery.of(context).size;
   return SizedBox(
-    height: screenSize.height * 0.17,
+    height: 165.h,
     child: Stack(
       alignment: AlignmentDirectional.topEnd,
       children: [
         Padding(
           padding: EdgeInsetsDirectional.only(top: screenSize.height * 0.03),
           child: textFormField(
-              labelText: hint, context: context, lines: 5),
+              maxHeight: 133.h,
+              minHeight: 133.h,
+              labelText: hint, context: context, lines: 15),
         ),
         Padding(
           padding: EdgeInsetsDirectional.only(end: screenSize.height * 0.05),
@@ -73,16 +74,15 @@ headerInfoPerson(
     required String title,
     bool isHeaderProfile = true,
     required Widget avatarChild}) {
-  Size screenSize = MediaQuery.of(context).size;
   return PreferredSize(
       child: Stack(
         children: [
           Container(
-            height: screenSize.height * 0.2,
+            height: 190.h,
             child: Padding(
               padding: EdgeInsetsDirectional.only(
-                  end: !isProfile ? screenSize.width * 0.04 : 0,
-                  bottom: !isProfile ? screenSize.height * 0.02 : 0),
+                  end: !isProfile ? 10.w : 0,
+                  bottom: !isProfile ? 5.w : 0),
               child: Align(
                   alignment: isProfile
                       ? AlignmentDirectional.center
@@ -98,24 +98,24 @@ headerInfoPerson(
                     fit: BoxFit.cover)),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.only(top: screenSize.width * 0.07),
+            padding: EdgeInsetsDirectional.only(top: 40.h),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 backButtonWidget(
                     context: context),
                 SizedBox(
-                  height: screenSize.height * 0.02,
+                  height:20.h,
                 ),
                 isHeaderProfile
                     ? Padding(
                         padding: EdgeInsetsDirectional.only(
-                          start: screenSize.width * 0.03,
+                          start: 15.w,
                         ),
                         child: CircleAvatar(
                           backgroundColor: darkMainColor,
                           child: avatarChild,
-                          radius: screenSize.height * 0.05,
+                          radius: 40.sp,
                         ),
                       )
                     : const SizedBox()
@@ -124,5 +124,5 @@ headerInfoPerson(
           )
         ],
       ),
-      preferredSize: Size.fromHeight(screenSize.height * 0.25));
+      preferredSize: Size.fromHeight(220.h));
 }

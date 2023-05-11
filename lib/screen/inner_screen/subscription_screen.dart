@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:morshed/component/component.dart';
 
 import '../../component/guide_escorts_component.dart';
@@ -15,10 +16,11 @@ class SubscriptionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size screenSize=MediaQuery.of(context).size;
     return Scaffold(
-      appBar: preferredHeaderWithGuide(
-          context: context, title:LocaleKeys.subscription.tr(), isActive: false),
+      appBar: headerOfTechnicalSupport(context: context, title: LocaleKeys.subscription.tr()),
+      // appBar: preferredHeaderWithGuide(
+      //     context: context, title:LocaleKeys.subscription.tr(), isActive: false),
       body: Padding(
-        padding:EdgeInsetsDirectional.symmetric(horizontal: screenSize.width*0.06,vertical: screenSize.height*0.04),
+        padding:EdgeInsetsDirectional.symmetric(horizontal: 20.w,vertical: 15.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -26,15 +28,15 @@ class SubscriptionScreen extends StatelessWidget {
               children: [
                 Container(
                  // margin: EdgeInsetsDirectional.only(start: screenSize.width*0.03),
-                  padding: EdgeInsetsDirectional.only(end: screenSize.width * 0.04),
-                  height: screenSize.height * 0.26,
-                  width: screenSize.width,
+                  //padding: EdgeInsetsDirectional.only(end: 15.w),
+                  height: 214.h,
+                  width:373.w,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(screenSize.width * 0.04),
-                          topRight: Radius.circular(screenSize.width * 0.04),
-                          bottomRight: Radius.circular(screenSize.width * 0.04),
-                          bottomLeft: Radius.circular(screenSize.width * 0.04)),
+                          topLeft: Radius.circular(20.r),
+                          topRight: Radius.circular(20.sp),
+                          bottomRight: Radius.circular(20.sp),
+                          bottomLeft: Radius.circular(20.sp)),
                       image: const DecorationImage(
                           image: AssetImage('assets/images/bundle bg.png'), fit: BoxFit.cover)),
                 ),
@@ -43,18 +45,19 @@ class SubscriptionScreen extends StatelessWidget {
                   children: [
                     Container(
                      // padding: EdgeInsetsDirectional.only(start: screenSize.width*0.03),
-                      margin: EdgeInsetsDirectional.symmetric(vertical: screenSize.height*0.02,horizontal: screenSize.width*0.06),
+                      margin: EdgeInsetsDirectional.symmetric(
+                          vertical: 10.h,horizontal: 30.w),
                       child: Center(child: Text(LocaleKeys.theSubscriptionPackage.tr(),style: Theme.of(context).textTheme.titleLarge,
                        // textAlign: TextAlign.center,
                       )),
-                      width:screenSize.width*0.8 ,
-                      height: screenSize.height*0.07,
+                      width:310.w ,
+                      height:51.h,
                       decoration: BoxDecoration(
                           color: whiteColor,
-                          borderRadius: BorderRadius.circular(20)),
+                          borderRadius: BorderRadius.circular(20.sp)),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.only(start: screenSize.width*0.05),
+                      padding: EdgeInsetsDirectional.only(start: 15.w),
 
                       child: RichText(text: TextSpan(children: [
                         TextSpan(text: LocaleKeys.unlimitedDuringSubscription.tr(),style: Theme.of(context).textTheme.labelMedium)
@@ -62,7 +65,7 @@ class SubscriptionScreen extends StatelessWidget {
                       ],text: LocaleKeys.availableNumberOfReports.tr(),style: Theme.of(context).textTheme.labelMedium),),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.only(start: screenSize.width*0.05),
+                      padding: EdgeInsetsDirectional.only(start: 15.w),
                       child: RichText(text: TextSpan(children: [
                         TextSpan(text:'2' ,style: Theme.of(context).textTheme.labelMedium)
                       ],text: LocaleKeys.numberOfReportsYouHaveMade.tr(),style: Theme.of(context).textTheme.labelMedium),),
@@ -74,13 +77,14 @@ class SubscriptionScreen extends StatelessWidget {
             // ClipRRect(
             // borderRadius: Bo,child: Image.asset('assets/images/bundle bg.png',width: screenSize.width*0.9,)),
             Spacer(),
-            mainButton(width: double.infinity, height: screenSize.height*0.07,
+            mainButton(
+                //width: double.infinity, height: screenSize.height*0.07,
                 textStyle: Theme.of(context).textTheme.bodyLarge,
                 borderColor: darkMainColor,
                 text:LocaleKeys.renewSubscription.tr(), color: whiteColor, context: context, fct: (){
                   navigateForward(MainScreen());
                 }),
-           SizedBox(height: screenSize.height*0.02,),
+           SizedBox(height: 30.h,),
            // mainButton(width: screenSize.width*0.7, height: height, text: text, color: color, context: context, fct: fct)
             Text(LocaleKeys.cancelSubscription.tr(),style: Theme.of(context).textTheme.headlineMedium,),
           ],

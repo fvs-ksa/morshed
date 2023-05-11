@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:morshed/component/component.dart';
 import 'package:morshed/component/info_profile_component.dart';
-import 'package:sizer/sizer.dart';
 
 import '../../../constant/const_color.dart';
 import '../../../component/guide_escorts_component.dart';
@@ -18,8 +18,9 @@ class MyReportsDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: preferredHeaderWithGuide(
-          context: context, title:LocaleKeys.reportDetails.tr() , isActive: false),
+      // appBar: preferredHeaderWithGuide(
+      //     context: context, title:LocaleKeys.reportDetails.tr() , isActive: false),
+      appBar: headerOfTechnicalSupport(context: context, title: LocaleKeys.reportDetails.tr()),
       body: GestureDetector(
         onTap: (){FocusManager.instance.primaryFocus?.unfocus();},
         child: SingleChildScrollView(
@@ -30,7 +31,7 @@ class MyReportsDetailsScreen extends StatelessWidget {
                 alignment: AlignmentDirectional.center,
                 children: [
                   Container(
-                    height: screenSize.height * 0.07,
+                    height: 62.h,
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage(index == 0
@@ -54,15 +55,18 @@ class MyReportsDetailsScreen extends StatelessWidget {
                 ],
               ),
               Padding(
-                padding: EdgeInsetsDirectional.symmetric(horizontal: screenSize.width*0.04,vertical: screenSize.height*0.02),
+                padding: EdgeInsetsDirectional.symmetric(horizontal: 15.w
+                    ,vertical: 5.h),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: screenSize.height*0.05,),
+                    SizedBox(height: 15.h,),
                     textFormField(labelText:LocaleKeys.reportNumber.tr(),  context: context,isEnabled: false),
                     textFormField(labelText:LocaleKeys.passportNo.tr() ,  context: context,isEnabled: false),
                     textFormField(labelText:LocaleKeys.reportLocation.tr(),  context: context,isEnabled: false),
-                    bigTextFieldForNotes(context: context, hint:LocaleKeys.commentsAndAssistance.tr() ),
+                    bigTextFieldForNotes(
+
+                        context: context, hint:LocaleKeys.commentsAndAssistance.tr() ),
                     // SizedBox(
                     //   height: screenSize.height*0.17,
                     //  // color: Colors.red,
@@ -88,30 +92,32 @@ class MyReportsDetailsScreen extends StatelessWidget {
                     Text(LocaleKeys.iWouldLikeHelpWithReachingTheHotel.tr(),style: Theme.of(context).textTheme.titleSmall,),
                     index==0?Align(alignment: AlignmentDirectional.center,child: Padding(
                       padding:  EdgeInsets.symmetric(vertical: screenSize.height*0.06,horizontal: screenSize.width*0.03),
-                      child: mainButton(width: screenSize.width*0.8, height: screenSize.height*0.07,
+                      child: mainButton(
+                          // width: screenSize.width*0.8,
+                          // height: screenSize.height*0.07,
                           text:LocaleKeys.cancelReport.tr() , color: orangeColor, context: context, fct: (){}),
                     )):const SizedBox(),
 
                     index==1?Card(
                       elevation: 3,
-                      margin: EdgeInsetsDirectional.only(top: screenSize.height*0.05),
+                      margin: EdgeInsetsDirectional.only(top: 10.h),
                       clipBehavior: Clip.antiAliasWithSaveLayer,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(screenSize.width*0.05)),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.sp)),
                       child: Container(
 
-                        padding: EdgeInsetsDirectional.only(end: screenSize.width*0.04),
-                        height: screenSize.height*0.18,
+                        padding: EdgeInsetsDirectional.only(end: 15.w),
+                        height: 140.h,
                         width: double.infinity,
                         decoration: BoxDecoration(
                            // color: darkMainColor,
-                            borderRadius: BorderRadius.circular(screenSize.width*0.05)),
+                            borderRadius: BorderRadius.circular(8.sp)),
                         child: Row(
                           children: [
                             Expanded(
                               child: Center(
                                 child: ListTile(
 
-                                    leading: CircleAvatar(radius: 20.sp,backgroundImage: AssetImage('assets/images/profile.png'),),
+                                    leading: CircleAvatar(radius: 25.sp,backgroundImage: AssetImage('assets/images/profile.png'),),
                                   title: Text('احمد علي',style:Theme.of(context).textTheme.displayLarge ,),
                                   subtitle: RichText(text: TextSpan(text: '${LocaleKeys.phoneNumber.tr()} : ',style: Theme.of(context).textTheme.bodySmall,children: [
                                     TextSpan(text: '966542136547+',style: Theme.of(context).textTheme.headlineSmall,)

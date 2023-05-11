@@ -1,11 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_state.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
-import 'package:sizer/sizer.dart';
 
 import '../models/help_ways.dart';
 import 'component.dart';
@@ -31,7 +31,7 @@ class ReportDetailsWidget extends StatelessWidget {
               style: Theme.of(context).textTheme.displayLarge,
             ):Container(),
            index==0? Container(
-              height: screenSize.height * 0.26,
+              height: 204.h,
               child: ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: helpWays.length,
@@ -156,8 +156,8 @@ class ReportDetailsWidget extends StatelessWidget {
               child: Align(
                   alignment: Alignment.center,
                   child: mainButton(
-                      width: screenSize.width * 0.8,
-                      height: screenSize.height * 0.07,
+                      // width: screenSize.width * 0.8,
+                      // height: screenSize.height * 0.07,
                       text:LocaleKeys.reporting.tr(),
                       color: darkMainColor,
                       context: context,

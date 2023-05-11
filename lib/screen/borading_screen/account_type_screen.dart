@@ -1,8 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:morshed/bloc/account_type_cubit/cubit.dart';
 import 'package:morshed/bloc/account_type_cubit/state.dart';
+import 'package:morshed/component/auth_header_widget.dart';
 import 'package:morshed/component/component.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/screen/auth_screen/login_screen.dart';
@@ -24,34 +26,40 @@ class AccountTypeScreen extends StatelessWidget {
       builder: (context,state) {
         return Scaffold(
           body: Stack(
-            fit: StackFit.expand,
+           // fit: StackFit.expand,
             children: [
               Image.asset(
                 'assets/images/4.png',
-                fit: BoxFit.fitHeight,
+                //fit: BoxFit.fitHeight,
+                fit: BoxFit.fitWidth,
+                width: double.infinity,
+                height: double.infinity,
               ),
               Padding(
-                padding: EdgeInsetsDirectional.only(top: size.height * 0.1,bottom: size.height * 0.09),
+                padding: EdgeInsetsDirectional.only(top: 90.h,
+                    bottom:40.h),
                 child: Column(
                   children: [
-                    Image.asset(
-                      'assets/images/whiteMorshed.png',
-                      height: size.height * 0.1,
-                      width: size.width * 0.3,
-                    ),
+                    whiteMorshedLogo(image: 'assets/images/whiteMorshed.png',),
+                    // Image.asset(
+                    //   'assets/images/whiteMorshed.png',
+                    //   height: 94.h,
+                    //   width: 154.w,
+                    // ),
                     SizedBox(
-                      height: size.height * 0.05,
+                      height: 30.h,
                     ),
                     Text(
                       LocaleKeys.chooseAccountType.tr(),
                       style: Theme.of(context).textTheme.displayMedium,
                     ),
                     SizedBox(
-                      height: size.height * 0.04,
+                      height: 48.h,
                     ),
                     SizedBox(
-                      height: size.height * 0.4,
+                      height:290.h,
                       child: ListView.separated(
+                        padding: EdgeInsets.zero,
                         scrollDirection: Axis.horizontal,
                         itemCount: typeModel.length,
                         itemBuilder: (context, index) {
@@ -81,7 +89,7 @@ class AccountTypeScreen extends StatelessWidget {
                       ),
                     ),
                     const Spacer(),
-                    floatingButton(context: context, fct: (){
+                    floatingButton(fct: (){
                       if(accountTypeCubit.isHajji==false && accountTypeCubit.isUmrah ==false){
                         showToast(text:LocaleKeys.pleaseChooseType.tr() , state: ToastState.WARNING);
                         print('hijji: ${accountTypeCubit.isHajji} || Umrah: ${accountTypeCubit.isUmrah}');

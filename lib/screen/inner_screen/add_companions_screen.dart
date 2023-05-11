@@ -2,13 +2,13 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:morshed/bloc/add_companions_cubit/state.dart';
 import 'package:morshed/component/component.dart';
 import 'package:morshed/component/guide_escorts_component.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
-import 'package:sizer/sizer.dart';
 
 import '../../bloc/add_companions_cubit/cubit.dart';
 import '../../component/floating_Container.dart';
@@ -68,7 +68,8 @@ class AddCompanionsScreen extends StatelessWidget {
                       ],
                     ),
                     Spacer(),
-                    mainButton(width: screenSize.width*0.8, height: screenSize.height*0.06,
+                    mainButton(
+                        //width: screenSize.width*0.8, height: screenSize.height*0.06,
                         text: LocaleKeys.add.tr(), color: darkMainColor, context: context, fct: (){})
                   ],
                 ),

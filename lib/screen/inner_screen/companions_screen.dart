@@ -1,34 +1,28 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:morshed/component/guide_escorts_component.dart';
 import 'package:morshed/component/navigation_functions.dart';
 import 'package:morshed/screen/inner_screen/add_companions_screen.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
 import '../../constant/const_color.dart';
-import '../../component/floating_Container.dart';
 
 class EscortsScreen extends StatelessWidget {
   TextEditingController searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: preferredHeaderWithGuide(
-          context: context,
-          title: LocaleKeys.Companions.tr(),
-          fct: () {},
-          searchController: searchController,
-          isGuide: false),
+      appBar: headerForGuide(context: context, title: LocaleKeys.Companions.tr(),fct: (){}),
       backgroundColor: whiteGreyColor,
       body: GestureDetector(
         onTap: (){FocusManager.instance.primaryFocus?.unfocus();},
         child: Padding(
           padding: EdgeInsetsDirectional.only(
-              top: screenSize.height * 0.01,
-              start: screenSize.width * 0.02,
-              end: screenSize.width * 0.02),
+              top: 10.h,
+              start: 8.w,
+              end: 8.w),
           child: ListView.builder(
               itemCount: 10,
               itemBuilder: (context, index) {
@@ -46,7 +40,7 @@ class EscortsScreen extends StatelessWidget {
           child: Row(
             children: [
               SvgPicture.asset('assets/svg/Icon ionic-ios-add.svg'),
-              SizedBox(width: screenSize.width*0.01,),
+              SizedBox(width: 5.w,),
               Text(
                 LocaleKeys.Companions.tr(),
                 style: Theme.of(context).textTheme.labelLarge,

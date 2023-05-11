@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:morshed/constant/const_color.dart';
 
-homeComponentWidget({required BuildContext context,required String image,required String title,TextStyle?style,required Function fct,bool isWide=true,bool isTall=true}){
-  Size size = MediaQuery.of(context).size;
+homeComponentWidget({required BuildContext context,
+  required String image,
+  required String title,TextStyle?style,
+  required Function fct,
+  required double width,
+  required double height,
+  bool isWide=true,
+  bool isTall=true}){
+ Size size = MediaQuery.of(context).size;
   return GestureDetector(
+
     onTap: (){fct();},
     child: Container(
-      height:isTall?size.height * 0.17: size.height * 0.15,
-      width:isWide? size.width * 0.3: size.width * 0.23,
+      padding: EdgeInsets.zero,
+      height:height,
+      width:width,
       child: Column(
         children: [
           Padding(

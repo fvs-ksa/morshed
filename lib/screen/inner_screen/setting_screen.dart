@@ -25,8 +25,7 @@ class _SettingScreenState extends State<SettingScreen> {
       builder: (context,state) {
         {
           return Scaffold(
-            appBar: preferredHeaderWithGuide(
-                context: context, title: LocaleKeys.settings.tr(), isActive: false),
+            appBar: headerOfTechnicalSupport(context: context, title: LocaleKeys.settings.tr()),
             body: Padding(
               padding: EdgeInsetsDirectional.symmetric(
                   horizontal: screenSize.width * 0.02,

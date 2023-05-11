@@ -1,13 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:morshed/bloc/profile_cubit/cubit.dart';
 import 'package:morshed/bloc/profile_cubit/state.dart';
 import 'package:morshed/component/component.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
-import 'package:sizer/sizer.dart';
 import '../../component/info_profile_component.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -33,18 +33,18 @@ class ProfileScreen extends StatelessWidget {
               body: SingleChildScrollView(
                 child: Padding(
                   padding: EdgeInsetsDirectional.only(
-                      start: screenSize.width * 0.06,
-                      end: screenSize.width * 0.06),
+                      start: 40.w,
+                      end: 20.w),
                   child: Column(
                     children: [
                       textFormField(
                         labelText: LocaleKeys.arabicNamePassport.tr(),
-                        hintText: '',
+                       // hintText: '',
                         context: context,
                       ),
                       textFormField(
                           labelText: LocaleKeys.englishNamePassport.tr(),
-                          hintText: '',
+                         // hintText: '',
                           context: context),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -133,8 +133,8 @@ class ProfileScreen extends StatelessWidget {
                             vertical: screenSize.height * 0.06,
                             horizontal: screenSize.width * 0.03),
                         child: mainButton(
-                            width: screenSize.width * 0.8,
-                            height: screenSize.height * 0.07,
+                           // width: screenSize.width * 0.8,
+                         //   height: screenSize.height * 0.07,
                             text: LocaleKeys.edit.tr(),
                             color: orangeColor,
                             context: context,

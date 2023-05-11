@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
 
@@ -22,23 +23,24 @@ class QrScreen extends StatelessWidget {
                   fit: BoxFit.fitWidth)),
         ),
         Padding(
-          padding: EdgeInsetsDirectional.only(top: screenSize.height * 0.1),
+          padding: EdgeInsetsDirectional.only(
+              top:80.h),
           child: Column(
             // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               CircleAvatar(
-                radius: screenSize.width * 0.09,
+                radius: 50.sp,
                 backgroundImage: AssetImage('assets/images/profile.png'),
               ),
               SizedBox(
-                height: screenSize.height * 0.01,
+                height: 10.h,
               ),
               Text(
                 'محمد أحمد',
                 style: Theme.of(context).textTheme.displayMedium,
               ),
               SizedBox(
-                height: screenSize.height * 0.01,
+                height: 10.h,
               ),
               Text(
                 LocaleKeys.provideYourCodeToAssistYou.tr(),
@@ -46,13 +48,13 @@ class QrScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: screenSize.height * 0.03,
+                height: 29.h,
               ),
               Container(
-                height: screenSize.height*0.3,
-                width: screenSize.width*0.6,
+                height:258.h,
+                width: 258.w,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(20.sp),
                     border: Border.all(color: whiteColor,),
                     image: const DecorationImage(
                         image: AssetImage('assets/images/qrCode.png'),)),

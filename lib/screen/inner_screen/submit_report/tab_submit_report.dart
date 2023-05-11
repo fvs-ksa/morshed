@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_state.dart';
@@ -45,93 +46,97 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
         listener: (context, state) {},
         builder: (context, state) {
           {
-            return Scaffold(
-              appBar: PreferredSize(
-                  child: Stack(
-                    alignment: AlignmentDirectional.center,
-                    fit: StackFit.expand,
-                    children: [
-                      Image.asset('assets/images/header1.png',
-                          fit: BoxFit.cover),
-                      Padding(
-                        padding: EdgeInsetsDirectional.only(bottom: screenSize.height*0.02,top: screenSize.height*0.15),
-                        child: Align(
-                          alignment: AlignmentDirectional.bottomCenter,
-                          child:  DashedLine(color: whiteColor),
+            return GestureDetector(
+              onTap: (){FocusManager.instance.primaryFocus?.unfocus();},
+              child: Scaffold(
+                appBar: PreferredSize(
+                    child: Stack(
+                      alignment: AlignmentDirectional.center,
+                      fit: StackFit.expand,
+                      children: [
+                        Image.asset('assets/images/header1.png',
+                            fit: BoxFit.cover),
+                        Padding(
+                          padding: EdgeInsetsDirectional.only(bottom: 5.h,top: 10.h),
+                          child: Align(
+                            alignment: AlignmentDirectional.bottomCenter,
+                            child:  DashedLine(color: whiteColor),
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.only(
-                            top: screenSize.height * 0.05,
-                            bottom:screenSize.height * 0.02 ,
-                            start: screenSize.width * 0.04),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
+                        Padding(
+                          padding: EdgeInsetsDirectional.only(
+                              top: 30.h,
+                              bottom:20.h ,
+                              start: 20.w
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
 
-                                children: [
-                                  backButtonWidget(context: context),
-                                  // SizedBox(
-                                  //   width: screenSize.width * 0.24,
-                                  // ),
-                                  Expanded(
-                                    flex: 4,
-                                    child: Text(
+                                  children: [
+                                    backButtonWidget(context: context),
+                                    // SizedBox(
+                                    //   width: screenSize.width * 0.24,
+                                    // ),
+                                    Expanded(
+                                      flex: 4,
+                                      child: Text(
 
-                                      LocaleKeys.reporting.tr(),
-                                      textAlign: TextAlign.center,
-                                      style:
-                                          Theme.of(context).textTheme. displayMedium,
+                                        LocaleKeys.reporting.tr(),
+                                        textAlign: TextAlign.center,
+                                        style:
+                                            Theme.of(context).textTheme. displayMedium,
+                                      ),
                                     ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: Container(),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              TabBar(controller: tabController, tabs: [
+                                Tab(
+                                  child: Text(
+                                    LocaleKeys.iLost.tr(),
+                                    style: tabController.index == 0
+                                        ? Theme.of(context).textTheme.labelLarge
+                                        : Theme.of(context).textTheme.titleMedium,
                                   ),
-                                  Expanded(
-                                    flex: 1,
-                                    child: Container(),
-                                  )
-                                ],
-                              ),
-                            ),
-                            TabBar(controller: tabController, tabs: [
-                              Tab(
-                                child: Text(
-                                  LocaleKeys.iLost.tr(),
-                                  style: tabController.index == 0
-                                      ? Theme.of(context).textTheme.labelLarge
-                                      : Theme.of(context).textTheme.titleMedium,
+                                  icon: SvgPicture.asset(
+                                      tabController.index == 1? 'assets/svg/iLostActive.svg':'assets/svg/iLostInActive.svg'),
+                                  // text: 'انا تائه'
                                 ),
-                                icon: SvgPicture.asset(
-                                    tabController.index == 1? 'assets/svg/iLostActive.svg':'assets/svg/iLostInActive.svg'),
-                                // text: 'انا تائه'
-                              ),
 
-                              Tab(
-                                child: Text(
-                                  LocaleKeys.anotherOneIsLost.tr(),
-                                  style: tabController.index == 1
-                                      ? Theme.of(context).textTheme.labelLarge
-                                      : Theme.of(context).textTheme.titleMedium,
+                                Tab(
+                                  child: Text(
+                                    LocaleKeys.anotherOneIsLost.tr(),
+                                    style: tabController.index == 1
+                                        ? Theme.of(context).textTheme.labelLarge
+                                        : Theme.of(context).textTheme.titleMedium,
+                                  ),
+                                  icon: SvgPicture.asset(
+                                      tabController.index == 0? 'assets/svg/anotherActive.svg':'assets/svg/anotherInActive.svg'),
                                 ),
-                                icon: SvgPicture.asset(
-                                    tabController.index == 0? 'assets/svg/anotherActive.svg':'assets/svg/anotherInActive.svg'),
-                              ),
-                            ])
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                  preferredSize: Size.fromHeight(screenSize.height * 0.2)),
-              body: TabBarView(
-                controller: tabController,
-                children: const [
-                  // Widget for first tab
-                  MySubmitReport(),
-                  // Widget for second tab
-                  SubmitReportAnotherPerson(),
-                ],
+                              ])
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                    preferredSize: Size.fromHeight(screenSize.height * 0.2)),
+                body: TabBarView(
+                  controller: tabController,
+                  children: const [
+                    // Widget for first tab
+                    MySubmitReport(),
+                    // Widget for second tab
+                    SubmitReportAnotherPerson(),
+                  ],
+                ),
               ),
             );
           }

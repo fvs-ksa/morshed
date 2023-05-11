@@ -1,24 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/models/account_type_model.dart';
-import 'package:sizer/sizer.dart';
 
 Widget floatingButton({
-  required BuildContext context,
   required Function fct,
   Color? backgroundColor,
   Color? iconColor,
 }) {
-  Size size = MediaQuery.of(context).size;
   return GestureDetector(
     onTap: () {
       fct();
     },
     child: Container(
-      height: size.height * 0.15,
-      width: size.width * 0.15,
+      height: 72.h,
+      width:72.w,
       decoration: BoxDecoration(
           shape: BoxShape.circle, color: backgroundColor ?? darkMainColor),
       child: Icon(
@@ -33,25 +31,31 @@ Widget floatingButton({
 
 Widget accountType(
     {required BuildContext context, required AccountTypeModel model,required Function fct,required bool checkBoxValue}) {
-  Size size = MediaQuery.of(context).size;
+
   return Padding(
-    padding: EdgeInsetsDirectional.only(start: size.width * 0.12),
+    padding: EdgeInsetsDirectional.only(start:45.w),
     child: Column(
       children: [
         Container(
-          height: size.height * 0.23,
-          width: size.width * .32,
-          padding: EdgeInsetsDirectional.only(start:size.width * 0.05,end:size.width * 0.05,top: size.height*0.03 ,bottom: size.height*0.03),
+          height: 192.h,
+          width: 141.w,
+          padding: EdgeInsetsDirectional.only(
+              start:20.w,
+              end:20.w,
+              top: 20.h ,
+              bottom: 20.h),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.sp),
               color: lightMainColor),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Expanded(child: Image.asset(model.image, height: size.height * 0.11,width:size.width * .28 ,fit: BoxFit.contain,)),
-              Text(
-                model.name,
-                style: Theme.of(context).textTheme.displayMedium,
+              Expanded(child: Image.asset(model.image, height: 208.h,width:73.2.w ,fit: BoxFit.contain,)),
+              FittedBox(
+                child: Text(
+                  model.name,
+                  style: Theme.of(context).textTheme.displayMedium,
+                ),
               )
             ],
           ),
@@ -84,12 +88,15 @@ Widget textFormField(
       Function? onTap,
       int? length,
       int? lines,
+      double? maxHeight,
+      double? minHeight,
       bool isEnabled=true,
     Function? validator}){
   Size size=MediaQuery.of(context).size;
   return Padding(
     padding:  EdgeInsets.only(bottom:size.height*0.02 ),
     child: TextFormField(
+
       style: Theme.of(context).textTheme.bodyMedium,
       onTap: (){
         onTap??print('');
@@ -97,6 +104,7 @@ Widget textFormField(
       maxLines: lines,
       maxLength: length,
       decoration: InputDecoration(
+        constraints: BoxConstraints(minHeight:minHeight?? 54.h,minWidth: 330.w,maxHeight:maxHeight??54.h,maxWidth: 360.w ),
         suffixIcon: suffixIcon,
           labelText: labelText,
           labelStyle: Theme.of(context).textTheme.labelSmall,
@@ -120,16 +128,16 @@ Widget dropDownButton(
       required String hint,
       required Function fct,
       required BuildContext context,
+      bool isFlag=false,
       required Function validator}) {
-  Size screenSize = MediaQuery.of(context).size;
   return Align(
     alignment: AlignmentDirectional.topStart,
     child: Padding(
-        padding: EdgeInsetsDirectional.only(bottom: screenSize.height*0.01,top: screenSize.height*0.01),
+        padding: EdgeInsetsDirectional.only(bottom: 5.h,top: 10.h),
         child: Container(
 
-            padding: EdgeInsets.symmetric(horizontal: screenSize.width*0.04),
-            height: screenSize.height * 0.07,
+            padding: EdgeInsetsDirectional.only(start:isFlag?0: 10.w,end: 10.w),
+            height: 54.h,
             width: double.infinity,
             decoration: BoxDecoration(
                 color: Colors.transparent,
@@ -143,7 +151,7 @@ Widget dropDownButton(
                     child: DropdownButtonFormField(
                       isExpanded: true,
                       decoration: const InputDecoration(border: InputBorder.none,),
-                      hint: Text(hint),
+                      hint: FittedBox(child: Text(hint)),
                       style: Theme.of(context).textTheme.labelSmall,
                       iconSize: 0.0,
                       borderRadius: BorderRadius.circular(12.sp),
@@ -165,8 +173,9 @@ Widget dropDownButton(
   );
 }
 Widget mainButton(
-    {required double width,
-      required double height,
+    {
+       double? width,
+      double? height,
       FontWeight? fontWeight,
       required String text,
       required Color color,
@@ -179,8 +188,8 @@ Widget mainButton(
       fct();
     },
     child: Container(
-      height: height,
-      width: width,
+      height:height?? 64.h,
+      width:width?? 330.w,
       decoration:
       BoxDecoration(
           border: Border.all(

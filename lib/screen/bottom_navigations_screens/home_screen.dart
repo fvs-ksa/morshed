@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:morshed/component/auth_header_widget.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/component/floating_Container.dart';
 import 'package:morshed/component/home_screen_widget.dart';
@@ -20,7 +22,7 @@ class HomeScreen extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: size.height * 0.22,
+          height:212.4.h,
           child: Stack(
             fit: StackFit.expand,
             children: [
@@ -29,22 +31,23 @@ class HomeScreen extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               Padding(
-                padding: EdgeInsetsDirectional.only(end: size.width * 0.06,start: size.width * 0.06,top: size.height*0.04),
+                padding: EdgeInsetsDirectional.symmetric(horizontal: 10.w),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Image.asset(
-                      'assets/images/whiteMorshed.png',
-                      height: size.height * 0.2,
-                      width: size.width * 0.4,
-                      fit: BoxFit.contain,
-                    ),
+                    whiteMorshedLogo(image: 'assets/images/whiteMorshed.png',width: 163.w,height: 100.h),
+                   // Image.asset(
+                    //   'assets/images/whiteMorshed.png',
+                    //   height:size.width>600? size.height * 0.2:size.height*0.1,
+                    //   width:size.width>600? size.width * 0.4:size.height*0.2,
+                    //   fit: BoxFit.contain,
+                    // ),
                     GestureDetector(
                       onTap: (){navigateForward(MyCardScreen());},
                       child: Image.asset(
                         'assets/images/card.png',
-                        height: size.height * 0.2,
-                        width: size.width * 0.4,
+                        height:115.h,
+                        width:178.86.w,
                         fit: BoxFit.contain,
                       ),
                     )
@@ -56,12 +59,12 @@ class HomeScreen extends StatelessWidget {
         ),
         Expanded(
           child: SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             child: Padding(
               padding: EdgeInsetsDirectional.only(
-                  top: size.width * 0.04,
-                  start: size.width * 0.1,
-                  end: size.width * 0.1),
+                  top: 14.h,
+                  start: 45.w,
+                  end: 45.w),
               child: Column(
                 children: [
                   Text(
@@ -73,41 +76,58 @@ class HomeScreen extends StatelessWidget {
 
                   ),
                   SizedBox(
-                    height: size.width * 0.07,
+                    height: 40.h,
+                  //  height: size.width * 0.07,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      homeComponentWidget(style:Theme.of(context).textTheme.displaySmall ,context: context, image: 'assets/images/report.png',
-                          title:LocaleKeys.reportingCaseOfMentalBreakdown.tr(), fct: (){navigateForward(TabBarSubmitReport());}),
+                      homeComponentWidget(
+                          width: 98.w,
+                          height: 151.16.h,
+                          style:Theme.of(context).textTheme.displaySmall ,
+                          context: context, image: 'assets/images/report.png',
+                          title:LocaleKeys.reportingCaseOfMentalBreakdown.tr(),
+                          fct: (){navigateForward(TabBarSubmitReport());}, ),
 
 
                       Padding(
-                        padding: EdgeInsetsDirectional.only(start: size.width*0.04),
+                        padding: EdgeInsetsDirectional.only(start: 20.w,end: 20.w),
                         child: DashedLine(color: greyColor),
                       ),
-                      homeComponentWidget(fct: (){},context: context,
-                          image: 'assets/images/vedio.png', title:LocaleKeys.videoCall.tr(),isWide: true),
+                      homeComponentWidget(
+                          width: 72.49.w,
+                          height: 151.16.h,
+                          fct: (){},context: context,
+                          image: 'assets/images/vedio.png', title:LocaleKeys.videoCall.tr()),
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.only(bottom: size.height*0.04,top: size.height*0.01),
+                    padding: EdgeInsetsDirectional.only(bottom: 22.h,top: 11.h),
                     child: MySeparator(color: greyColor),
                   ),
-                  homeComponentWidget(fct: (){navigateForward(AnotherServicesScreen());},context: context,
+                  homeComponentWidget(
+                      width: 102.h,
+                      height: 114.02.h,
+                      fct: (){navigateForward(AnotherServicesScreen());},context: context,
                       image: 'assets/images/other_services.png', title: LocaleKeys.otherServices.tr()),
+                  SizedBox(height: 15.h,),
                   floatingContainer(
                     fct: (){navigateForward(const AddCompanionsScreen());},
                       alignment: AlignmentDirectional.bottomStart,
                       context: context,
                       svgAssets: 'assets/svg/Icon ionic-ios-add.svg',
-                      title:LocaleKeys.addCompanion.tr(), width: size.width * 0.4,color:darkMainColor ),
+                      title:LocaleKeys.addCompanion.tr(),
+                      width:161.w,
+                      color:darkMainColor ),
                   SizedBox(height: size.height*0.02,),
                   floatingContainer(
                     fct: (){},
                       alignment: AlignmentDirectional.bottomStart,
                       context: context, svgAssets: 'assets/svg/on map.svg',
-                      title:LocaleKeys.counselingOfficesAndCounselors.tr(), width: size.width * 0.7,color:orangeColor ),
+                      title:LocaleKeys.counselingOfficesAndCounselors.tr(),
+                      width: 247.w,
+                      color:orangeColor ),
 
                 ],
               ),

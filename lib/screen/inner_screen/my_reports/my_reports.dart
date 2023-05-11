@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/component/reports_widgets.dart';
@@ -15,12 +16,10 @@ class MyReports extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery
-        .of(context)
-        .size;
     return Scaffold(
-      appBar: preferredHeaderWithGuide(
-          context: context, title:LocaleKeys.myReports.tr() , isActive: false),
+      appBar: headerOfTechnicalSupport(context: context, title: LocaleKeys.myReports.tr()),
+      // appBar: preferredHeaderWithGuide(
+      //     context: context, title:LocaleKeys.myReports.tr() , isActive: false),
       backgroundColor: whiteGreyColor,
       body: ListView.builder(
         itemBuilder: (context, index) {
@@ -34,7 +33,7 @@ class MyReports extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                   circleAvtarWidget(svgImage: 'assets/svg/end call.svg'),
-                  SizedBox(width: screenSize.width*0.02,),
+                  SizedBox(width: 5.w,),
                   circleAvtarWidget(svgImage: 'assets/svg/msg.svg'),
                 ],):const SizedBox() ,
                 reportStatus: reportsList[index].status == 0

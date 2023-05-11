@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:morshed/bloc/account_type_cubit/cubit.dart';
 import 'package:morshed/bloc/boarding_cubit/cubit.dart';
 import 'package:morshed/bloc/chat_cubit/chat_with_support_cubit/chat_support_cubit.dart';
@@ -17,7 +18,6 @@ import 'package:morshed/screen/borading_screen/boarding_screen.dart';
 import 'package:morshed/translation/codegen_loader.g.dart';
 import 'package:morshed/utiels/navigation_Services.dart';
 import 'package:morshed/utiels/shared_pref.dart';
-import 'package:sizer/sizer.dart';
 import 'bloc/add_companions_cubit/cubit.dart';
 import 'bloc_observe.dart';
 import 'constant/const_color.dart';
@@ -73,23 +73,27 @@ class MyApp extends StatelessWidget {
         ],
         child: MediaQuery(
           data: const MediaQueryData(),
-          child: Sizer(builder: (ctx, orientation, deviceType) {
-            return MaterialApp(
-              navigatorKey: NavigationService.navigate().navigationKey,
-              debugShowCheckedModeBanner: false,
-              locale: DevicePreview.locale(context),
-              builder: DevicePreview.appBuilder,
-             // locale: context.locale,
-              supportedLocales: context.supportedLocales,
-              localizationsDelegates: context.localizationDelegates,
-              title: 'مرشد',
-              theme: ThemeData(
-                primarySwatch: Palette.primaryColor,
-                textTheme: responsiveTextTheme(ctx),
-              ),
-              home: BoardingScreen(),
-            );
-          }),
+          child:ScreenUtilInit(
+            designSize: Size(414,896),
+              builder: (context , child) {
+                return MaterialApp(
+                  navigatorKey: NavigationService.navigate().navigationKey,
+                  debugShowCheckedModeBanner: false,
+                // locale: DevicePreview.locale(context),
+                  builder: DevicePreview.appBuilder,
+                locale: context.locale,
+                  supportedLocales: context.supportedLocales,
+                  localizationsDelegates: context.localizationDelegates,
+                  title: 'مرشد',
+                  theme: ThemeData(
+                    primarySwatch: Palette.primaryColor,
+                    textTheme: responsiveTextTheme(context),
+                  ),
+                  home: BoardingScreen(),
+                );
+              }
+            )
+
         ));
   }
 }

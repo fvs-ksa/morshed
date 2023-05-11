@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:sizer/sizer.dart';
 import '../translation/locale_keys.g.dart';
 import 'component.dart';
 import '../constant/const_color.dart';
@@ -17,18 +17,18 @@ Widget myReportsContainerWidget(
   Size screenSize = MediaQuery.of(context).size;
   return Container(
     margin: EdgeInsetsDirectional.symmetric(
-        vertical: screenSize.height * 0.02,
-        horizontal: screenSize.width * 0.02),
-    height: screenSize.height * 0.2,
+        vertical: 5.h,
+        horizontal: 5.w),
+    height:173.h,
     decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(screenSize.width * 0.04),
+        borderRadius: BorderRadius.circular(20.sp),
         color: whiteColor),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: EdgeInsetsDirectional.only(
-              start: screenSize.width * 0.04, top: screenSize.width * 0.02),
+              start: 15.w, top: 12.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -53,17 +53,17 @@ Widget myReportsContainerWidget(
           clipBehavior: Clip.antiAlias,
           children: [
             Container(
-              padding: EdgeInsetsDirectional.only(end: screenSize.width * 0.04),
-              height: screenSize.height * 0.06,
+              padding: EdgeInsetsDirectional.only(end: 15.w),
+              height: 45.h,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(screenSize.width * 0.04),
-                      bottomLeft: Radius.circular(screenSize.width * 0.04)),
+                      bottomRight: Radius.circular(15.sp),
+                      bottomLeft: Radius.circular(15.sp)),
                   image: DecorationImage(
                       image: AssetImage(backgroundImage), fit: BoxFit.cover)),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.only(end: screenSize.width * 0.06),
+              padding: EdgeInsetsDirectional.only(end: 20.w),
               child: Text(
                 reportStatus,
                 style: style ?? Theme.of(context).textTheme.labelLarge,
