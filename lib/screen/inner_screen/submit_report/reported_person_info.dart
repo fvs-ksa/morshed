@@ -41,7 +41,6 @@ class ReportedPersonInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
     var reportCubit=SubmitReportCubit.get(context);
     return BlocConsumer<SubmitReportCubit,SubmitReportState>(
       listener: (context,state){},
@@ -134,8 +133,8 @@ class ReportedPersonInfo extends StatelessWidget {
                       color: whiteColor,
                       borderRadius:  BorderRadius.only(topLeft: Radius.circular(10.sp),topRight: Radius.circular(10.sp) )),
                   padding: EdgeInsets.symmetric(
-                      vertical: screenSize.height * 0.03,
-                      horizontal: screenSize.width * 0.03),
+                      vertical: 20.h,
+                      horizontal: 15.h),
 
                   child: SingleChildScrollView(
                     child: ReportDetailsWidget(index: 0),

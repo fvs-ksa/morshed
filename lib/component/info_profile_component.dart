@@ -82,7 +82,7 @@ headerInfoPerson(
             child: Padding(
               padding: EdgeInsetsDirectional.only(
                   end: !isProfile ? 10.w : 0,
-                  bottom: !isProfile ? 5.w : 0),
+                  bottom: !isProfile ? 15.h : 0.h),
               child: Align(
                   alignment: isProfile
                       ? AlignmentDirectional.center
