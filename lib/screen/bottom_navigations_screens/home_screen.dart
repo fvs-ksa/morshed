@@ -68,7 +68,7 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   Text(
                     LocaleKeys.welcomeToMorshed.tr(),
-                    style: Theme.of(context).textTheme.displayLarge,
+                    style: Theme.of(context).textTheme.headlineSmall,
                     softWrap: true,
 
                     textAlign: TextAlign.center,

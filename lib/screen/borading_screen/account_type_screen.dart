@@ -28,7 +28,6 @@ class AccountTypeScreen extends StatelessWidget {
             children: [
               Image.asset(
                 'assets/images/4.png',
-                //fit: BoxFit.fitHeight,
                 fit: BoxFit.fitWidth,
                 width: double.infinity,
                 height: double.infinity,

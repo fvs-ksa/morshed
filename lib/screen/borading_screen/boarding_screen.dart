@@ -28,11 +28,6 @@ class BoardingScreen extends StatelessWidget {
                   Align(
                     alignment: AlignmentDirectional.topEnd,
                     child: whiteMorshedLogo(image: 'assets/images/مرشد.png'),
-                    // child: Image.asset(
-                    //   'assets/images/مرشد.png',
-                    //   height: 94.h,
-                    //   width: 154.w,
-                    // ),
                   ),
                   SizedBox(
                     height:50.h,
@@ -68,8 +63,6 @@ class BoardingScreen extends StatelessWidget {
                           effect: SlideEffect(
                             activeDotColor: lightMainColor,
                             dotColor: greyColor,
-                            // dotHeight: size.height * 0.003,
-                            // dotWidth: size.width * 0.3,
                             dotWidth: 104.w,
                             dotHeight: 4.h
                           ),
@@ -107,8 +100,6 @@ Widget boardingWidget(BoardingModel model, BuildContext context) {
     children: [
       Container(
         decoration: const BoxDecoration(
-           // color: Colors.red,
-            //  borderRadius: BorderRadius.circular(10),
             shape: BoxShape.circle),
       ),
       Align(

@@ -27,7 +27,7 @@ class ReportDetailsWidget extends StatelessWidget {
           children: [
            index==0? Text(
            LocaleKeys.WhatCanWeDoToAssistHim.tr(),
-              style: Theme.of(context).textTheme.displayLarge,
+              style: Theme.of(context).textTheme.headlineSmall,
             ):Container(),
            index==0? Container(
               height: 225.h,
@@ -104,7 +104,7 @@ class ReportDetailsWidget extends StatelessWidget {
             ),
             index==1? Text(
               LocaleKeys.WhatCanWeDoToAssistYou.tr(),
-              style: Theme.of(context).textTheme.displayLarge,
+              style: Theme.of(context).textTheme.headlineSmall,
             ):Container(),
             index==1? Container(
               height:  225.h,
@@ -154,8 +154,6 @@ class ReportDetailsWidget extends StatelessWidget {
               child: Align(
                   alignment: Alignment.center,
                   child: mainButton(
-                      // width: screenSize.width * 0.8,
-                      // height: screenSize.height * 0.07,
                       text:LocaleKeys.reporting.tr(),
                       color: darkMainColor,
                       context: context,

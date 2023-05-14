@@ -13,8 +13,8 @@ Widget decorationContainerWidget(
     double? width,
     double? height}) {
   return Container(
-    height: height ??10.h ,
-    width: width ??15.w ,
+    height: height ??54.h ,
+    width: width ??73.w ,
     child: Center(child: child),
     decoration: BoxDecoration(
         color: babyBlueColor, borderRadius: BorderRadius.circular(radius)),
@@ -48,7 +48,7 @@ bigTextFieldForNotes({required BuildContext context, required String hint}) {
       alignment: AlignmentDirectional.topEnd,
       children: [
         Padding(
-          padding: EdgeInsetsDirectional.only(top:10.h ),
+          padding: EdgeInsetsDirectional.only(top:25.h ),
           child: textFormField(
               maxHeight: 133.h,
               minHeight: 133.h,
@@ -88,7 +88,7 @@ headerInfoPerson(
                       : AlignmentDirectional.bottomEnd,
                   child: Text(
                     title,
-                    style: Theme.of(context).textTheme.displayMedium,
+                    style:isProfile? Theme.of(context).textTheme.titleMedium:Theme.of(context).textTheme.displayMedium,
                   )),
             ),
             decoration: const BoxDecoration(

@@ -2,8 +2,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:morshed/component/auth_header_widget.dart';
 import 'package:morshed/component/navigation_functions.dart';
+import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/screen/inner_screen/subscription_screen.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
 import '../../models/more_screen_model.dart';
@@ -45,7 +47,7 @@ class MoreScreen extends StatelessWidget {
                                       image: AssetImage('assets/images/supscription.png'), fit: BoxFit.cover)),
                               child:  FittedBox(child: Center(
                                   child: Text(LocaleKeys.morshedSubscription.tr(),
-                                    textAlign: TextAlign.center,style: Theme.of(context).textTheme.labelLarge,))),
+                                    textAlign: TextAlign.center,style: GoogleFonts.cairo(color: whiteColor,fontSize: 17.sp,fontWeight: FontWeight.w500)))),
                             ),
                           ),
 
@@ -89,7 +91,7 @@ class MoreScreen extends StatelessWidget {
                         ),
                         Text(
                           moreList[index].title,
-                          style: Theme.of(context).textTheme.titleSmall,
+                          style: GoogleFonts.cairo(fontSize: 17.sp,fontWeight: FontWeight.w600,color: blackColor),
                         ),
                       ],
                     ),

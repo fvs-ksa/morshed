@@ -77,6 +77,7 @@ class SubmitReportAnotherPerson extends StatelessWidget {
                         },
                         context: context,
                         validator: () {}),
+                    SizedBox(height: 10.h,),
                     locationWidget(context:context),
                     Padding(
                       padding:  EdgeInsetsDirectional.only(

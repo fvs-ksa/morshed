@@ -22,7 +22,7 @@ headerAuthScreen({required BuildContext context,required String title}){
               children: [
                 backButtonWidget(context: context),
                 SizedBox(height: 20.h,),
-                Text(title,style: Theme.of(context).textTheme.displayLarge,),
+                Text(title,style: Theme.of(context).textTheme.headlineSmall,),
               ],
             ),
             whiteMorshedLogo(image: 'assets/images/مرشد.png')

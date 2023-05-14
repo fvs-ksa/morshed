@@ -70,7 +70,7 @@ class CodegenLoader extends AssetLoader {
     "otherServices": "خدمات أخرى",
     "counselingOfficesAndCounselors": "مكاتب الإرشاد و المرشدين",
     "home": "الرئيسية",
-    "notifications": "الاشعارات",
+    "notifications": "الإشعارات",
     "myBarcode": "باركودي",
     "myAccommodationAndTrips": "سكني ورحلاتي",
     "more": "المزيد",

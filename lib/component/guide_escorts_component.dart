@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
 
 import 'component.dart';
@@ -29,7 +30,7 @@ headerOfTechnicalSupport(
     toolbarHeight: 148.h,
     title: Text(
       title,
-      style: Theme.of(context).textTheme.displayLarge,
+      style: Theme.of(context).textTheme.headlineSmall,
     ),
     centerTitle: true,
     leading: Container(
@@ -53,7 +54,7 @@ headerForGuide(
     toolbarHeight: 100.h,
     title: Text(
       title,
-      style: Theme.of(context).textTheme.displayLarge,
+      style: Theme.of(context).textTheme.headlineSmall,
     ),
     centerTitle: true,
     leading: Container(
@@ -121,16 +122,16 @@ Widget itemContainerOfGuidesAndEscorts(
           child: ListTile(
             title: Text(
               name,
-              style: Theme.of(context).textTheme.displayLarge,
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
             subtitle: RichText(
               text: TextSpan(
                   text: '${LocaleKeys.phoneNumber.tr()} : ',
-                  style: Theme.of(context).textTheme.labelSmall,
+                  style:GoogleFonts.cairo(fontWeight: FontWeight.w600,fontSize: 12.sp,color: greyColor) ,
                   children: [
                     TextSpan(
                         text: phone,
-                        style: Theme.of(context).textTheme.headlineLarge)
+                        style: GoogleFonts.cairo(fontWeight: FontWeight.normal,fontSize: 14.sp,color: blackColor))
                   ]),
             ),
             leading: CircleAvatar(

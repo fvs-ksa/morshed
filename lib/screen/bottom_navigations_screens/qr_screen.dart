@@ -43,7 +43,7 @@ class QrScreen extends StatelessWidget {
               ),
               Text(
                 LocaleKeys.provideYourCodeToAssistYou.tr(),
-                style: Theme.of(context).textTheme.displayMedium,
+                style: Theme.of(context).textTheme.titleMedium,
                 textAlign: TextAlign.center,
               ),
               SizedBox(

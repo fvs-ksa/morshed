@@ -79,7 +79,7 @@ class RegisterScreen extends StatelessWidget {
                                       LocaleKeys.profilePic.tr(),
                                       style: Theme.of(context)
                                           .textTheme
-                                          .displayLarge,
+                                          .headlineSmall,
                                     ),
                                     Stack(
                                       alignment: Alignment.center,
@@ -286,6 +286,8 @@ class RegisterScreen extends StatelessWidget {
                                     validator: () {}),
                                 registerCubit.chooseResidence == '1'
                                     ? textFormField(
+                                    maxWidth: 400.w,
+                                    minWidth: 400.w,
                                         context: context,
                                         labelText: LocaleKeys.mennaNo.tr(),
                                         // hintText: 'رقم المخيم  (منى)',
@@ -293,6 +295,8 @@ class RegisterScreen extends StatelessWidget {
                                     : const SizedBox(),
                                 registerCubit.chooseResidence == '1'
                                     ? textFormField(
+                                    maxWidth: 400.w,
+                                    minWidth: 400.w,
                                         context: context,
                                         labelText: LocaleKeys.arfaNo.tr(),
                                         // hintText: 'رقم المخيم  (عرفه)',
@@ -308,7 +312,10 @@ class RegisterScreen extends StatelessWidget {
                                         //hintText: 'رقم المخيم  (المزدلفه)',
                                         controller: arabicNameController)
                                     : const SizedBox(),
+                                SizedBox(height: 10.h,),
                                 textFormField(
+                                    maxWidth: 400.w,
+                                    minWidth: 400.w,
                                     context: context,
                                     labelText: LocaleKeys.maccaHotelName.tr(),
                                     // hintText: 'اسم الفندق',
@@ -321,7 +328,7 @@ class RegisterScreen extends StatelessWidget {
                                       LocaleKeys.haveDisability.tr(),
                                       style: Theme.of(context)
                                           .textTheme
-                                          .displayLarge,
+                                          .headlineSmall,
                                     ),
                                     Switch.adaptive(
                                         value: registerCubit.isDisability,
@@ -356,6 +363,7 @@ class RegisterScreen extends StatelessWidget {
                                         context: context,
                                         validator: () {})
                                     : const SizedBox(),
+                                SizedBox(height: 10.h,),
                                 textFormField(
                                     context: context,
                                     labelText: LocaleKeys.agentName.tr(),

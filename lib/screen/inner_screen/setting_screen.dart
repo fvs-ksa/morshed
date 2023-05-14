@@ -33,8 +33,8 @@ class _SettingScreenState extends State<SettingScreen> {
                 children: [
                   Container(
                     padding: EdgeInsetsDirectional.symmetric(
-                        horizontal:80.w ),
-                    height:10.h ,
+                        horizontal:8.w ),
+                    height:100.h ,
                     decoration: BoxDecoration(
                         border: Border.all(color: greyColor,),
                         borderRadius: BorderRadius.circular(20.sp)),
@@ -57,7 +57,6 @@ class _SettingScreenState extends State<SettingScreen> {
                                 activeColor: orangeColor,
                                 activeTrackColor: whiteGreyColor,
                               value: isEnglish!,
-                              // value: CacheHelper.getData(key: 'isEnglish'),
                                 onChanged: (onChange) {
                                   setState(() {
                                     settingCubit.changeLanguage(context);
@@ -74,7 +73,9 @@ class _SettingScreenState extends State<SettingScreen> {
                       ],),
                   ),
                   SizedBox(height:10.h ,),
-                  TextButton( onPressed: () {  }, child: Text(LocaleKeys.deleteAccount.tr(),style: Theme.of(context).textTheme.headlineMedium,),)
+                  TextButton( onPressed: () {  },
+                    child: Text(LocaleKeys.deleteAccount.tr(),
+                      style: Theme.of(context).textTheme.headlineMedium,),)
                 ],
               ),
             ),

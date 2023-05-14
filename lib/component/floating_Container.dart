@@ -22,7 +22,7 @@ required double width,
           children: [
             SvgPicture.asset(svgAssets),
             SizedBox(width: 10.w,),
-             FittedBox(child: Text(title,style: Theme.of(context).textTheme.labelLarge,))
+             FittedBox(child: Text(title,style: Theme.of(context).textTheme.labelMedium,))
           ],),
       ),
     ),

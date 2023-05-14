@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_state.dart';
 import 'package:morshed/constant/const_color.dart';
@@ -46,7 +47,9 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
         builder: (context, state) {
           {
             return GestureDetector(
-              onTap: (){FocusManager.instance.primaryFocus?.unfocus();},
+              onTap: () {
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Scaffold(
                 appBar: PreferredSize(
                     child: Stack(
@@ -56,35 +59,35 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
                         Image.asset('assets/images/header1.png',
                             fit: BoxFit.cover),
                         Padding(
-                          padding: EdgeInsetsDirectional.only(bottom: 5.h,top: 10.h),
+                          padding: EdgeInsetsDirectional.only(
+                              bottom: 40.h, top: 15.h),
                           child: Align(
                             alignment: AlignmentDirectional.bottomCenter,
-                            child:  DashedLine(color: whiteColor),
+                            child: DashedLine(
+                                color: whiteColor,
+                                height: 10.h,
+                                heightContainer: 60.h),
                           ),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.only(
-                              top: 30.h,
-                              bottom:20.h ,
-                              start: 20.w
-                          ),
+                              top: 30.h, bottom: 20.h, start: 20.w),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Expanded(
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
-
                                   children: [
                                     backButtonWidget(context: context),
                                     Expanded(
                                       flex: 4,
                                       child: Text(
-
                                         LocaleKeys.reporting.tr(),
                                         textAlign: TextAlign.center,
-                                        style:
-                                            Theme.of(context).textTheme. displayMedium,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .displayMedium,
                                       ),
                                     ),
                                     Expanded(
@@ -100,22 +103,31 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
                                     LocaleKeys.iLost.tr(),
                                     style: tabController.index == 0
                                         ? Theme.of(context).textTheme.labelLarge
-                                        : Theme.of(context).textTheme.titleMedium,
+                                        : GoogleFonts.cairo(
+                                            fontSize: 17.sp,
+                                            color: whiteColor,
+                                            fontWeight: FontWeight.bold),
                                   ),
                                   icon: SvgPicture.asset(
-                                      tabController.index == 1? 'assets/svg/iLostActive.svg':'assets/svg/iLostInActive.svg'),
+                                      tabController.index == 1
+                                          ? 'assets/svg/iLostActive.svg'
+                                          : 'assets/svg/iLostInActive.svg'),
                                   // text: 'انا تائه'
                                 ),
-
                                 Tab(
                                   child: Text(
                                     LocaleKeys.anotherOneIsLost.tr(),
                                     style: tabController.index == 1
                                         ? Theme.of(context).textTheme.labelLarge
-                                        : Theme.of(context).textTheme.titleMedium,
+                                        : GoogleFonts.cairo(
+                                            fontSize: 17.sp,
+                                            color: whiteColor,
+                                            fontWeight: FontWeight.bold),
                                   ),
                                   icon: SvgPicture.asset(
-                                      tabController.index == 0? 'assets/svg/anotherActive.svg':'assets/svg/anotherInActive.svg'),
+                                      tabController.index == 0
+                                          ? 'assets/svg/anotherActive.svg'
+                                          : 'assets/svg/anotherInActive.svg'),
                                 ),
                               ])
                             ],
@@ -137,6 +149,3 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
         });
   }
 }
-
-
-

@@ -29,8 +29,8 @@ Color chooseColor(ToastState state){
 
 }
 Widget richText({required Function navigation,required String text,required String tappedText,required BuildContext context}){
-  return Text.rich(TextSpan(text:text,style: Theme.of(context).textTheme.headlineSmall ,children: [
-    TextSpan(text: tappedText,style: TextStyle(color: darkMainColor,decoration: TextDecoration.underline,
+  return Text.rich(TextSpan(text:text,style: Theme.of(context).textTheme.titleSmall ,children: [
+    TextSpan(text: tappedText,style: TextStyle(fontSize: 17.sp,color: darkMainColor,decoration: TextDecoration.underline,
         fontWeight: FontWeight.bold),
         recognizer: TapGestureRecognizer()..onTap=(){
           navigation();

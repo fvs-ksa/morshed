@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/models/account_type_model.dart';
 
@@ -94,25 +95,31 @@ Widget textFormField(
     Function? validator}){
   Size size=MediaQuery.of(context).size;
   return Padding(
-    padding:  EdgeInsets.only(bottom:size.height*0.02 ),
+    padding:  EdgeInsets.only(bottom:14.h ),
     child: TextFormField(
 
-      style: Theme.of(context).textTheme.bodyMedium,
+      controller: controller,
+      style:GoogleFonts.cairo(fontSize: 14.sp,fontWeight: FontWeight.w600,color: blackColor) ,
       onTap: (){
         onTap??print('');
       },
       maxLines: lines,
       maxLength: length,
       decoration: InputDecoration(
-        constraints: BoxConstraints(minHeight:minHeight?? 54.h,minWidth:minWidth?? 330.w,maxHeight:maxHeight??54.h,maxWidth:maxWidth?? 360.w ),
+         contentPadding: EdgeInsetsDirectional.only(start: 10.w),
+        constraints: BoxConstraints(
+
+            minHeight:minHeight?? 54.h,
+            minWidth:minWidth?? 330.w,
+            maxHeight:maxHeight??54.h,maxWidth:maxWidth?? 360.w ),
         suffixIcon: suffixIcon,
           labelText: labelText,
-          labelStyle: Theme.of(context).textTheme.labelSmall,
+          labelStyle:GoogleFonts.cairo(fontSize: 14.sp,fontWeight: FontWeight.w600,color: greyColor),
           hintText: hintText,
-          hintStyle: Theme.of(context).textTheme.labelSmall,
+          hintStyle: GoogleFonts.cairo(fontSize: 14.sp,fontWeight: FontWeight.w600,color: greyColor),
           border:
           OutlineInputBorder(borderRadius: BorderRadius.circular(20.sp))),
-      controller: controller,
+
       validator: (val){
         validator!();
         return null;
@@ -152,7 +159,7 @@ Widget dropDownButton(
                       isExpanded: true,
                       decoration: const InputDecoration(border: InputBorder.none,),
                       hint: FittedBox(child: Text(hint)),
-                      style: Theme.of(context).textTheme.labelSmall,
+                      style: GoogleFonts.cairo(fontSize: 14.sp,fontWeight: FontWeight.w600,color: greyColor),
                       iconSize: 0.0,
                       borderRadius: BorderRadius.circular(12.sp),
                       value: value,

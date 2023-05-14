@@ -24,7 +24,7 @@ class MySubmitReport extends StatelessWidget {
               children: [
                 Text(
                   LocaleKeys.reportDetails.tr(),
-                  style: Theme.of(context).textTheme.displayLarge,
+                  style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 ReportDetailsWidget(index: 1),
               ],

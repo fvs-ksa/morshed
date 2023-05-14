@@ -36,7 +36,7 @@ class ContactUs extends StatelessWidget {
                       ),
                       Text(
                         LocaleKeys.contactUs.tr(),
-                        style: Theme.of(context).textTheme.displayLarge,
+                        style: Theme.of(context).textTheme.headlineSmall,
                       )
                     ],
                   ),
@@ -55,7 +55,7 @@ class ContactUs extends StatelessWidget {
               children: [
                 Text(
                   LocaleKeys.contactViaWhatsApp.tr(),
-                  style: Theme.of(context).textTheme.titleSmall,
+                  style: Theme.of(context).textTheme.bodyMedium,
                   textAlign: TextAlign.start,
                 ),
                 SizedBox(
@@ -75,7 +75,7 @@ class ContactUs extends StatelessWidget {
                 ),
                 Text(
                   LocaleKeys.contactViaEmail.tr(),
-                  style: Theme.of(context).textTheme.titleSmall,
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 SizedBox(
                   height: 10.h,
@@ -93,7 +93,7 @@ class ContactUs extends StatelessWidget {
                 ),
                 Text(
                   LocaleKeys.weArePleasedToAnswerYourInquiry.tr(),
-                  style: Theme.of(context).textTheme.titleSmall,
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 bigTextFieldForNotes(
 
