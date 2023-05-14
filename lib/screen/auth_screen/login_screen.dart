@@ -21,8 +21,6 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
-    double baseFontSize = screenSize.width < 600 ? 14 : 16;
     return GestureDetector(
       onTap: () {
         FocusManager.instance.primaryFocus?.unfocus();
@@ -50,8 +48,6 @@ class LoginScreen extends StatelessWidget {
                   height:70.h,
                 ),
                 mainButton(
-                    // width: double.infinity,
-                    // height: screenSize.height * 0.07,
                     text: LocaleKeys.loginNow.tr(),
                     color: darkMainColor,
                     context: context,
@@ -72,7 +68,7 @@ class LoginScreen extends StatelessWidget {
                                 Text(
                   LocaleKeys.signAsGuest.tr(),
                   style: GoogleFonts.cairo(
-                      fontSize: baseFontSize * 1.4,
+                      fontSize: 17.sp,
                       color: darkMainColor,
                       decoration: TextDecoration.underline,
                       fontWeight: FontWeight.bold),
@@ -131,7 +127,7 @@ class LoginScreen extends StatelessWidget {
                                       SvgPicture.asset(
                                           'assets/svg/Icon ionic-logo-whatsapp.svg'),
                                       SizedBox(
-                                        width: screenSize.width * 0.03,
+                                        width:8.w ,
                                       ),
                                       Text(
                                         LocaleKeys.communicationWhatsApp.tr(),
@@ -144,7 +140,7 @@ class LoginScreen extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(
-                                height: screenSize.height * 0.03,
+                                height:8.w,
                               )
                             ],
                           ),

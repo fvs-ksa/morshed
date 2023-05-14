@@ -17,7 +17,6 @@ class SubmitReportAnotherPerson extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
     var submitReport = SubmitReportCubit.get(context);
     return BlocConsumer<SubmitReportCubit, SubmitReportState>(
         listener: (context, state) {},
@@ -25,7 +24,7 @@ class SubmitReportAnotherPerson extends StatelessWidget {
           return GestureDetector(
             onTap: (){FocusManager.instance.primaryFocus?.unfocus();},
             child: Padding(
-              padding:  EdgeInsetsDirectional.symmetric(horizontal: 30.w,vertical: screenSize.height*0.02),
+              padding:  EdgeInsetsDirectional.symmetric(horizontal: 30.w,vertical:8.h ),
               child: SingleChildScrollView(
                 child: Column(
                   children: [
@@ -80,10 +79,12 @@ class SubmitReportAnotherPerson extends StatelessWidget {
                         validator: () {}),
                     locationWidget(context:context),
                     Padding(
-                      padding:  EdgeInsetsDirectional.only(top: screenSize.height*0.04,bottom: screenSize.height*0.02,start: screenSize.width*0.03,end:screenSize.width*0.03 ),
+                      padding:  EdgeInsetsDirectional.only(
+                          top:10.h ,
+                          bottom:8.h ,
+                          start:10.w,
+                          end:10.w ),
                       child: Align(alignment: Alignment.center,child: mainButton(
-                          // width: screenSize.width*0.8,
-                          // height: screenSize.height*0.07,
                           text:LocaleKeys.search.tr(), color: darkMainColor, context: context,
                           fct: (){navigateForward( ReportedPersonInfo());})),
                     )

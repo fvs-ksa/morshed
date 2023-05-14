@@ -5,7 +5,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/component/reports_widgets.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
-
 import '../../../component/guide_escorts_component.dart';
 import '../../../component/navigation_functions.dart';
 import '../../../models/my_reports_model.dart';
@@ -18,8 +17,6 @@ class MyReports extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: headerOfTechnicalSupport(context: context, title: LocaleKeys.myReports.tr()),
-      // appBar: preferredHeaderWithGuide(
-      //     context: context, title:LocaleKeys.myReports.tr() , isActive: false),
       backgroundColor: whiteGreyColor,
       body: ListView.builder(
         itemBuilder: (context, index) {

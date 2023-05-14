@@ -12,8 +12,6 @@ class MyCardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: headerOfTechnicalSupport(context: context, title: LocaleKeys.myCard.tr()),
-      // appBar: preferredHeaderWithGuide(
-      //     context: context, title:LocaleKeys.myCard.tr(), isActive: false),
       body: Column(
         children: [
           Container(

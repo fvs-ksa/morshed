@@ -14,7 +14,6 @@ Widget myReportsContainerWidget(
     Widget? solutionWidget,
     TextStyle? style,
     required String backgroundImage}) {
-  Size screenSize = MediaQuery.of(context).size;
   return Container(
     margin: EdgeInsetsDirectional.symmetric(
         vertical: 5.h,
@@ -77,7 +76,6 @@ Widget myReportsContainerWidget(
 }
 
 locationWidget({required BuildContext context}) {
-  Size screenSize = MediaQuery.of(context).size;
   return Column(
     children: [
       Row(
@@ -92,13 +90,13 @@ locationWidget({required BuildContext context}) {
             ),
           ),
           SizedBox(
-            width: screenSize.width * 0.06,
+            width:15.w ,
           ),
           decorationContainerWidget(
               context: context,
               radius: 20.sp,
-              width: screenSize.width * 0.14,
-              height: screenSize.height * 0.06,
+              width:54.w ,
+              height:54.h ,
               child: SvgPicture.asset('assets/svg/loc.svg')),
         ],
       ),

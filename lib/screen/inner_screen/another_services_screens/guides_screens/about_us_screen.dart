@@ -11,7 +11,6 @@ class AboutUsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize=MediaQuery.of(context).size;
     return  Scaffold(
       appBar: headerForHijGuides(context: context, title:LocaleKeys.aboutMorshed.tr(), image: 'assets/images/من نحن.png'),
       body: Padding(

@@ -40,7 +40,6 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
     var submitReport = SubmitReportCubit.get(context);
     return BlocConsumer<SubmitReportCubit, SubmitReportState>(
         listener: (context, state) {},

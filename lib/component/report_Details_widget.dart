@@ -18,7 +18,6 @@ class ReportDetailsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
     var reportCubit=SubmitReportCubit.get(context);
     return BlocConsumer<SubmitReportCubit,SubmitReportState>(
       listener: (context,state){},
@@ -50,7 +49,6 @@ class ReportDetailsWidget extends StatelessWidget {
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                       onChanged: (onChange) {
-                        // reportCubit.changeCheckBox(onChange,index);
                         index == 0
                             ? reportCubit
                             .changeHelpWaysFirstIndexState(onChange)
@@ -119,7 +117,7 @@ class ReportDetailsWidget extends StatelessWidget {
                       checkboxShape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5)),
                       contentPadding: EdgeInsetsDirectional.symmetric(
-                          horizontal: screenSize.width * 0.01,
+                          horizontal:5.w ,
                           vertical: 0),
                       value: helpWays[index].value,
                       title: Text(
@@ -149,10 +147,10 @@ class ReportDetailsWidget extends StatelessWidget {
 
             Padding(
               padding: EdgeInsetsDirectional.only(
-                  top: screenSize.height * 0.04,
-                  bottom: screenSize.height * 0.02,
-                  start: screenSize.width * 0.03,
-                  end: screenSize.width * 0.03),
+                  top:15.h,
+                  bottom:8.h ,
+                  start:5.w,
+                  end:5.w),
               child: Align(
                   alignment: Alignment.center,
                   child: mainButton(

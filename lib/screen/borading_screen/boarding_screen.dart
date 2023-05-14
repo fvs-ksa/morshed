@@ -16,9 +16,6 @@ class BoardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    print('Size :${size.height}');
-    print('Size Width :${size.width}');
     var boardingCubit = BoardingCubit.get(context);
     return BlocConsumer<BoardingCubit, BoardingState>(
         listener: (context, state) {},

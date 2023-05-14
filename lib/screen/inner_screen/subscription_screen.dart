@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:morshed/component/component.dart';
-
 import '../../component/guide_escorts_component.dart';
 import '../../component/navigation_functions.dart';
 import '../../constant/const_color.dart';
@@ -14,11 +13,8 @@ class SubscriptionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize=MediaQuery.of(context).size;
     return Scaffold(
       appBar: headerOfTechnicalSupport(context: context, title: LocaleKeys.subscription.tr()),
-      // appBar: preferredHeaderWithGuide(
-      //     context: context, title:LocaleKeys.subscription.tr(), isActive: false),
       body: Padding(
         padding:EdgeInsetsDirectional.symmetric(horizontal: 20.w,vertical: 15.h),
         child: Column(
@@ -27,8 +23,6 @@ class SubscriptionScreen extends StatelessWidget {
             Stack(
               children: [
                 Container(
-                 // margin: EdgeInsetsDirectional.only(start: screenSize.width*0.03),
-                  //padding: EdgeInsetsDirectional.only(end: 15.w),
                   height: 214.h,
                   width:373.w,
                   decoration: BoxDecoration(
@@ -74,18 +68,14 @@ class SubscriptionScreen extends StatelessWidget {
                 )
               ],
             ),
-            // ClipRRect(
-            // borderRadius: Bo,child: Image.asset('assets/images/bundle bg.png',width: screenSize.width*0.9,)),
             Spacer(),
             mainButton(
-                //width: double.infinity, height: screenSize.height*0.07,
                 textStyle: Theme.of(context).textTheme.bodyLarge,
                 borderColor: darkMainColor,
                 text:LocaleKeys.renewSubscription.tr(), color: whiteColor, context: context, fct: (){
                   navigateForward(MainScreen());
                 }),
            SizedBox(height: 30.h,),
-           // mainButton(width: screenSize.width*0.7, height: height, text: text, color: color, context: context, fct: fct)
             Text(LocaleKeys.cancelSubscription.tr(),style: Theme.of(context).textTheme.headlineMedium,),
           ],
         ),

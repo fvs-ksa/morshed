@@ -16,10 +16,7 @@ class MyReportsDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      // appBar: preferredHeaderWithGuide(
-      //     context: context, title:LocaleKeys.reportDetails.tr() , isActive: false),
       appBar: headerOfTechnicalSupport(context: context, title: LocaleKeys.reportDetails.tr()),
       body: GestureDetector(
         onTap: (){FocusManager.instance.primaryFocus?.unfocus();},
@@ -67,34 +64,12 @@ class MyReportsDetailsScreen extends StatelessWidget {
                     bigTextFieldForNotes(
 
                         context: context, hint:LocaleKeys.commentsAndAssistance.tr() ),
-                    // SizedBox(
-                    //   height: screenSize.height*0.17,
-                    //  // color: Colors.red,
-                    //   child: Stack(
-                    //     alignment: AlignmentDirectional.topEnd,
-                    //     children: [
-                    //       Padding(
-                    //         padding:  EdgeInsetsDirectional.only(top: screenSize.height*0.03),
-                    //         child: textFormField(labelText: 'ملاحظات',  context: context,lines: 5,isEnabled: false),
-                    //       ),
-                    //       Padding(
-                    //         padding: EdgeInsetsDirectional.only(end: screenSize.height*0.05),
-                    //         child: CircleAvatar(
-                    //           radius: screenSize.width*0.07,
-                    //           backgroundColor: babyBlueColor,child: SvgPicture.asset('assets/svg/file (1).svg'),),
-                    //       )
-                    //     ],
-                    //   ),
-                    // ),
-                    //SizedBox(height: screenSize.height*0.06,),
                     Text(LocaleKeys.WhatCanWeDoToAssistYou.tr(),style: Theme.of(context).textTheme.displayLarge,),
-                    SizedBox(height: screenSize.height*0.01,),
+                    SizedBox(height:5.h,),
                     Text(LocaleKeys.iWouldLikeHelpWithReachingTheHotel.tr(),style: Theme.of(context).textTheme.titleSmall,),
                     index==0?Align(alignment: AlignmentDirectional.center,child: Padding(
-                      padding:  EdgeInsets.symmetric(vertical: screenSize.height*0.06,horizontal: screenSize.width*0.03),
+                      padding:  EdgeInsets.symmetric(vertical:15.h ,horizontal:10.w ),
                       child: mainButton(
-                          // width: screenSize.width*0.8,
-                          // height: screenSize.height*0.07,
                           text:LocaleKeys.cancelReport.tr() , color: orangeColor, context: context, fct: (){}),
                     )):const SizedBox(),
 

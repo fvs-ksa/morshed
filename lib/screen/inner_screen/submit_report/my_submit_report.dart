@@ -13,7 +13,6 @@ class MySubmitReport extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var reportCubit = SubmitReportCubit.get(context);
-    Size screenSize = MediaQuery.of(context).size;
     return BlocConsumer<SubmitReportCubit,SubmitReportState>(
       listener: (context,state){},
       builder: (context,state) {

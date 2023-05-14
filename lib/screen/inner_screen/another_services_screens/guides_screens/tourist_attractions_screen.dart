@@ -11,7 +11,6 @@ class TouristAttractionsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize=MediaQuery.of(context).size;
     return Scaffold(
       appBar: headerForHijGuides(image: 'assets/images/guides.png',context: context,
           title:LocaleKeys.touristAttractions.tr() ),

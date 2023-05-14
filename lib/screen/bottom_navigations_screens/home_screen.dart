@@ -18,7 +18,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Column(
       children: [
         Container(
@@ -120,7 +119,7 @@ class HomeScreen extends StatelessWidget {
                       title:LocaleKeys.addCompanion.tr(),
                       width:161.w,
                       color:darkMainColor ),
-                  SizedBox(height: size.height*0.02,),
+                  SizedBox(height:10.h,),
                   floatingContainer(
                     fct: (){},
                       alignment: AlignmentDirectional.bottomStart,

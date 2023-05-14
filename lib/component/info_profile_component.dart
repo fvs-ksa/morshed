@@ -12,10 +12,9 @@ Widget decorationContainerWidget(
     required double radius,
     double? width,
     double? height}) {
-  Size screenSize = MediaQuery.of(context).size;
   return Container(
-    height: height ?? screenSize.height * 0.05,
-    width: width ?? screenSize.width * 0.2,
+    height: height ??10.h ,
+    width: width ??15.w ,
     child: Center(child: child),
     decoration: BoxDecoration(
         color: babyBlueColor, borderRadius: BorderRadius.circular(radius)),
@@ -49,14 +48,14 @@ bigTextFieldForNotes({required BuildContext context, required String hint}) {
       alignment: AlignmentDirectional.topEnd,
       children: [
         Padding(
-          padding: EdgeInsetsDirectional.only(top: screenSize.height * 0.03),
+          padding: EdgeInsetsDirectional.only(top:10.h ),
           child: textFormField(
               maxHeight: 133.h,
               minHeight: 133.h,
               labelText: hint, context: context, lines: 15),
         ),
         Padding(
-          padding: EdgeInsetsDirectional.only(end: screenSize.height * 0.05),
+          padding: EdgeInsetsDirectional.only(end:12.h ),
           child: CircleAvatar(
             radius: screenSize.width * 0.07,
             backgroundColor: babyBlueColor,

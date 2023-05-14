@@ -15,7 +15,6 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
     var profileCubit = ProfileCubit.get(context);
     return BlocConsumer<ProfileCubit, ProfileState>(
         listener: (context, state) {},
@@ -56,7 +55,7 @@ class ProfileScreen extends StatelessWidget {
                                   context: context,
                                   keyboardType: TextInputType.number)),
                           SizedBox(
-                            width: screenSize.width * 0.06,
+                            width:10.w ,
                           ),
                           decorationContainerWidget(
                               radius: 35.sp,
@@ -100,7 +99,7 @@ class ProfileScreen extends StatelessWidget {
                             ),
                           ),
                           SizedBox(
-                            width: screenSize.width * 0.07,
+                            width:10.w,
                           ),
                           GestureDetector(
                               onTap: () async {
@@ -130,8 +129,8 @@ class ProfileScreen extends StatelessWidget {
                           context: context),
                       Padding(
                         padding: EdgeInsets.symmetric(
-                            vertical: screenSize.height * 0.06,
-                            horizontal: screenSize.width * 0.03),
+                            vertical:10.h ,
+                            horizontal:8.w ),
                         child: mainButton(
                            // width: screenSize.width * 0.8,
                          //   height: screenSize.height * 0.07,

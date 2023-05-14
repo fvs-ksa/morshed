@@ -9,12 +9,11 @@ class QrScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
     return Stack(
       alignment: Alignment.center,
       children: [
         Container(
-          height: screenSize.longestSide,
+          height: double.infinity,
           decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage(

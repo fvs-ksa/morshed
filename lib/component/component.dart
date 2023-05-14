@@ -23,8 +23,6 @@ Widget floatingButton({
         Icons.arrow_forward,
         color: iconColor ?? whiteColor,
       ),
-      // onPressed: () {},
-      // backgroundColor: Colors.cyanAccent,
     ),
   );
 }
@@ -90,6 +88,8 @@ Widget textFormField(
       int? lines,
       double? maxHeight,
       double? minHeight,
+      double? maxWidth,
+      double? minWidth,
       bool isEnabled=true,
     Function? validator}){
   Size size=MediaQuery.of(context).size;
@@ -104,7 +104,7 @@ Widget textFormField(
       maxLines: lines,
       maxLength: length,
       decoration: InputDecoration(
-        constraints: BoxConstraints(minHeight:minHeight?? 54.h,minWidth: 330.w,maxHeight:maxHeight??54.h,maxWidth: 360.w ),
+        constraints: BoxConstraints(minHeight:minHeight?? 54.h,minWidth:minWidth?? 330.w,maxHeight:maxHeight??54.h,maxWidth:maxWidth?? 360.w ),
         suffixIcon: suffixIcon,
           labelText: labelText,
           labelStyle: Theme.of(context).textTheme.labelSmall,
@@ -194,7 +194,6 @@ Widget mainButton(
       BoxDecoration(
           border: Border.all(
             color: borderColor??Colors.transparent,
-           // width: 2.0,
           ),
           color: color, borderRadius: BorderRadius.circular(35.sp)),
       child: Align(

@@ -53,14 +53,6 @@ class EscortsScreen extends StatelessWidget {
                     const AddCompanionsScreen());
         },
       ),
-      // floatingActionButton:  Padding(
-      //   padding:EdgeInsetsDirectional.only(bottom: screenSize.height*0.02,start: screenSize.width*0.02),
-      //   child: floatingContainer(
-      //       alignment: AlignmentDirectional.bottomEnd,
-      //       context: context, svgAssets: 'assets/svg/Icon ionic-ios-add.svg',
-      //       title: LocaleKeys.Companions.tr(), width: screenSize.width * 0.33,color:darkMainColor, fct: (){navigateForward(
-      //       const AddCompanionsScreen());} ),
-      // ),
     );
   }
 }

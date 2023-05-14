@@ -13,7 +13,6 @@ class MoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Column(
       children: [
         SizedBox(
@@ -28,12 +27,6 @@ class MoreScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     whiteMorshedLogo(image: 'assets/images/whiteMorshed.png'),
-                    // Image.asset(
-                    //   'assets/images/whiteMorshed.png',
-                    //   height: size.height * 0.2,
-                    //   width: size.width * 0.4,
-                    //   fit: BoxFit.contain,
-                    // ),
                     GestureDetector(
                       onTap:()=> navigateForward(const SubscriptionScreen()),
                       child: Stack(
@@ -72,7 +65,7 @@ class MoreScreen extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
             itemBuilder: (context, index) {
               return index==9?Padding(
-                padding:  EdgeInsetsDirectional.only(top: size.height*0.02),
+                padding:  EdgeInsetsDirectional.only(top:8.h ),
                 child: Text(LocaleKeys.logOut.tr(),style: Theme.of(context).textTheme.headlineMedium,textAlign: TextAlign.center,),
               ):GestureDetector(
                 onTap:()=> moreList[index].onTap(),

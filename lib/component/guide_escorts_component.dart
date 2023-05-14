@@ -47,7 +47,6 @@ headerForGuide(
     Widget? dropDownWidget,
     TextEditingController? searchController,
     Function? fct}) {
-  Size screenSize = MediaQuery.of(context).size;
   return AppBar(
     elevation: 1,
     backgroundColor: whiteColor,
@@ -108,14 +107,13 @@ Widget itemContainerOfGuidesAndEscorts(
     required String image,
     required String name,
     required String phone}) {
-  Size screenSize = MediaQuery.of(context).size;
   return Container(
-    margin: EdgeInsetsDirectional.only(bottom: screenSize.height * 0.01),
-    padding: EdgeInsetsDirectional.only(end: screenSize.width * 0.02),
-    height: screenSize.height * 0.15,
+    margin: EdgeInsetsDirectional.only(bottom:5.h ),
+    padding: EdgeInsetsDirectional.only(end:8.w ),
+    height:132.h ,
     decoration: BoxDecoration(
         color: whiteColor,
-        borderRadius: BorderRadius.circular(screenSize.width * 0.04)),
+        borderRadius: BorderRadius.circular(20.sp)),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [

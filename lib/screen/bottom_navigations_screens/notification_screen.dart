@@ -9,7 +9,6 @@ class NotificationsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Column(
         children: [
           Card(
@@ -53,7 +52,7 @@ class NotificationsScreen extends StatelessWidget {
                   ],
                 ),
               );
-            }, separatorBuilder: (context,index){return Divider(endIndent: size.width*0.02,indent: size.width*0.02,);}, itemCount: 15),
+            }, separatorBuilder: (context,index){return Divider(endIndent:8.w ,indent:8.w ,);}, itemCount: 15),
           )
 
         ],

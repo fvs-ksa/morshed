@@ -28,7 +28,6 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     var registerCubit = RegisterCubit.get(context);
     var accountTypeCubit = AccountTypeCubit.get(context);
     return BlocConsumer<AccountTypeCubit, AccountTypeState>(
@@ -51,18 +50,22 @@ class RegisterScreen extends StatelessWidget {
                           physics: const BouncingScrollPhysics(),
                           child: Padding(
                             padding: EdgeInsetsDirectional.only(
-                                start: size.width * 0.07,
-                                end: size.width * 0.07,
-                                top: size.height * 0.05),
+                                start:15.w ,
+                                end:15.w ,
+                                top:10.h ),
                             child: Column(
                               children: [
                                 textFormField(
+                                    maxWidth: 400.w,
+                                    minWidth: 400.w,
                                     labelText:
                                         LocaleKeys.arabicNamePassport.tr(),
                                     // hintText: 'الاسم بالكامل بالعربي حسب الجواز',
                                     context: context,
                                     controller: arabicNameController),
                                 textFormField(
+                                    maxWidth: 400.w,
+                                    minWidth: 400.w,
                                     context: context,
                                     labelText:
                                         LocaleKeys.englishNamePassport.tr(),
@@ -84,12 +87,12 @@ class RegisterScreen extends StatelessWidget {
                                         CircleAvatar(
                                           radius: 40.sp,
                                           backgroundColor: lightMainColor,
-                                          foregroundImage: AssetImage(
+                                          foregroundImage: const AssetImage(
                                               'assets/images/profile.png'),
                                         ),
                                         Image.asset(
                                           'assets/images/camera.png',
-                                          height: size.height * 0.05,
+                                          height:46.h ,
                                         )
                                       ],
                                     )
@@ -110,7 +113,7 @@ class RegisterScreen extends StatelessWidget {
                                           controller: phoneNumberController),
                                     ),
                                     SizedBox(
-                                      width: size.width * 0.07,
+                                      width:15.w ,
                                     ),
                                     decorationContainerWidget(
                                         radius: 35.sp,
@@ -139,6 +142,7 @@ class RegisterScreen extends StatelessWidget {
                                     },
                                     context: context,
                                     validator: () {}),
+                                SizedBox(height: 8.h,),
                                 Row(
                                   crossAxisAlignment:
                                       CrossAxisAlignment.center,
@@ -146,6 +150,8 @@ class RegisterScreen extends StatelessWidget {
                                     Expanded(
                                       flex: 1,
                                       child: textFormField(
+                                        maxWidth: 400.w,
+                                        minWidth: 400.w,
                                         isEnabled: false,
                                         context: context,
                                         labelText:
@@ -155,7 +161,7 @@ class RegisterScreen extends StatelessWidget {
                                       ),
                                     ),
                                     SizedBox(
-                                      width: size.width * 0.07,
+                                      width:15.w ,
                                     ),
                                     GestureDetector(
                                         onTap: () async {
@@ -170,21 +176,29 @@ class RegisterScreen extends StatelessWidget {
                                   ],
                                 ),
                                 textFormField(
+                                    maxWidth: 400.w,
+                                    minWidth: 400.w,
                                     context: context,
                                     labelText: LocaleKeys.email.tr(),
                                     // hintText: 'البريد الالكتروني',
                                     controller: emailController),
                                 textFormField(
+                                    maxWidth: 400.w,
+                                    minWidth: 400.w,
                                     context: context,
                                     labelText: LocaleKeys.passportNo.tr(),
                                     // hintText: 'رقم الجواز',
                                     controller: passportController),
                                 textFormField(
+                                    maxWidth: 400.w,
+                                    minWidth: 400.w,
                                     context: context,
                                     labelText: LocaleKeys.visaNo.tr(),
                                     // hintText: 'رقم التأشيره',
                                     controller: visaNumberController),
                                 textFormField(
+                                    maxWidth: 400.w,
+                                    minWidth: 400.w,
                                     context: context,
                                     labelText: LocaleKeys.boardNo.tr(),
                                     // hintText: 'رقم الحدود',
@@ -205,7 +219,7 @@ class RegisterScreen extends StatelessWidget {
                                       ),
                                     ),
                                     SizedBox(
-                                      width: size.width * 0.07,
+                                      width:15.w ,
                                     ),
                                     GestureDetector(
                                       onTap: () async {
@@ -218,14 +232,6 @@ class RegisterScreen extends StatelessWidget {
                                               child: SvgPicture.asset(
                                                   'assets/svg/Calendar.svg')),
                                           radius: 35.sp),
-                                      // child: Container(
-                                      //   height: size.height*0.05,
-                                      //   width: size.width*0.2,
-                                      //   child:Center(child: SvgPicture.asset('assets/svg/Calendar.svg')),
-                                      //   decoration: BoxDecoration(
-                                      //       color: babyBlueColor,
-                                      //       borderRadius: BorderRadius.circular(35.sp)),
-                                      // ),
                                     ),
                                   ],
                                 ),
@@ -245,7 +251,7 @@ class RegisterScreen extends StatelessWidget {
                                       ),
                                     ),
                                     SizedBox(
-                                      width: size.width * 0.07,
+                                      width:15.w ,
                                     ),
                                     GestureDetector(
                                       onTap: () async {
@@ -294,6 +300,8 @@ class RegisterScreen extends StatelessWidget {
                                     : const SizedBox(),
                                 registerCubit.chooseResidence == '1'
                                     ? textFormField(
+                                    maxWidth: 400.w,
+                                    minWidth: 400.w,
                                         context: context,
                                         labelText:
                                             LocaleKeys.mozdalefaNo.tr(),
@@ -351,6 +359,8 @@ class RegisterScreen extends StatelessWidget {
                                 textFormField(
                                     context: context,
                                     labelText: LocaleKeys.agentName.tr(),
+                                    maxWidth: 400.w,
+                                    minWidth: 400.w,
                                     // hintText: 'اسم الوكيل',
                                     controller: arabicNameController),
                                 textFormField(
@@ -359,6 +369,8 @@ class RegisterScreen extends StatelessWidget {
                                         icon: Icon(Icons.visibility)),
                                     context: context,
                                     labelText: LocaleKeys.password.tr(),
+                                    maxWidth: 400.w,
+                                    minWidth: 400.w,
                                     //  hintText: 'كلمه المرور',
                                     controller: arabicNameController),
                                 textFormField(
@@ -368,7 +380,8 @@ class RegisterScreen extends StatelessWidget {
                                         icon: Icon(Icons.visibility)),
                                     labelText:
                                         LocaleKeys.confirmPassword.tr(),
-                                    // hintText: 'تأكيد كلمه المرور',
+                                    maxWidth: 400.w,
+                                    minWidth: 400.w,
                                     controller: arabicNameController),
                                 richText(
                                     navigation: () =>
@@ -378,7 +391,7 @@ class RegisterScreen extends StatelessWidget {
                                     tappedText: LocaleKeys.privacyPolicy.tr(),
                                     context: context),
                                 SizedBox(
-                                  height: size.height * 0.04,
+                                  height:15.w ,
                                 ),
                                 mainButton(
                                     // width: double.infinity,
@@ -390,7 +403,7 @@ class RegisterScreen extends StatelessWidget {
                                       navigateForward(MainScreen());
                                     }),
                                 SizedBox(
-                                  height: size.height * 0.02,
+                                  height:10.h ,
                                 ),
                                 richText(
                                     navigation: () =>
@@ -399,7 +412,7 @@ class RegisterScreen extends StatelessWidget {
                                     tappedText: LocaleKeys.loginNow.tr(),
                                     context: context),
                                 SizedBox(
-                                  height: size.height * 0.02,
+                                  height:10.h ,
                                 ),
                               ],
                             ),

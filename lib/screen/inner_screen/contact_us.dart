@@ -12,7 +12,6 @@ class ContactUs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: (){FocusManager.instance.primaryFocus?.unfocus();},
       child: Scaffold(
@@ -108,8 +107,6 @@ class ContactUs extends StatelessWidget {
                   child: Align(
                       alignment: Alignment.center,
                       child: mainButton(
-                        //  width: screenSize.width * 0.8,
-                       //   height: screenSize.height * 0.07,
                           text:LocaleKeys.sendInquiry.tr(),
                           color: darkMainColor,
                           context: context,

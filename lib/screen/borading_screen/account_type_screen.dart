@@ -8,7 +8,6 @@ import 'package:morshed/component/auth_header_widget.dart';
 import 'package:morshed/component/component.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/screen/auth_screen/login_screen.dart';
-import 'package:morshed/screen/auth_screen/register_Screen.dart';
 import '../../component/animation_component.dart';
 import '../../component/navigation_functions.dart';
 import '../../models/account_type_model.dart';
@@ -19,7 +18,6 @@ class AccountTypeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     var accountTypeCubit=AccountTypeCubit.get(context);
     return BlocConsumer<AccountTypeCubit,AccountTypeState>(
       listener:(context,state){},

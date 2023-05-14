@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:morshed/constant/const_color.dart';
 
 homeComponentWidget({required BuildContext context,
@@ -9,7 +10,6 @@ homeComponentWidget({required BuildContext context,
   required double height,
   bool isWide=true,
   bool isTall=true}){
- Size size = MediaQuery.of(context).size;
   return GestureDetector(
 
     onTap: (){fct();},
@@ -20,8 +20,8 @@ homeComponentWidget({required BuildContext context,
       child: Column(
         children: [
           Padding(
-            padding:EdgeInsetsDirectional.only(bottom: size.height*0.01),
-            child: Image.asset(image,width:size.width * 0.2 ,),
+            padding:EdgeInsetsDirectional.only(bottom:8.h ),
+            child: Image.asset(image,width:  68.53.w ,),
           ),
           FittedBox(
             child: Text(
