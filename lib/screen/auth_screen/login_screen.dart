@@ -106,8 +106,7 @@ class LoginScreen extends StatelessWidget {
                             children: [
                               Text(
                                 LocaleKeys.unifiedCommunications.tr(),
-                                style:
-                                Theme.of(context).textTheme.headlineSmall,
+                                style:GoogleFonts.cairo(fontSize: 14.sp,color: blackColor,fontWeight: FontWeight.w600),
                               ),
                               InkWell(
                                   onTap: () {
@@ -131,9 +130,7 @@ class LoginScreen extends StatelessWidget {
                                       ),
                                       Text(
                                         LocaleKeys.communicationWhatsApp.tr(),
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headlineSmall,
+                                        style:GoogleFonts.cairo(fontSize: 14.sp,color: blackColor,fontWeight: FontWeight.w600),
                                       ),
                                     ],
                                   ),
@@ -158,9 +155,3 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-
-//                 Spacer(),
-//
