@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,16 +39,12 @@ class AccountTypeScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     whiteMorshedLogo(image: 'assets/images/whiteMorshed.png',),
-                    // Image.asset(
-                    //   'assets/images/whiteMorshed.png',
-                    //   height: 94.h,
-                    //   width: 154.w,
-                    // ),
                     SizedBox(
                       height: 30.h,
                     ),
-                    Text(
+                    AutoSizeText(
                       LocaleKeys.chooseAccountType.tr(),
+                      presetFontSizes: [24.sp,20.sp,15.sp],
                       style: Theme.of(context).textTheme.displayMedium,
                     ),
                     SizedBox(
@@ -75,13 +72,6 @@ class AccountTypeScreen extends StatelessWidget {
                         separatorBuilder: (BuildContext context, int index) {
                           return SizedBox();
                           // return  Padding(
-                          //   padding:  EdgeInsets.only(horizontal: size.width*0.02),
-                          //   child: DashedLine(color: whiteColor,),
-                          // );
-                          // return CustomPaint(
-                          //     size: Size(1, double.infinity),
-                          //     painter: DashedLineVerticalPainter(),
-                          // );
                         },
                       ),
                     ),

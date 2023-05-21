@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -111,15 +112,17 @@ Widget boardingWidget(BoardingModel model, BuildContext context) {
        // height: size.height * 0.05,
         height: 45.h,
       ),
-      Text(
+      AutoSizeText(
         model.title,
+        presetFontSizes: [22.sp,15.sp,10.sp],
         style: Theme.of(context).textTheme.displayLarge,
       ),
       SizedBox(
         height:10.h,
       ),
-      Text(
+      AutoSizeText(
         model.subTitle,
+        presetFontSizes: [15.sp,12.sp,10.sp],
         style: Theme.of(context).textTheme.bodySmall,
       )
     ],

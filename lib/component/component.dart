@@ -91,9 +91,9 @@ Widget textFormField(
       double? minHeight,
       double? maxWidth,
       double? minWidth,
+      bool isBig=false,
       bool isEnabled=true,
     Function? validator}){
-  Size size=MediaQuery.of(context).size;
   return Padding(
     padding:  EdgeInsets.only(bottom:14.h ),
     child: TextFormField(
@@ -106,7 +106,7 @@ Widget textFormField(
       maxLines: lines,
       maxLength: length,
       decoration: InputDecoration(
-         contentPadding: EdgeInsetsDirectional.only(start: 10.w),
+         contentPadding: EdgeInsetsDirectional.only(start: 10.w,top:isBig? 20.h:0.0),
         constraints: BoxConstraints(
 
             minHeight:minHeight?? 54.h,

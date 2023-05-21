@@ -102,6 +102,7 @@ class MoreScreen extends StatelessWidget {
             itemCount: moreList.length,
           ),
         ),
+        SizedBox(height: 20.h,)
       ],
     );
   }

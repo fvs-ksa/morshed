@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -99,8 +100,9 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
                               ),
                               TabBar(controller: tabController, tabs: [
                                 Tab(
-                                  child: Text(
+                                  child: AutoSizeText(
                                     LocaleKeys.iLost.tr(),
+                                    presetFontSizes: [15.sp,13.sp,9.sp],
                                     style: tabController.index == 0
                                         ? Theme.of(context).textTheme.labelLarge
                                         : GoogleFonts.cairo(
@@ -115,8 +117,9 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
                                   // text: 'انا تائه'
                                 ),
                                 Tab(
-                                  child: Text(
+                                  child: AutoSizeText(
                                     LocaleKeys.anotherOneIsLost.tr(),
+                                    presetFontSizes: [15.sp,13.sp,9.sp],
                                     style: tabController.index == 1
                                         ? Theme.of(context).textTheme.labelLarge
                                         : GoogleFonts.cairo(

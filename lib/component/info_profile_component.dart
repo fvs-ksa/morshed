@@ -50,6 +50,7 @@ bigTextFieldForNotes({required BuildContext context, required String hint}) {
         Padding(
           padding: EdgeInsetsDirectional.only(top:25.h ),
           child: textFormField(
+          isBig: true,
               maxHeight: 133.h,
               minHeight: 133.h,
               labelText: hint, context: context, lines: 15),
