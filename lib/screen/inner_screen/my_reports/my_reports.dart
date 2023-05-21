@@ -29,9 +29,9 @@ class MyReports extends StatelessWidget {
                 reportsList[index].status == 1?Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                  circleAvtarWidget(svgImage: 'assets/svg/end call.svg'),
+                  circleAvtarWidget(svgImage: 'assets/svg/end call.svg',fct: (){}),
                   SizedBox(width: 5.w,),
-                  circleAvtarWidget(svgImage: 'assets/svg/msg.svg'),
+                  circleAvtarWidget(svgImage: 'assets/svg/msg.svg',fct: (){}),
                 ],):const SizedBox() ,
                 reportStatus: reportsList[index].status == 0
                     ?LocaleKeys.underProcessing.tr()

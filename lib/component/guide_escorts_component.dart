@@ -12,18 +12,22 @@ import 'info_profile_component.dart';
 
 Widget circleAvtarWidget({
   required String svgImage,
+  required Function fct,
 }) {
-  return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40.sp)),
-      elevation: 3,
-      child: CircleAvatar(
-          backgroundColor: whiteColor, child: SvgPicture.asset(svgImage)));
+  return GestureDetector(
+    onTap: (){fct();},
+    child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40.sp)),
+        elevation: 3,
+        child: CircleAvatar(
+            backgroundColor: whiteColor, child: SvgPicture.asset(svgImage))),
+  );
 }
 
 
 
 headerOfTechnicalSupport(
-    {required BuildContext context, required String title}) {
+    {required BuildContext context, required String title,List<Widget>? child}) {
   return AppBar(
     elevation: 1,
     backgroundColor: whiteColor,
@@ -33,6 +37,7 @@ headerOfTechnicalSupport(
       style: Theme.of(context).textTheme.headlineSmall,
     ),
     centerTitle: true,
+    actions: child,
     leading: Container(
       height: 12.h,
       child: FittedBox(

@@ -106,8 +106,8 @@ class MyReportsDetailsScreen extends StatelessWidget {
                                mainAxisSize: MainAxisSize.min,
                                // mainAxisAlignment: MainAxisAlignment.center,
                                children: [
-                                 circleAvtarWidget(svgImage: 'assets/svg/end call.svg'),
-                                 circleAvtarWidget(svgImage: 'assets/svg/msg.svg')
+                                 circleAvtarWidget(svgImage: 'assets/svg/end call.svg',fct: (){}),
+                                 circleAvtarWidget(svgImage: 'assets/svg/msg.svg',fct: (){})
                                ],
                              ),
                           ],

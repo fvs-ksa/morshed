@@ -50,29 +50,31 @@ class MyApp extends StatelessWidget {
     myLocale = EasyLocalization.of(context)?.currentLocale;
     print('my locale ${myLocale}');
     isEnglish = CacheHelper.getData(key: 'isEnglish') ?? false;
-    return MultiBlocProvider(
+    return MediaQuery(
+      data: const MediaQueryData(),
+      child: MultiBlocProvider(
         providers: [
-          BlocProvider<BoardingCubit>(
-              create: (context) => BoardingCubit()..initialization()),
-          BlocProvider<RegisterCubit>(create: (context) => RegisterCubit()),
-          BlocProvider<GeneralCubit>(create: (context) => GeneralCubit()),
-          BlocProvider<ChatWithSupportCubit>(
-              create: (context) => ChatWithSupportCubit()),
-          BlocProvider<ProfileCubit>(create: (context) => ProfileCubit()),
-          BlocProvider<SettingCubit>(create: (context) => SettingCubit()),
-          BlocProvider<SubmitReportCubit>(
-              create: (context) => SubmitReportCubit()),
-          BlocProvider<AccountTypeCubit>(
-              create: (context) => AccountTypeCubit()),
-          BlocProvider<AddCompanionsCubit>(
-            create: (context) => AddCompanionsCubit(),
-          ),
-          BlocProvider<GuidesCubit>(create: (context) => GuidesCubit()),
-        ],
-        child: MediaQuery(
-          data: const MediaQueryData(),
-          child:ScreenUtilInit(
+            BlocProvider<BoardingCubit>(
+                create: (context) => BoardingCubit()..initialization()),
+            BlocProvider<RegisterCubit>(create: (context) => RegisterCubit()),
+            BlocProvider<GeneralCubit>(create: (context) => GeneralCubit()),
+            BlocProvider<ChatWithSupportCubit>(
+                create: (context) => ChatWithSupportCubit()),
+            BlocProvider<ProfileCubit>(create: (context) => ProfileCubit()),
+            BlocProvider<SettingCubit>(create: (context) => SettingCubit()),
+            BlocProvider<SubmitReportCubit>(
+                create: (context) => SubmitReportCubit()),
+            BlocProvider<AccountTypeCubit>(
+                create: (context) => AccountTypeCubit()),
+            BlocProvider<AddCompanionsCubit>(
+              create: (context) => AddCompanionsCubit(),
+            ),
+            BlocProvider<GuidesCubit>(create: (context) => GuidesCubit()),
+          ],
+        child:ScreenUtilInit(
+
             designSize: Size(414,896),
+           // useInheritedMediaQuery: true,
               builder: (context , child) {
                 return MaterialApp(
                   navigatorKey: NavigationService.navigate().navigationKey,
@@ -90,8 +92,8 @@ class MyApp extends StatelessWidget {
                   home: BoardingScreen(),
                 );
               }
-            )
-
-        ));
+            ),
+      ),
+    );
   }
 }

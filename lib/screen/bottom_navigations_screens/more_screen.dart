@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,7 +23,10 @@ class MoreScreen extends StatelessWidget {
           child: Stack(
             fit: StackFit.expand,
             children: [
-              Image.asset('assets/images/header1.png', fit: BoxFit.fitHeight,),
+              Image.asset(
+                'assets/images/header1.png',
+                fit: BoxFit.fitHeight,
+              ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10.w),
                 child: Row(
@@ -30,28 +34,38 @@ class MoreScreen extends StatelessWidget {
                   children: [
                     whiteMorshedLogo(image: 'assets/images/whiteMorshed.png'),
                     GestureDetector(
-                      onTap:()=> navigateForward(const SubscriptionScreen()),
+                      onTap: () => navigateForward(const SubscriptionScreen()),
                       child: Stack(
-
-                      //  fit: StackFit.passthrough,
                         alignment: Alignment.center,
                         children: [
                           FittedBox(
                             child: Container(
-                              padding: EdgeInsetsDirectional.only(end:6.w,start: 6.w),
+                              padding: EdgeInsetsDirectional.only(
+                                  end: 6.w, start: 6.w),
                               height: 61.h,
                               width: 144.w,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15.sp),
+                                  borderRadius: BorderRadius.circular(15.sp),
                                   image: const DecorationImage(
-                                      image: AssetImage('assets/images/supscription.png'), fit: BoxFit.cover)),
-                              child:  FittedBox(child: Center(
-                                  child: Text(LocaleKeys.morshedSubscription.tr(),
-                                    textAlign: TextAlign.center,style: GoogleFonts.cairo(color: whiteColor,fontSize: 17.sp,fontWeight: FontWeight.w500)))),
+                                      image: AssetImage(
+                                          'assets/images/supscription.png'),
+                                      fit: BoxFit.cover)),
+                              child: FittedBox(
+                                  child: Center(
+                                      child: AutoSizeText(
+                                          LocaleKeys.morshedSubscription.tr(),
+                                          presetFontSizes: [
+                                            17.sp,
+                                            13.sp,
+                                            10.sp
+                                          ],
+                                          textAlign: TextAlign.center,
+                                          style: GoogleFonts.cairo(
+                                              color: whiteColor,
+                                              fontSize: 17.sp,
+                                              fontWeight: FontWeight.w500)))),
                             ),
                           ),
-
-
                         ],
                       ),
                     ),
@@ -66,43 +80,52 @@ class MoreScreen extends StatelessWidget {
             padding: EdgeInsets.zero,
             physics: const BouncingScrollPhysics(),
             itemBuilder: (context, index) {
-              return index==9?Padding(
-                padding:  EdgeInsetsDirectional.only(top:8.h ),
-                child: Text(LocaleKeys.logOut.tr(),style: Theme.of(context).textTheme.headlineMedium,textAlign: TextAlign.center,),
-              ):GestureDetector(
-                onTap:()=> moreList[index].onTap(),
-                child: Card(
-                  elevation: 2,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.sp)),
-                  child: Container(
-                    height: 64.h,
-                    padding: EdgeInsetsDirectional.only(
-                        start:24.w,
-                        top: 3.h,
-                        bottom: 3.h),
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(15.sp)),
-                    child: Row(
-                      children: [
-                        SvgPicture.asset(moreList[index].svgImage),
-                        SizedBox(
-                          width: 8.w,
+              return index == 9
+                  ? Padding(
+                      padding: EdgeInsetsDirectional.only(top: 8.h),
+                      child: Text(
+                        LocaleKeys.logOut.tr(),
+                        style: Theme.of(context).textTheme.headlineMedium,
+                        textAlign: TextAlign.center,
+                      ),
+                    )
+                  : GestureDetector(
+                      onTap: () => moreList[index].onTap(),
+                      child: Card(
+                        elevation: 2,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.sp)),
+                        child: Container(
+                          height: 64.h,
+                          padding: EdgeInsetsDirectional.only(
+                              start: 24.w, top: 3.h, bottom: 3.h),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15.sp)),
+                          child: Row(
+                            children: [
+                              SvgPicture.asset(moreList[index].svgImage),
+                              SizedBox(
+                                width: 8.w,
+                              ),
+                              Text(
+                                moreList[index].title,
+                                style: GoogleFonts.cairo(
+                                    fontSize: 17.sp,
+                                    fontWeight: FontWeight.w600,
+                                    color: blackColor),
+                              ),
+                            ],
+                          ),
                         ),
-                        Text(
-                          moreList[index].title,
-                          style: GoogleFonts.cairo(fontSize: 17.sp,fontWeight: FontWeight.w600,color: blackColor),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              );
+                      ),
+                    );
             },
             itemCount: moreList.length,
           ),
         ),
-        SizedBox(height: 20.h,)
+        SizedBox(
+          height: 20.h,
+        )
       ],
     );
   }

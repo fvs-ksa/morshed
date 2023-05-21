@@ -6,6 +6,7 @@ import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/component/floating_Container.dart';
 import 'package:morshed/component/home_screen_widget.dart';
 import 'package:morshed/screen/inner_screen/add_companions_screen.dart';
+import 'package:morshed/screen/inner_screen/guides_screen.dart';
 import 'package:morshed/screen/inner_screen/my_card_screen.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
 import '../../component/horizontal_dotted_line.dart';
@@ -97,7 +98,7 @@ class HomeScreen extends StatelessWidget {
                       homeComponentWidget(
                           width: 72.49.w,
                           height: 151.16.h,
-                          fct: (){},context: context,
+                          fct: (){navigateForward(GuidesScreen(index: 1,));},context: context,
                           image: 'assets/images/vedio.png', title:LocaleKeys.videoCall.tr()),
                     ],
                   ),
