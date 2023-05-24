@@ -29,9 +29,8 @@ class LoginScreen extends StatelessWidget {
         appBar:
             headerAuthScreen(context: context, title: LocaleKeys.loginNow.tr()),
         body: Padding(
-          padding: EdgeInsetsDirectional.symmetric(
-              horizontal: 40.w,
-              vertical: 30.h),
+          padding:
+              EdgeInsetsDirectional.symmetric(horizontal: 40.w, vertical: 30.h),
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -44,8 +43,8 @@ class LoginScreen extends StatelessWidget {
                     context: context,
                     controller: passwordNameController,
                     suffixIcon: const Icon(Icons.visibility)),
-                                SizedBox(
-                  height:70.h,
+                SizedBox(
+                  height: 70.h,
                 ),
                 mainButton(
                     text: LocaleKeys.loginNow.tr(),
@@ -57,7 +56,7 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(
                   height: 40.h,
                 ),
-                                richText(
+                richText(
                     navigation: () => navigateForward(RegisterScreen()),
                     text: LocaleKeys.notHaveAnAccount.tr(),
                     tappedText: LocaleKeys.registerNow.tr(),
@@ -65,7 +64,7 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(
                   height: 30.h,
                 ),
-                                Text(
+                Text(
                   LocaleKeys.signAsGuest.tr(),
                   style: GoogleFonts.cairo(
                       fontSize: 17.sp,
@@ -73,12 +72,10 @@ class LoginScreen extends StatelessWidget {
                       decoration: TextDecoration.underline,
                       fontWeight: FontWeight.bold),
                 ),
-
               ],
             ),
           ),
         ),
-
         bottomNavigationBar: Stack(
           alignment: Alignment.center,
           children: [
@@ -106,7 +103,10 @@ class LoginScreen extends StatelessWidget {
                             children: [
                               Text(
                                 LocaleKeys.unifiedCommunications.tr(),
-                                style:GoogleFonts.cairo(fontSize: 14.sp,color: blackColor,fontWeight: FontWeight.w600),
+                                style: GoogleFonts.cairo(
+                                    fontSize: 14.sp,
+                                    color: blackColor,
+                                    fontWeight: FontWeight.w600),
                               ),
                               InkWell(
                                   onTap: () {
@@ -126,18 +126,21 @@ class LoginScreen extends StatelessWidget {
                                       SvgPicture.asset(
                                           'assets/svg/Icon ionic-logo-whatsapp.svg'),
                                       SizedBox(
-                                        width:8.w ,
+                                        width: 8.w,
                                       ),
                                       Text(
                                         LocaleKeys.communicationWhatsApp.tr(),
-                                        style:GoogleFonts.cairo(fontSize: 14.sp,color: blackColor,fontWeight: FontWeight.w600),
+                                        style: GoogleFonts.cairo(
+                                            fontSize: 14.sp,
+                                            color: blackColor,
+                                            fontWeight: FontWeight.w600),
                                       ),
                                     ],
                                   ),
                                 ),
                               ),
                               SizedBox(
-                                height:8.w,
+                                height: 8.w,
                               )
                             ],
                           ),

@@ -8,21 +8,44 @@ import '../screen/inner_screen/another_services_screens/guides_screens/haramen_s
 import '../screen/inner_screen/another_services_screens/guides_screens/hijj_omra_info.dart';
 import '../screen/inner_screen/another_services_screens/guides_screens/tourist_attractions_screen.dart';
 
-class GuidesForHajjiModel{
+class GuidesForHajjiModel {
   String image;
   String title;
   Function fct;
-  GuidesForHajjiModel({required this.fct,required this.image,required this.title});
+
+  GuidesForHajjiModel(
+      {required this.fct, required this.image, required this.title});
 }
-List<GuidesForHajjiModel>guidesForHajjiList=[
-  GuidesForHajjiModel(fct: (){navigateForward(const AlHarameenAlSharefenServices());},
-      image: 'assets/images/hajj (1).png', title:LocaleKeys.ServicesOfTheTwoHolyMosques.tr()),
-  GuidesForHajjiModel(fct: (){navigateForward(const HijAndOmraInfoScreen());},
-      image: 'assets/images/umrah.png', title:LocaleKeys.umrahAndHajjInformation.tr()),
-  GuidesForHajjiModel(fct: (){navigateForward(const GuideToGettingLostScreen());},
-      image: 'assets/images/lost.png', title:LocaleKeys.GuidebookForLostPersons.tr()),
-  GuidesForHajjiModel(fct: (){navigateForward(const AboutUsScreen());},
-      image: 'assets/images/من نحن.png', title:LocaleKeys.aboutMorshed.tr()),
-  GuidesForHajjiModel(fct: (){navigateForward(const TouristAttractionsScreen());},
-      image: 'assets/images/guides.png', title:LocaleKeys.touristAttractions.tr()),
+
+List<GuidesForHajjiModel> guidesForHajjiList = [
+  GuidesForHajjiModel(
+      fct: () {
+        navigateForward(const AlHarameenAlSharefenServices());
+      },
+      image: 'assets/images/hajj (1).png',
+      title: LocaleKeys.ServicesOfTheTwoHolyMosques.tr()),
+  GuidesForHajjiModel(
+      fct: () {
+        navigateForward(const HijAndOmraInfoScreen());
+      },
+      image: 'assets/images/umrah.png',
+      title: LocaleKeys.umrahAndHajjInformation.tr()),
+  GuidesForHajjiModel(
+      fct: () {
+        navigateForward(const GuideToGettingLostScreen());
+      },
+      image: 'assets/images/lost.png',
+      title: LocaleKeys.GuidebookForLostPersons.tr()),
+  GuidesForHajjiModel(
+      fct: () {
+        navigateForward(const AboutUsScreen());
+      },
+      image: 'assets/images/من نحن.png',
+      title: LocaleKeys.aboutMorshed.tr()),
+  GuidesForHajjiModel(
+      fct: () {
+        navigateForward(const TouristAttractionsScreen());
+      },
+      image: 'assets/images/guides.png',
+      title: LocaleKeys.touristAttractions.tr()),
 ];
