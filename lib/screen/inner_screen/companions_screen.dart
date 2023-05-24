@@ -14,15 +14,15 @@ class EscortsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: headerForGuide(context: context, title: LocaleKeys.Companions.tr(),fct: (){}),
+      appBar: headerForGuide(
+          context: context, title: LocaleKeys.Companions.tr(), fct: () {}),
       backgroundColor: whiteGreyColor,
       body: GestureDetector(
-        onTap: (){FocusManager.instance.primaryFocus?.unfocus();},
+        onTap: () {
+          FocusManager.instance.primaryFocus?.unfocus();
+        },
         child: Padding(
-          padding: EdgeInsetsDirectional.only(
-              top: 10.h,
-              start: 8.w,
-              end: 8.w),
+          padding: EdgeInsetsDirectional.only(top: 10.h, start: 8.w, end: 8.w),
           child: ListView.builder(
               itemCount: 10,
               itemBuilder: (context, index) {
@@ -40,7 +40,9 @@ class EscortsScreen extends StatelessWidget {
           child: Row(
             children: [
               SvgPicture.asset('assets/svg/Icon ionic-ios-add.svg'),
-              SizedBox(width: 5.w,),
+              SizedBox(
+                width: 5.w,
+              ),
               Text(
                 LocaleKeys.Companions.tr(),
                 style: Theme.of(context).textTheme.labelLarge,
@@ -49,8 +51,7 @@ class EscortsScreen extends StatelessWidget {
           ),
         ),
         onPressed: () {
-          navigateForward(
-                    const AddCompanionsScreen());
+          navigateForward(const AddCompanionsScreen());
         },
       ),
     );

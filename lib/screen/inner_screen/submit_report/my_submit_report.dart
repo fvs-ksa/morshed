@@ -13,25 +13,25 @@ class MySubmitReport extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var reportCubit = SubmitReportCubit.get(context);
-    return BlocConsumer<SubmitReportCubit,SubmitReportState>(
-      listener: (context,state){},
-      builder: (context,state) {
-        return Padding(
-          padding:  EdgeInsetsDirectional.symmetric(horizontal: 20.w,vertical:15.w),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  LocaleKeys.reportDetails.tr(),
-                  style: Theme.of(context).textTheme.headlineSmall,
-                ),
-                ReportDetailsWidget(index: 1),
-              ],
+    return BlocConsumer<SubmitReportCubit, SubmitReportState>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          return Padding(
+            padding: EdgeInsetsDirectional.symmetric(
+                horizontal: 20.w, vertical: 15.w),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    LocaleKeys.reportDetails.tr(),
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                  ReportDetailsWidget(index: 1),
+                ],
+              ),
             ),
-          ),
-        );
-      }
-    );
+          );
+        });
   }
 }

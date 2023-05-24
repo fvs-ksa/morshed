@@ -22,42 +22,56 @@ class SubmitReportAnotherPerson extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           return GestureDetector(
-            onTap: (){FocusManager.instance.primaryFocus?.unfocus();},
+            onTap: () {
+              FocusManager.instance.primaryFocus?.unfocus();
+            },
             child: Padding(
-              padding:  EdgeInsetsDirectional.symmetric(horizontal: 30.w,vertical:8.h ),
+              padding: EdgeInsetsDirectional.symmetric(
+                  horizontal: 30.w, vertical: 8.h),
               child: SingleChildScrollView(
                 child: Column(
                   children: [
                     textFormField(
-                      suffixIcon: SvgPicture.asset('assets/svg/scanQR.svg',fit: BoxFit.none),
-                        labelText:LocaleKeys.findingInformationByScanningQrCode.tr(),
+                        suffixIcon: SvgPicture.asset('assets/svg/scanQR.svg',
+                            fit: BoxFit.none),
+                        labelText:
+                            LocaleKeys.findingInformationByScanningQrCode.tr(),
                         context: context,
                         onTap: () {
                           print('object');
                         },
                         isEnabled: false),
                     textFormField(
-                        labelText:LocaleKeys.findingInformationUsingPassportNumber.tr(),
+                        labelText: LocaleKeys
+                            .findingInformationUsingPassportNumber
+                            .tr(),
                         context: context,
                         keyboardType: TextInputType.phone),
                     textFormField(
-                        labelText:LocaleKeys.findingInformationUsingId.tr() ,
+                        labelText: LocaleKeys.findingInformationUsingId.tr(),
                         context: context,
                         keyboardType: TextInputType.phone),
-                    textFormField(labelText:LocaleKeys.findingInformationUsingHotelName.tr() , context: context),
                     textFormField(
-                        labelText:LocaleKeys.findingInformationUsingVisaNumber.tr(),
+                        labelText:
+                            LocaleKeys.findingInformationUsingHotelName.tr(),
+                        context: context),
+                    textFormField(
+                        labelText:
+                            LocaleKeys.findingInformationUsingVisaNumber.tr(),
                         context: context,
                         keyboardType: TextInputType.phone),
                     dropDownButton(
                         items: submitReport.country.map((e) {
                           return DropdownMenuItem(
-                            child: Text(e,style: Theme.of(context).textTheme.labelSmall,),
+                            child: Text(
+                              e,
+                              style: Theme.of(context).textTheme.labelSmall,
+                            ),
                             value: e,
                           );
                         }).toList(),
                         value: submitReport.chooseCountry,
-                        hint:LocaleKeys.country.tr(),
+                        hint: LocaleKeys.country.tr(),
                         fct: (onChange) {
                           submitReport.onChangeCountryName(onChange);
                         },
@@ -66,28 +80,36 @@ class SubmitReportAnotherPerson extends StatelessWidget {
                     dropDownButton(
                         items: submitReport.sexList.map((e) {
                           return DropdownMenuItem(
-                            child: Text(e,style: Theme.of(context).textTheme.labelSmall,),
+                            child: Text(
+                              e,
+                              style: Theme.of(context).textTheme.labelSmall,
+                            ),
                             value: e,
                           );
                         }).toList(),
                         value: submitReport.sex,
-                        hint:LocaleKeys.sex.tr() ,
+                        hint: LocaleKeys.sex.tr(),
                         fct: (onChange) {
                           submitReport.onChangeSex(onChange);
                         },
                         context: context,
                         validator: () {}),
-                    SizedBox(height: 10.h,),
-                    locationWidget(context:context),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    locationWidget(context: context),
                     Padding(
-                      padding:  EdgeInsetsDirectional.only(
-                          top:10.h ,
-                          bottom:8.h ,
-                          start:10.w,
-                          end:10.w ),
-                      child: Align(alignment: Alignment.center,child: mainButton(
-                          text:LocaleKeys.search.tr(), color: darkMainColor, context: context,
-                          fct: (){navigateForward( ReportedPersonInfo());})),
+                      padding: EdgeInsetsDirectional.only(
+                          top: 10.h, bottom: 8.h, start: 10.w, end: 10.w),
+                      child: Align(
+                          alignment: Alignment.center,
+                          child: mainButton(
+                              text: LocaleKeys.search.tr(),
+                              color: darkMainColor,
+                              context: context,
+                              fct: () {
+                                navigateForward(ReportedPersonInfo());
+                              })),
                     )
                   ],
                 ),

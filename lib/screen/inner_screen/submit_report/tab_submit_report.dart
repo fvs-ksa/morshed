@@ -102,7 +102,7 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
                                 Tab(
                                   child: AutoSizeText(
                                     LocaleKeys.iLost.tr(),
-                                    presetFontSizes: [15.sp,13.sp,9.sp],
+                                    presetFontSizes: [15.sp, 13.sp, 9.sp],
                                     style: tabController.index == 0
                                         ? Theme.of(context).textTheme.labelLarge
                                         : GoogleFonts.cairo(
@@ -119,7 +119,7 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
                                 Tab(
                                   child: AutoSizeText(
                                     LocaleKeys.anotherOneIsLost.tr(),
-                                    presetFontSizes: [15.sp,13.sp,9.sp],
+                                    presetFontSizes: [15.sp, 13.sp, 9.sp],
                                     style: tabController.index == 1
                                         ? Theme.of(context).textTheme.labelLarge
                                         : GoogleFonts.cairo(

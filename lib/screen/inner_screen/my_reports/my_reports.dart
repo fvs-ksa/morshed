@@ -16,34 +16,53 @@ class MyReports extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: headerOfTechnicalSupport(context: context, title: LocaleKeys.myReports.tr()),
+      appBar: headerOfTechnicalSupport(
+          context: context, title: LocaleKeys.myReports.tr()),
       backgroundColor: whiteGreyColor,
       body: ListView.builder(
         itemBuilder: (context, index) {
           return GestureDetector(
-            onTap: (){navigateForward( MyReportsDetailsScreen(index:reportsList[index].status ,));},
+            onTap: () {
+              navigateForward(MyReportsDetailsScreen(
+                index: reportsList[index].status,
+              ));
+            },
             child: myReportsContainerWidget(
-                context: context,
-                style:reportsList[index].status == 2? Theme.of(context).textTheme.bodyLarge:null,
-                solutionWidget:reportsList[index].status == 0?IconButton(onPressed: (){}, icon: SvgPicture.asset('assets/svg/delete.svg')):
-                reportsList[index].status == 1?Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                  circleAvtarWidget(svgImage: 'assets/svg/end call.svg',fct: (){}),
-                  SizedBox(width: 5.w,),
-                  circleAvtarWidget(svgImage: 'assets/svg/msg.svg',fct: (){}),
-                ],):const SizedBox() ,
-                reportStatus: reportsList[index].status == 0
-                    ?LocaleKeys.underProcessing.tr()
-                    : reportsList[index].status == 1
-                    ?LocaleKeys.guideOnTheWay.tr()
-                    :LocaleKeys.Resolved.tr() ,
-                reportId: reportsList[index].reportNumber,
-                backgroundImage:reportsList[index].status == 0
-                    ? 'assets/images/Group 204373.png'
-                    : reportsList[index].status == 1
-                    ? 'assets/images/Group 204372.png'
-                    : 'assets/images/Group 204371.png',),
+              context: context,
+              style: reportsList[index].status == 2
+                  ? Theme.of(context).textTheme.bodyLarge
+                  : null,
+              solutionWidget: reportsList[index].status == 0
+                  ? IconButton(
+                      onPressed: () {},
+                      icon: SvgPicture.asset('assets/svg/delete.svg'))
+                  : reportsList[index].status == 1
+                      ? Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            circleAvtarWidget(
+                                svgImage: 'assets/svg/end call.svg',
+                                fct: () {}),
+                            SizedBox(
+                              width: 5.w,
+                            ),
+                            circleAvtarWidget(
+                                svgImage: 'assets/svg/msg.svg', fct: () {}),
+                          ],
+                        )
+                      : const SizedBox(),
+              reportStatus: reportsList[index].status == 0
+                  ? LocaleKeys.underProcessing.tr()
+                  : reportsList[index].status == 1
+                      ? LocaleKeys.guideOnTheWay.tr()
+                      : LocaleKeys.Resolved.tr(),
+              reportId: reportsList[index].reportNumber,
+              backgroundImage: reportsList[index].status == 0
+                  ? 'assets/images/Group 204373.png'
+                  : reportsList[index].status == 1
+                      ? 'assets/images/Group 204372.png'
+                      : 'assets/images/Group 204371.png',
+            ),
           );
         },
         itemCount: 3,

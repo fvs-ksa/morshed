@@ -19,7 +19,6 @@ class _ChatWithGuidesScreenState extends State<ChatWithGuidesScreen> {
   EdgeInsets _viewInsets = EdgeInsets.zero;
   SingletonFlutterWindow? window;
 
-
   @override
   void initState() {
     super.initState();
@@ -39,6 +38,7 @@ class _ChatWithGuidesScreenState extends State<ChatWithGuidesScreen> {
       });
     };
   }
+
   TextEditingController messageController = TextEditingController();
 
   @override
@@ -48,7 +48,9 @@ class _ChatWithGuidesScreenState extends State<ChatWithGuidesScreen> {
         listener: (context, state) {},
         builder: (context, state) {
           return GestureDetector(
-            onTap: (){FocusManager.instance.primaryFocus?.unfocus();},
+            onTap: () {
+              FocusManager.instance.primaryFocus?.unfocus();
+            },
             child: Scaffold(
               appBar: headerOfTechnicalSupport(
                   context: context,
@@ -103,7 +105,7 @@ class _ChatWithGuidesScreenState extends State<ChatWithGuidesScreen> {
                 alignment: AlignmentDirectional.bottomCenter,
                 child: Padding(
                   padding: EdgeInsetsDirectional.only(
-                    bottom:_viewInsets.bottom,
+                    bottom: _viewInsets.bottom,
                     top: 6.h,
                     start: 7.w,
                     end: 7.w,
@@ -152,13 +154,13 @@ class _ChatWithGuidesScreenState extends State<ChatWithGuidesScreen> {
                               messageController.text.isEmpty
                                   ? debugPrint('galal')
                                   : chatWithSupportCubit
-                                  .sendTextMessage(messageController.text);
+                                      .sendTextMessage(messageController.text);
                               messageController.clear();
                             },
                             child: CircleAvatar(
                                 child: SvgPicture.asset(
-                                  'assets/svg/Icon ionic-ios-send.svg',
-                                )),
+                              'assets/svg/Icon ionic-ios-send.svg',
+                            )),
                           )
                         ],
                       ),
@@ -166,7 +168,6 @@ class _ChatWithGuidesScreenState extends State<ChatWithGuidesScreen> {
                   ),
                 ),
               ),
-
             ),
           );
         });

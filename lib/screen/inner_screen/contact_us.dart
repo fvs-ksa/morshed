@@ -13,7 +13,9 @@ class ContactUs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){FocusManager.instance.primaryFocus?.unfocus();},
+      onTap: () {
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         appBar: PreferredSize(
             child: Stack(
@@ -24,9 +26,7 @@ class ContactUs extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.only(
-                      start: 30.w,
-                      top:70.h),
+                  padding: EdgeInsetsDirectional.only(start: 30.w, top: 70.h),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -44,12 +44,10 @@ class ContactUs extends StatelessWidget {
               ],
             ),
             preferredSize: Size.fromHeight(220.h)),
-        body:SingleChildScrollView(
+        body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsetsDirectional.only(
-                top: 19.h,
-                start:19.h,
-                end: 19.h),
+            padding:
+                EdgeInsetsDirectional.only(top: 19.h, start: 19.h, end: 19.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -96,18 +94,14 @@ class ContactUs extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 bigTextFieldForNotes(
-
-                    context: context, hint:LocaleKeys.writeHere.tr()),
+                    context: context, hint: LocaleKeys.writeHere.tr()),
                 Padding(
                   padding: EdgeInsetsDirectional.only(
-                      top: 20.h,
-                      bottom: 10.h,
-                      start: 15.w,
-                      end: 15.w),
+                      top: 20.h, bottom: 10.h, start: 15.w, end: 15.w),
                   child: Align(
                       alignment: Alignment.center,
                       child: mainButton(
-                          text:LocaleKeys.sendInquiry.tr(),
+                          text: LocaleKeys.sendInquiry.tr(),
                           color: darkMainColor,
                           context: context,
                           fct: () {})),
@@ -120,5 +114,3 @@ class ContactUs extends StatelessWidget {
     );
   }
 }
-
-
