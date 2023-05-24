@@ -15,9 +15,9 @@ class MySeparator extends StatelessWidget {
         final dashHeight = height;
         final dashCount = (boxWidth / (2 * dashWidth)).floor();
         return Padding(
-          padding:  EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.1),
+          padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.1),
           child: Flex(
-
             children: List.generate(dashCount, (_) {
               return SizedBox(
                 width: dashWidth,
@@ -35,12 +35,14 @@ class MySeparator extends StatelessWidget {
     );
   }
 }
+
 class DashedLine extends StatelessWidget {
   final double height;
   final double heightContainer;
   final Color color;
 
-  const DashedLine({this.height = 8, required this.color , this.heightContainer = 90});
+  const DashedLine(
+      {this.height = 8, required this.color, this.heightContainer = 90});
 
   @override
   Widget build(BuildContext context) {

@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:morshed/bloc/profile_cubit/state.dart';
 
-class ProfileCubit extends Cubit<ProfileState>{
-  ProfileCubit():super(InitialProfileState());
-  static ProfileCubit get(context)=>BlocProvider.of(context);
+class ProfileCubit extends Cubit<ProfileState> {
+  ProfileCubit() : super(InitialProfileState());
+
+  static ProfileCubit get(context) => BlocProvider.of(context);
   String? chooseNationality;
   var nationality = [
     'سعودي',
@@ -22,6 +23,7 @@ class ProfileCubit extends Cubit<ProfileState>{
     chooseNationality = onChange;
     emit(ChangeNationalityDropDownProfileState());
   }
+
   String? convertedDateTime;
 
   chooseDateTime({required BuildContext context}) async {
@@ -34,7 +36,7 @@ class ProfileCubit extends Cubit<ProfileState>{
       print(date);
     }
     convertedDateTime =
-    "${date?.year.toString()}-${date?.month.toString().padLeft(2, '0')}-${date?.day.toString().padLeft(2, '0')}";
+        "${date?.year.toString()}-${date?.month.toString().padLeft(2, '0')}-${date?.day.toString().padLeft(2, '0')}";
     print(convertedDateTime);
     emit(ChooseDateOfBirthProfileState());
   }

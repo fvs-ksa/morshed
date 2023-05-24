@@ -13,16 +13,15 @@ Widget decorationContainerWidget(
     double? width,
     double? height}) {
   return Container(
-    height: height ??54.h ,
-    width: width ??73.w ,
+    height: height ?? 54.h,
+    width: width ?? 73.w,
     child: Center(child: child),
     decoration: BoxDecoration(
         color: babyBlueColor, borderRadius: BorderRadius.circular(radius)),
   );
 }
 
-Widget backButtonWidget(
-    {required BuildContext context}) {
+Widget backButtonWidget({required BuildContext context}) {
   return Card(
     clipBehavior: Clip.antiAliasWithSaveLayer,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.sp)),
@@ -48,15 +47,17 @@ bigTextFieldForNotes({required BuildContext context, required String hint}) {
       alignment: AlignmentDirectional.topEnd,
       children: [
         Padding(
-          padding: EdgeInsetsDirectional.only(top:25.h ),
+          padding: EdgeInsetsDirectional.only(top: 25.h),
           child: textFormField(
-          isBig: true,
+              isBig: true,
               maxHeight: 133.h,
               minHeight: 133.h,
-              labelText: hint, context: context, lines: 15),
+              labelText: hint,
+              context: context,
+              lines: 15),
         ),
         Padding(
-          padding: EdgeInsetsDirectional.only(end:12.h ),
+          padding: EdgeInsetsDirectional.only(end: 12.h),
           child: CircleAvatar(
             radius: screenSize.width * 0.07,
             backgroundColor: babyBlueColor,
@@ -81,15 +82,16 @@ headerInfoPerson(
             height: 190.h,
             child: Padding(
               padding: EdgeInsetsDirectional.only(
-                  end: !isProfile ? 10.w : 0,
-                  bottom: !isProfile ? 15.h : 0.h),
+                  end: !isProfile ? 10.w : 0, bottom: !isProfile ? 15.h : 0.h),
               child: Align(
                   alignment: isProfile
                       ? AlignmentDirectional.center
                       : AlignmentDirectional.bottomEnd,
                   child: Text(
                     title,
-                    style:isProfile? Theme.of(context).textTheme.titleMedium:Theme.of(context).textTheme.displayMedium,
+                    style: isProfile
+                        ? Theme.of(context).textTheme.titleMedium
+                        : Theme.of(context).textTheme.displayMedium,
                   )),
             ),
             decoration: const BoxDecoration(
@@ -102,10 +104,9 @@ headerInfoPerson(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                backButtonWidget(
-                    context: context),
+                backButtonWidget(context: context),
                 SizedBox(
-                  height:20.h,
+                  height: 20.h,
                 ),
                 isHeaderProfile
                     ? Padding(

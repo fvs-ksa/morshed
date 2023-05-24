@@ -15,10 +15,10 @@ navigateForwardReplace(Widget page, {arguments}) {
 navigateForwardPop(Widget page, {arguments}) {
   NavigationService.navigate().goBack(page);
 }
+
 launchWhatsapp(context) async {
   var whatsapp = "+966506977241";
-  var whatsappAndroid =
-  Uri.parse("whatsapp://send?phone=$whatsapp&text=hello");
+  var whatsappAndroid = Uri.parse("whatsapp://send?phone=$whatsapp&text=hello");
   if (await canLaunchUrl(whatsappAndroid)) {
     await launchUrl(whatsappAndroid);
   } else {
@@ -29,10 +29,10 @@ launchWhatsapp(context) async {
     );
   }
 }
+
 launchCall(context) async {
   var whatsapp = "+966506977241";
-  var whatsappAndroid =
-  Uri.parse("tel:$whatsapp");
+  var whatsappAndroid = Uri.parse("tel:$whatsapp");
   if (await canLaunchUrl(whatsappAndroid)) {
     await launchUrl(whatsappAndroid);
   } else {
@@ -43,17 +43,17 @@ launchCall(context) async {
     );
   }
 }
+
 navigateToMail(BuildContext context) async {
   Uri url = Uri.parse("mailto:info@guide.com");
   if (await canLaunchUrl(url)) {
     await launchUrl(url);
   } else {
     ScaffoldMessenger.of(context).showSnackBar(
-       SnackBar(
+      SnackBar(
         backgroundColor: Colors.red,
         content: Text(LocaleKeys.errorWhileMovingToEmail.tr()),
       ),
     );
   }
 }
-

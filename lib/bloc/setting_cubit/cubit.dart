@@ -6,28 +6,28 @@ import 'package:morshed/bloc/setting_cubit/state.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/utiels/shared_pref.dart';
 
-class SettingCubit extends Cubit<SettingState>{
-  SettingCubit():super(InitialSettingState());
-  static SettingCubit get(context)=>BlocProvider.of(context);
- // bool isEnglish=false;
-  changeLanguage(BuildContext context){
+class SettingCubit extends Cubit<SettingState> {
+  SettingCubit() : super(InitialSettingState());
 
-    if(isEnglish==false){
-      isEnglish =! isEnglish!;
+  static SettingCubit get(context) => BlocProvider.of(context);
+
+  // bool isEnglish=false;
+  changeLanguage(BuildContext context) {
+    if (isEnglish == false) {
+      isEnglish = !isEnglish!;
       context.setLocale(const Locale('en'));
-      myLocale=context.locale.languageCode;
+      myLocale = context.locale.languageCode;
       CacheHelper.saveData(key: 'isEnglish', value: isEnglish);
 
       print('ISENGLISH :$isEnglish ');
       emit(SetLanguageENState());
-    }else{
-      isEnglish =! isEnglish!;
+    } else {
+      isEnglish = !isEnglish!;
       context.setLocale(const Locale('ar'));
-      myLocale=context.locale.languageCode;
+      myLocale = context.locale.languageCode;
       CacheHelper.saveData(key: 'isEnglish', value: isEnglish);
       print('ISArabic :$isEnglish ');
       emit(SetLanguageARState());
     }
-
   }
 }

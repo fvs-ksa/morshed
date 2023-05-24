@@ -25,15 +25,13 @@ headerAnotherServices(
                     ? Alignment.centerRight
                     : Alignment.centerLeft,
                 child: Padding(
-                  padding: EdgeInsetsDirectional.only(
-                      start: 15.w),
+                  padding: EdgeInsetsDirectional.only(start: 15.w),
                   child: backButtonWidget(context: context),
                 ),
               ),
             ),
             Padding(
-              padding:
-                  EdgeInsetsDirectional.only(top: 10.h),
+              padding: EdgeInsetsDirectional.only(top: 10.h),
               child: FlexibleSpaceBar(
                 title: Align(
                   alignment: AlignmentDirectional.center,

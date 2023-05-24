@@ -15,19 +15,22 @@ Widget circleAvtarWidget({
   required Function fct,
 }) {
   return GestureDetector(
-    onTap: (){fct();},
+    onTap: () {
+      fct();
+    },
     child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40.sp)),
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(40.sp)),
         elevation: 3,
         child: CircleAvatar(
             backgroundColor: whiteColor, child: SvgPicture.asset(svgImage))),
   );
 }
 
-
-
 headerOfTechnicalSupport(
-    {required BuildContext context, required String title,List<Widget>? child}) {
+    {required BuildContext context,
+    required String title,
+    List<Widget>? child}) {
   return AppBar(
     elevation: 1,
     backgroundColor: whiteColor,
@@ -71,7 +74,7 @@ headerForGuide(
     bottom: PreferredSize(
       preferredSize: Size.fromHeight(100.h),
       child: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 8.w),
+        padding: EdgeInsets.symmetric(horizontal: 8.w),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -86,10 +89,9 @@ headerForGuide(
               width: 8.w,
             ),
             Padding(
-                padding:
-                    EdgeInsetsDirectional.only(bottom: 15.h),
+                padding: EdgeInsetsDirectional.only(bottom: 15.h),
                 child: mainButton(
-                  height: 54.h,
+                    height: 54.h,
                     width: 73.w,
 
                     // width: screenSize.width * 0.2,
@@ -114,12 +116,11 @@ Widget itemContainerOfGuidesAndEscorts(
     required String name,
     required String phone}) {
   return Container(
-    margin: EdgeInsetsDirectional.only(bottom:5.h ),
-    padding: EdgeInsetsDirectional.only(end:8.w ),
-    height:132.h ,
+    margin: EdgeInsetsDirectional.only(bottom: 5.h),
+    padding: EdgeInsetsDirectional.only(end: 8.w),
+    height: 132.h,
     decoration: BoxDecoration(
-        color: whiteColor,
-        borderRadius: BorderRadius.circular(20.sp)),
+        color: whiteColor, borderRadius: BorderRadius.circular(20.sp)),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -132,11 +133,17 @@ Widget itemContainerOfGuidesAndEscorts(
             subtitle: RichText(
               text: TextSpan(
                   text: '${LocaleKeys.phoneNumber.tr()} : ',
-                  style:GoogleFonts.cairo(fontWeight: FontWeight.w600,fontSize: 12.sp,color: greyColor) ,
+                  style: GoogleFonts.cairo(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 12.sp,
+                      color: greyColor),
                   children: [
                     TextSpan(
                         text: phone,
-                        style: GoogleFonts.cairo(fontWeight: FontWeight.normal,fontSize: 14.sp,color: blackColor))
+                        style: GoogleFonts.cairo(
+                            fontWeight: FontWeight.normal,
+                            fontSize: 14.sp,
+                            color: blackColor))
                   ]),
             ),
             leading: CircleAvatar(

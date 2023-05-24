@@ -70,9 +70,11 @@ class RegisterCubit extends Cubit<RegisterState> {
     print(convertedDateTime);
     emit(ChooseDateOfBirthState());
   }
-  bool isDisability=false;
-  changeDisabilityValue(){
-    isDisability=!isDisability;
+
+  bool isDisability = false;
+
+  changeDisabilityValue() {
+    isDisability = !isDisability;
     emit(ChangeDisabilitySwitchValueState());
   }
 }
