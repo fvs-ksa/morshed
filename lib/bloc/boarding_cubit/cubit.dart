@@ -5,23 +5,28 @@ import 'package:morshed/bloc/boarding_cubit/state.dart';
 
 import '../../models/account_type_model.dart';
 
-class BoardingCubit extends Cubit<BoardingState>{
-  BoardingCubit():super(InitialBoardingState());
-  static BoardingCubit get(context)=>BlocProvider.of(context);
-  bool isLastBoarding=false;
-  changeLastBoarding(){
+class BoardingCubit extends Cubit<BoardingState> {
+  BoardingCubit() : super(InitialBoardingState());
+
+  static BoardingCubit get(context) => BlocProvider.of(context);
+  bool isLastBoarding = false;
+
+  changeLastBoarding() {
     isLastBoarding = true;
     emit(ChangeBoardingState());
   }
-  void initialization()async{
+
+  void initialization() async {
     await Future.delayed(const Duration(milliseconds: 300));
     FlutterNativeSplash.remove();
     emit(RemoveNativeSplashState());
   }
-  int i=-1;
-  changeTypeOfAccount(int index){
-    i=index;
-    typeModel[i].isTabbed=! typeModel[i].isTabbed;
+
+  int i = -1;
+
+  changeTypeOfAccount(int index) {
+    i = index;
+    typeModel[i].isTabbed = !typeModel[i].isTabbed;
     emit(ChangeAccountTypeState());
   }
 }
