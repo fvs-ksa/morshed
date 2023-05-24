@@ -14,27 +14,33 @@ class AnotherServicesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: whiteGreyColor,
-      appBar: headerAnotherServices(context: context, title:LocaleKeys.otherServices.tr() ),
+      appBar: headerAnotherServices(
+          context: context, title: LocaleKeys.otherServices.tr()),
       body: ListView.builder(
           itemCount: anotherServicesList.length,
-          itemBuilder: (context,index){
-        return  GestureDetector(
-          onTap: ()=>anotherServicesList[index].fct(),
-          child: Container(
-            height: 115.h,
-            margin: EdgeInsetsDirectional.only(start: 10.w,end:10.w ,top: 20.w),
-            decoration: BoxDecoration(
-                color: whiteColor,
-                borderRadius: BorderRadius.circular(15.sp)),
-            child: Align(
-              alignment: AlignmentDirectional.center,
-              child: ListTile(
-                title: Text(anotherServicesList[index].title,style: Theme.of(context).textTheme.bodyMedium,),
-                leading: Image.asset(anotherServicesList[index].image),),
-            ),
-          ),
-        );
-      }),
+          itemBuilder: (context, index) {
+            return GestureDetector(
+              onTap: () => anotherServicesList[index].fct(),
+              child: Container(
+                height: 115.h,
+                margin: EdgeInsetsDirectional.only(
+                    start: 10.w, end: 10.w, top: 20.w),
+                decoration: BoxDecoration(
+                    color: whiteColor,
+                    borderRadius: BorderRadius.circular(15.sp)),
+                child: Align(
+                  alignment: AlignmentDirectional.center,
+                  child: ListTile(
+                    title: Text(
+                      anotherServicesList[index].title,
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                    leading: Image.asset(anotherServicesList[index].image),
+                  ),
+                ),
+              ),
+            );
+          }),
     );
   }
 }

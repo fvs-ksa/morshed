@@ -22,8 +22,7 @@ class QrScreen extends StatelessWidget {
                   fit: BoxFit.fitWidth)),
         ),
         Padding(
-          padding: EdgeInsetsDirectional.only(
-              top:80.h),
+          padding: EdgeInsetsDirectional.only(top: 80.h),
           child: Column(
             // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -50,13 +49,16 @@ class QrScreen extends StatelessWidget {
                 height: 29.h,
               ),
               Container(
-                height:258.h,
+                height: 258.h,
                 width: 258.w,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20.sp),
-                    border: Border.all(color: whiteColor,),
+                    borderRadius: BorderRadius.circular(20.sp),
+                    border: Border.all(
+                      color: whiteColor,
+                    ),
                     image: const DecorationImage(
-                        image: AssetImage('assets/images/qrCode.png'),)),
+                      image: AssetImage('assets/images/qrCode.png'),
+                    )),
                 //child: Image.asset('assets/images/qrCode.png')
               )
             ],

@@ -18,16 +18,23 @@ class MyResidenceAndTravels extends StatelessWidget {
             child: Stack(
               children: [
                 Container(
-                  height:190.h,
-                  child: Center(child: FittedBox(child: Text(LocaleKeys.myAccommodationAndTrips.tr(),style: Theme.of(context).textTheme.displayMedium,))),
+                  height: 190.h,
+                  child: Center(
+                      child: FittedBox(
+                          child: Text(
+                    LocaleKeys.myAccommodationAndTrips.tr(),
+                    style: Theme.of(context).textTheme.displayMedium,
+                  ))),
                   decoration: const BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage('assets/images/header1.png'),fit: BoxFit.cover)),
+                          image: AssetImage('assets/images/header1.png'),
+                          fit: BoxFit.cover)),
                 ),
                 Padding(
-                  padding:  EdgeInsetsDirectional.only(start: 14.w,top:
-                  140.h),
-                  child: CircleAvatar(backgroundColor: darkMainColor,child: Image.asset('assets/images/profile.png'),
+                  padding: EdgeInsetsDirectional.only(start: 14.w, top: 140.h),
+                  child: CircleAvatar(
+                    backgroundColor: darkMainColor,
+                    child: Image.asset('assets/images/profile.png'),
                     radius: 45.sp,
                   ),
                 )
@@ -37,59 +44,77 @@ class MyResidenceAndTravels extends StatelessWidget {
         Expanded(
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
-            child: Padding(padding:  EdgeInsets.symmetric(horizontal: 8.w,vertical: 8.h),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
               child: Column(
                 children: [
-                  textFormField(labelText: LocaleKeys.residentialAddress.tr(),  context: context,),
-                  textFormField(labelText: LocaleKeys.mennaNo.tr(),  context: context),
-                  textFormField(labelText: LocaleKeys.arfaNo.tr(), context: context),
-                  textFormField(labelText: LocaleKeys.mozdalefaNo.tr(),  context: context),
-                  textFormField(labelText: LocaleKeys.visaNo.tr(),  context: context),
-                  Padding(
-                    padding:  EdgeInsets.symmetric(horizontal: 20.w),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          flex:1,
-                          child: textFormField(
-                            isEnabled: false,
-                            context: context,
-                            labelText:'14/2/1966',
-                            hintText: '14/2/1966',
-                          ),
-                        ),
-                        SizedBox(width: 20.w,),
-                        GestureDetector(
-                            onTap: () async {
-                            //  profileCubit.chooseDateTime(context: context);
-                            },
-                            child: decorationContainerWidget(radius: 35.sp,context: context, child: SvgPicture.asset('assets/svg/Calendar.svg'))
-                        ),
-                      ],
-                    ),
+                  textFormField(
+                    labelText: LocaleKeys.residentialAddress.tr(),
+                    context: context,
                   ),
+                  textFormField(
+                      labelText: LocaleKeys.mennaNo.tr(), context: context),
+                  textFormField(
+                      labelText: LocaleKeys.arfaNo.tr(), context: context),
+                  textFormField(
+                      labelText: LocaleKeys.mozdalefaNo.tr(), context: context),
+                  textFormField(
+                      labelText: LocaleKeys.visaNo.tr(), context: context),
                   Padding(
-                    padding:  EdgeInsets.symmetric(horizontal: 20.w),
+                    padding: EdgeInsets.symmetric(horizontal: 20.w),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Expanded(
-                          flex:1,
+                          flex: 1,
                           child: textFormField(
                             isEnabled: false,
                             context: context,
-                            labelText:'14/2/1966',
+                            labelText: '14/2/1966',
                             hintText: '14/2/1966',
                           ),
                         ),
-                        SizedBox(width: 20.w,),
+                        SizedBox(
+                          width: 20.w,
+                        ),
                         GestureDetector(
                             onTap: () async {
                               //  profileCubit.chooseDateTime(context: context);
                             },
-                            child: decorationContainerWidget(radius: 35.sp,context: context, child: SvgPicture.asset('assets/svg/Calendar.svg'))
+                            child: decorationContainerWidget(
+                                radius: 35.sp,
+                                context: context,
+                                child: SvgPicture.asset(
+                                    'assets/svg/Calendar.svg'))),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20.w),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: textFormField(
+                            isEnabled: false,
+                            context: context,
+                            labelText: '14/2/1966',
+                            hintText: '14/2/1966',
+                          ),
                         ),
+                        SizedBox(
+                          width: 20.w,
+                        ),
+                        GestureDetector(
+                            onTap: () async {
+                              //  profileCubit.chooseDateTime(context: context);
+                            },
+                            child: decorationContainerWidget(
+                                radius: 35.sp,
+                                context: context,
+                                child: SvgPicture.asset(
+                                    'assets/svg/Calendar.svg'))),
                       ],
                     ),
                   ),

@@ -45,7 +45,7 @@ class MainScreen extends StatelessWidget {
                   label: LocaleKeys.myBarcode.tr()),
               BottomNavigationBarItem(
                   icon: SvgPicture.asset(generalCubit.currentIndex == 3
-                      ?'assets/svg/myTripsActive.svg'
+                      ? 'assets/svg/myTripsActive.svg'
                       : 'assets/svg/myTripsInActive.svg'),
                   label: LocaleKeys.myAccommodationAndTrips.tr()),
               BottomNavigationBarItem(

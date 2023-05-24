@@ -23,7 +23,8 @@ class BoardingScreen extends StatelessWidget {
         builder: (context, state) {
           return Scaffold(
             body: Padding(
-              padding: EdgeInsetsDirectional.only(top: 100.h,end: 30.w,start: 30.w),
+              padding: EdgeInsetsDirectional.only(
+                  top: 100.h, end: 30.w, start: 30.w),
               child: Column(
                 children: [
                   Align(
@@ -31,11 +32,10 @@ class BoardingScreen extends StatelessWidget {
                     child: whiteMorshedLogo(image: 'assets/images/مرشد.png'),
                   ),
                   SizedBox(
-                    height:50.h,
+                    height: 50.h,
                   ),
                   Expanded(
                     child: PageView.builder(
-
                       itemCount: boardingList.length,
                       controller: pageController,
                       physics: const BouncingScrollPhysics(),
@@ -54,7 +54,7 @@ class BoardingScreen extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding:  EdgeInsetsDirectional.only(bottom: 50.h),
+                    padding: EdgeInsetsDirectional.only(bottom: 50.h),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -62,29 +62,28 @@ class BoardingScreen extends StatelessWidget {
                           controller: pageController,
                           count: boardingList.length,
                           effect: SlideEffect(
-                            activeDotColor: lightMainColor,
-                            dotColor: greyColor,
-                            dotWidth: 104.w,
-                            dotHeight: 4.h
-                          ),
+                              activeDotColor: lightMainColor,
+                              dotColor: greyColor,
+                              dotWidth: 104.w,
+                              dotHeight: 4.h),
                         ),
                         // SizedBox(width: size.width*0.04,),
-                        floatingButton(
-                            fct: () {
-                              if (boardingCubit.isLastBoarding == true) {
-                                print('object');
-                                Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                      builder: (context) => const AccountTypeScreen()),
-                                );
-                                //navigateForward(AccountTypeScreen());
-                                // Get.to(const AccountTypeScreen());
-                              } else {
-                                pageController.nextPage(
-                                    duration: const Duration(milliseconds: 750),
-                                    curve: Curves.fastLinearToSlowEaseIn);
-                              }
-                            }),
+                        floatingButton(fct: () {
+                          if (boardingCubit.isLastBoarding == true) {
+                            print('object');
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const AccountTypeScreen()),
+                            );
+                            //navigateForward(AccountTypeScreen());
+                            // Get.to(const AccountTypeScreen());
+                          } else {
+                            pageController.nextPage(
+                                duration: const Duration(milliseconds: 750),
+                                curve: Curves.fastLinearToSlowEaseIn);
+                          }
+                        }),
                       ],
                     ),
                   ),
@@ -100,8 +99,7 @@ Widget boardingWidget(BoardingModel model, BuildContext context) {
   return Column(
     children: [
       Container(
-        decoration: const BoxDecoration(
-            shape: BoxShape.circle),
+        decoration: const BoxDecoration(shape: BoxShape.circle),
       ),
       Align(
           alignment: Alignment.center,
@@ -109,20 +107,20 @@ Widget boardingWidget(BoardingModel model, BuildContext context) {
             model.image,
           )),
       SizedBox(
-       // height: size.height * 0.05,
+        // height: size.height * 0.05,
         height: 45.h,
       ),
       AutoSizeText(
         model.title,
-        presetFontSizes: [22.sp,15.sp,10.sp],
+        presetFontSizes: [22.sp, 15.sp, 10.sp],
         style: Theme.of(context).textTheme.displayLarge,
       ),
       SizedBox(
-        height:10.h,
+        height: 10.h,
       ),
       AutoSizeText(
         model.subTitle,
-        presetFontSizes: [15.sp,12.sp,10.sp],
+        presetFontSizes: [15.sp, 12.sp, 10.sp],
         style: Theme.of(context).textTheme.bodySmall,
       )
     ],
