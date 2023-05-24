@@ -31,19 +31,17 @@ class ProfileScreen extends StatelessWidget {
                   avatarChild: Image.asset('assets/images/profile.png')),
               body: SingleChildScrollView(
                 child: Padding(
-                  padding: EdgeInsetsDirectional.only(
-                      start: 40.w,
-                      end: 20.w),
+                  padding: EdgeInsetsDirectional.only(start: 40.w, end: 20.w),
                   child: Column(
                     children: [
                       textFormField(
                         labelText: LocaleKeys.arabicNamePassport.tr(),
-                       // hintText: '',
+                        // hintText: '',
                         context: context,
                       ),
                       textFormField(
                           labelText: LocaleKeys.englishNamePassport.tr(),
-                         // hintText: '',
+                          // hintText: '',
                           context: context),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -51,11 +49,11 @@ class ProfileScreen extends StatelessWidget {
                           Expanded(
                               child: textFormField(
                                   labelText: LocaleKeys.phoneNumber.tr(),
-                                 // hintText: 'hintText',
+                                  // hintText: 'hintText',
                                   context: context,
                                   keyboardType: TextInputType.number)),
                           SizedBox(
-                            width:10.w ,
+                            width: 10.w,
                           ),
                           decorationContainerWidget(
                               radius: 35.sp,
@@ -84,7 +82,9 @@ class ProfileScreen extends StatelessWidget {
                           },
                           context: context,
                           validator: () {}),
-                      SizedBox(height: 10.h,),
+                      SizedBox(
+                        height: 10.h,
+                      ),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -100,7 +100,7 @@ class ProfileScreen extends StatelessWidget {
                             ),
                           ),
                           SizedBox(
-                            width:10.w,
+                            width: 10.w,
                           ),
                           GestureDetector(
                               onTap: () async {
@@ -130,11 +130,10 @@ class ProfileScreen extends StatelessWidget {
                           context: context),
                       Padding(
                         padding: EdgeInsets.symmetric(
-                            vertical:10.h ,
-                            horizontal:8.w ),
+                            vertical: 10.h, horizontal: 8.w),
                         child: mainButton(
-                           // width: screenSize.width * 0.8,
-                         //   height: screenSize.height * 0.07,
+                            // width: screenSize.width * 0.8,
+                            //   height: screenSize.height * 0.07,
                             text: LocaleKeys.edit.tr(),
                             color: orangeColor,
                             context: context,

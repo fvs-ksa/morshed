@@ -74,13 +74,20 @@ class MyApp extends StatelessWidget {
         child:ScreenUtilInit(
 
             designSize: Size(414,896),
+
            // useInheritedMediaQuery: true,
               builder: (context , child) {
                 return MaterialApp(
+
                   navigatorKey: NavigationService.navigate().navigationKey,
                   debugShowCheckedModeBanner: false,
                 // locale: DevicePreview.locale(context),
-                  builder: DevicePreview.appBuilder,
+                  builder: (context,widget){
+                    return MediaQuery(
+                        data:MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+                        child: widget!);
+                  },
+                 // builder: DevicePreview.appBuilder,
                 locale: context.locale,
                   supportedLocales: context.supportedLocales,
                   localizationsDelegates: context.localizationDelegates,

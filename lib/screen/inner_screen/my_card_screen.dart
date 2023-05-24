@@ -11,16 +11,21 @@ class MyCardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: headerOfTechnicalSupport(context: context, title: LocaleKeys.myCard.tr()),
+      appBar: headerOfTechnicalSupport(
+          context: context, title: LocaleKeys.myCard.tr()),
       body: Column(
         children: [
           Container(
             padding: EdgeInsetsDirectional.symmetric(vertical: 16.h),
-            child: Center(child: Image.asset('assets/images/card.png',fit: BoxFit.cover,width: double.infinity,)),
+            child: Center(
+                child: Image.asset(
+              'assets/images/card.png',
+              fit: BoxFit.cover,
+              width: double.infinity,
+            )),
           ),
         ],
       ),
     );
-
   }
 }

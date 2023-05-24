@@ -19,7 +19,8 @@ class NotificationsScreen extends StatelessWidget {
             child: Container(
               height:148.h ,
               padding: EdgeInsetsDirectional.only(top: 30.h),
-              child: Center(child: Text(LocaleKeys.notifications.tr(),style: Theme.of(context).textTheme.headlineSmall,textAlign: TextAlign.center,)),
+              child: Center(child: Text(LocaleKeys.notifications.tr(),
+              style: Theme.of(context).textTheme.headlineSmall,textAlign: TextAlign.center,)),
             ),
           ),
           //Divider(),
