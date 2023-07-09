@@ -1,0 +1,146 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
+import 'package:morshed/bloc/submitting_report/submit_report_state.dart';
+import 'package:morshed/component/component.dart';
+import 'package:morshed/screen/inner_screen/locations/set_location_on_map.dart';
+import 'package:morshed/screen/inner_screen/submit_report/reported_person_info.dart';
+import 'package:morshed/translation/locale_keys.g.dart';
+import '../../../constant/const_color.dart';
+import '../../../component/navigation_functions.dart';
+import '../../../component/reports_widgets.dart';
+import 'package:morshed/bloc/location_cubit/cubit.dart';
+import 'package:morshed/bloc/location_cubit/state.dart';
+
+class SubmitReportAnotherPerson extends StatelessWidget {
+  const SubmitReportAnotherPerson({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var submitReport = SubmitReportCubit.get(context);
+    TextEditingController idController=TextEditingController();
+  //  var locationCubit=LocationCubit.get(context);
+    return BlocConsumer<LocationCubit,LocationState>(
+      listener: (context,state){},
+      builder: (context,state) {
+        return BlocConsumer<SubmitReportCubit, SubmitReportState>(
+            listener: (context, state) {},
+            builder: (context, state) {
+            //  TextEditingController reportLocationController=TextEditingController(text:reportLocation==''? locationCubit.address:reportLocation);
+              return GestureDetector(
+                onTap: () {
+                  FocusManager.instance.primaryFocus?.unfocus();
+                },
+                child: Padding(
+                  padding: EdgeInsetsDirectional.symmetric(
+                      horizontal: 30.w, vertical: 8.h),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        GestureDetector(
+                          onTap: (){
+                            submitReport.ScanBarcode();
+                          //  navigateForward(QRViewExample());
+                          },
+                          child: textFormField(
+                              suffixIcon: SvgPicture.asset('assets/svg/scanQR.svg',
+                                  fit: BoxFit.none),
+                              labelText:
+                                  LocaleKeys.findingInformationByScanningQrCode.tr(),
+                              context: context,
+                              onTap: () {
+                                print('object');
+                              },
+                              isEnabled: false),
+                        ),
+                        // textFormField(
+                        //     labelText: LocaleKeys
+                        //         .findingInformationUsingPassportNumber
+                        //         .tr(),
+                        //     context: context,
+                        //     keyboardType: TextInputType.phone),
+                        textFormField(
+                            labelText: LocaleKeys.findingInformationUsingId.tr(),
+                            context: context,
+                            controller: idController,
+                            keyboardType: TextInputType.phone),
+                        // textFormField(
+                        //     labelText:
+                        //         LocaleKeys.findingInformationUsingHotelName.tr(),
+                        //     context: context),
+                        // textFormField(
+                        //     labelText:
+                        //         LocaleKeys.findingInformationUsingVisaNumber.tr(),
+                        //     context: context,
+                        //     keyboardType: TextInputType.phone),
+                        // dropDownButton(
+                        //     items: submitReport.country.map((e) {
+                        //       return DropdownMenuItem(
+                        //         child: Text(
+                        //           e,
+                        //           style: Theme.of(context).textTheme.labelSmall,
+                        //         ),
+                        //         value: e,
+                        //       );
+                        //     }).toList(),
+                        //     value: submitReport.chooseCountry,
+                        //     hint: LocaleKeys.country.tr(),
+                        //     fct: (onChange) {
+                        //       submitReport.onChangeCountryName(onChange);
+                        //     },
+                        //     context: context,
+                        //     validator: () {}),
+                        // dropDownButton(
+                        //     items: submitReport.sexList.map((e) {
+                        //       return DropdownMenuItem(
+                        //         child: Text(
+                        //           e,
+                        //           style: Theme.of(context).textTheme.labelSmall,
+                        //         ),
+                        //         value: e,
+                        //       );
+                        //     }).toList(),
+                        //     value: submitReport.sex,
+                        //     hint: LocaleKeys.sex.tr(),
+                        //     fct: (onChange) {
+                        //       submitReport.onChangeSex(onChange);
+                        //     },
+                        //     context: context,
+                        //     validator: () {}),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                      //  locationWidget(context: context,controller: reportLocationController,fct: (){navigateForward(MapScreenForSetLocation(i: 3));}),
+                        Padding(
+                          padding: EdgeInsetsDirectional.only(
+                              top: 10.h, bottom: 8.h, start: 10.w, end: 10.w),
+                          child: Align(
+                              alignment: Alignment.center,
+                              child:state is GetUserByIdLoadingState
+                                  ? CircularProgressIndicator()
+                                  :  mainButton(
+                                  text: LocaleKeys.search.tr(),
+                                  color: darkMainColor,
+
+                                  context: context,
+                                  fct: () {
+                                    submitReport.getUserById(id: idController.text);
+                                    // if(state is GetUserByIdSuccessState){
+                                    //
+                                    // }
+
+                                  })),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            });
+      }
+    );
+  }
+}
