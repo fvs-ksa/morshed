@@ -19,6 +19,7 @@ import 'package:morshed/bloc/notification_cubit/cubit.dart';
 import 'package:morshed/bloc/profile_cubit/cubit.dart';
 import 'package:morshed/bloc/register_cubit/cubit.dart';
 import 'package:morshed/bloc/setting_cubit/cubit.dart';
+import 'package:morshed/bloc/show_office_provider_info/cubit.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
 import 'package:morshed/pallete.dart';
 import 'package:morshed/screen/borading_screen/boarding_screen.dart';
@@ -26,6 +27,7 @@ import 'package:morshed/screen/bottom_navigations_screens/main_screen.dart';
 import 'package:morshed/translation/codegen_loader.g.dart';
 import 'package:morshed/utiels/navigation_Services.dart';
 import 'package:morshed/utiels/shared_pref.dart';
+import 'package:morshed/utiels/socket.dart';
 import 'bloc/companions_cubit/cubit.dart';
 import 'bloc_observe.dart';
 import 'constant/const_color.dart';
@@ -38,6 +40,8 @@ void main() async {
   FlutterNativeSplash.preserve(
       widgetsBinding: WidgetsFlutterBinding.ensureInitialized());
   await Firebase.initializeApp();
+  final locationService = LocationService();
+  locationService.start();
 
   FirebaseNotifications().setUpFirebase();
   Bloc.observer = MyBlocObserver();
@@ -138,6 +142,8 @@ class MyApp extends StatelessWidget {
               create: (context) => LocationCubit()
                 ..getCurrentLocation()
                 ..getUserCurrentLocation(context)),
+          BlocProvider<ShowOfficesAndProviderInfoCubit>(
+              create: (context) => ShowOfficesAndProviderInfoCubit()..getAllOfficesData()),
         ],
         child: ScreenUtilInit(
             designSize: Size(414, 896),

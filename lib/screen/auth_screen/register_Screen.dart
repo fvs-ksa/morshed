@@ -12,7 +12,6 @@ import 'package:morshed/component/animation_component.dart';
 import 'package:morshed/component/auth_header_widget.dart';
 import 'package:morshed/component/component.dart';
 import 'package:morshed/constant/const_color.dart';
-import 'package:morshed/screen/bottom_navigations_screens/main_screen.dart';
 import 'package:morshed/screen/inner_screen/locations/set_location_on_map.dart';
 import 'package:quickalert/quickalert.dart';
 import '../../component/info_profile_component.dart';

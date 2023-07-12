@@ -36,6 +36,8 @@ class Providers {
   String? phoneNumber;
   String? passportNumber;
   var residenceCity;
+  String? lat;
+  String? lng;
   String? email;
   var fcmToken;
   var deletedAt;
@@ -47,6 +49,8 @@ class Providers {
       {this.id,
         this.name,
         this.gender,
+        this.lat,
+        this.lng,
         this.nationality,
         this.serviceProviderType,
         this.companyId,
@@ -80,6 +84,8 @@ class Providers {
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     location = json['location'];
+    lat=json['latitude'];
+    lng=json['longitude'];
   }
 
   Map<String, dynamic> toJson() {
@@ -101,6 +107,8 @@ class Providers {
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
     data['location'] = this.location;
+    data['longitude']=this.lng;
+    data['latitude']=this.lat;
     return data;
   }
 }

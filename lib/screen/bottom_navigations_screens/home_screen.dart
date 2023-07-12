@@ -15,6 +15,7 @@ import '../../component/horizontal_dotted_line.dart';
 import '../../component/navigation_functions.dart';
 import '../inner_screen/another_services_screens/another_services_screen.dart';
 import '../inner_screen/submit_report/tab_submit_report.dart';
+import '../map_tap_bar_screen/map_tab_bar_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -47,24 +48,27 @@ class HomeScreen extends StatelessWidget {
                     //   width:size.width>600? size.width * 0.4:size.height*0.2,
                     //   fit: BoxFit.contain,
                     // ),
-                  GeneralCubit.get(context).isGetProfile?  Padding(
-                    padding: const EdgeInsets.only(top: 18.0),
-                    child: GestureDetector(
-                        onTap: () {
-                          navigateForward(MyCardScreen());
-                        },
-                      child: cardIdWidgetSmallSize(
-                          // height: 115.h,
-                          // width: 178.86.w,
-                          model: GeneralCubit.get(context).profileModel, context: context),
-                        // child: Image.asset(
-                        //   'assets/images/card.png',
-                        //   height: 115.h,
-                        //   width: 178.86.w,
-                        //   fit: BoxFit.contain,
-                        // ),
-                      ),
-                  ):SizedBox()
+                    GeneralCubit.get(context).isGetProfile
+                        ? Padding(
+                            padding: const EdgeInsets.only(top: 18.0),
+                            child: GestureDetector(
+                              onTap: () {
+                                navigateForward(MyCardScreen());
+                              },
+                              child: cardIdWidgetSmallSize(
+                                  // height: 115.h,
+                                  // width: 178.86.w,
+                                  model: GeneralCubit.get(context).profileModel,
+                                  context: context),
+                              // child: Image.asset(
+                              //   'assets/images/card.png',
+                              //   height: 115.h,
+                              //   width: 178.86.w,
+                              //   fit: BoxFit.contain,
+                              // ),
+                            ),
+                          )
+                        : SizedBox()
                   ],
                 ),
               )
@@ -112,7 +116,9 @@ class HomeScreen extends StatelessWidget {
                           width: 72.49.w,
                           height: 151.16.h,
                           fct: () {
-                            showToast(text: 'الخدمه ما زالت تحت التطوير', state: ToastState.WARNING);
+                            showToast(
+                                text: 'الخدمه ما زالت تحت التطوير',
+                                state: ToastState.WARNING);
                             // navigateForward(GuidesScreen(
                             //   index: 1,
                             // ));
@@ -152,14 +158,16 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(
                     height: 10.h,
                   ),
-                  // floatingContainer(
-                  //     fct: () {},
-                  //     alignment: AlignmentDirectional.bottomStart,
-                  //     context: context,
-                  //     svgAssets: 'assets/svg/on map.svg',
-                  //     title: LocaleKeys.counselingOfficesAndCounselors.tr(),
-                  //     width: 247.w,
-                  //     color: orangeColor),
+                  floatingContainer(
+                      fct: () {
+                        navigateForward(MapTabBarScreen());
+                      },
+                      alignment: AlignmentDirectional.bottomStart,
+                      context: context,
+                      svgAssets: 'assets/svg/on map.svg',
+                      title: LocaleKeys.counselingOfficesAndCounselors.tr(),
+                      width: 247.w,
+                      color: orangeColor),
                 ],
               ),
             ),
