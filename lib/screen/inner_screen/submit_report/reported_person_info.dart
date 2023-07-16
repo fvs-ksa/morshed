@@ -8,6 +8,7 @@ import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_state.dart';
 import 'package:morshed/component/component.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
+import '../../../component/cutom_text_filed.dart';
 import '../../../constant/const_color.dart';
 import '../../../component/info_profile_component.dart';
 import '../../../component/report_Details_widget.dart';
@@ -70,68 +71,58 @@ class ReportedPersonInfo extends StatelessWidget {
                             EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
                         child: Column(
                           children: [
-                            textFormField(
+                            CustomTextField(
                                 labelText: LocaleKeys.arabicNamePassport.tr(),
-                                context: context,
                                 isEnabled: false,
                                 controller: arabicNameController),
-                            textFormField(
+                            CustomTextField(
                                 labelText: LocaleKeys.englishNamePassport.tr(),
-                                context: context,
                                 isEnabled: false,
                                 controller: englishNameController),
-                            textFormField(
+                            CustomTextField(
                                 labelText: LocaleKeys.nationality.tr(),
-                                context: context,
 
                                 isEnabled: false,
                                 controller: nationalityController),
-                            // textFormField(
+                            // CustomTextField(
                             //     labelText: LocaleKeys.age.tr(),
                             //     context: context,
                             //     isEnabled: false,
                             //     controller: ageController),
-                            textFormField(
+                            CustomTextField(
                                 labelText: LocaleKeys.email.tr(),
-                                context: context,
                                 isEnabled: false,
                                 controller: emailController),
-                            textFormField(
+                            CustomTextField(
                                 labelText: LocaleKeys.boardNo.tr(),
-                                context: context,
                                 isEnabled: false,
                                 controller: borderNumberController),
-                            textFormField(
+                            CustomTextField(
                                 labelText: LocaleKeys.visaNo.tr(),
-                                context: context,
                                 isEnabled: false,
                                 controller: visaNumberController),
-                            textFormField(
+                            CustomTextField(
                                 labelText: LocaleKeys.passportNo.tr(),
-                                context: context,
                                 isEnabled: false,
                                 controller: passportController),
-                            textFormField(
+                            CustomTextField(
                                 labelText: LocaleKeys.arriveDate.tr(),
-                                context: context,
                                 isEnabled: false,
                                 controller: arrivalDateController),
-                            textFormField(
+                            CustomTextField(
                                 labelText: LocaleKeys.leaveDate.tr(),
-                                context: context,
                                 isEnabled: false,
                                 controller: leaveController),
-                            // textFormField(
+                            // CustomTextField(
                             //     labelText: LocaleKeys.residentialAddress.tr(),
                             //     context: context,
                             //     isEnabled: false,
                             //     controller: residencyController),
-                            textFormField(
+                            CustomTextField(
                                 labelText: LocaleKeys.officialMissionName.tr(),
-                                context: context,
                                 isEnabled: false,
                                 controller: touristCompanyController),
-                            // textFormField(
+                            // CustomTextField(
                             //     labelText: LocaleKeys.agentName.tr(),
                             //     context: context,
                             //     isEnabled: false,

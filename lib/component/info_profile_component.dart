@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'component.dart';
 import '../constant/const_color.dart';
+import 'cutom_text_filed.dart';
 
 Widget decorationContainerWidget(
     {required BuildContext context,
@@ -49,7 +50,7 @@ bigTextFieldForNotes({required BuildContext context, Function? val,required Stri
       children: [
         Padding(
           padding: EdgeInsetsDirectional.only(top: 25.h),
-          child: textFormField(
+          child: CustomTextField(
             // validator:(v){
             //   val!(v);
             //   return null;
@@ -60,7 +61,6 @@ bigTextFieldForNotes({required BuildContext context, Function? val,required Stri
               maxHeight: 133.h,
               minHeight: 133.h,
               labelText: hint,
-              context: context,
               lines: 15),
         ),
         Padding(

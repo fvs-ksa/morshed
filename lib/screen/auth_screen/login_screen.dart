@@ -10,6 +10,7 @@ import 'package:morshed/bloc/login_cubit/login_state.dart';
 import 'package:morshed/component/animation_component.dart';
 import 'package:morshed/component/auth_header_widget.dart';
 import 'package:morshed/component/component.dart';
+import 'package:morshed/component/cutom_text_filed.dart';
 import 'package:morshed/component/info_profile_component.dart';
 import 'package:morshed/screen/auth_screen/register_Screen.dart';
 
@@ -43,9 +44,9 @@ class LoginScreen extends StatelessWidget {
                   key: _formKey,
                   child: Column(
                     children: [
-                      textFormField(
+                      CustomTextField(
                           labelText: LocaleKeys.userName.tr(),
-                          context: context,
+
                           keyboardType: TextInputType.emailAddress,
                           // validator: (String val){
                           //   if(val.isEmpty){
@@ -53,10 +54,10 @@ class LoginScreen extends StatelessWidget {
                           //   }
                           // },
                           controller: userNameController),
-                      textFormField(
+                      CustomTextField(
                         keyboardType: TextInputType.emailAddress,
                           labelText: LocaleKeys.password.tr(),
-                          context: context,
+
                           // validator: (String val){
                           //   if(val.isEmpty){
                           //     return 'برجاء ادخال الرقم السري';
@@ -140,9 +141,8 @@ class LoginScreen extends StatelessWidget {
                                       onTap: () {
                                         launchCall(context: context,phoneNumber: '+966501342728');
                                       },
-                                      child: textFormField(
+                                      child: CustomTextField(
                                           labelText: '+966501342728',
-                                          context: context,
                                           isEnabled: false)),
                                   InkWell(
                                     onTap: () {

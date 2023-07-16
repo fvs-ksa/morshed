@@ -213,6 +213,22 @@ class ProfileCubit extends Cubit<ProfileState> {
     "زيمبابوي"
   ];
 
+
+  String? chooseDisability;
+  List<String> disabilities = [
+    'سمعيه',
+    'بصريه',
+    'عقليه',
+    'جسميه وحركيه'
+
+  ];
+  onChangeDisability(onChange) {
+    chooseDisability = onChange;
+    print('//////////////fffffffffffffffff$chooseDisability');
+    emit(ChangeDisabilityDropDownState());
+  }
+
+
   onChangeCountryName(onChange) {
     chooseNationality = onChange;
     emit(ChangeNationalityDropDownProfileState());
@@ -225,7 +241,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     final date = await showDatePicker(
         context: context,
         firstDate: DateTime(1900),
-        initialDate: DateTime.now(),
+        initialDate: DateTime(1900),
         lastDate: DateTime(3100));
     if (date != null) {
       print(date);
@@ -267,8 +283,10 @@ class ProfileCubit extends Cubit<ProfileState> {
      String? locationMenna,
     required String email,
     required String passport,
+    required BuildContext context,
     required String visaNo,
    String? borderNo,
+    String? disabilityType,
      String? agentName,
      File? image }) {
     emit(UpdateProfileLoadingState());
@@ -280,18 +298,22 @@ class ProfileCubit extends Cubit<ProfileState> {
         "name_en":nameEn,
         "name_ar":nameAr,
         "phone_number":phone,
-        'nationality':chooseNationality??profileModel.data!.nationality!,
-        "birthdate":dateTime??DateTime.parse(profileModel.data!.birthdate!),
-        'email':email,
-        'visa_number':visaNo,
-        'passport_number':passport,
-        'border_number':borderNo,
-        "arrival_date":DateTime.parse(profileModel.data!.arrivalDate!),
-        "departure_date":DateTime.parse(profileModel.data!.departureDate!),
+        "nationality":chooseNationality??profileModel.data!.nationality!,
+       // "nationality":chooseNationality,
+        "birthdate":convertedDateTime??profileModel.data!.birthdate!,
+        "email":email,
+        "visa_number":visaNo,
+        "passport_number":passport,
+        "border_number":borderNo,
+       // "arrival_date":'1900-01-29',
+       // "departure_date":'1900-01-29',
+        "arrival_date":profileModel.data!.arrivalDate!,
+        "departure_date":profileModel.data!.departureDate!,
         "location_mina":profileModel.data!.locationMina!,
-        'location_mozdalifa':profileModel.data!.locationMozdalifa!,
-        'location_arfat':profileModel.data!.locationArfat!,
-        'agent_name':agentName,
+        "location_mozdalifa":profileModel.data!.locationMozdalifa!,
+        "location_arfat":profileModel.data!.locationArfat!,
+        "type_of_disability":chooseDisability??profileModel.data!.typeOfDisability!,
+        "agent_name":agentName,
 
         //"image":image,
       },
@@ -300,10 +322,14 @@ class ProfileCubit extends Cubit<ProfileState> {
             token: CacheHelper.getData(key: 'token'))
         .then((value) {
       print(value.data);
+      Navigator.pop(context);
+      showToast(text: 'تم تحديث ملفك الشخصي بنجاح', state: ToastState.SUCCESS);
       emit(UpdateProfileSuccessState());
     }).catchError((error) {
       print(error.toString());
       emit(UpdateProfileErrorState(error: error.toString()));
+      showToast(text: 'حدث خطأ أثناء الأتصال بالسيرفر', state: ToastState.ERROR);
+      print(error.toString());
     });
   }
   logOut() {
@@ -325,4 +351,11 @@ class ProfileCubit extends Cubit<ProfileState> {
       showToast(text: 'فشل في تسجيل الخروج', state: ToastState.ERROR);
     });
   }
+  int tabbed=00;
+  int? officeId;
+
+
+
+
+
 }

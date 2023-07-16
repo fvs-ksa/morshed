@@ -51,7 +51,7 @@ class _OfficesLocationScreenState extends State<OfficesLocationScreen> {
               builder: (context, state) {
                 //  showDataCubit.addMarker();
                 return Scaffold(
-                  body: showDataCubit.getAllOffices == null ||
+                  body: showDataCubit.isGetOfficesData == false ||
                           locationCubit.position?.latitude == null
                       ? Center(child: CircularProgressIndicator())
                       : Stack(
@@ -134,7 +134,7 @@ class _OfficesLocationScreenState extends State<OfficesLocationScreen> {
                                                       showDataCubit
                                                           .getAllOffices
                                                           .offices![showDataCubit
-                                                                  .indexsss ??
+                                                                  .officeId ??
                                                               0]
                                                           .name!,
                                                       maxLines: 1,
@@ -144,7 +144,7 @@ class _OfficesLocationScreenState extends State<OfficesLocationScreen> {
                                                       showDataCubit
                                                           .getAllOffices
                                                           .offices![showDataCubit
-                                                                  .indexsss ??
+                                                                  .officeId ??
                                                               0]
                                                           .address!,
                                                       style: TextStyle(
@@ -176,8 +176,8 @@ class _OfficesLocationScreenState extends State<OfficesLocationScreen> {
                                                     onPressed: () async {
                                                       await launchUrl(Uri.parse(
                                                           'google.navigation:q='
-                                                          '${showDataCubit.getAllOffices.offices![showDataCubit.indexsss ?? 0].latitude!}, '
-                                                          '${showDataCubit.getAllOffices.offices![showDataCubit.indexsss ?? 0].longitude!}'
+                                                          '${showDataCubit.getAllOffices.offices![showDataCubit.officeId ?? 0].latitude!}, '
+                                                          '${showDataCubit.getAllOffices.offices![showDataCubit.officeId ?? 0].longitude!}'
                                                           '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
                                                     },
                                                     icon: SvgPicture.asset(
@@ -205,7 +205,7 @@ class _OfficesLocationScreenState extends State<OfficesLocationScreen> {
 // SizedBox(width: 10,),
 // Text(showDataCubit
 //     .getAllOffices
-//     .offices![showDataCubit.indexsss ?? 0]
+//     .offices![showDataCubit.officeId ?? 0]
 //     .name!),
 // ],
 // ),

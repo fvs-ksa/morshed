@@ -14,6 +14,7 @@ import 'package:morshed/component/component.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/screen/inner_screen/locations/set_location_on_map.dart';
 import 'package:quickalert/quickalert.dart';
+import '../../component/cutom_text_filed.dart';
 import '../../component/info_profile_component.dart';
 import '../../component/navigation_functions.dart';
 import '../../translation/locale_keys.g.dart';
@@ -58,10 +59,10 @@ class RegisterScreen extends StatelessWidget {
               bloc: registerCubit.viewAboveKeyBoard(),
               builder: (context, state) {
                 return Scaffold(
-                  body: GestureDetector(
+                  body: registerCubit.isGetCompany
+                      ?  GestureDetector(
                     onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-                    child: registerCubit.isGetCompany
-                        ? Column(
+                    child:Column(
                             children: [
                               headerAuthScreen(
                                 context: context,
@@ -82,7 +83,7 @@ class RegisterScreen extends StatelessWidget {
                                       key: _formKey,
                                       child: Column(
                                         children: [
-                                          textFormField(
+                                          CustomTextField(
                                               minHeight: 80.h,
                                               maxHeight: 80.h,
                                               maxWidth: 400.w,
@@ -96,14 +97,12 @@ class RegisterScreen extends StatelessWidget {
                                                   .arabicNamePassport
                                                   .tr(),
                                               // hintText: 'الاسم بالكامل بالعربي حسب الجواز',
-                                              context: context,
                                               controller: arabicNameController),
-                                          textFormField(
+                                          CustomTextField(
                                               minHeight: 80.h,
                                               maxHeight: 80.h,
                                               maxWidth: 400.w,
                                               minWidth: 400.w,
-                                              context: context,
                                               // validator: (String val){
                                               //   if(val.isEmpty){
                                               //     return 'رجاء ادخال البيانات المطلوبه';
@@ -304,7 +303,7 @@ class RegisterScreen extends StatelessWidget {
                                                   padding:
                                                       const EdgeInsets.only(
                                                           top: 8.0),
-                                                  child: textFormField(
+                                                  child: CustomTextField(
                                                       minHeight: 80.h,
                                                       maxHeight: 80.h,
                                                       // validator: (String val){
@@ -312,7 +311,6 @@ class RegisterScreen extends StatelessWidget {
                                                       //     return 'رجاء ادخال البيانات المطلوبه';
                                                       //   }
                                                       // },
-                                                      context: context,
                                                       keyboardType:
                                                           TextInputType.phone,
                                                       labelText: LocaleKeys
@@ -380,7 +378,7 @@ class RegisterScreen extends StatelessWidget {
                                                   padding:
                                                       const EdgeInsets.only(
                                                           top: 8.0),
-                                                  child: textFormField(
+                                                  child: CustomTextField(
                                                     minHeight: 80.h,
                                                     maxHeight: 80.h,
                                                     // validator: (String val){
@@ -391,7 +389,6 @@ class RegisterScreen extends StatelessWidget {
                                                     maxWidth: 400.w,
                                                     minWidth: 400.w,
                                                     isEnabled: false,
-                                                    context: context,
                                                     labelText: registerCubit
                                                             .convertedDateTimeBirth ??
                                                         LocaleKeys.dateOfBirth
@@ -420,7 +417,7 @@ class RegisterScreen extends StatelessWidget {
                                               ),
                                             ],
                                           ),
-                                          textFormField(
+                                          CustomTextField(
                                               minHeight: 80.h,
                                               maxHeight: 80.h,
                                               // validator: (String val){
@@ -430,13 +427,12 @@ class RegisterScreen extends StatelessWidget {
                                               // },
                                               maxWidth: 400.w,
                                               minWidth: 400.w,
-                                              context: context,
                                               keyboardType:
                                                   TextInputType.emailAddress,
                                               labelText: LocaleKeys.email.tr(),
                                               // hintText: 'البريد الالكتروني',
                                               controller: emailController),
-                                          textFormField(
+                                          CustomTextField(
                                               minHeight: 80.h,
                                               maxHeight: 80.h,
                                               maxWidth: 400.w,
@@ -446,12 +442,11 @@ class RegisterScreen extends StatelessWidget {
                                               //   }
                                               // },
                                               minWidth: 400.w,
-                                              context: context,
                                               labelText:
                                                   LocaleKeys.passportNo.tr(),
                                               // hintText: 'رقم الجواز',
                                               controller: passportController),
-                                          textFormField(
+                                          CustomTextField(
                                               minHeight: 80.h,
                                               maxHeight: 80.h,
                                               maxWidth: 400.w,
@@ -461,11 +456,10 @@ class RegisterScreen extends StatelessWidget {
                                               //   }
                                               // },
                                               minWidth: 400.w,
-                                              context: context,
                                               labelText: LocaleKeys.visaNo.tr(),
                                               // hintText: 'رقم التأشيره',
                                               controller: visaNumberController),
-                                          textFormField(
+                                          CustomTextField(
                                               minHeight: 80.h,
                                               maxHeight: 80.h,
                                               // validator: (String val){
@@ -475,7 +469,6 @@ class RegisterScreen extends StatelessWidget {
                                               // },
                                               maxWidth: 400.w,
                                               minWidth: 400.w,
-                                              context: context,
                                               labelText:
                                                   'رقم الحدود | رقم الإقامة | رقم الهويه الوطنيه',
                                               // hintText: 'رقم الحدود',
@@ -491,7 +484,7 @@ class RegisterScreen extends StatelessWidget {
                                                   padding:
                                                       const EdgeInsets.only(
                                                           top: 8.0),
-                                                  child: textFormField(
+                                                  child: CustomTextField(
                                                     minHeight: 80.h,
                                                     maxHeight: 80.h,
                                                     // validator: (String val){
@@ -500,7 +493,6 @@ class RegisterScreen extends StatelessWidget {
                                                     //   }
                                                     // },
                                                     isEnabled: false,
-                                                    context: context,
                                                     labelText: registerCubit
                                                             .convertedDateTimeArrival ??
                                                         LocaleKeys.arriveDate
@@ -541,7 +533,7 @@ class RegisterScreen extends StatelessWidget {
                                                   padding:
                                                       const EdgeInsets.only(
                                                           top: 8.0),
-                                                  child: textFormField(
+                                                  child: CustomTextField(
                                                     minHeight: 80.h,
                                                     maxHeight: 80.h,
                                                     // validator: (String val){
@@ -550,7 +542,6 @@ class RegisterScreen extends StatelessWidget {
                                                     //   }
                                                     // },
                                                     isEnabled: false,
-                                                    context: context,
                                                     labelText: registerCubit
                                                             .convertedDateDepurat ??
                                                         LocaleKeys.leaveDate
@@ -600,7 +591,7 @@ class RegisterScreen extends StatelessWidget {
                                           //     validator: () {}),
                                           // registerCubit.chooseResidence == '1'
                                           //     ?
-                                          textFormField(
+                                          CustomTextField(
                                               minHeight: 80.h,
                                               maxHeight: 80.h,
                                               // validator: (String val){
@@ -610,7 +601,6 @@ class RegisterScreen extends StatelessWidget {
                                               // },
                                               maxWidth: 400.w,
                                               minWidth: 400.w,
-                                              context: context,
                                               labelText:
                                                   'أسم الفندق في مكه المكرمه',
                                               // hintText: 'رقم الحدود',
@@ -626,7 +616,7 @@ class RegisterScreen extends StatelessWidget {
                                                   padding:
                                                       const EdgeInsets.only(
                                                           top: 8.0),
-                                                  child: textFormField(
+                                                  child: CustomTextField(
                                                       minHeight: 80.h,
                                                       maxHeight: 80.h,
                                                       // validator: (String val){
@@ -634,7 +624,6 @@ class RegisterScreen extends StatelessWidget {
                                                       //     return 'رجاء ادخال البيانات المطلوبه';
                                                       //   }
                                                       // },
-                                                      context: context,
                                                       isEnabled: false,
                                                       keyboardType:
                                                           TextInputType.phone,
@@ -669,7 +658,7 @@ class RegisterScreen extends StatelessWidget {
                                               ),
                                             ],
                                           ),
-                                          textFormField(
+                                          CustomTextField(
                                               minHeight: 80.h,
                                               maxHeight: 80.h,
                                               // validator: (String val){
@@ -679,7 +668,6 @@ class RegisterScreen extends StatelessWidget {
                                               // },
                                               maxWidth: 400.w,
                                               minWidth: 400.w,
-                                              context: context,
                                               labelText:
                                                   'أسم الفندق في المدينه المنوره',
                                               // hintText: 'رقم الحدود',
@@ -695,7 +683,7 @@ class RegisterScreen extends StatelessWidget {
                                                   padding:
                                                       const EdgeInsets.only(
                                                           top: 8.0),
-                                                  child: textFormField(
+                                                  child: CustomTextField(
                                                       minHeight: 80.h,
                                                       maxHeight: 80.h,
                                                       // validator: (String val){
@@ -703,7 +691,6 @@ class RegisterScreen extends StatelessWidget {
                                                       //     return 'رجاء ادخال البيانات المطلوبه';
                                                       //   }
                                                       // },
-                                                      context: context,
                                                       isEnabled: false,
                                                       // keyboardType: TextInputType.phone,
                                                       labelText: madinaHotelLocation ==
@@ -743,7 +730,7 @@ class RegisterScreen extends StatelessWidget {
                                                   MapScreenForSetLocation(
                                                       i: 0));
                                             },
-                                            child: textFormField(
+                                            child: CustomTextField(
                                                 minHeight: 80.h,
                                                 maxHeight: 80.h,
                                                 // validator: (String val){
@@ -755,7 +742,6 @@ class RegisterScreen extends StatelessWidget {
                                                 maxWidth: 400.w,
                                                 minWidth: 400.w,
                                                 lines: 1,
-                                                context: context,
                                                 labelText: meenaLoc == ''
                                                     ? 'موقع منى'
                                                     : meenaLoc,
@@ -769,7 +755,7 @@ class RegisterScreen extends StatelessWidget {
                                                   MapScreenForSetLocation(
                                                       i: 1));
                                             },
-                                            child: textFormField(
+                                            child: CustomTextField(
                                                 minHeight: 80.h,
                                                 maxHeight: 80.h,
                                                 // validator: (String val){
@@ -781,7 +767,6 @@ class RegisterScreen extends StatelessWidget {
                                                 maxWidth: 400.w,
                                                 minWidth: 400.w,
                                                 lines: 1,
-                                                context: context,
                                                 labelText: arafaLoc == ''
                                                     ? 'موقع عرفه'
                                                     : arafaLoc,
@@ -794,7 +779,7 @@ class RegisterScreen extends StatelessWidget {
                                                     MapScreenForSetLocation(
                                                         i: 2));
                                               },
-                                              child: textFormField(
+                                              child: CustomTextField(
                                                   minHeight: 80.h,
                                                   maxHeight: 80.h,
                                                   // validator: (String val){
@@ -806,7 +791,6 @@ class RegisterScreen extends StatelessWidget {
                                                   maxWidth: 400.w,
                                                   minWidth: 400.w,
                                                   lines: 1,
-                                                  context: context,
                                                   labelText: mozdalifaLoc == ''
                                                       ? 'موقع المزدلفه'
                                                       : mozdalifaLoc,
@@ -815,7 +799,7 @@ class RegisterScreen extends StatelessWidget {
                                           SizedBox(
                                             height: 10.h,
                                           ),
-                                          // textFormField(
+                                          // CustomTextField(
                                           //     maxWidth: 400.w,
                                           //     minWidth: 400.w,
                                           //     context: context,
@@ -898,14 +882,14 @@ class RegisterScreen extends StatelessWidget {
                                           SizedBox(
                                             height: 10,
                                           ),
-                                          // textFormField(
+                                          // CustomTextField(
                                           //     context: context,
                                           //     labelText: LocaleKeys.agentName.tr(),
                                           //     maxWidth: 400.w,
                                           //     minWidth: 400.w,
                                           //     // hintText: 'اسم الوكيل',
                                           //     controller: agentNameController),
-                                          textFormField(
+                                          CustomTextField(
                                               minHeight: 80.h,
                                               maxHeight: 80.h,
                                               // validator: (String val){
@@ -922,7 +906,6 @@ class RegisterScreen extends StatelessWidget {
                                                     ? Icon(Icons.visibility_off)
                                                     : Icon(Icons.visibility),
                                               ),
-                                              context: context,
                                               labelText:
                                                   LocaleKeys.password.tr(),
                                               maxWidth: 400.w,
@@ -930,7 +913,7 @@ class RegisterScreen extends StatelessWidget {
                                               secure: registerCubit.isVisable,
                                               //  hintText: 'كلمه المرور',
                                               controller: passwordController),
-                                          textFormField(
+                                          CustomTextField(
                                               minHeight: 80.h,
                                               maxHeight: 80.h,
                                               // validator: (String val){
@@ -938,7 +921,6 @@ class RegisterScreen extends StatelessWidget {
                                               //     return 'رجاء ادخال البيانات المطلوبه';
                                               //   }
                                               // },
-                                              context: context,
                                               secure: registerCubit.isVisable,
                                               suffixIcon: IconButton(
                                                 onPressed: () {
@@ -1049,8 +1031,8 @@ class RegisterScreen extends StatelessWidget {
                               ),
                             ],
                           )
-                        : Center(child: CircularProgressIndicator()),
-                  ),
+
+                  ): Center(child: CircularProgressIndicator.adaptive()),
                 );
               });
         });

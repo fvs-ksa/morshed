@@ -2,6 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:morshed/component/component.dart';
+import 'package:morshed/component/cutom_text_filed.dart';
+import 'package:morshed/component/cutom_text_filed.dart';
 import 'package:morshed/component/info_profile_component.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
 import '../../component/navigation_functions.dart';
@@ -64,9 +66,8 @@ class ContactUs extends StatelessWidget {
                     onTap: () {
                       launchWhatsapp(context);
                     },
-                    child: textFormField(
+                    child: CustomTextField(
                       labelText: '9660501342728+',
-                      context: context,
                       isEnabled: false,
                     )),
                 SizedBox(
@@ -83,10 +84,9 @@ class ContactUs extends StatelessWidget {
                     onTap: () {
                       navigateToMail(context);
                     },
-                    child: textFormField(
+                    child: CustomTextField(
                         labelText: 'info@guide.com',
-                        context: context,
-                        isEnabled: false)),
+                        isEnabled: false,)),
                 // SizedBox(
                 //   height: 10.h,
                 // ),

@@ -6,6 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_state.dart';
 import 'package:morshed/component/component.dart';
+import 'package:morshed/component/cutom_text_filed.dart';
 import 'package:morshed/screen/inner_screen/locations/set_location_on_map.dart';
 import 'package:morshed/screen/inner_screen/submit_report/reported_person_info.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
@@ -45,12 +46,11 @@ class SubmitReportAnotherPerson extends StatelessWidget {
                             submitReport.ScanBarcode();
                           //  navigateForward(QRViewExample());
                           },
-                          child: textFormField(
+                          child: CustomTextField(
                               suffixIcon: SvgPicture.asset('assets/svg/scanQR.svg',
                                   fit: BoxFit.none),
                               labelText:
                                   LocaleKeys.findingInformationByScanningQrCode.tr(),
-                              context: context,
                               onTap: () {
                                 print('object');
                               },
@@ -62,9 +62,8 @@ class SubmitReportAnotherPerson extends StatelessWidget {
                         //         .tr(),
                         //     context: context,
                         //     keyboardType: TextInputType.phone),
-                        textFormField(
+                        CustomTextField(
                             labelText: LocaleKeys.findingInformationUsingId.tr(),
-                            context: context,
                             controller: idController,
                             keyboardType: TextInputType.phone),
                         // textFormField(

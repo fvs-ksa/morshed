@@ -8,6 +8,7 @@ import 'package:morshed/component/animation_component.dart';
 import 'package:morshed/component/component.dart';
 import 'package:morshed/component/info_profile_component.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../../../component/cutom_text_filed.dart';
 import '../../../component/navigation_functions.dart';
 import '../../../constant/const_color.dart';
 import '../../../component/guide_escorts_component.dart';
@@ -80,15 +81,13 @@ class MyReportsDetailsScreen extends StatelessWidget {
                         SizedBox(
                           height: 15.h,
                         ),
-                        textFormField(
+                        CustomTextField(
                             labelText: LocaleKeys.reportNumber.tr(),
-                            context: context,
                             controller: reportIdController,
                             isEnabled: false),
-                        textFormField(
+                        CustomTextField(
                             labelText: LocaleKeys.passportNo.tr(),
                             controller: passportNoController,
-                            context: context,
                             isEnabled: false),
                         GestureDetector(
                           onTap: ()async{
@@ -99,10 +98,9 @@ class MyReportsDetailsScreen extends StatelessWidget {
                                 '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
 
                           },
-                          child: textFormField(
+                          child: CustomTextField(
                               labelText: LocaleKeys.reportLocation.tr(),
                               controller: locationController,
-                              context: context,
                               isEnabled: false),
                         ),
                         bigTextFieldForNotes(

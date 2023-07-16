@@ -716,9 +716,9 @@ class RegisterCubit extends Cubit<RegisterState> {
       if (e.response != null) {
         print('Dio error!');
         print('STATUS: ${e.response?.statusCode}');
-        print('DATA: ${e.response?.redirects}');
+        print('DATA: ${e.response?.data['message']}');
         print('HEADERS: ${e.response?.headers}');
-         showToast(text: 'برجاء مراجعه البيانات المدخله', state: ToastState.ERROR);
+         showToast(text: e.response?.data['message'], state: ToastState.ERROR);
       } else {
         print('Error sending request!');
         print('/////////////////////// ${e.message}');

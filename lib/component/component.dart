@@ -83,67 +83,67 @@ Widget accountType(
   );
 }
 
-Widget textFormField(
-    {required String labelText,
-    String? hintText,
-    required BuildContext context,
-    TextEditingController? controller,
-    TextInputType? keyboardType,
-    Widget? suffixIcon,
-    Function? onTap,
-    int? length,
-    int? lines,
-    double? maxHeight,
-    double? minHeight,
-    double? maxWidth,
-    double? minWidth,
-      bool? secure,
-    bool isBig = false,
-    bool isEnabled = true,
-    //Function? validator
-    }) {
-  return Padding(
-    padding: EdgeInsets.only(bottom: 14.h),
-    child: TextFormField(
-
-      controller: controller,
-      style: GoogleFonts.cairo(
-          fontSize: 14.sp,
-          fontWeight: FontWeight.w600,
-          color: blackColor),
-      onTap: () {
-        onTap ?? print('');
-      },
-      maxLines: lines??1,
-      maxLength: length,
-      decoration: InputDecoration(
-          contentPadding:
-              EdgeInsetsDirectional.only(start: 10.w, top: isBig ? 20.h : 0.0),
-          constraints: BoxConstraints(
-              minHeight: minHeight ?? 54.h,
-              minWidth: minWidth ?? 330.w,
-              maxHeight: maxHeight ?? 54.h,
-              maxWidth: maxWidth ?? 360.w),
-          suffixIcon: suffixIcon,
-          labelText: labelText,
-          labelStyle: GoogleFonts.cairo(
-              fontSize: 14.sp, fontWeight: FontWeight.w600, color: greyColor),
-          hintText: hintText,
-          errorStyle: GoogleFonts.cairo(fontSize: 8,color: Colors.red),
-          hintStyle: GoogleFonts.cairo(
-              fontSize: 14.sp, fontWeight: FontWeight.w600, color: greyColor),
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(20.sp))),
-      // validator: (e) {
-      //   return validator!(e);
-      //   // return null;
-      // },
-      keyboardType: keyboardType,
-      obscureText: secure??false,
-      enabled: isEnabled,
-    ),
-  );
-}
+// Widget textFormField(
+//     {required String labelText,
+//     String? hintText,
+//     required BuildContext context,
+//     TextEditingController? controller,
+//     TextInputType? keyboardType,
+//     Widget? suffixIcon,
+//     Function? onTap,
+//     int? length,
+//     int? lines,
+//     double? maxHeight,
+//     double? minHeight,
+//     double? maxWidth,
+//     double? minWidth,
+//       bool? secure,
+//     bool isBig = false,
+//     bool isEnabled = true,
+//     //Function? validator
+//     }) {
+//   return Padding(
+//     padding: EdgeInsets.only(bottom: 14.h),
+//     child: TextFormField(
+//
+//       controller: controller,
+//       style: GoogleFonts.cairo(
+//           fontSize: 14.sp,
+//           fontWeight: FontWeight.w600,
+//           color: blackColor),
+//       onTap: () {
+//         onTap ?? print('');
+//       },
+//       maxLines: lines??1,
+//       maxLength: length,
+//       decoration: InputDecoration(
+//           contentPadding:
+//               EdgeInsetsDirectional.only(start: 10.w, top: isBig ? 20.h : 0.0),
+//           constraints: BoxConstraints(
+//               minHeight: minHeight ?? 54.h,
+//               minWidth: minWidth ?? 330.w,
+//               maxHeight: maxHeight ?? 54.h,
+//               maxWidth: maxWidth ?? 360.w),
+//           suffixIcon: suffixIcon,
+//           labelText: labelText,
+//           labelStyle: GoogleFonts.cairo(
+//               fontSize: 14.sp, fontWeight: FontWeight.w600, color: greyColor),
+//           hintText: hintText,
+//           errorStyle: GoogleFonts.cairo(fontSize: 8,color: Colors.red),
+//           hintStyle: GoogleFonts.cairo(
+//               fontSize: 14.sp, fontWeight: FontWeight.w600, color: greyColor),
+//           border:
+//               OutlineInputBorder(borderRadius: BorderRadius.circular(20.sp))),
+//       // validator: (e) {
+//       //   return validator!(e);
+//       //   // return null;
+//       // },
+//       keyboardType: keyboardType,
+//       obscureText: secure??false,
+//       enabled: isEnabled,
+//     ),
+//   );
+// }
 
 Widget dropDownButton(
     {required List<DropdownMenuItem> items,

@@ -31,7 +31,7 @@ class Providers {
   String? nationality;
   var serviceProviderType;
   int? companyId;
-  String? preferredLanguage;
+  int? preferredLanguage;
   String? birthdate;
   String? phoneNumber;
   String? passportNumber;

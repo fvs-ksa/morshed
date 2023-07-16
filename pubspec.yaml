@@ -64,6 +64,7 @@ dependencies:
   barcode_scan2: 4.2.4
   quickalert: ^1.0.1
   socket_io_client: ^2.0.2
+  web_socket_channel: ^2.4.0
   #AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is
 
 dev_dependencies:

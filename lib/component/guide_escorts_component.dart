@@ -8,6 +8,7 @@ import 'package:morshed/translation/locale_keys.g.dart';
 
 import 'component.dart';
 import '../constant/const_color.dart';
+import 'cutom_text_filed.dart';
 import 'info_profile_component.dart';
 
 Widget circleAvtarWidget({
@@ -79,11 +80,11 @@ headerForGuide(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
-                child: textFormField(
+                child: CustomTextField(
                     controller: searchController,
                     labelText: LocaleKeys.findingInfoByNamePHoneOrLang.tr(),
                     // hintText: 'بحث بالأسم أو رقم الجوال',
-                    context: context)),
+                    )),
             dropDownWidget ?? SizedBox(),
             SizedBox(
               width: 8.w,

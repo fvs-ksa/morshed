@@ -8,6 +8,7 @@ import 'package:morshed/bloc/general_cubit/general_state.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../component/component.dart';
+import '../../component/cutom_text_filed.dart';
 import '../../constant/const_color.dart';
 import '../../component/info_profile_component.dart';
 
@@ -64,7 +65,7 @@ class MyResidenceAndTravels extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
                   child: Column(
                     children: [
-                      // textFormField(
+                      // CustomTextField(
                       //   labelText: LocaleKeys.residentialAddress.tr(),
                       //   context: context,
                       // ),
@@ -77,10 +78,10 @@ class MyResidenceAndTravels extends StatelessWidget {
                               '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
 
                         },
-                        child: textFormField(
+                        child: CustomTextField(
                           controller: mennaLocationConroller,
                             isEnabled: false,
-                            labelText: 'مخيم منى', context: context),
+                            labelText: 'مخيم منى', ),
                       ),
                       GestureDetector(
                         onTap: ()async{
@@ -91,10 +92,10 @@ class MyResidenceAndTravels extends StatelessWidget {
                               '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
 
                         },
-                        child: textFormField(
+                        child: CustomTextField(
                           controller: arafaLocationController,
                             isEnabled: false,
-                            labelText: 'مخيم عرفه', context: context),
+                            labelText: 'مخيم عرفه', ),
                       ),
 
                       GestureDetector(
@@ -106,10 +107,10 @@ class MyResidenceAndTravels extends StatelessWidget {
                               '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
 
                         },
-                        child: textFormField(
+                        child: CustomTextField(
                             controller: mozdalifaLocationController,
                             isEnabled: false,
-                            labelText: 'مخيم المزدلفه', context: context),
+                            labelText: 'مخيم المزدلفه', ),
                       ),
                       GestureDetector(
                         onTap: ()async{
@@ -120,10 +121,10 @@ class MyResidenceAndTravels extends StatelessWidget {
                               '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
 
                         },
-                        child: textFormField(
+                        child: CustomTextField(
                             controller: maccaHotelLocationController,
                             isEnabled: false,
-                            labelText: 'عنوان الفندق في مكه المكرمه', context: context),
+                            labelText: 'عنوان الفندق في مكه المكرمه', ),
                       ),
                       GestureDetector(
                         onTap: ()async{
@@ -134,15 +135,15 @@ class MyResidenceAndTravels extends StatelessWidget {
                               '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
 
                         },
-                        child: textFormField(
+                        child: CustomTextField(
                             controller: madinahHotelNumberController,
                             isEnabled: false,
-                            labelText: 'عنوان الفندق في المدينه المنوره', context: context),
+                            labelText: 'عنوان الفندق في المدينه المنوره', ),
                       ),
-                      textFormField(
+                      CustomTextField(
                           isEnabled: false,
                         controller: visaNumberController,
-                          labelText: LocaleKeys.visaNo.tr(), context: context),
+                          labelText: LocaleKeys.visaNo.tr(), ),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 20.w),
                         child: Row(
@@ -150,9 +151,8 @@ class MyResidenceAndTravels extends StatelessWidget {
                           children: [
                             Expanded(
                               flex: 1,
-                              child: textFormField(
+                              child: CustomTextField(
                                 isEnabled: false,
-                                context: context,
                                 controller:arrivalController ,
                                 labelText: 'تاريخ الوصول',
                                // hintText: '14/2/1966',
@@ -180,10 +180,9 @@ class MyResidenceAndTravels extends StatelessWidget {
                           children: [
                             Expanded(
                               flex: 1,
-                              child: textFormField(
+                              child: CustomTextField(
                                 isEnabled: false,
                                 controller: departureController,
-                                context: context,
                                 labelText: 'تاريخ المغادرة',
                                // hintText: '14/2/1966',
                               ),

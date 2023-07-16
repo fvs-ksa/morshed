@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../translation/locale_keys.g.dart';
 import 'component.dart';
 import '../constant/const_color.dart';
+import 'cutom_text_filed.dart';
 import 'info_profile_component.dart';
 
 Widget myReportsContainerWidget(
@@ -82,11 +83,11 @@ locationWidget({required BuildContext context,required Function fct,required Tex
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
-            child: textFormField(
+            child: CustomTextField(
               labelText: LocaleKeys.reportLocation.tr(),
               controller: controller,
               //  hintText: 'hintText',
-              context: context,
+
               isEnabled: false,
             ),
           ),

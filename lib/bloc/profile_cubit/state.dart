@@ -3,6 +3,7 @@ abstract class ProfileState {}
 class InitialProfileState extends ProfileState {}
 
 class ChangeNationalityDropDownProfileState extends ProfileState {}
+class ChangeDisabilityDropDownState extends ProfileState {}
 
 class ChooseDateOfBirthProfileState extends ProfileState {}
 class GetProfileLoadingState extends ProfileState {}

@@ -1,3 +1,5 @@
+
+
 import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -40,8 +42,7 @@ void main() async {
   FlutterNativeSplash.preserve(
       widgetsBinding: WidgetsFlutterBinding.ensureInitialized());
   await Firebase.initializeApp();
-  final locationService = LocationService();
-  locationService.start();
+
 
   FirebaseNotifications().setUpFirebase();
   Bloc.observer = MyBlocObserver();
@@ -66,11 +67,14 @@ void main() async {
     print('noooo');
   } else {
     token = CacheHelper.getData(key: 'token');
+
     // userType = CacheHelper.getData(key: 'user_type');
     print('<<<<<<<<<<<<<<<<$token>>>>>>>>>>>>>>>>');
     widget = MainScreen(
         // userIndex: userType,
         );
+    // final providerLocationService = ProviderLocationService();
+    // providerLocationService.start(context: context);
   }
 
   ///CacheHelper.getData(key: 'isEnglish');

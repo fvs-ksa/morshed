@@ -10,3 +10,12 @@ class GetAllOfficesDataErrorState extends ShowOfficesAndProviderInfoState{
 
 class FullMarkListState extends ShowOfficesAndProviderInfoState{}
 class ChangeTabbedMarkerState extends ShowOfficesAndProviderInfoState{}
+
+
+
+class GetAllProvidersDataSuccessState extends ShowOfficesAndProviderInfoState{}
+class GetAllProvidersDataLoadingState extends ShowOfficesAndProviderInfoState{}
+class GetAllProvidersDataErrorState extends ShowOfficesAndProviderInfoState{
+  final String error;
+  GetAllProvidersDataErrorState({required this.error});
+}

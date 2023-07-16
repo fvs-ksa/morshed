@@ -14,6 +14,7 @@ import 'package:morshed/screen/inner_screen/locations/set_location_on_map.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
 import 'component.dart';
 import '../constant/const_color.dart';
+import 'cutom_text_filed.dart';
 import 'info_profile_component.dart';
 
 class ReportDetailsWidget extends StatefulWidget {
@@ -172,20 +173,18 @@ class _ReportDetailsWidgetState extends State<ReportDetailsWidget> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                   widget.index==0?  Expanded(
-                          child: textFormField(
+                          child: CustomTextField(
                               controller:reportLocationAnotherPerson,
                               labelText: LocaleKeys.reportLocation.tr(),
                               lines: 1,
                               // hintText: 'hintText',
-                              context: context,
                               isEnabled: false)):
                       Expanded(
-                          child: textFormField(
+                          child: CustomTextField(
                               controller: reportLocationController,
                               labelText: LocaleKeys.reportLocation.tr(),
                               lines: 1,
                               // hintText: 'hintText',
-                              context: context,
                               isEnabled: false)),
                       SizedBox(
                         width: 12.w,

@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:morshed/component/component.dart';
+import 'package:morshed/component/cutom_text_filed.dart';
 import 'package:morshed/component/guide_escorts_component.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
@@ -35,11 +36,11 @@ class AddCompanionsScreen extends StatelessWidget {
                   children: [
                     Column(
                       children: [
-                        textFormField(
+                        CustomTextField(
                             labelText:
                                 LocaleKeys.passportIdResidencePermitNumber.tr(),
                             controller: passportNoController,
-                            context: context),
+                            ),
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 18.w),
                           child: Row(
@@ -47,9 +48,9 @@ class AddCompanionsScreen extends StatelessWidget {
                             children: [
                               Expanded(
                                 flex: 1,
-                                child: textFormField(
+                                child: CustomTextField(
                                   isEnabled: false,
-                                  context: context,
+                                 // context: context,
                                   controller: birthDateController,
                                   labelText:
                                       addCompanionsCubit.convertedDateTime ??

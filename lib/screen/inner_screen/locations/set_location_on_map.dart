@@ -10,6 +10,7 @@ import 'package:morshed/screen/auth_screen/register_Screen.dart';
 
 import '../../../bloc/register_cubit/cubit.dart';
 import '../../../component/component.dart';
+import '../../../component/cutom_text_filed.dart';
 
 class MapScreenForSetLocation extends StatefulWidget {
   int i;
@@ -129,8 +130,7 @@ class _MapScreenForSetLocationState extends State<MapScreenForSetLocation> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                textFormField(
-                                  context: context,
+                                CustomTextField(
                                   controller: locationName,
                                   labelText: cubit.addressFromMap.isEmpty
                                       ? ''
