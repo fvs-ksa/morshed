@@ -9,6 +9,7 @@ Color whiteGreyColor = const Color(0xffe3e3e3);
 Color babyBlueColor = const Color(0xffd3f5f6);
 Color darkMainColor = const Color(0xff25cad2);
 Color lightMainColor = const Color(0xff28d4dc);
+
 var myLocale;
 var token;
 var fcmToken;

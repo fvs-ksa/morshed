@@ -63,88 +63,96 @@ class ReportedPersonInfo extends StatelessWidget {
                     title: LocaleKeys.hajjiInfo.tr(),
                     isProfile: false),
                 backgroundColor: whiteLightColor,
-                body:reportCubit.isGetUserById? SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Container(
-                        margin:
-                            EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
-                        child: Column(
-                          children: [
-                            CustomTextField(
-                                labelText: LocaleKeys.arabicNamePassport.tr(),
-                                isEnabled: false,
-                                controller: arabicNameController),
-                            CustomTextField(
-                                labelText: LocaleKeys.englishNamePassport.tr(),
-                                isEnabled: false,
-                                controller: englishNameController),
-                            CustomTextField(
-                                labelText: LocaleKeys.nationality.tr(),
+                body:reportCubit.isGetUserById? GestureDetector(
+                  onTap: (){FocusManager.instance.primaryFocus?.unfocus();},
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Container(
+                          margin:
+                              EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
+                          child: Column(
+                            children: [
+                              CustomTextField(
+                                  labelText: LocaleKeys.arabicNamePassport.tr(),
+                                  isEnabled: false,
+                                  controller: arabicNameController),
+                              CustomTextField(
+                                  labelText: LocaleKeys.englishNamePassport.tr(),
+                                  isEnabled: false,
+                                  controller: englishNameController),
+                              CustomTextField(
+                                  labelText: LocaleKeys.nationality.tr(),
 
-                                isEnabled: false,
-                                controller: nationalityController),
-                            // CustomTextField(
-                            //     labelText: LocaleKeys.age.tr(),
-                            //     context: context,
-                            //     isEnabled: false,
-                            //     controller: ageController),
-                            CustomTextField(
-                                labelText: LocaleKeys.email.tr(),
-                                isEnabled: false,
-                                controller: emailController),
-                            CustomTextField(
-                                labelText: LocaleKeys.boardNo.tr(),
-                                isEnabled: false,
-                                controller: borderNumberController),
-                            CustomTextField(
-                                labelText: LocaleKeys.visaNo.tr(),
-                                isEnabled: false,
-                                controller: visaNumberController),
-                            CustomTextField(
-                                labelText: LocaleKeys.passportNo.tr(),
-                                isEnabled: false,
-                                controller: passportController),
-                            CustomTextField(
-                                labelText: LocaleKeys.arriveDate.tr(),
-                                isEnabled: false,
-                                controller: arrivalDateController),
-                            CustomTextField(
-                                labelText: LocaleKeys.leaveDate.tr(),
-                                isEnabled: false,
-                                controller: leaveController),
-                            // CustomTextField(
-                            //     labelText: LocaleKeys.residentialAddress.tr(),
-                            //     context: context,
-                            //     isEnabled: false,
-                            //     controller: residencyController),
-                            CustomTextField(
-                                labelText: LocaleKeys.officialMissionName.tr(),
-                                isEnabled: false,
-                                controller: touristCompanyController),
-                            // CustomTextField(
-                            //     labelText: LocaleKeys.agentName.tr(),
-                            //     context: context,
-                            //     isEnabled: false,
-                            //     controller: saudiRepresentativeController),
-                          ],
+                                  isEnabled: false,
+                                  controller: nationalityController),
+                              // CustomTextField(
+                              //     labelText: LocaleKeys.age.tr(),
+                              //     context: context,
+                              //     isEnabled: false,
+                              //     controller: ageController),
+                              CustomTextField(
+                                  labelText: LocaleKeys.email.tr(),
+                                  isEnabled: false,
+                                  controller: emailController),
+                              CustomTextField(
+                                  labelText: LocaleKeys.boardNo.tr(),
+                                  isEnabled: false,
+                                  controller: borderNumberController),
+                              CustomTextField(
+                                  labelText: LocaleKeys.visaNo.tr(),
+                                  isEnabled: false,
+                                  controller: visaNumberController),
+                              CustomTextField(
+                                  labelText: LocaleKeys.passportNo.tr(),
+                                  isEnabled: false,
+                                  controller: passportController),
+                              CustomTextField(
+                                  labelText: LocaleKeys.arriveDate.tr(),
+                                  isEnabled: false,
+                                  controller: arrivalDateController),
+                              CustomTextField(
+                                  labelText: LocaleKeys.leaveDate.tr(),
+                                  isEnabled: false,
+                                  controller: leaveController),
+                              // CustomTextField(
+                              //     labelText: LocaleKeys.residentialAddress.tr(),
+                              //     context: context,
+                              //     isEnabled: false,
+                              //     controller: residencyController),
+                              CustomTextField(
+                                  labelText: LocaleKeys.officialMissionName.tr(),
+                                  isEnabled: false,
+                                  controller: touristCompanyController),
+                              // CustomTextField(
+                              //     labelText: LocaleKeys.agentName.tr(),
+                              //     context: context,
+                              //     isEnabled: false,
+                              //     controller: saudiRepresentativeController),
+                            ],
+                          ),
                         ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: whiteColor,
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(10.sp),
-                                topRight: Radius.circular(10.sp))),
-                        padding:
-                            EdgeInsets.symmetric(vertical: 20.h, horizontal: 15.h),
-                        child: SingleChildScrollView(
-                          child: ReportDetailsWidget(index: 0),
-                        ),
-                      )
-                    ],
+                        Container(
+                          decoration: BoxDecoration(
+                              color: whiteColor,
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10.sp),
+                                  topRight: Radius.circular(10.sp))),
+                          padding:
+                              EdgeInsets.symmetric(vertical: 20.h, horizontal: 15.h),
+                          child: SingleChildScrollView(
+                            child: ReportDetailsWidget(index: 0),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                ):Center(child: CircularProgressIndicator()),
+                ):Center(child: CircularProgressIndicator.adaptive(
+                  backgroundColor: orangeColor,
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    darkMainColor, //<-- SEE HERE
+                  ),
+                )),
                 //bottomSheet: ,
               );
             });

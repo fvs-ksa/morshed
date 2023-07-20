@@ -45,32 +45,41 @@ class LoginScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       CustomTextField(
+                          minHeight: 80.h,
+                          maxHeight: 80.h,
                           labelText: LocaleKeys.userName.tr(),
 
                           keyboardType: TextInputType.emailAddress,
-                          // validator: (String val){
-                          //   if(val.isEmpty){
-                          //     return 'برجاء ادخال اسم المستخدم';
-                          //   }
-                          // },
+                          validator: (String val){
+                            if(val.isEmpty){
+                              return 'برجاء ادخال اسم المستخدم';
+                            }
+                          },
                           controller: userNameController),
                       CustomTextField(
+                          minHeight: 80.h,
+                          maxHeight: 80.h,
                         keyboardType: TextInputType.emailAddress,
                           labelText: LocaleKeys.password.tr(),
 
-                          // validator: (String val){
-                          //   if(val.isEmpty){
-                          //     return 'برجاء ادخال الرقم السري';
-                          //   }
-                          // },
+                          validator: (String val){
+                            if(val.isEmpty){
+                              return 'برجاء ادخال الرقم السري';
+                            }
+                          },
                           secure: loginCubit.isVisable,
                           controller: passwordController,
                           suffixIcon:  IconButton(onPressed: () {loginCubit.changeVisabilityState() ; },
-                            icon: loginCubit.isVisable?Icon(Icons.visibility_off):Icon(Icons.visibility),)),
+                            icon: loginCubit.isVisable?const Icon(Icons.visibility_off):const Icon(Icons.visibility),)),
                       SizedBox(
                         height: 70.h,
                       ),
-                      state is LoginLoadingState ? CircularProgressIndicator(): mainButton(
+                      state is LoginLoadingState ? CircularProgressIndicator.adaptive(
+                        backgroundColor: orangeColor,
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                          darkMainColor, //<-- SEE HERE
+                        ),
+                      ): mainButton(
                           text:LocaleKeys.loginNow.tr(),
                           color: darkMainColor,
                           context: context,

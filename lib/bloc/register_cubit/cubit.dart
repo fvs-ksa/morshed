@@ -22,6 +22,7 @@ import 'dart:io';
 
 import '../../component/animation_component.dart';
 import '../../constant/const_color.dart';
+import '../../models/nationality_model.dart';
 import '../login_cubit/login_cubit.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
@@ -29,7 +30,7 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   static RegisterCubit get(context) => BlocProvider.of(context);
 
-  //Nationality
+
   EdgeInsets viewInsets = EdgeInsets.zero;
   SingletonFlutterWindow? window;
   viewAboveKeyBoard() {
@@ -73,208 +74,32 @@ class RegisterCubit extends Cubit<RegisterState> {
     print(chooseCompany);
     emit(ChangeCompanyDropDownState());
   }
-
+//Nationality
   String? chooseNationality;
-  var nationality = [
-    "أفغاني",
-    "ألباني",
-    "جزائري",
-    "أمريكي",
-    "أندوري",
-    "أنغولي",
-    "انتيغوا",
-    "أرجنتيني",
-    "أرميني",
-    "أسترالي",
-    "نمساوي",
-    "أذربيجاني",
-    "باهامى",
-    "بحريني",
-    "بنجلاديشي",
-    "باربادوسي",
-    "بربودا",
-    "بوتسواني",
-    "بيلاروسي",
-    "بلجيكي",
-    "بليزي",
-    "بنيني",
-    "بوتاني",
-    "بوليفي",
-    "بوسني",
-    "برازيلي",
-    "بريطاني",
-    "بروناى",
-    "بلغاري",
-    "بوركيني",
-    "بورمي",
-    "بوروندي",
-    "كمبودي",
-    "كاميروني",
-    "كندي",
-    "االرأس الأخضر",
-    "وسط أفريقيا",
-    "تشادي",
-    "شيلي",
-    "صينى",
-    "كولومبي",
-    "جزر القمر",
-    "كونغولي",
-    "كوستاريكي",
-    "كرواتية",
-    "كوبي",
-    "قبرصي",
-    "تشيكي",
-    "دانماركي",
-    "جيبوتي",
-    "دومينيكاني",
-    "هولندي",
-    "تيموري شرقي",
-    "اكوادوري",
-    "مصري",
-    "إماراتي",
-    "غيني  استوائي",
-    "إريتري",
-    "إستوني",
-    "حبشي",
-    "فيجي",
-    "فلبيني",
-    "فنلندي",
-    "فرنسي",
-    "جابوني",
-    "غامبيي",
-    "جورجي",
-    "ألماني",
-    "غاني",
-    "إغريقي",
-    "جرينادي",
-    "غواتيمالي",
-    "غيني بيساوي",
-    "غيني",
-    "جوياني",
-    "هايتي",
-    "هرسكي",
-    "هندوراسي",
-    "هنغاري",
-    "إيسلندي",
-    "هندي",
-    "إندونيسي",
-    "إيراني",
-    "عراقي",
-    "إيرلندي",
-    "إيطالي",
-    "إفواري",
-    "جامايكي",
-    "ياباني",
-    "أردني",
-    "كازاخستاني",
-    "كيني",
-    "كيتياني ونيفيسياني",
-    "كويتي",
-    "قيرغيزستان",
-    "لاوسي",
-    "لاتفي",
-    "لبناني",
-    "ليبيري",
-    "ليبي",
-    "ليختنشتايني",
-    "لتواني",
-    "لكسمبرغي",
-    "مقدوني",
-    "مدغشقري",
-    "مالاوى",
-    "ماليزي",
-    "مالديفي",
-    "مالي",
-    "مالطي",
-    "مارشالي",
-    "موريتاني",
-    "موريشيوسي",
-    "مكسيكي",
-    "ميكرونيزي",
-    "مولدوفي",
-    "موناكو",
-    "منغولي",
-    "مغربي",
-    "ليسوتو",
-    "لتسواني",
-    "موزمبيقي",
-    "ناميبي",
-    "ناورو",
-    "نيبالي",
-    "نيوزيلندي",
-    "ني فانواتي",
-    "نيكاراغوا",
-    "نيجري",
-    "كوري شمالي",
-    "إيرلندي شمالي",
-    "نرويجي",
-    "عماني",
-    "باكستاني",
-    "بالاوي",
-    "فلسطيني",
-    "بنمي",
-    "بابوا غينيا الجديدة",
-    "باراغواياني",
-    "بيروفي",
-    "بولندي",
-    "برتغالي",
-    "قطري",
-    "روماني",
-    "روسي",
-    "رواندي",
-    "لوسياني",
-    "سلفادوري",
-    "ساموايان",
-    "سان مارينيز",
-    "ساو توميان",
-    "سعودي",
-    "سكتلندي",
-    "سنغالي",
-    "صربي",
-    "سيشلي",
-    "سيرا ليوني",
-    "سنغافوري",
-    "سلوفاكي",
-    "سلوفيني",
-    "جزر سليمان",
-    "صومالي",
-    "جنوب افريقيي",
-    "كوري جنوبي",
-    "إسباني",
-    "سري لانكي",
-    "سوداني",
-    "سورينامي",
-    "سوازي",
-    "سويدي",
-    "سويسري",
-    "سوري",
-    "تايواني",
-    "طاجيكي",
-    "تنزاني",
-    "التايلاندي",
-    "توغواني",
-    "تونجاني",
-    "ترينيدادي أو توباغوني",
-    "تونسي",
-    "تركي",
-    "توفالي",
-    "أوغندي",
-    "أوكراني",
-    "أوروجواي",
-    "أوزبكستاني",
-    "فنزويلي",
-    "فيتنامي",
-    "ويلزي",
-    "يمني",
-    "زامبي",
-    "زيمبابوي"
-  ];
-
-  onChangeCountryName(onChange) {
+  late NationalityModel nationalityModel;
+  bool isGetNationality = false;
+getAllNationality(){
+  isGetNationality = false;
+  emit(GetAllNationalityLoadingState());
+  DioHelper.getData(url: 'https://murshidguide.com/api/listNationality').then((value) {
+    print(value.data);
+    nationalityModel=NationalityModel.fromJson(value.data);
+    emit(GetAllNationalitySuccessState());
+    isGetNationality = true;
+  }).catchError((error){
+    print(error.toString());
+    emit(GetAllNationalityErrorState(error: error.toString()));
+  });
+}
+  onChangeNationalityName(onChange) {
     chooseNationality = onChange;
     print(chooseNationality);
     emit(ChangeNationalityDropDownState());
   }
+
+
+
+
 
   //Disability
 
@@ -286,10 +111,18 @@ class RegisterCubit extends Cubit<RegisterState> {
     'جسميه وحركيه'
 
   ];
+  bool isDisability = false;
 
+  changeDisabilityValue() {
+    isDisability = !isDisability;
+    print('///////////////////////////$isDisability');
+    emit(ChangeDisabilitySwitchValueState());
+  }
   onChangeDisability(onChange) {
     chooseDisability = onChange;
+    print(isDisability);
     print('//////////////fffffffffffffffff$chooseDisability');
+    print('//////////////fffffffffffffffff$isDisability');
     emit(ChangeDisabilityDropDownState());
   }
 
@@ -370,12 +203,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     emit(ChooseDateOfBirthState());
   }
 
-  bool isDisability = false;
 
-  changeDisabilityValue() {
-    isDisability = !isDisability;
-    emit(ChangeDisabilitySwitchValueState());
-  }
 
   Future<Position> determinePosition() async {
     bool serviceEnable;
@@ -474,15 +302,6 @@ class RegisterCubit extends Cubit<RegisterState> {
     print('/////////////////////////################## $addressFromMap');
     lat = latLn?.latitude;
     lng = latLn?.longitude;
-    // latMinna=lat;
-    // lngMinna=lng;
-    // latArafa=lat;
-    // lngArafa=lng;
-    // latMozdalifa=lat;
-    // lngMozdalifa=lng;
-    // print('latMinna $latMinna //////////////// lngMinna : $lngMinna');
-    // print('latMinna $latMozdalifa //////////////// lngMinna : $latMozdalifa');
-    // print('latMinna $latArafa //////////////// lngMinna : $lngArafa');
     print('$lat ////// $lng');
   }
 
@@ -571,69 +390,9 @@ class RegisterCubit extends Cubit<RegisterState> {
     file = (File(pickedFile!.path));
     print('IMAGE IS $file');
     emit(PickImageFromGalleryState());
-    //print('TRANSFORM iMGE ID ${await MultipartFile.fromFile(file!.path,filename: 'my_image.jpg',)}');
     isPickImage = true;
     print('afasdasdasds$isPickImage');
   }
-
-  // Future pickImageFromGallery()async{
-  //   final XFile? pickedFile=await ImagePicker().pickImage(source: ImageSource.gallery);
-  //   file=(File(pickedFile!.path));
-  //   print('IMAGE IS $file');
-  //   emit(PickImageFromGalleryState());
-  //   //print('TRANSFORM iMGE ID ${await MultipartFile.fromFile(file!.path,filename: 'my_image.jpg',)}');
-  //   isPickImage=true;
-  //   print('afasdasdasds$isPickImage');
-  // }
-  // userRegister({required String nameAr,required String nameEn,required String phoneNumber,
-  //  // required String birthDate,
-  // //  required String nationality,
-  //   required String email,required String visaNo,
-  // required String passportNo,
-  //   required String borderNo,
-  // //  required String arrivalDate,required String depurationDate,
-  // //   required String locationMenna,
-  // //   required String locationArfa,
-  // //   required String mozdalifaNo,
-  // //  required String disability,
-  //   required String agentName,
-  //   required String password,
-  //   required String confirmPasswprd,
-  //   required File imageFile
-  // })async{
-  //   emit(RegisterLoadingState());
-  //   DioHelper.postData(url: BaseUrl.register,
-  //  data: {
-  //     'name_en':nameAr,
-  //    'name_ar':nameEn,
-  //    'phone_number':phoneNumber,
-  //    'nationality':chooseNationality,
-  //    'birthdate':convertedDateTimeBirth,
-  //    'email':email,
-  //    'visa_number':visaNo,
-  //    'passport_number':passportNo,
-  //    'border_number':borderNo,
-  //    'arrival_date':convertedDateTimeArrival,
-  //    'departure_date':convertedDateDepurat,
-  //    'location_mina':meenaLoc,
-  //    'location_mozdalifa':mozdalifaLoc,
-  //    'location_arfat':arafaLoc,
-  //    'type_of_disability':isDisability
-  //        ?chooseDisability:null,
-  //    'agent_name':agentName,
-  //    'password':password,
-  //    'password_confirmation':confirmPasswprd,
-  //    'image':isPickImage?await MultipartFile.fromFile(imageFile.path,filename: 'image.jpg'):null,
-  //  },
-  //
-  //   ).then((value) {
-  //     print(value.data);
-  //     emit(RegisterSuccessState());
-  //   }).catchError((error){
-  //     print(error.toString());
-  //     emit(RegisterErrorState(error: error.toString()));
-  //   });
-  // }
   bool registerLoading = false;
   late LoginModel loginModel;
 
@@ -681,6 +440,7 @@ class RegisterCubit extends Cubit<RegisterState> {
         'type_of_disability': isDisability ? chooseDisability : 'لاشيئ',
         'agent_name': 'chooseCompany',
         'password': password,
+        'disability':isDisability?1:0,
         'password_confirmation': confirmPassword,
         'image': isPickImage
             ? await MultipartFile.fromFile(imageFile.path,
@@ -701,10 +461,8 @@ class RegisterCubit extends Cubit<RegisterState> {
       print('tokeeeen ${loginModel.token}');
 
       token = CacheHelper.saveData(key: 'token', value: loginModel.token);
-      // fcmToken=CacheHelper.saveData(key: 'fcmToken', value: loginModel.user!.fcmToken);
       token = CacheHelper.getData(key: 'token');
-      //  fcmToken=CacheHelper.getData(key: 'fcmToken');
-
+     print('isDisability  /////////////// $isDisability');
 
       emit(RegisterSuccessState());
       print('object $token');
@@ -727,96 +485,6 @@ class RegisterCubit extends Cubit<RegisterState> {
     }
     return loginModel;
   }
-
-  // userRegister(
-  //     {required String nameAr,
-  //     required String nameEn,
-  //     required String phoneNumber,
-  //     // required String birthDate,
-  //     //  required String nationality,
-  //     required String email,
-  //     required String visaNo,
-  //     required String passportNo,
-  //     required String borderNo,
-  //     //  required String agentName,
-  //     required var password,
-  //     required var confirmPassword,
-  //     required File imageFile}) async {
-  //   try {
-  //     emit(RegisterLoadingState());
-  //     registerLoading = false;
-  //     String apiUrl = 'https://murshidguide.com/api/pilgrims/register';
-  //     Dio dio = Dio();
-  //     FormData formData = FormData.fromMap({
-  //       'name_en': nameAr,
-  //       'name_ar': nameEn,
-  //
-  //       'phone_number': phoneNumber,
-  //       'nationality': chooseNationality,
-  //       'birthdate': dateBirth,
-  //       'email': email,
-  //       'visa_number': visaNo,
-  //       'passport_number': passportNo,
-  //       'border_number': borderNo,
-  //       'arrival_date': dateArrival,
-  //       'departure_date': dateDep,
-  //       'latitude_mina':latMinna,
-  //       'longitude_mina':lngMinna,
-  //       'location_mina': meenaLoc,
-  //       'latitude_mozdalifa':latMozdalifa,
-  //       'longitude__mozdalifa':lngMozdalifa,
-  //       'location_mozdalifa': mozdalifaLoc,
-  //       'latitude_arfat':latArafa,
-  //       'longitude__arfat':lngArafa,
-  //       'location_arfat': arafaLoc,
-  //       'type_of_disability': isDisability ? chooseDisability : 'لاشيئ',
-  //       'agent_name': 'chooseCompany',
-  //       'password': password,
-  //       'password_confirmation': confirmPassword,
-  //       'image': isPickImage
-  //           ? await MultipartFile.fromFile(imageFile.path,
-  //               filename: 'image.jpg')
-  //           : null,
-  //       'company_id': chooseCompany
-  //     });
-  //     dio.options.headers["Content-Type"] = "application/json";
-  //     dio.options.headers["Accept"] = "application/json";
-  //     dio.options.headers["Authorization"] = "Bearer $token";
-  //     Response response = await dio.post(apiUrl, data: formData);
-  //     if (response.statusCode == 200) {
-  //       //print(value.data);
-  //
-  //       // getProfileData();
-  //     }
-  //     loginModel = LoginModel.fromJson(response.data);
-  //     print('tokeeeen ${loginModel.token}');
-  //
-  //     token = CacheHelper.saveData(key: 'token', value: loginModel.token);
-  //     // fcmToken=CacheHelper.saveData(key: 'fcmToken', value: loginModel.user!.fcmToken);
-  //      token=CacheHelper.getData(key: 'token');
-  //    //  fcmToken=CacheHelper.getData(key: 'fcmToken');
-  //
-  //
-  //     emit(RegisterSuccessState());
-  //     print('object $token');
-  //     print('FIRE $fcmToken');
-  //     registerLoading = true;
-  //
-  //     showToast(
-  //         text: 'تم تحديث صفحتك الشخصيه بنجاح', state: ToastState.SUCCESS);
-  //     navigateForwardReplace(MainScreen());
-  //     sendFcmToken();
-  //   } catch (error) {
-  //     //  DioHelper.handleResponse();
-  //     showToast(
-  //         text: 'حدث خطأ برجاء التأكد من المعلومات المدخله والمحاوله مره أخرى',
-  //         state: ToastState.ERROR);
-  //     print(error.toString());
-  //     emit(RegisterErrorState(error: error.toString()));
-  //     // print(response!.data);
-  //   }
-  // }
-
   sendFcmToken() {
     emit(SendFcmTokenLoadingState());
     DioHelper.postData(

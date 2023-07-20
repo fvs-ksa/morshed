@@ -25,3 +25,10 @@ class LogOutErrorState extends ProfileState{
   LogOutErrorState({required this.error});
 }
 
+class GetAllNationalityLoadingState extends ProfileState{}
+class GetAllNationalitySuccessState extends ProfileState{}
+class GetAllNationalityErrorState extends ProfileState{
+  final String error;
+  GetAllNationalityErrorState({required this.error});
+}
+

@@ -9,6 +9,7 @@ import 'package:morshed/screen/borading_screen/boarding_screen.dart';
 
 import '../../constant/const_color.dart';
 import '../../models/api_model/profile_model.dart';
+import '../../models/nationality_model.dart';
 import '../../utiels/dio_helper.dart';
 import '../../utiels/shared_pref.dart';
 import 'dart:io';
@@ -17,202 +18,29 @@ class ProfileCubit extends Cubit<ProfileState> {
   ProfileCubit() : super(InitialProfileState());
 
   static ProfileCubit get(context) => BlocProvider.of(context);
-  String? chooseNationality;
-  var nationality = [
-    "أفغاني",
-    "ألباني",
-    "جزائري",
-    "أمريكي",
-    "أندوري",
-    "أنغولي",
-    "انتيغوا",
-    "أرجنتيني",
-    "أرميني",
-    "أسترالي",
-    "نمساوي",
-    "أذربيجاني",
-    "باهامى",
-    "بحريني",
-    "بنجلاديشي",
-    "باربادوسي",
-    "بربودا",
-    "بوتسواني",
-    "بيلاروسي",
-    "بلجيكي",
-    "بليزي",
-    "بنيني",
-    "بوتاني",
-    "بوليفي",
-    "بوسني",
-    "برازيلي",
-    "بريطاني",
-    "بروناى",
-    "بلغاري",
-    "بوركيني",
-    "بورمي",
-    "بوروندي",
-    "كمبودي",
-    "كاميروني",
-    "كندي",
-    "االرأس الأخضر",
-    "وسط أفريقيا",
-    "تشادي",
-    "شيلي",
-    "صينى",
-    "كولومبي",
-    "جزر القمر",
-    "كونغولي",
-    "كوستاريكي",
-    "كرواتية",
-    "كوبي",
-    "قبرصي",
-    "تشيكي",
-    "دانماركي",
-    "جيبوتي",
-    "دومينيكاني",
-    "هولندي",
-    "تيموري شرقي",
-    "اكوادوري",
-    "مصري",
-    "إماراتي",
-    "غيني  استوائي",
-    "إريتري",
-    "إستوني",
-    "حبشي",
-    "فيجي",
-    "فلبيني",
-    "فنلندي",
-    "فرنسي",
-    "جابوني",
-    "غامبيي",
-    "جورجي",
-    "ألماني",
-    "غاني",
-    "إغريقي",
-    "جرينادي",
-    "غواتيمالي",
-    "غيني بيساوي",
-    "غيني",
-    "جوياني",
-    "هايتي",
-    "هرسكي",
-    "هندوراسي",
-    "هنغاري",
-    "إيسلندي",
-    "هندي",
-    "إندونيسي",
-    "إيراني",
-    "عراقي",
-    "إيرلندي",
-    "إيطالي",
-    "إفواري",
-    "جامايكي",
-    "ياباني",
-    "أردني",
-    "كازاخستاني",
-    "كيني",
-    "كيتياني ونيفيسياني",
-    "كويتي",
-    "قيرغيزستان",
-    "لاوسي",
-    "لاتفي",
-    "لبناني",
-    "ليبيري",
-    "ليبي",
-    "ليختنشتايني",
-    "لتواني",
-    "لكسمبرغي",
-    "مقدوني",
-    "مدغشقري",
-    "مالاوى",
-    "ماليزي",
-    "مالديفي",
-    "مالي",
-    "مالطي",
-    "مارشالي",
-    "موريتاني",
-    "موريشيوسي",
-    "مكسيكي",
-    "ميكرونيزي",
-    "مولدوفي",
-    "موناكو",
-    "منغولي",
-    "مغربي",
-    "ليسوتو",
-    "لتسواني",
-    "موزمبيقي",
-    "ناميبي",
-    "ناورو",
-    "نيبالي",
-    "نيوزيلندي",
-    "ني فانواتي",
-    "نيكاراغوا",
-    "نيجري",
-    "كوري شمالي",
-    "إيرلندي شمالي",
-    "نرويجي",
-    "عماني",
-    "باكستاني",
-    "بالاوي",
-    "فلسطيني",
-    "بنمي",
-    "بابوا غينيا الجديدة",
-    "باراغواياني",
-    "بيروفي",
-    "بولندي",
-    "برتغالي",
-    "قطري",
-    "روماني",
-    "روسي",
-    "رواندي",
-    "لوسياني",
-    "سلفادوري",
-    "ساموايان",
-    "سان مارينيز",
-    "ساو توميان",
-    "سعودي",
-    "سكتلندي",
-    "سنغالي",
-    "صربي",
-    "سيشلي",
-    "سيرا ليوني",
-    "سنغافوري",
-    "سلوفاكي",
-    "سلوفيني",
-    "جزر سليمان",
-    "صومالي",
-    "جنوب افريقيي",
-    "كوري جنوبي",
-    "إسباني",
-    "سري لانكي",
-    "سوداني",
-    "سورينامي",
-    "سوازي",
-    "سويدي",
-    "سويسري",
-    "سوري",
-    "تايواني",
-    "طاجيكي",
-    "تنزاني",
-    "التايلاندي",
-    "توغواني",
-    "تونجاني",
-    "ترينيدادي أو توباغوني",
-    "تونسي",
-    "تركي",
-    "توفالي",
-    "أوغندي",
-    "أوكراني",
-    "أوروجواي",
-    "أوزبكستاني",
-    "فنزويلي",
-    "فيتنامي",
-    "ويلزي",
-    "يمني",
-    "زامبي",
-    "زيمبابوي"
-  ];
 
+
+  String? chooseNationality;
+  late NationalityModel nationalityModel;
+  bool isGetNationality = false;
+  getAllNationality(){
+    isGetNationality = false;
+    emit(GetAllNationalityLoadingState());
+    DioHelper.getData(url: 'https://murshidguide.com/api/listNationality').then((value) {
+      print(value.data);
+      nationalityModel=NationalityModel.fromJson(value.data);
+      emit(GetAllNationalitySuccessState());
+      isGetNationality = true;
+    }).catchError((error){
+      print(error.toString());
+      emit(GetAllNationalityErrorState(error: error.toString()));
+    });
+  }
+  onChangeNationalityName(onChange) {
+    chooseNationality = onChange;
+    print(chooseNationality);
+    emit(ChangeNationalityDropDownProfileState());
+  }
 
   String? chooseDisability;
   List<String> disabilities = [
@@ -229,10 +57,7 @@ class ProfileCubit extends Cubit<ProfileState> {
   }
 
 
-  onChangeCountryName(onChange) {
-    chooseNationality = onChange;
-    emit(ChangeNationalityDropDownProfileState());
-  }
+
 
   String? convertedDateTime;
   DateTime? dateTime;

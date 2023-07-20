@@ -37,7 +37,7 @@ class GuidesScreen extends StatelessWidget {
             child: Scaffold(
               appBar: AppBar(
                 leading: backButtonWidget(context: context),
-                title: Text('المرشدين'),
+                title: const Text('المرشدين'),
                 centerTitle: true,
                 actions: [SvgPicture.asset('assets/svg/')],
                 backgroundColor: whiteColor,
@@ -47,7 +47,7 @@ class GuidesScreen extends StatelessWidget {
                     child: Padding(
                       padding:
                       EdgeInsetsDirectional.only(start: 18.0.w, end: 18.w,bottom: 18.h),
-                      child:  AutoSizeText('خدمه البحث عن طريق الاسم ورقم الجوال ما زالت تحت التطوير',maxLines: 1,style: TextStyle(
+                      child:  const AutoSizeText('خدمه البحث عن طريق الاسم ورقم الجوال ما زالت تحت التطوير',maxLines: 1,style: TextStyle(
                           color: Colors.red,
                          // fontFamily: 'cairo',
                           fontWeight: FontWeight.bold
@@ -134,7 +134,12 @@ class GuidesScreen extends StatelessWidget {
                             ],
                           ));
                     }),
-              ):Center(child: CircularProgressIndicator()),
+              ):Center(child: CircularProgressIndicator.adaptive(
+                backgroundColor: orangeColor,
+                valueColor: AlwaysStoppedAnimation<Color>(
+                  darkMainColor, //<-- SEE HERE
+                ),
+              )),
             ),
           );
         });

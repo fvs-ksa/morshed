@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -5,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:morshed/bloc/general_cubit/general_cubit.dart';
 import 'package:morshed/bloc/general_cubit/general_state.dart';
+import 'package:morshed/screen/bottom_navigations_screens/widget/resisdance_Widget.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../component/component.dart';
@@ -69,77 +71,75 @@ class MyResidenceAndTravels extends StatelessWidget {
                       //   labelText: LocaleKeys.residentialAddress.tr(),
                       //   context: context,
                       // ),
-                      GestureDetector(
-                        onTap: ()async{
-                          await launchUrl(Uri.parse
-                            ('google.navigation:q='
-                              '${generalCubit.profileModel.data!.latitudeMina}, '
-                              '${generalCubit.profileModel.data!.longitudeMina}'
-                              '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
+                      clikedLocationWidget(controller: mennaLocationConroller, fct: (){
+                        launchUrl(Uri.parse(
+                            'google.navigation:q='
+                                '${generalCubit.profileModel.data!.latitudeMina}, '
+                                '${generalCubit.profileModel.data!.longitudeMina}'
+                                '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
+                      }, context: context, labelText: 'عنوان مخيم منى'),
 
-                        },
-                        child: CustomTextField(
-                          controller: mennaLocationConroller,
-                            isEnabled: false,
-                            labelText: 'مخيم منى', ),
-                      ),
-                      GestureDetector(
-                        onTap: ()async{
-                          await launchUrl(Uri.parse
-                            ('google.navigation:q='
-                              '${generalCubit.profileModel.data!.latitudeArfat}, '
-                              '${generalCubit.profileModel.data!.longitudeArfat}'
-                              '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
+                      clikedLocationWidget(controller: arafaLocationController, fct: (){
+                        launchUrl(Uri.parse(
+                            'google.navigation:q='
+                                '${generalCubit.profileModel.data!.latitudeArfat}, '
+                                '${generalCubit.profileModel.data!.longitudeArfat}'
+                                '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
+                      }, context: context, labelText: 'عنوان مخيم عرفه'),
 
-                        },
-                        child: CustomTextField(
-                          controller: arafaLocationController,
-                            isEnabled: false,
-                            labelText: 'مخيم عرفه', ),
-                      ),
+                      clikedLocationWidget(controller: mozdalifaLocationController, fct: (){
+                        launchUrl(Uri.parse(
+                            'google.navigation:q='
+                                '${generalCubit.profileModel.data!.latitudeMozdalifa}, '
+                                '${generalCubit.profileModel.data!.longitudeMozdalifa}'
+                                '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
+                      }, context: context, labelText: 'عنوان مخيم المزدلفه'),
 
-                      GestureDetector(
-                        onTap: ()async{
-                          await launchUrl(Uri.parse
-                            ('google.navigation:q='
-                              '${generalCubit.profileModel.data!.latitudeMozdalifa}, '
-                              '${generalCubit.profileModel.data!.longitudeMozdalifa}'
-                              '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
 
-                        },
-                        child: CustomTextField(
-                            controller: mozdalifaLocationController,
-                            isEnabled: false,
-                            labelText: 'مخيم المزدلفه', ),
-                      ),
-                      GestureDetector(
-                        onTap: ()async{
-                          await launchUrl(Uri.parse
-                            ('google.navigation:q='
-                              '${generalCubit.profileModel.data!.latitudeMakkah}, '
-                              '${generalCubit.profileModel.data!.longitudeMakkah}'
-                              '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
+                      clikedLocationWidget(controller: maccaHotelLocationController, fct: (){
+                        launchUrl(Uri.parse(
+                            'google.navigation:q='
+                                '${generalCubit.profileModel.data!.latitudeMakkah}, '
+                                '${generalCubit.profileModel.data!.longitudeMakkah}'
+                                '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
+                      }, context: context, labelText: 'عنوان الفندق في مكه المكرمه'),
 
-                        },
-                        child: CustomTextField(
-                            controller: maccaHotelLocationController,
-                            isEnabled: false,
-                            labelText: 'عنوان الفندق في مكه المكرمه', ),
-                      ),
-                      GestureDetector(
-                        onTap: ()async{
-                          await launchUrl(Uri.parse
-                            ('google.navigation:q='
-                              '${generalCubit.profileModel.data!.latitudeMadinah}, '
-                              '${generalCubit.profileModel.data!.longitudeMadinah}'
-                              '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
 
-                        },
-                        child: CustomTextField(
-                            controller: madinahHotelNumberController,
-                            isEnabled: false,
-                            labelText: 'عنوان الفندق في المدينه المنوره', ),
-                      ),
+                      clikedLocationWidget(controller: madinahHotelNumberController, fct: (){
+                        launchUrl(Uri.parse(
+                            'google.navigation:q='
+                                '${generalCubit.profileModel.data!.latitudeMadinah}, '
+                                '${generalCubit.profileModel.data!.longitudeMadinah}'
+                                '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
+                      }, context: context, labelText:  'عنوان الفندق في المدينه المنوره'),
+                      // GestureDetector(
+                      //   onTap: ()async{
+                      //     await launchUrl(Uri.parse
+                      //       ('google.navigation:q='
+                      //         '${generalCubit.profileModel.data!.latitudeMakkah}, '
+                      //         '${generalCubit.profileModel.data!.longitudeMakkah}'
+                      //         '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
+                      //
+                      //   },
+                      //   child: CustomTextField(
+                      //       controller: maccaHotelLocationController,
+                      //       isEnabled: false,
+                      //       labelText: 'عنوان الفندق في مكه المكرمه', ),
+                      // ),
+                      // GestureDetector(
+                      //   onTap: ()async{
+                      //     await launchUrl(Uri.parse
+                      //       ('google.navigation:q='
+                      //         '${generalCubit.profileModel.data!.latitudeMadinah}, '
+                      //         '${generalCubit.profileModel.data!.longitudeMadinah}'
+                      //         '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
+                      //
+                      //   },
+                      //   child: CustomTextField(
+                      //       controller: madinahHotelNumberController,
+                      //       isEnabled: false,
+                      //       labelText: 'عنوان الفندق في المدينه المنوره', ),
+                      // ),
                       CustomTextField(
                           isEnabled: false,
                         controller: visaNumberController,

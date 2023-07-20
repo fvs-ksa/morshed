@@ -60,20 +60,28 @@ class _ProvidersLocationScreenState extends State<ProvidersLocationScreen> {
           return BlocConsumer<ShowOfficesAndProviderInfoCubit,
               ShowOfficesAndProviderInfoState>(
               listener: (context, state) {},
-            // bloc: showDataCubit.getAllOfficesData(),
               builder: (context, state) {
-                //  showDataCubit.addMarker();
                 return StreamBuilder(
                  stream: showDataCubit.dataStream,
-                 // stream:_dataSource.dataStream ,
                   builder: (context,snapShot) {
                     if(snapShot.connectionState==ConnectionState.waiting){
-                      return Center(child: CircularProgressIndicator(),);
+                      return Center(child: CircularProgressIndicator.adaptive(
+                        backgroundColor: orangeColor,
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                          darkMainColor, //<-- SEE HERE
+                        ),
+                      ),);
                     }else{
                       return Scaffold(
                         body: locationCubit.position?.latitude == null
-                            ? Center(child: CircularProgressIndicator())
-                            : Stack(
+                            ? Center(child: CircularProgressIndicator.adaptive(
+                          backgroundColor: orangeColor,
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            darkMainColor, //<-- SEE HERE
+                          ),
+                        ))
+                            :showDataCubit.getProvidersModel.providers!.isEmpty?
+                        Center(child: Text('لا يوجد مقدمي خدمات إرشاد متاحين على الخريطه لديك حتى الان',textAlign: TextAlign.center,),): Stack(
                               children: [
                                 GoogleMap(
                           gestureRecognizers: Set()
@@ -106,8 +114,8 @@ class _ProvidersLocationScreenState extends State<ProvidersLocationScreen> {
                                     alignment: AlignmentDirectional.bottomCenter,
                                     child: Container(
                                         height: 200,
-                                        padding: EdgeInsetsDirectional.all(18),
-                                        margin: EdgeInsetsDirectional.all(15),
+                                        padding: const EdgeInsetsDirectional.all(18),
+                                        margin: const EdgeInsetsDirectional.all(15),
                                         decoration: BoxDecoration(
                                           color: Colors.white,
                                           borderRadius: BorderRadius.circular(24),

@@ -142,7 +142,13 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
                 body: TabBarView(
                   controller: tabController,
                   children:  [
-                    submitReport.isAssistanceWaysLoading? MySubmitReport():Center(child: CircularProgressIndicator()),
+                    submitReport.isAssistanceWaysLoading? MySubmitReport():Center(child: CircularProgressIndicator.adaptive(
+                      backgroundColor: orangeColor,
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        darkMainColor, //<-- SEE HERE
+                      ),
+                    )
+                    ),
                     SubmitReportAnotherPerson(),
                   ],
                 ),

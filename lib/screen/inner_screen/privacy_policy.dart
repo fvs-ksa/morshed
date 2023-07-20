@@ -10,6 +10,7 @@ import 'package:morshed/bloc/another_services_cubit/terms_cubit/terms_state.dart
 import 'package:morshed/component/guide_for_hajj_widget.dart';
 
 import '../../../../translation/locale_keys.g.dart';
+import '../../constant/const_color.dart';
 
 class TermsScreen extends StatelessWidget {
   const TermsScreen({Key? key}) : super(key: key);
@@ -25,7 +26,12 @@ class TermsScreen extends StatelessWidget {
                 context: context,
                 title: LocaleKeys.privacyPolicy.tr(),
                 image: 'assets/images/من نحن.png'),
-            body:state is GetTermsLoadingState?Center(child: CircularProgressIndicator(),): Padding(
+            body:state is GetTermsLoadingState?Center(child: CircularProgressIndicator.adaptive(
+              backgroundColor: orangeColor,
+              valueColor: AlwaysStoppedAnimation<Color>(
+                darkMainColor, //<-- SEE HERE
+              ),
+            ),): Padding(
               padding: EdgeInsets.symmetric(horizontal: 15.w),
               child: SingleChildScrollView(
                 child: Column(

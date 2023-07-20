@@ -1,10 +1,13 @@
+import 'package:dropdown_search/dropdown_search.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:morshed/bloc/profile_cubit/cubit.dart';
 import 'package:morshed/bloc/profile_cubit/state.dart';
+import 'package:morshed/bloc/register_cubit/cubit.dart';
 import 'package:morshed/component/component.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
@@ -74,23 +77,25 @@ class ProfileScreen extends StatelessWidget {
                             .image!
                             : 'https://firebasestorage.googleapis.com/v0/b/murshid-5cf3e.appspot.com/o/profile.png?alt=media&token=9e46dec9-ea36-4118-b7d3-c7d298b302d7'),)),
               body: profileCubit.isLoading == false ? Center(
-                  child: CircularProgressIndicator()) : SingleChildScrollView(
+                  child: CircularProgressIndicator.adaptive(
+                    backgroundColor: orangeColor,
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      darkMainColor, //<-- SEE HERE
+                    ),
+                  )) : SingleChildScrollView(
                 child: Padding(
                   padding: EdgeInsetsDirectional.only(
                       start: 40.w, end: 20.w, top: 30),
                   child: Column(
-                    //crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CustomTextField(
                         controller: arNameController,
                         labelText: LocaleKeys.arabicNamePassport.tr(),
-                        // hintText: '',
 
                       ),
                       CustomTextField(
                           controller: enNameController,
                           labelText: LocaleKeys.englishNamePassport.tr(),
-                          // hintText: '',
                          ),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -99,7 +104,6 @@ class ProfileScreen extends StatelessWidget {
                               child: CustomTextField(
                                   controller: phoneController,
                                   labelText: LocaleKeys.phoneNumber.tr(),
-                                  // hintText: 'hintText',
                                   keyboardType: TextInputType.number)),
                           SizedBox(
                             width: 10.w,
@@ -117,31 +121,91 @@ class ProfileScreen extends StatelessWidget {
                               )),
                         ],
                       ),
-                      dropDownButton(
-                        items: profileCubit.nationality.map((e) {
-                          return DropdownMenuItem(
-                            child: FittedBox(
-                              child: Text(
-                                e.toString(),
-                                style: Theme
-                                    .of(context)
-                                    .textTheme
-                                    .titleSmall,
+                      Theme(
+                        data: ThemeData(
+                            fontFamily: 'Cairo',
+
+                            textTheme:  TextTheme(subtitle1: GoogleFonts.cairo(fontSize: 12.sp,color: greyColor,))
+                        ),
+                        child: Container(
+                          padding: EdgeInsets.zero,
+                          height: 69.h,
+                          child: DropdownSearch(
+                            popupProps: PopupProps.menu(
+                                searchFieldProps: TextFieldProps(
+                                  enableSuggestions: true,
+                                  decoration: InputDecoration(
+
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                      borderSide: BorderSide(color: darkMainColor),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                      borderSide: BorderSide(color: darkMainColor),
+                                    ),
+                                  ),
+                                  style: TextStyle(color: greyColor),
+                                ),
+                                showSearchBox: true
+                            ),
+                            dropdownButtonProps: DropdownButtonProps(color: greyColor),
+                            items: RegisterCubit.get(context).nationalityModel.data!.map((e) => e.name).toList(growable: true),
+                            dropdownDecoratorProps:  DropDownDecoratorProps(
+
+                              baseStyle: TextStyle(color: greyColor,fontSize: 12.sp),
+
+                              dropdownSearchDecoration: InputDecoration(
+
+                                  focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: darkMainColor),
+                                      borderRadius: BorderRadius.circular(15)
+                                  ),
+                                  border: OutlineInputBorder(
+                                      borderSide: BorderSide(color: darkMainColor),
+                                      borderRadius: BorderRadius.circular(15)
+                                  ),
+                                  helperStyle: TextStyle(color: greyColor),
+                                  fillColor: Colors.deepOrangeAccent,
+                                  labelText: LocaleKeys.nationality.tr(),
+                                  hintText: "",
+                                  labelStyle: GoogleFonts.cairo(color: greyColor)
                               ),
                             ),
-                            value: e.toString(),
-                          );
-                        }).toList(),
-                        value: profileCubit.chooseNationality,
-                        hint: profileCubit.chooseNationality == null
-                            ? profileCubit.profileModel.data!.nationality!
-                            : LocaleKeys.nationality.tr(),
-                        fct: (onChange) {
-                          profileCubit.onChangeCountryName(onChange);
-                        },
-                        context: context,
-                        //  validator: () {}
+
+                            onChanged: (onChange){
+                              profileCubit.onChangeNationalityName(onChange);
+                              print(onChange);
+                            },
+                            selectedItem: profileCubit.chooseNationality,
+                          ),
+                        ),
                       ),
+                      // dropDownButton(
+                      //   items: profileCubit.nationality.map((e) {
+                      //     return DropdownMenuItem(
+                      //       child: FittedBox(
+                      //         child: Text(
+                      //           e.toString(),
+                      //           style: Theme
+                      //               .of(context)
+                      //               .textTheme
+                      //               .titleSmall,
+                      //         ),
+                      //       ),
+                      //       value: e.toString(),
+                      //     );
+                      //   }).toList(),
+                      //   value: profileCubit.chooseNationality,
+                      //   hint: profileCubit.chooseNationality == null
+                      //       ? profileCubit.profileModel.data!.nationality!
+                      //       : LocaleKeys.nationality.tr(),
+                      //   fct: (onChange) {
+                      //     profileCubit.onChangeCountryName(onChange);
+                      //   },
+                      //   context: context,
+                      //   //  validator: () {}
+                      // ),
                       SizedBox(
                         height: 10.h,
                       ),
@@ -155,8 +219,6 @@ class ProfileScreen extends StatelessWidget {
                               controller: birthDateController,
                               labelText:
                               LocaleKeys.dateOfBirth.tr(),
-                              // hintText: profileCubit.convertedDateTime ??
-                              //     LocaleKeys.dateOfBirth.tr(),
                             ),
                           ),
                           SizedBox(
@@ -191,7 +253,6 @@ class ProfileScreen extends StatelessWidget {
                           labelText: LocaleKeys.boardNo.tr(),
                           controller: borderController,
                       ),
-                   //   Text('نوع الاعاقه',style: TextStyle(fontSize: 10),),
                       profileCubit.profileModel.data!.disability!
                           ? dropDownButton
                         (items: profileCubit.disabilities.map((e) {
@@ -210,13 +271,11 @@ class ProfileScreen extends StatelessWidget {
                           labelText: LocaleKeys.officialMissionName.tr(),
                           controller: groupNoController,
                           isEnabled: false,
-                          //context: context
                       ),
                       CustomTextField(
                           controller: agentController,
                           isEnabled: false,
                           labelText: LocaleKeys.agentName.tr(),
-                         // context: context
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(
@@ -225,8 +284,6 @@ class ProfileScreen extends StatelessWidget {
                             ? CircularProgressIndicator.adaptive(
                           backgroundColor: orangeColor,)
                             : mainButton(
-                          // width: screenSize.width * 0.8,
-                          //   height: screenSize.height * 0.07,
                             text: LocaleKeys.edit.tr(),
                             color: orangeColor,
                             context: context,
@@ -236,21 +293,11 @@ class ProfileScreen extends StatelessWidget {
                                 nameEn: enNameController.text,
                                 phone: phoneController.text,
                                 context: context,
-                                // birthDate: birthDate,
-                                // nationality: nationality,
-                                // locationMenna: locationMenna,
                                 email: emailController.text,
                                 passport: passportNoController.text,
                                 visaNo: visaNoController.text,
                                 borderNo: borderController.text,
                                 agentName: agentController.text,
-
-
-                                // birthDate: birthDateController.text,
-                                // nationality: '',
-                                // arrivalDate: arrivalDate,
-                                // depurationDate: depurationDate,
-                                // image: image
                               );
                             }),
                       )

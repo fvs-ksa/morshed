@@ -76,7 +76,12 @@ class AddCompanionsScreen extends StatelessWidget {
                           ),
                         ),
                         Spacer(),
-                       state is AddCompanionLoadingState?CircularProgressIndicator(): mainButton(
+                       state is AddCompanionLoadingState?CircularProgressIndicator.adaptive(
+                         backgroundColor: orangeColor,
+                         valueColor: AlwaysStoppedAnimation<Color>(
+                           darkMainColor, //<-- SEE HERE
+                         ),
+                       ): mainButton(
                             text: LocaleKeys.add.tr(),
                             color: darkMainColor,
                             context: context,

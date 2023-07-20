@@ -18,6 +18,7 @@ class CustomTextField extends StatefulWidget {
   final double? minHeight;
   final double? maxWidth;
   final double? minWidth;
+  final Function? validator;
   final bool? secure;
   bool isBig = false;
   bool isEnabled = true;
@@ -26,7 +27,7 @@ class CustomTextField extends StatefulWidget {
     super.key,
     required this.labelText,
     this.hintText,
-     this.controller,
+    this.controller,
     this.secure,
     this.isBig = false,
     this.isEnabled = true,
@@ -35,6 +36,7 @@ class CustomTextField extends StatefulWidget {
     this.onTap,
     this.length,
     this.lines,
+    this.validator,
     this.maxHeight,
     this.minHeight,
     this.maxWidth,
@@ -80,10 +82,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 fontSize: 14.sp, fontWeight: FontWeight.w600, color: greyColor),
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(20.sp))),
-        // validator: (e) {
-        //   return validator!(e);
-        //   // return null;
-        // },
+        validator: (val) {
+          return widget.validator!(val);
+        },
         keyboardType: widget.keyboardType,
         obscureText: widget.secure ?? false,
         enabled: widget.isEnabled,

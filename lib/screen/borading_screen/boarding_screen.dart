@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,13 +11,66 @@ import 'package:morshed/component/auth_header_widget.dart';
 import 'package:morshed/component/component.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/models/boarding_model.dart';
+import 'package:morshed/screen/borading_screen/no_internet.dart';
+import 'package:morshed/screen/bottom_navigations_screens/main_screen.dart';
+import 'package:morshed/utiels/shared_pref.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'account_type_screen.dart';
 
-class BoardingScreen extends StatelessWidget {
-  var pageController = PageController();
+class BoardingScreen extends StatefulWidget {
+  @override
+  State<BoardingScreen> createState() => _BoardingScreenState();
+}
 
+class _BoardingScreenState extends State<BoardingScreen> {
+  var pageController = PageController();
+  StreamSubscription? connection;
+  bool? isOffline;
+  @override
+  void initState() {
+    connection = Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
+      // whenevery connection status is changed.
+      if(result == ConnectivityResult.none){
+        print('ConnectivityResult.none');
+        //there is no any connection
+        setState(() {
+          isOffline = true;
+        });
+      }else if(result == ConnectivityResult.mobile){
+        //connection is mobile data network
+        print(' ConnectivityResult.mobile');
+        setState(() {
+          isOffline = false;
+        });
+      }else if(result == ConnectivityResult.wifi){
+        //connection is from wifi
+        print(' ConnectivityResult.wifi');
+        setState(() {
+          isOffline = false;
+        });
+      }else if(result == ConnectivityResult.ethernet){
+        print('ConnectivityResult.ethernet');
+        //connection is from wired connection
+        setState(() {
+          isOffline = false;
+        });
+      }
+      // else if(result == ConnectivityResult.bluetooth){
+      //   //connection is from bluetooth threatening
+      //   setState(() {
+      //     isOffline = false;
+      //   });
+      // }
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    connection!.cancel();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     var boardingCubit = BoardingCubit.get(context);
@@ -22,7 +78,7 @@ class BoardingScreen extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           return Scaffold(
-            body: Padding(
+            body: isOffline==false?Padding(
               padding: EdgeInsetsDirectional.only(
                   top: 100.h, end: 30.w, start: 30.w),
               child: Column(
@@ -89,7 +145,7 @@ class BoardingScreen extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
+            ):NoInternetScreen(child: CacheHelper.getData(key: 'token')==null?BoardingScreen():MainScreen()),
           );
         });
   }

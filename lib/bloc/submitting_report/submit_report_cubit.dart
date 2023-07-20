@@ -200,6 +200,7 @@ class SubmitReportCubit extends Cubit<SubmitReportState> {
       isGetUserById = true;
     }).catchError((error) {
       print(error.toString());
+      showToast(text: 'الرقم التسلسلي غير موجود', state: ToastState.ERROR);
       emit(GetUserByIdErrorState(error: error.toString()));
     });
   }

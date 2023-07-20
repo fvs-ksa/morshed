@@ -75,8 +75,7 @@ class ShowOfficesAndProviderInfoCubit
 
 
   late GetProvidersModel getProvidersModel;
-  final StreamController<GetProvidersModel> _dataStreamController =
-  StreamController();
+  final StreamController<GetProvidersModel> _dataStreamController = StreamController.broadcast();
 
   Stream<GetProvidersModel> get dataStream => _dataStreamController.stream;
   List<Marker> providerMarkers = [];

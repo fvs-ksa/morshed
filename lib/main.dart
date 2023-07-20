@@ -1,11 +1,11 @@
-
-
+import 'package:country_picker/country_picker.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:morshed/bloc/account_type_cubit/cubit.dart';
@@ -71,8 +71,8 @@ void main() async {
     // userType = CacheHelper.getData(key: 'user_type');
     print('<<<<<<<<<<<<<<<<$token>>>>>>>>>>>>>>>>');
     widget = MainScreen(
-        // userIndex: userType,
-        );
+      // userIndex: userType,
+    );
     // final providerLocationService = ProviderLocationService();
     // providerLocationService.start(context: context);
   }
@@ -80,15 +80,20 @@ void main() async {
   ///CacheHelper.getData(key: 'isEnglish');
   runApp(DevicePreview(
     enabled: false,
-    builder: (context) => EasyLocalization(
-        supportedLocales: const [Locale('ar'), Locale('en')],
-        path: 'assets/langs',
-        assetLoader: const CodegenLoader(),
-        startLocale: const Locale('ar'),
-        fallbackLocale: const Locale('ar'),
-        child: MyApp(
-          startWidget: widget,
-        )),
+    builder: (context) {
+
+    return  EasyLocalization(
+      //,  Locale('en')
+          supportedLocales:const  [Locale('ar')],
+          path: 'assets/langs',
+          assetLoader: const CodegenLoader(),
+          startLocale:  Locale('ar'),
+          fallbackLocale:  Locale('ar'),
+          child: MyApp(
+            startWidget: widget,
+          ));
+    }
+
   ));
 }
 
@@ -99,7 +104,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    myLocale = EasyLocalization.of(context)?.currentLocale;
+    myLocale = EasyLocalization.of(context)
+        ?.currentLocale;
     print('my locale ${myLocale}');
     isEnglish = CacheHelper.getData(key: 'isEnglish') ?? false;
     return MediaQuery(
@@ -107,47 +113,68 @@ class MyApp extends StatelessWidget {
       child: MultiBlocProvider(
         providers: [
           BlocProvider<BoardingCubit>(
-              create: (context) => BoardingCubit()
+              create: (context) =>
+              BoardingCubit()
                 ..initialization()
                 ..getCurrentLocation()
                 ..getUserCurrentLocation(context)
           ),
           BlocProvider<RegisterCubit>(
-              create: (context) => RegisterCubit()
+              create: (context) =>
+              RegisterCubit()
+                ..getAllNationality()
                 ..getCurrentLocation()
                 ..getUserCurrentLocation(context)
                 ..getAllCompanies()),
           BlocProvider<LoginCubit>(create: (context) => LoginCubit()),
           BlocProvider<GeneralCubit>(
-              create: (context) => GeneralCubit()..initialization()),
+              create: (context) =>
+              GeneralCubit()
+                ..initialization()),
           BlocProvider<ChatWithSupportCubit>(
               create: (context) => ChatWithSupportCubit()),
           BlocProvider<ProfileCubit>(
-              create: (context) => ProfileCubit()..getProfileDate()),
+              create: (context) =>
+              ProfileCubit()
+                ..getProfileDate()),
           BlocProvider<SettingCubit>(create: (context) => SettingCubit()),
           BlocProvider<SubmitReportCubit>(
-              create: (context) => SubmitReportCubit()
+              create: (context) =>
+              SubmitReportCubit()
                 ..getMyReports()
                 ..getAssistanceWays()),
           BlocProvider<AccountTypeCubit>(
               create: (context) => AccountTypeCubit()),
           BlocProvider<NotificationCubit>(
-              create: (context) => NotificationCubit()..getNotificationData()),
+              create: (context) =>
+              NotificationCubit()
+                ..getNotificationData()),
           BlocProvider<AddCompanionsCubit>(
-            create: (context) => AddCompanionsCubit()..getMyCompanions(),
+            create: (context) =>
+            AddCompanionsCubit()
+              ..getMyCompanions(),
           ),
           BlocProvider<TermsCubit>(
-              create: (context) => TermsCubit()..getTermsData()),
+              create: (context) =>
+              TermsCubit()
+                ..getTermsData()),
           BlocProvider<GuidesCubit>(
-              create: (context) => GuidesCubit()..getAllGuides()),
+              create: (context) =>
+              GuidesCubit()
+                ..getAllGuides()),
           BlocProvider<AboutUsCubit>(
-              create: (context) => AboutUsCubit()..getAboutUsInfo()),
+              create: (context) =>
+              AboutUsCubit()
+                ..getAboutUsInfo()),
           BlocProvider<LocationCubit>(
-              create: (context) => LocationCubit()
+              create: (context) =>
+              LocationCubit()
                 ..getCurrentLocation()
                 ..getUserCurrentLocation(context)),
           BlocProvider<ShowOfficesAndProviderInfoCubit>(
-              create: (context) => ShowOfficesAndProviderInfoCubit()..getAllOfficesData()),
+              create: (context) =>
+              ShowOfficesAndProviderInfoCubit()
+                ..getAllOfficesData()),
         ],
         child: ScreenUtilInit(
             designSize: Size(414, 896),
@@ -155,23 +182,44 @@ class MyApp extends StatelessWidget {
             // useInheritedMediaQuery: true,
             builder: (context, child) {
               return MaterialApp(
-                navigatorKey: NavigationService.navigate().navigationKey,
+                navigatorKey: NavigationService
+                    .navigate()
+                    .navigationKey,
                 debugShowCheckedModeBanner: false,
                 // locale: DevicePreview.locale(context),
                 builder: (context, widget) {
                   return MediaQuery(
                       data:
-                          MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+                      MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
                       child: widget!);
                 },
                 // builder: DevicePreview.appBuilder,
                 locale: context.locale,
                 supportedLocales: context.supportedLocales,
                 localizationsDelegates: context.localizationDelegates,
+                // localizationsDelegates: const [
+                //      CountryLocalizations.delegate,
+                //   GlobalMaterialLocalizations.delegate,
+                //   GlobalWidgetsLocalizations.delegate,
+                //  // context.localizationDelegates,
+                //      // GlobalMaterialLocalizations.delegate,
+                //      // GlobalCupertinoLocalizations.delegate,
+                //      // GlobalWidgetsLocalizations.delegate,
+                // ],
+
+               // myLocale == 'ar' ?
+               //  [
+               //    CountryLocalizations.delegate.,
+               //    GlobalMaterialLocalizations.delegate,
+               //    GlobalCupertinoLocalizations.delegate,
+               //    GlobalWidgetsLocalizations.delegate,
+               //  ],
+
                 title: 'مرشد',
                 theme: ThemeData(
                   fontFamily: 'cairo',
                   primarySwatch: Palette.primaryColor,
+                  visualDensity: VisualDensity.adaptivePlatformDensity,
                   textTheme: responsiveTextTheme(context),
                 ),
                 home: startWidget,

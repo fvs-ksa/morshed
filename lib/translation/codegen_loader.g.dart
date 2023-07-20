@@ -66,7 +66,8 @@ class CodegenLoader extends AssetLoader {
     "madinaHotelName": "اسم الفندق في المدينة المنورة",
     "welcomeToMorshed": "أهلًا بك في تطبيق مرشد لا تقلق نحن هنا لخدمتك",
     "reportingCaseOfMentalBreakdown": "تقديم بلاغ\nلحالة توهان",
-    "videoCall": "الاتصال \nالمرئي",
+    "videoCall": " طلب\n مرشد ",
+
     "otherServices": "خدمات أخرى",
     "counselingOfficesAndCounselors": "مكاتب الإرشاد و المرشدين",
     "home": "الرئيسية",

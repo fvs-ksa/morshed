@@ -17,17 +17,20 @@ class MySubmitReport extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
 
-          return  Padding(
-            padding: EdgeInsetsDirectional.symmetric(
-                horizontal: 20.w, vertical: 15.w),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ReportDetailsWidget(index: 1),
+          return  GestureDetector(
+            onTap: (){FocusManager.instance.primaryFocus!.unfocus();},
+            child: Padding(
+              padding: EdgeInsetsDirectional.symmetric(
+                  horizontal: 20.w, vertical: 15.w),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ReportDetailsWidget(index: 1),
 
 
-                ],
+                  ],
+                ),
               ),
             ),
           );

@@ -47,13 +47,16 @@ class _OfficesLocationScreenState extends State<OfficesLocationScreen> {
           return BlocConsumer<ShowOfficesAndProviderInfoCubit,
                   ShowOfficesAndProviderInfoState>(
               listener: (context, state) {},
-              //bloc: ,
               builder: (context, state) {
-                //  showDataCubit.addMarker();
                 return Scaffold(
                   body: showDataCubit.isGetOfficesData == false ||
                           locationCubit.position?.latitude == null
-                      ? Center(child: CircularProgressIndicator())
+                      ? Center(child:CircularProgressIndicator.adaptive(
+                    backgroundColor: orangeColor,
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      darkMainColor, //<-- SEE HERE
+                    ),
+                  ))
                       : Stack(
                           children: [
                             GoogleMap(
@@ -195,17 +198,3 @@ class _OfficesLocationScreenState extends State<OfficesLocationScreen> {
         });
   }
 }
-// Row(
-// children: [
-// CircleAvatar(
-// radius: 20,
-// backgroundImage: AssetImage(
-// 'assets/images/officesName.png'),
-// ),
-// SizedBox(width: 10,),
-// Text(showDataCubit
-//     .getAllOffices
-//     .offices![showDataCubit.officeId ?? 0]
-//     .name!),
-// ],
-// ),

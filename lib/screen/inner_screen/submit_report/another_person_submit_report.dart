@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_state.dart';
+import 'package:morshed/component/animation_component.dart';
 import 'package:morshed/component/component.dart';
 import 'package:morshed/component/cutom_text_filed.dart';
 import 'package:morshed/screen/inner_screen/locations/set_location_on_map.dart';
@@ -17,40 +18,40 @@ import 'package:morshed/bloc/location_cubit/cubit.dart';
 import 'package:morshed/bloc/location_cubit/state.dart';
 
 class SubmitReportAnotherPerson extends StatelessWidget {
-  const SubmitReportAnotherPerson({Key? key}) : super(key: key);
-
+ final TextEditingController idController = TextEditingController();
+   SubmitReportAnotherPerson({Key? key}) : super(key: key);
+ // final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+
     var submitReport = SubmitReportCubit.get(context);
-    TextEditingController idController=TextEditingController();
-  //  var locationCubit=LocationCubit.get(context);
-    return BlocConsumer<LocationCubit,LocationState>(
-      listener: (context,state){},
-      builder: (context,state) {
-        return BlocConsumer<SubmitReportCubit, SubmitReportState>(
-            listener: (context, state) {},
-            builder: (context, state) {
-            //  TextEditingController reportLocationController=TextEditingController(text:reportLocation==''? locationCubit.address:reportLocation);
-              return GestureDetector(
-                onTap: () {
-                  FocusManager.instance.primaryFocus?.unfocus();
-                },
-                child: Padding(
+
+    //  var locationCubit=LocationCubit.get(context);
+    return BlocConsumer<LocationCubit, LocationState>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          return BlocConsumer<SubmitReportCubit, SubmitReportState>(
+              listener: (context, state) {},
+              builder: (context, state) {
+                //  TextEditingController reportLocationController=TextEditingController(text:reportLocation==''? locationCubit.address:reportLocation);
+                return Padding(
                   padding: EdgeInsetsDirectional.symmetric(
                       horizontal: 30.w, vertical: 8.h),
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
                         GestureDetector(
-                          onTap: (){
+                          onTap: () {
                             submitReport.ScanBarcode();
-                          //  navigateForward(QRViewExample());
+                            //  navigateForward(QRViewExample());
                           },
                           child: CustomTextField(
-                              suffixIcon: SvgPicture.asset('assets/svg/scanQR.svg',
+                              suffixIcon: SvgPicture.asset(
+                                  'assets/svg/scanQR.svg',
                                   fit: BoxFit.none),
-                              labelText:
-                                  LocaleKeys.findingInformationByScanningQrCode.tr(),
+                              labelText: LocaleKeys
+                                  .findingInformationByScanningQrCode
+                                  .tr(),
                               onTap: () {
                                 print('object');
                               },
@@ -63,9 +64,12 @@ class SubmitReportAnotherPerson extends StatelessWidget {
                         //     context: context,
                         //     keyboardType: TextInputType.phone),
                         CustomTextField(
-                            labelText: LocaleKeys.findingInformationUsingId.tr(),
-                            controller: idController,
-                            keyboardType: TextInputType.phone),
+                          labelText:
+                              LocaleKeys.findingInformationUsingId.tr(),
+                          controller: idController,
+                          keyboardType: TextInputType.phone,
+
+                        ),
                         // textFormField(
                         //     labelText:
                         //         LocaleKeys.findingInformationUsingHotelName.tr(),
@@ -112,34 +116,43 @@ class SubmitReportAnotherPerson extends StatelessWidget {
                         SizedBox(
                           height: 10.h,
                         ),
-                      //  locationWidget(context: context,controller: reportLocationController,fct: (){navigateForward(MapScreenForSetLocation(i: 3));}),
+                        //  locationWidget(context: context,controller: reportLocationController,fct: (){navigateForward(MapScreenForSetLocation(i: 3));}),
                         Padding(
                           padding: EdgeInsetsDirectional.only(
                               top: 10.h, bottom: 8.h, start: 10.w, end: 10.w),
                           child: Align(
                               alignment: Alignment.center,
-                              child:state is GetUserByIdLoadingState
-                                  ? CircularProgressIndicator()
-                                  :  mainButton(
-                                  text: LocaleKeys.search.tr(),
-                                  color: darkMainColor,
+                              child: state is GetUserByIdLoadingState
+                                  ? CircularProgressIndicator.adaptive(
+                                      backgroundColor: orangeColor,
+                                      valueColor:
+                                          AlwaysStoppedAnimation<Color>(
+                                        darkMainColor, //<-- SEE HERE
+                                      ),
+                                    )
+                                  : mainButton(
+                                      text: LocaleKeys.search.tr(),
+                                      color: darkMainColor,
+                                      context: context,
+                                      fct: () {
+                                        if (idController.text.isEmpty) {
+                                          showToast(text: 'من فضلك أدخل الرقم التسلسلي', state: ToastState.ERROR);
 
-                                  context: context,
-                                  fct: () {
-                                    submitReport.getUserById(id: idController.text);
-                                    // if(state is GetUserByIdSuccessState){
-                                    //
-                                    // }
+                                        }else{
+                                          submitReport.getUserById(
+                                              id: idController.text);
+                                        }
 
-                                  })),
+                                        // if(state is GetUserByIdSuccessState){
+                                        //
+                                        // }
+                                      })),
                         )
                       ],
                     ),
                   ),
-                ),
-              );
-            });
-      }
-    );
+                );
+              });
+        });
   }
 }

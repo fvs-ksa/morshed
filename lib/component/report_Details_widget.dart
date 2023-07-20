@@ -33,6 +33,8 @@ class _ReportDetailsWidgetState extends State<ReportDetailsWidget> {
     super.initState();
   }
   //final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  TextEditingController reportDetailsController =
+  TextEditingController();
   @override
   Widget build(BuildContext context) {
     var reportCubit = SubmitReportCubit.get(context);
@@ -48,8 +50,7 @@ class _ReportDetailsWidgetState extends State<ReportDetailsWidget> {
               // }
             },
             builder: (context, state) {
-              TextEditingController reportDetailsController =
-                  TextEditingController();
+
               TextEditingController reportLocationAnotherPerson =
                   TextEditingController(
                       text: reportLocation2 == ''
@@ -60,7 +61,6 @@ class _ReportDetailsWidgetState extends State<ReportDetailsWidget> {
                       text: reportLocation == ''
                           ? locationCubit.address
                           : reportLocation);
-              // TextEditingController reportDetailsController1=TextEditingController();
 
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -132,21 +132,6 @@ class _ReportDetailsWidgetState extends State<ReportDetailsWidget> {
                                   ),
                                   onChanged: (bool? onChange) {
                                     reportCubit.changeCheckBox(i:index,onchange: onChange!);
-                                    // index == 0
-                                    //     ? reportCubit
-                                    //         .changeHelpWaysFirstIndexState(
-                                    //             onChange)
-                                    //     : index == 1
-                                    //         ? reportCubit
-                                    //             .changeHelpWaysSecondIndexState(
-                                    //                 onChange)
-                                    //         : index == 2
-                                    //             ? reportCubit
-                                    //                 .changeHelpWaysThirdIndexState(
-                                    //                     onChange)
-                                    //             : reportCubit
-                                    //                 .changeHelpWaysLastIndexState(
-                                    //                     onChange);
                                     print(
                                         'reportWaySolution! :${reportCubit.reportWaySolution}');
                                     print(reportDetailsController.text);
@@ -160,11 +145,6 @@ class _ReportDetailsWidgetState extends State<ReportDetailsWidget> {
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                   bigTextFieldForNotes(
-                    // val: (value){
-                    //   if (value.isEmpty){
-                    //     return 'تفاصيل بلاغك مهم النا';
-                    //   }
-                    // },
                       controller: reportDetailsController,
                       context: context,
 
@@ -177,14 +157,12 @@ class _ReportDetailsWidgetState extends State<ReportDetailsWidget> {
                               controller:reportLocationAnotherPerson,
                               labelText: LocaleKeys.reportLocation.tr(),
                               lines: 1,
-                              // hintText: 'hintText',
                               isEnabled: false)):
                       Expanded(
                           child: CustomTextField(
                               controller: reportLocationController,
                               labelText: LocaleKeys.reportLocation.tr(),
                               lines: 1,
-                              // hintText: 'hintText',
                               isEnabled: false)),
                       SizedBox(
                         width: 12.w,
@@ -218,7 +196,12 @@ class _ReportDetailsWidgetState extends State<ReportDetailsWidget> {
                     child: Align(
                         alignment: Alignment.center,
                         child: state is SelfReportLoadingState
-                            ? CircularProgressIndicator()
+                            ? CircularProgressIndicator.adaptive(
+                          backgroundColor: orangeColor,
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            darkMainColor, //<-- SEE HERE
+                          ),
+                        )
                             : mainButton(
                                 text: LocaleKeys.reporting.tr(),
                                 color: darkMainColor,

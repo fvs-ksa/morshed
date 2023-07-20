@@ -45,3 +45,10 @@ class GetCompaniesErrorState extends RegisterState {
   GetCompaniesErrorState({required this.error});
 }
 class ChangeKeyboardState extends RegisterState{}
+
+class GetAllNationalityLoadingState extends RegisterState{}
+class GetAllNationalitySuccessState extends RegisterState{}
+class GetAllNationalityErrorState extends RegisterState{
+  final String error;
+  GetAllNationalityErrorState({required this.error});
+}
