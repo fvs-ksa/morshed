@@ -83,6 +83,7 @@ class ProfileCubit extends Cubit<ProfileState> {
   bool isLoading = false;
 
   getProfileDate() {
+    getAllNationality();
     isLoading = false;
     emit(GetProfileLoadingState());
     DioHelper.getData(
@@ -91,8 +92,8 @@ class ProfileCubit extends Cubit<ProfileState> {
         .then((value) {
       print(value.data);
       profileModel = ProfileModel.fromJson(value.data);
-      isLoading = true;
       emit(GetProfileSuccessState());
+      isLoading = true;
     }).catchError((error) {
       print(error.toString());
       emit(GetProfileErrorState(error: error.toString()));
@@ -123,21 +124,21 @@ class ProfileCubit extends Cubit<ProfileState> {
         "name_en":nameEn,
         "name_ar":nameAr,
         "phone_number":phone,
-        "nationality":chooseNationality??profileModel.data!.nationality!,
+        "nationality":chooseNationality??profileModel.data!.nationality,
        // "nationality":chooseNationality,
-        "birthdate":convertedDateTime??profileModel.data!.birthdate!,
+        "birthdate":convertedDateTime??profileModel.data!.birthdate,
         "email":email,
         "visa_number":visaNo,
         "passport_number":passport,
         "border_number":borderNo,
        // "arrival_date":'1900-01-29',
        // "departure_date":'1900-01-29',
-        "arrival_date":profileModel.data!.arrivalDate!,
-        "departure_date":profileModel.data!.departureDate!,
-        "location_mina":profileModel.data!.locationMina!,
-        "location_mozdalifa":profileModel.data!.locationMozdalifa!,
-        "location_arfat":profileModel.data!.locationArfat!,
-        "type_of_disability":chooseDisability??profileModel.data!.typeOfDisability!,
+        "arrival_date":profileModel.data!.arrivalDate,
+        "departure_date":profileModel.data!.departureDate,
+        "location_mina":profileModel.data!.locationMina,
+        "location_mozdalifa":profileModel.data!.locationMozdalifa,
+        "location_arfat":profileModel.data!.locationArfat,
+        "type_of_disability":chooseDisability??profileModel.data!.typeOfDisability,
         "agent_name":agentName,
 
         //"image":image,

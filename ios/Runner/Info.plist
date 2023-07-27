@@ -24,10 +24,18 @@
         <string>make user able to change his profile picture</string>
         <key>NSCameraUsageDescription</key>
         <string>make user able to change his profile picture</string>
+        <key>NSLocationWhenInUseUsageDescription</key>
+        <string>access location to get user current location and can user upload location minna ,arafa ,mozdalifa location</string>
+        <key>NSLocationAlwaysUsageDescription</key>
+        <string>access location to get user current location and can user upload location minna ,arafa ,mozdalifa location</string>
+        <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+        <string>access location to get user current location and can user upload location minna ,arafa ,mozdalifa location</string>
 		<key>CFBundleIdentifier</key>
 		<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 		<key>CFBundleInfoDictionaryVersion</key>
 		<string>6.0</string>
+		<key>NSCameraUsageDescription</key>
+        <string>Camera permission is required for barcode scanning.</string>
 		<key>CFBundleName</key>
 		<string>morshed</string>
 		<key>CFBundlePackageType</key>

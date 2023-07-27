@@ -67,9 +67,9 @@ void main() async {
     print('noooo');
   } else {
     token = CacheHelper.getData(key: 'token');
-
-    // userType = CacheHelper.getData(key: 'user_type');
+    accountTypeName = CacheHelper.getData(key: 'accountTypeName');
     print('<<<<<<<<<<<<<<<<$token>>>>>>>>>>>>>>>>');
+    print('<<<<<<<<<<<<<<<<$accountTypeName>>>>>>>>>>>>>>>>');
     widget = MainScreen(
       // userIndex: userType,
     );
@@ -217,7 +217,7 @@ class MyApp extends StatelessWidget {
 
                 title: 'مرشد',
                 theme: ThemeData(
-                  fontFamily: 'cairo',
+                  fontFamily: 'Cairo',
                   primarySwatch: Palette.primaryColor,
                   visualDensity: VisualDensity.adaptivePlatformDensity,
                   textTheme: responsiveTextTheme(context),

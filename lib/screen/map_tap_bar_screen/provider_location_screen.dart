@@ -84,6 +84,7 @@ class _ProvidersLocationScreenState extends State<ProvidersLocationScreen> {
                         Center(child: Text('لا يوجد مقدمي خدمات إرشاد متاحين على الخريطه لديك حتى الان',textAlign: TextAlign.center,),): Stack(
                               children: [
                                 GoogleMap(
+                                  mapType: MapType.satellite,
                           gestureRecognizers: Set()
                                 ..add(Factory<PanGestureRecognizer>(() => PanGestureRecognizer())),
                           onCameraMove: (CameraPosition cameraPosition) {

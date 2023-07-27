@@ -154,6 +154,7 @@ class _MapTabBarScreenState extends State<MapTabBarScreen>
                   preferredSize: Size.fromHeight(90.h)),
             ),
             body: TabBarView(
+              physics: const NeverScrollableScrollPhysics(),
                 controller: tabController, children: const [
               OfficesLocationScreen(),
               ProvidersLocationScreen(),

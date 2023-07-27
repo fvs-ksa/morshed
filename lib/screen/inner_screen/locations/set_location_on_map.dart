@@ -6,7 +6,7 @@ import 'package:morshed/bloc/location_cubit/cubit.dart';
 import 'package:morshed/bloc/register_cubit/state.dart';
 import 'package:morshed/component/navigation_functions.dart';
 import 'package:morshed/constant/const_color.dart';
-import 'package:morshed/screen/auth_screen/register_Screen.dart';
+import 'package:morshed/screen/auth_screen/hajji/register_Screen.dart';
 
 import '../../../bloc/register_cubit/cubit.dart';
 import '../../../component/component.dart';
@@ -14,8 +14,8 @@ import '../../../component/cutom_text_filed.dart';
 
 class MapScreenForSetLocation extends StatefulWidget {
   int i;
-
-  MapScreenForSetLocation({required this.i});
+  TextEditingController locationName = TextEditingController();
+  MapScreenForSetLocation({required this.i,required this.locationName});
 
   @override
   State<MapScreenForSetLocation> createState() =>
@@ -23,7 +23,7 @@ class MapScreenForSetLocation extends StatefulWidget {
 }
 
 class _MapScreenForSetLocationState extends State<MapScreenForSetLocation> {
-  TextEditingController locationName = TextEditingController();
+
 
   GoogleMapController? mapController;
 
@@ -60,7 +60,7 @@ class _MapScreenForSetLocationState extends State<MapScreenForSetLocation> {
                       //   Navigator.of(context).pop();
                       //   print('location report ${reportLocation}');
                       // }else{
-                      cubit.getStringAddress(widget.i);
+                      cubit.getStringAddress(i:widget.i,controller: widget.locationName);
                       // Navigator.pop(context);
                       Navigator.of(context).pop();
                       // navigateForwardReplace(RegisterScreen());
@@ -83,12 +83,16 @@ class _MapScreenForSetLocationState extends State<MapScreenForSetLocation> {
             body: state is GetUserCurrentLocation ||
                     cubit.position?.latitude == null
                 ? Center(
-                    child: CircularProgressIndicator(
-                    color: babyBlueColor,
-                  ))
+                child: CircularProgressIndicator.adaptive(
+                  backgroundColor: orangeColor,
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    darkMainColor, //<-- SEE HERE
+                  ),
+                ))
                 : Stack(
                     children: [
                       GoogleMap(
+                        mapType: MapType.satellite,
                         // onMapCreated: (googleController) {
                         // // cubit.changeMapMode(googleController);
                         // },
@@ -112,93 +116,32 @@ class _MapScreenForSetLocationState extends State<MapScreenForSetLocation> {
                           width: size.width * 0.09,
                         ),
                       ),
-                      Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.sp)),
-                        elevation: 3,
-                        child: Container(
-                          height: size.height * 0.09,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              color: Colors.transparent,
-                              borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(15.sp),
-                                  topLeft: Radius.circular(15.sp))),
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                                top: 1.3.h, left: 1.3.w, right: 1.3.w),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                CustomTextField(
-                                  controller: locationName,
-                                  labelText: cubit.addressFromMap.isEmpty
-                                      ? ''
-                                      : cubit.addressFromMap,
-                                  // hitText: 'الموقع',
-                                  // enabled: false
-                                ),
-                                SizedBox(
-                                  height: 2.h,
-                                ),
-                                // SizedBox(
-                                //   height: size.height > 1000.h
-                                //       ? 8.h
-                                //       : size.height * 0.04,
-                                //   child: ListView.separated(
-                                //       scrollDirection: Axis.horizontal,
-                                //       itemBuilder: (context, index) {
-                                //         return GestureDetector(
-                                //           onTap: () {
-                                //             cubit.selectedDescriptionPlace(
-                                //                 index);
-                                //             debugPrint(
-                                //                 description[index].title);
-                                //           },
-                                //           child: Container(
-                                //             padding: EdgeInsets.all(5.sp),
-                                //             decoration: BoxDecoration(
-                                //                 borderRadius:
-                                //                 BorderRadius.circular(
-                                //                     15.sp),
-                                //                 border: Border.all(
-                                //                     color:
-                                //                     cubit.selectedIndex ==
-                                //                         index
-                                //                         ? blueColor
-                                //                         : Colors
-                                //                         .transparent)),
-                                //             child: Row(
-                                //               children: [
-                                //                 Text(
-                                //                   description[index].title,
-                                //                   style: Theme.of(context)
-                                //                       .textTheme
-                                //                       .displayMedium,
-                                //                 ),
-                                //                 SizedBox(
-                                //                   width: 2.sp,
-                                //                 ),
-                                //                 Icon(
-                                //                   description[index].icon,
-                                //                   color: darkBlue,
-                                //                   size: size.height > 1000
-                                //                       ? 12.sp
-                                //                       : 10.sp,
-                                //                 ),
-                                //               ],
-                                //             ),
-                                //           ),
-                                //         );
-                                //       },
-                                //       separatorBuilder: (context, index) {
-                                //         return SizedBox(
-                                //           width: 3.w,
-                                //         );
-                                //       },
-                                //       itemCount: description.length),
-                                // ),
-                              ],
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Card(
+
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.sp)),
+                          elevation: 3,
+                          child: Container(
+                            padding: EdgeInsetsDirectional.only(top: 10),
+                            height: size.height * 0.09,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(15.sp),
+                                    topLeft: Radius.circular(15.sp))),
+                            child: Center(
+                             // alignment: Alignment.center,
+                              child: CustomTextField(
+                               // controller: widget.locationName,
+                                labelText: cubit.addressFromMap.isEmpty
+                                    ? ''
+                                    : cubit.addressFromMap,
+                                // hitText: 'الموقع',
+                                // enabled: false
+                              ),
                             ),
                           ),
                         ),

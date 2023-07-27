@@ -107,7 +107,7 @@ class CodegenLoader extends AssetLoader {
     "yourComplaintHasBeenReceivedSuccessfully": "تم تقديم بلاغك بنجاح",
     "subTitleOfReceivedComplaintSuccessfully":
         "سوف يتم اتخاذ الإجراءات المناسبة سريعًا فقط ابقى متصلًا ريثما يتم التواصل معك",
-    "findingInfoByNamePHoneOrLang": "البحث  بالاسم أو رقم الجوال أو اللغة",
+    "findingInfoByNamePHoneOrLang": "البحث  بالاسم أو اللغة",
     "SorryYouMustSubscribe": "عفوًا الخدمة تتطلب الاشتراك",
     "moveToPaymentScreen": "الانتقال إلى صفحة الدفع",
     "technicalSupport": "الدعم الفني",

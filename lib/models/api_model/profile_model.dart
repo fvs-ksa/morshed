@@ -42,6 +42,7 @@ class Data {
   int? companyId;
   bool? disability;
   String? fcmToken;
+  String? accountType;
   var deletedAt;
   var hotel;
   var gender;
@@ -69,6 +70,7 @@ class Data {
         this.phoneNumber,
         this.nationality,
         this.birthdate,
+        this.accountType,
         this.email,
         this.passportNumber,
         this.visaNumber,
@@ -129,6 +131,7 @@ class Data {
     password = json['password'];
     qrCode = json['qr_code'];
     image = json['image'];
+    accountType=json['account_type'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     companyId = json['company_id'];
@@ -171,6 +174,7 @@ class Data {
     data['arrival_date'] = this.arrivalDate;
     data['departure_date'] = this.departureDate;
     data['location_mina'] = this.locationMina;
+    data['account_type']=this.accountType;
     data['location_mozdalifa'] = this.locationMozdalifa;
     data['location_arfat'] = this.locationArfat;
     data['type_of_disability'] = this.typeOfDisability;

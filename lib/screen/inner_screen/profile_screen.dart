@@ -20,32 +20,33 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var profileCubit = ProfileCubit.get(context);
+
     return BlocConsumer<ProfileCubit, ProfileState>(
         listener: (context, state) {},
         bloc: profileCubit.getProfileDate(),
         builder: (context, state) {
           TextEditingController arNameController = TextEditingController(
               text: profileCubit.isLoading ?
-              profileCubit.profileModel.data!.nameAr! : '');
+              profileCubit.profileModel.data!.nameAr : '');
           TextEditingController enNameController = TextEditingController(
               text: profileCubit.isLoading ?
-              profileCubit.profileModel.data!.nameEn! : '');
+              profileCubit.profileModel.data!.nameEn : '');
           TextEditingController phoneController = TextEditingController(
               text: profileCubit.isLoading ?
-              profileCubit.profileModel.data!.phoneNumber! : '');
+              profileCubit.profileModel.data!.phoneNumber : '');
           TextEditingController birthDateController = TextEditingController(
               text: profileCubit.isLoading ?
               profileCubit.convertedDateTime ??
-                  profileCubit.profileModel.data!.birthdate! : '');
+                  profileCubit.profileModel.data!.birthdate : '');
           TextEditingController emailController = TextEditingController(
               text: profileCubit.isLoading ?
-              profileCubit.profileModel.data!.email! : '');
+              profileCubit.profileModel.data!.email : '');
           TextEditingController passportNoController = TextEditingController(
               text: profileCubit.isLoading ?
-              profileCubit.profileModel.data!.passportNumber! : '');
+              profileCubit.profileModel.data!.passportNumber : '');
           TextEditingController visaNoController = TextEditingController(
               text: profileCubit.isLoading ?
-              profileCubit.profileModel.data!.visaNumber! : '');
+              profileCubit.profileModel.data!.visaNumber : '');
           TextEditingController groupNoController = TextEditingController(
               text: profileCubit.isLoading ?
               profileCubit.profileModel.data!.companyName ?? '' : '');
@@ -56,10 +57,10 @@ class ProfileScreen extends StatelessWidget {
                   : '');
           TextEditingController borderController = TextEditingController(
               text: profileCubit.isLoading ?
-              profileCubit.profileModel.data!.borderNumber! : '');
+              profileCubit.profileModel.data!.borderNumber : '');
           TextEditingController disabilityController = TextEditingController(
               text: profileCubit.isLoading ?
-              profileCubit.profileModel.data!.typeOfDisability! : '');
+              profileCubit.profileModel.data!.typeOfDisability : '');
 
           return GestureDetector(
             onTap: () {
@@ -73,16 +74,10 @@ class ProfileScreen extends StatelessWidget {
                   avatarChild: CircleAvatar(
                     radius: 40.sp,
                     backgroundImage: NetworkImage(
-                        profileCubit.isLoading ? profileCubit.profileModel.data!
+                        profileCubit.isLoading&&profileCubit.isGetNationality ? profileCubit.profileModel.data!
                             .image!
                             : 'https://firebasestorage.googleapis.com/v0/b/murshid-5cf3e.appspot.com/o/profile.png?alt=media&token=9e46dec9-ea36-4118-b7d3-c7d298b302d7'),)),
-              body: profileCubit.isLoading == false ? Center(
-                  child: CircularProgressIndicator.adaptive(
-                    backgroundColor: orangeColor,
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                      darkMainColor, //<-- SEE HERE
-                    ),
-                  )) : SingleChildScrollView(
+              body: profileCubit.isLoading?  SingleChildScrollView(
                 child: Padding(
                   padding: EdgeInsetsDirectional.only(
                       start: 40.w, end: 20.w, top: 30),
@@ -150,7 +145,7 @@ class ProfileScreen extends StatelessWidget {
                                 showSearchBox: true
                             ),
                             dropdownButtonProps: DropdownButtonProps(color: greyColor),
-                            items: RegisterCubit.get(context).nationalityModel.data!.map((e) => e.name).toList(growable: true),
+                            items: profileCubit.nationalityModel.data!.map((e) => e.name).toList(growable: true),
                             dropdownDecoratorProps:  DropDownDecoratorProps(
 
                               baseStyle: TextStyle(color: greyColor,fontSize: 12.sp),
@@ -177,7 +172,7 @@ class ProfileScreen extends StatelessWidget {
                               profileCubit.onChangeNationalityName(onChange);
                               print(onChange);
                             },
-                            selectedItem: profileCubit.chooseNationality,
+                            selectedItem: profileCubit.chooseNationality??profileCubit.profileModel.data!.nationality,
                           ),
                         ),
                       ),
@@ -260,7 +255,7 @@ class ProfileScreen extends StatelessWidget {
                           child: Text(e.toString()), value: e.toString(),);
                       }).toList(),
                           value: profileCubit.chooseDisability,
-                          hint: 'نوع الاعاقه',
+                          hint: profileCubit.profileModel.data!.typeOfDisability??'',
                           fct: (onChange) {
                             profileCubit.onChangeDisability(onChange);
                           },
@@ -304,7 +299,13 @@ class ProfileScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-              ),
+              ):Center(
+                  child: CircularProgressIndicator.adaptive(
+                    backgroundColor: orangeColor,
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      darkMainColor, //<-- SEE HERE
+                    ),
+                  )) ,
             ),
           );
         });

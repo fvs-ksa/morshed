@@ -9,3 +9,11 @@ class GetProviderErrorState extends GuidesState {
   final String error;
   GetProviderErrorState({required this.error});
 }
+
+
+class SearchProviderLoadingState extends GuidesState {}
+class SearchProviderSuccessState extends GuidesState {}
+class SearchProviderErrorState extends GuidesState {
+  final String error;
+  SearchProviderErrorState({required this.error});
+}

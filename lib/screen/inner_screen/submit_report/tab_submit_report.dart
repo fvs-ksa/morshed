@@ -140,6 +140,7 @@ class _TabBarSubmitReportState extends State<TabBarSubmitReport>
                     ),
                     preferredSize: Size.fromHeight(180.h)),
                 body: TabBarView(
+
                   controller: tabController,
                   children:  [
                     submitReport.isAssistanceWaysLoading? MySubmitReport():Center(child: CircularProgressIndicator.adaptive(

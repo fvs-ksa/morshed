@@ -35,78 +35,86 @@ class GuidesScreen extends StatelessWidget {
               FocusManager.instance.primaryFocus?.unfocus();
             },
             child: Scaffold(
-              appBar: AppBar(
-                leading: backButtonWidget(context: context),
-                title: const Text('المرشدين'),
-                centerTitle: true,
-                actions: [SvgPicture.asset('assets/svg/')],
-                backgroundColor: whiteColor,
-                // toolbarHeight: 180.h,
-                bottom: PreferredSize(
-                    preferredSize: Size.fromHeight(120.h),
-                    child: Padding(
-                      padding:
-                      EdgeInsetsDirectional.only(start: 18.0.w, end: 18.w,bottom: 18.h),
-                      child:  const AutoSizeText('خدمه البحث عن طريق الاسم ورقم الجوال ما زالت تحت التطوير',maxLines: 1,style: TextStyle(
-                          color: Colors.red,
-                         // fontFamily: 'cairo',
-                          fontWeight: FontWeight.bold
-
-                      )),
-                      // child: Row(
-                      //   children: [
-                      //     Expanded(
-                      //         child: textFormField(
-                      //             labelText: 'البحث عن طريق الاسم او رقم الجواز',
-                      //             context: context)),
-                      //     SizedBox(
-                      //       width: 12.w,
-                      //     ),
-                      //     Padding(
-                      //       padding: EdgeInsetsDirectional.only(bottom: 14.0.h),
-                      //       child: mainButton(
-                      //           width: 73.w,
-                      //           height: 54.h,
-                      //           text: 'بحث',
-                      //           color: darkMainColor,
-                      //           context: context,
-                      //           fct: () {}),
-                      //     )
-                      //   ],
-                      // ),
-                    )),
-              ),
-              // appBar: headerForGuide(
-              //     context: context,
-              //     title: index == 1 ? 'الاتصال المرئي' : LocaleKeys.guides.tr(),
-              //     searchController: searchController,
-              //     dropDownWidget: index == 1
-              //         ? SizedBox()
-              //         : Container(
-              //             padding: EdgeInsetsDirectional.only(start: 10.w),
-              //             height: 90.h,
-              //             width: 88.w,
-              //             child: dropDownButton(
-              //                 items: guidesCubit.flags.map((e) {
-              //                   return DropdownMenuItem(
-              //                     child: Image.asset(e["flag"].toString()),
-              //                     value: e['id'].toString(),
-              //                   );
-              //                 }).toList(),
-              //                 value: guidesCubit.flag,
-              //                 isFlag: true,
-              //                 hint: LocaleKeys.country.tr(),
-              //                 fct: (onChange) {
-              //                   guidesCubit.onChangeFlagsSearch(onChange);
-              //                   print(onChange);
-              //                 },
-              //                 context: context,
-              //               //  validator: () {}
-              //             ),
-              //           ),
-              //     fct: () {}),
+              // appBar: AppBar(
+              //   leading: backButtonWidget(context: context),
+              //   title: const Text('المرشدين'),
+              //   centerTitle: true,
+              //   actions: [SvgPicture.asset('assets/svg/')],
+              //   backgroundColor: whiteColor,
+              //   // toolbarHeight: 180.h,
+              //   bottom: PreferredSize(
+              //       preferredSize: Size.fromHeight(120.h),
+              //       child: Padding(
+              //         padding:
+              //         EdgeInsetsDirectional.only(start: 18.0.w, end: 18.w,bottom: 18.h),
+              //         child:  const AutoSizeText('خدمه البحث عن طريق الاسم ورقم الجوال ما زالت تحت التطوير',maxLines: 1,style: TextStyle(
+              //             color: Colors.red,
+              //            // fontFamily: 'cairo',
+              //             fontWeight: FontWeight.bold
+              //
+              //         )),
+              //         // child: Row(
+              //         //   children: [
+              //         //     Expanded(
+              //         //         child: textFormField(
+              //         //             labelText: 'البحث عن طريق الاسم او رقم الجواز',
+              //         //             context: context)),
+              //         //     SizedBox(
+              //         //       width: 12.w,
+              //         //     ),
+              //         //     Padding(
+              //         //       padding: EdgeInsetsDirectional.only(bottom: 14.0.h),
+              //         //       child: mainButton(
+              //         //           width: 73.w,
+              //         //           height: 54.h,
+              //         //           text: 'بحث',
+              //         //           color: darkMainColor,
+              //         //           context: context,
+              //         //           fct: () {}),
+              //         //     )
+              //         //   ],
+              //         // ),
+              //       )),
+              // ),
+              appBar: headerForGuide(
+                  context: context,
+                  title: index == 1 ? 'الاتصال المرئي' : LocaleKeys.guides.tr(),
+                  searchController: searchController,
+                  dropDownWidget: index == 1
+                      ? SizedBox()
+                      : Container(
+                          padding: EdgeInsetsDirectional.only(start: 10.w),
+                          height: 90.h,
+                          width: 88.w,
+                          child: dropDownButton(
+                              items: guidesCubit.flags.map((e) {
+                                return DropdownMenuItem(
+                                  child: Image.asset(e["flag"].toString()),
+                                  value: e['id'].toString(),
+                                );
+                              }).toList(),
+                              value: guidesCubit.flag,
+                              isFlag: true,
+                              hint: LocaleKeys.country.tr(),
+                              fct: (onChange) {
+                                guidesCubit.onChangeFlagsSearch(onChange);
+                                print(onChange);
+                              },
+                              context: context,
+                            //  validator: () {}
+                          ),
+                        ),
+                  fct: () {
+                    searchController.text.isEmpty?null:
+                    guidesCubit.searchProvider(name: searchController.text, langId: guidesCubit.flag??'');
+                  }),
               backgroundColor: whiteGreyColor,
-              body:guidesCubit.isProvidersGet? Padding(
+              body:guidesCubit.isProvidersGet?guidesCubit.getProvidersModel.providers!.isEmpty?
+                  Center(child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text('لا يوجد مقدمي خدمه إرشاد',textAlign: TextAlign.center,),
+                  ),)
+                  : Padding(
                 padding:
                     EdgeInsetsDirectional.only(top: 10.h, start: 8.w, end: 8.w),
                 child: ListView.builder(

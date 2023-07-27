@@ -173,6 +173,7 @@ Widget dropDownButton(
                   child: ButtonTheme(
                     alignedDropdown: true,
                     child: DropdownButtonFormField(
+
                       isExpanded: true,
                       decoration: const InputDecoration(
                         border: InputBorder.none,

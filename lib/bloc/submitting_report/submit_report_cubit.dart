@@ -204,6 +204,79 @@ class SubmitReportCubit extends Cubit<SubmitReportState> {
       emit(GetUserByIdErrorState(error: error.toString()));
     });
   }
+  Future getUserByPhoneNumber({required String phoneNumber}) async {
+    isGetUserById = false;
+    emit(GetUserByIdLoadingState());
+    DioHelper.getData(
+        url: 'https://murshidguide.com/api/pilgrims/getPilgrimByNumber/$phoneNumber',
+        token: token)
+        .then((value) {
+      print('user By Phone Number :${value.data}');
+      profileModel = ProfileModel.fromJson(value.data);
+
+      emit(GetUserByIdSuccessState());
+      navigateForward(ReportedPersonInfo());
+      isGetUserById = true;
+    }).catchError((error) {
+      print(error.toString());
+      showToast(text: 'رقم الجوال غير موجود', state: ToastState.ERROR);
+      emit(GetUserByIdErrorState(error: error.toString()));
+    });
+  }
+  Future getUserByVisaNumber({required String visaNumber}) async {
+    isGetUserById = false;
+    emit(GetUserByIdLoadingState());
+    DioHelper.getData(
+        url: 'https://murshidguide.com/api/pilgrims/getPilgrimByVisa/$visaNumber',
+        token: token)
+        .then((value) {
+      print('user By Visa Number :${value.data}');
+      profileModel = ProfileModel.fromJson(value.data);
+      emit(GetUserByIdSuccessState());
+      navigateForward(ReportedPersonInfo());
+      isGetUserById = true;
+    }).catchError((error) {
+      print(error.toString());
+      showToast(text: 'رقم التأشيرة غير موجود', state: ToastState.ERROR);
+      emit(GetUserByIdErrorState(error: error.toString()));
+    });
+  }
+  Future getUserByPassportNumber({required String passportNumber}) async {
+    isGetUserById = false;
+    emit(GetUserByIdLoadingState());
+    DioHelper.getData(
+        url: 'https://murshidguide.com/api/pilgrims/getPilgrimByPassport/$passportNumber',
+        token: token)
+        .then((value) {
+      print('user By Passport Number :${value.data}');
+      profileModel = ProfileModel.fromJson(value.data);
+      emit(GetUserByIdSuccessState());
+      navigateForward(ReportedPersonInfo());
+      isGetUserById = true;
+    }).catchError((error) {
+      print(error.toString());
+      showToast(text: 'رقم الجواز غير موجود', state: ToastState.ERROR);
+      emit(GetUserByIdErrorState(error: error.toString()));
+    });
+  }
+  Future getUserByBorderNumber({required String borderNumber}) async {
+    isGetUserById = false;
+    emit(GetUserByIdLoadingState());
+    DioHelper.getData(
+        url: 'https://murshidguide.com/api/pilgrims/getPilgrimByBorder/$borderNumber',
+        token: token)
+        .then((value) {
+      print('user By Border Number :${value.data}');
+      profileModel = ProfileModel.fromJson(value.data);
+      emit(GetUserByIdSuccessState());
+      navigateForward(ReportedPersonInfo());
+      isGetUserById = true;
+    }).catchError((error) {
+      print(error.toString());
+      showToast(text: 'رقم الحدود غير موجود', state: ToastState.ERROR);
+      emit(GetUserByIdErrorState(error: error.toString()));
+    });
+  }
 
   reportAnotherOne({
     required String assistanceMethod,

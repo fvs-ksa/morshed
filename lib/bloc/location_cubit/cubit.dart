@@ -70,7 +70,7 @@ class LocationCubit extends Cubit<LocationState>{
         name;
     isLoading = true;
     cityName = placeMark.locality.toString();
-    print(address);
+    print('address $address');
     print(placeMark.locality.toString());
     emit(GetPlacesSuccessState());
     print(pos.longitude);

@@ -25,9 +25,9 @@ class MyResidenceAndTravels extends StatelessWidget {
       builder: (context,state) {
         TextEditingController arrivalController=TextEditingController(text: generalCubit.profileModel.data!.arrivalDate!);
         TextEditingController departureController=TextEditingController(text: generalCubit.profileModel.data!.departureDate!);
-        TextEditingController mozdalifaLocationController=TextEditingController(text: generalCubit.profileModel.data!.locationMozdalifa!);
-        TextEditingController mennaLocationConroller=TextEditingController(text: generalCubit.profileModel.data!.locationMina!);
-        TextEditingController arafaLocationController=TextEditingController(text: generalCubit.profileModel.data!.locationArfat!);
+        TextEditingController mozdalifaLocationController=TextEditingController(text: generalCubit.profileModel.data!.locationMozdalifa??'');
+        TextEditingController mennaLocationConroller=TextEditingController(text: generalCubit.profileModel.data!.locationMina??'');
+        TextEditingController arafaLocationController=TextEditingController(text: generalCubit.profileModel.data!.locationArfat??'');
         TextEditingController visaNumberController=TextEditingController(text: generalCubit.profileModel.data!.visaNumber!);
         TextEditingController maccaHotelLocationController=TextEditingController(text: generalCubit.profileModel.data!.locationMakkahHotel!);
         TextEditingController madinahHotelNumberController=TextEditingController(text: generalCubit.profileModel.data!.locationMadinahHotel!);
@@ -71,7 +71,7 @@ class MyResidenceAndTravels extends StatelessWidget {
                       //   labelText: LocaleKeys.residentialAddress.tr(),
                       //   context: context,
                       // ),
-                      clikedLocationWidget(controller: mennaLocationConroller, fct: (){
+                    accountTypeName=='pilgrimUmrah'?SizedBox():  clikedLocationWidget(controller: mennaLocationConroller, fct: (){
                         launchUrl(Uri.parse(
                             'google.navigation:q='
                                 '${generalCubit.profileModel.data!.latitudeMina}, '
@@ -79,7 +79,7 @@ class MyResidenceAndTravels extends StatelessWidget {
                                 '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
                       }, context: context, labelText: 'عنوان مخيم منى'),
 
-                      clikedLocationWidget(controller: arafaLocationController, fct: (){
+                      accountTypeName=='pilgrimUmrah'?SizedBox():   clikedLocationWidget(controller: arafaLocationController, fct: (){
                         launchUrl(Uri.parse(
                             'google.navigation:q='
                                 '${generalCubit.profileModel.data!.latitudeArfat}, '
@@ -87,7 +87,7 @@ class MyResidenceAndTravels extends StatelessWidget {
                                 '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
                       }, context: context, labelText: 'عنوان مخيم عرفه'),
 
-                      clikedLocationWidget(controller: mozdalifaLocationController, fct: (){
+                      accountTypeName=='pilgrimUmrah'?SizedBox():  clikedLocationWidget(controller: mozdalifaLocationController, fct: (){
                         launchUrl(Uri.parse(
                             'google.navigation:q='
                                 '${generalCubit.profileModel.data!.latitudeMozdalifa}, '

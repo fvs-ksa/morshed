@@ -39,6 +39,7 @@ class Data {
   String? locationMozdalifa;
   String? locationArfat;
   String? typeOfDisability;
+  String? accountType;
   String? agentName;
   String? password;
   String? qrCode;
@@ -78,6 +79,7 @@ class Data {
         this.email,
         this.passportNumber,
         this.visaNumber,
+        this.accountType,
         this.borderNumber,
         this.arrivalDate,
         this.departureDate,
@@ -128,6 +130,7 @@ class Data {
     arrivalDate = json['arrival_date'];
     departureDate = json['departure_date'];
     locationMina = json['location_mina'];
+    accountType=json['account_type'];
     locationMozdalifa = json['location_mozdalifa'];
     locationArfat = json['location_arfat'];
     typeOfDisability = json['type_of_disability'];
@@ -174,6 +177,7 @@ class Data {
     data['passport_number'] = this.passportNumber;
     data['visa_number'] = this.visaNumber;
     data['border_number'] = this.borderNumber;
+    data['account_type']=this.accountType;
     data['arrival_date'] = this.arrivalDate;
     data['departure_date'] = this.departureDate;
     data['location_mina'] = this.locationMina;

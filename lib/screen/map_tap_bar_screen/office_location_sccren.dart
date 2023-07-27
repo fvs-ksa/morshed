@@ -1,4 +1,3 @@
-import 'package:barcode_scan2/gen/protos/protos.pb.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -60,6 +59,7 @@ class _OfficesLocationScreenState extends State<OfficesLocationScreen> {
                       : Stack(
                           children: [
                             GoogleMap(
+                              mapType: MapType.satellite,
                               gestureRecognizers: Set()
                                 ..add(Factory<PanGestureRecognizer>(
                                     () => PanGestureRecognizer())),
@@ -93,7 +93,7 @@ class _OfficesLocationScreenState extends State<OfficesLocationScreen> {
                                 child: Container(
                                     height: 200,
                                     padding: EdgeInsetsDirectional.all(18),
-                                    margin: EdgeInsetsDirectional.all(15),
+                                    margin: const EdgeInsetsDirectional.all(15),
                                     decoration: BoxDecoration(
                                       color: Colors.white,
                                       borderRadius: BorderRadius.circular(24),
@@ -108,7 +108,7 @@ class _OfficesLocationScreenState extends State<OfficesLocationScreen> {
                                       fit: StackFit.expand,
                                       children: [
                                         Padding(
-                                          padding: EdgeInsetsDirectional.only(
+                                          padding: const EdgeInsetsDirectional.only(
                                               bottom: 18.0),
                                           child: ClipRRect(
                                             borderRadius:
@@ -129,7 +129,7 @@ class _OfficesLocationScreenState extends State<OfficesLocationScreen> {
                                                   .bottomStart,
                                               child: Container(
                                                 padding:
-                                                    EdgeInsetsDirectional.only(
+                                                    const EdgeInsetsDirectional.only(
                                                         start: 8),
                                                 child: Column(
                                                   children: [

@@ -13,6 +13,7 @@ Color lightMainColor = const Color(0xff28d4dc);
 var myLocale;
 var token;
 var fcmToken;
+var accountTypeName;
 String meenaLoc='';
 String arafaLoc='';
 String mozdalifaLoc='';

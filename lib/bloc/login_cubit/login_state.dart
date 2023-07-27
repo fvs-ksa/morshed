@@ -19,3 +19,10 @@ class SendFcmTokenErrorState extends LoginState{
   final String error;
   SendFcmTokenErrorState({required this.error});
 }
+///moetamer
+class LoginMoetamerSuccessState extends LoginState{}
+class LoginMoetamerLoadingState extends LoginState{}
+class LoginMoetamerErrorState extends LoginState{
+  final String error;
+  LoginMoetamerErrorState({required this.error});
+}

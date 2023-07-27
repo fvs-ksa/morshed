@@ -30,37 +30,35 @@ class _ReportDetailsWidgetState extends State<ReportDetailsWidget> {
   @override
   void initState() {
     reportLocation == '' ? LocationCubit.get(context).address : reportLocation;
+   // print(object)
     super.initState();
   }
   //final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  TextEditingController reportDetailsController =
-  TextEditingController();
+  TextEditingController reportDetailsController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+
     var reportCubit = SubmitReportCubit.get(context);
     var locationCubit = LocationCubit.get(context);
     //var formKey=GlobalKey<FormState>();
     return BlocConsumer<LocationCubit, LocationState>(
         listener: (context, state) {},
         builder: (context, state) {
+          TextEditingController reportLocationAnotherPerson = TextEditingController(text: LocationCubit.get(context).address);
+          TextEditingController reportLocationController = TextEditingController(text: LocationCubit.get(context).address);
           return BlocConsumer<SubmitReportCubit, SubmitReportState>(
+
             listener: (context, state) {
+              // TextEditingController reportLocationAnotherPerson = TextEditingController(text: LocationCubit.get(context).address);
+              // TextEditingController reportLocationController = TextEditingController(text: LocationCubit.get(context).address);
               // if(state is ChangeAddressState){
               //   TextEditingController reportLocationController=TextEditingController(text:reportLocation==''? locationCubit.address:reportLocation);
               // }
             },
             builder: (context, state) {
 
-              TextEditingController reportLocationAnotherPerson =
-                  TextEditingController(
-                      text: reportLocation2 == ''
-                          ? locationCubit.address
-                          : reportLocation);
-              TextEditingController reportLocationController =
-                  TextEditingController(
-                      text: reportLocation == ''
-                          ? locationCubit.address
-                          : reportLocation);
+
 
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -187,7 +185,7 @@ class _ReportDetailsWidgetState extends State<ReportDetailsWidget> {
                       ),
                     ),
                     onPressed: () {
-                      navigateForward(MapScreenForSetLocation(i: 3));
+                      navigateForward(MapScreenForSetLocation(i: 3,locationName:widget.index==0?reportLocationAnotherPerson: reportLocationController,));
                     },
                   ),
                   Padding(

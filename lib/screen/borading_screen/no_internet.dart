@@ -17,7 +17,7 @@ class NoInternetScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/NO_INTERNET.jpg', width: 150, height: 150),
+            Image.asset('assets/images/NO_INTERNET.png', width: 150, height: 150),
             Text('حدث خطأ',style: Theme.of(context).textTheme.headlineSmall,),
             SizedBox(height: 20),
             Text(

@@ -140,10 +140,10 @@ getAllNationality(){
   }
 
   //chooseDateTime
-  String? convertedDateDepurat;
+ // String? convertedDateDepurat;
   var dateDep;
 
-  chooseDateTimeDepuration({required BuildContext context}) async {
+  chooseDateTimeDepuration({required BuildContext context,required TextEditingController controller}) async {
     final date = await showDatePicker(
         context: context,
         firstDate: DateTime.now(),
@@ -154,19 +154,20 @@ getAllNationality(){
       print(date);
       dateDep = date;
     }
-    convertedDateDepurat =
+    controller.text =
     "${date?.year.toString()}-${date?.month.toString().padLeft(2, '0')}-${date
         ?.day.toString().padLeft(2, '0')}";
-    print(convertedDateDepurat);
-    DateTime string = DateTime.parse(convertedDateDepurat!);
-    print("DateTime $string");
+    print(controller.text);
+  //  controller.text=convertedDateDepurat!;
+  //   DateTime string = DateTime.parse(convertedDateDepurat!);
+  //   print("DateTime $string");
     emit(ChooseDateOfBirthState());
   }
 
-  String? convertedDateTimeBirth;
+  //String? convertedDateTimeBirth;
   var dateBirth;
 
-  chooseDateTimeForBirth({required BuildContext context}) async {
+  Future chooseDateTimeForBirth({required BuildContext context,required TextEditingController controller}) async {
     final date = await showDatePicker(
         context: context,
         firstDate: DateTime(1900),
@@ -176,17 +177,19 @@ getAllNationality(){
       print(date);
       dateBirth = date;
     }
-    convertedDateTimeBirth =
+    controller.text =
     "${date?.year.toString()}-${date?.month.toString().padLeft(2, '0')}-${date
         ?.day.toString().padLeft(2, '0')}";
-    print(convertedDateTimeBirth);
+    print(controller.text);
+    //controller.text=convertedDateTimeBirth!;
+    print('controller ${controller.text}');
     emit(ChooseDateOfBirthState());
   }
 
-  String? convertedDateTimeArrival;
+  //String? convertedDateTimeArrival;
   var dateArrival;
 
-  chooseDateTimeForArrival({required BuildContext context}) async {
+  chooseDateTimeForArrival({required BuildContext context,required TextEditingController controller}) async {
     final date = await showDatePicker(
         context: context,
         firstDate: DateTime(2023),
@@ -196,10 +199,11 @@ getAllNationality(){
       print(date);
       dateArrival = date;
     }
-    convertedDateTimeArrival =
+    controller.text =
     "${date?.year.toString()}-${date?.month.toString().padLeft(2, '0')}-${date
         ?.day.toString().padLeft(2, '0')}";
-    print(convertedDateTimeArrival);
+    print(controller.text);
+  //  controller.text=convertedDateTimeArrival!;
     emit(ChooseDateOfBirthState());
   }
 
@@ -331,43 +335,60 @@ getAllNationality(){
     }
   }
 
-  getStringAddress(int i) {
+  getStringAddress({required int i, required TextEditingController controller}) {
     if (i == 0) {
+      controller.clear();
       meenaLoc = addressFromMap;
+      controller.text=addressFromMap;
       latMinna = lat;
       lngMinna = lng;
       emit(ChangeAddressState());
+      print('controller ${controller.text}');
       addressFromMap = '';
     } else if (i == 1) {
+      controller.clear();
       arafaLoc = addressFromMap;
+      controller.text=addressFromMap;
       latArafa = lat;
       lngArafa = lng;
       emit(ChangeAddressState());
+      print('controller ${controller.text}');
       addressFromMap = '';
     } else if (i == 3) {
+      controller.clear();
       reportLocation = addressFromMap;
-
-
+      controller.text=addressFromMap;
+      print('controller ${controller.text}');
       emit(ChangeAddressState());
       addressFromMap = '';
     } else if (i == 4) {
+      controller.clear();
       maccaHotelLocation = addressFromMap;
+      controller.text=addressFromMap;
       latMaccaHotel = lat;
       lngMaccaHotel = lng;
+      print('controller ${controller.text}');
       emit(ChangeAddressState());
       addressFromMap = '';
     } else if (i == 5) {
+      controller.clear();
       madinaHotelLocation = addressFromMap;
+      controller.text=addressFromMap;
       latMadinaHotel = lat;
       lngMadinaHotel = lng;
+      print('controller ${controller.text}');
       emit(ChangeAddressState());
       addressFromMap = '';
     } else {
+      controller.clear();
       mozdalifaLoc = addressFromMap;
+      controller.text=addressFromMap;
       latMozdalifa = lat;
       lngMozdalifa = lng;
       emit(ChangeAddressState());
+      print('controller ${controller.text}');
       addressFromMap = '';
+
     }
   }
 
@@ -396,7 +417,7 @@ getAllNationality(){
   bool registerLoading = false;
   late LoginModel loginModel;
 
-  userRegister({
+  hajjiRegister({
     required String nameAr,
     required String nameEn,
     required String phoneNumber,
@@ -408,6 +429,9 @@ getAllNationality(){
     required String borderNo,
     required String maccaHotelName,
     required String madinahHotelName,
+    required String dateOfBirth,
+    required String dateOfArrival,
+    required String dateOfDeparture,
     required var password,
     required var confirmPassword,
     required File imageFile}) async {
@@ -421,13 +445,13 @@ getAllNationality(){
         'name_en':nameEn,
         'phone_number': phoneNumber,
         'nationality': chooseNationality,
-        'birthdate': dateBirth,
+        'birthdate': dateOfBirth,
         'email': email,
         'visa_number': visaNo,
         'passport_number': passportNo,
         'border_number': borderNo,
-        'arrival_date': dateArrival,
-        'departure_date': dateDep,
+        'arrival_date': dateOfArrival,
+        'departure_date': dateOfDeparture,
         'latitude_mina': latMinna,
         'longitude_mina': lngMinna,
         'location_mina': meenaLoc,
@@ -503,6 +527,125 @@ getAllNationality(){
       emit(SendFcmTokenErrorState(error: error.toString()));
     });
   }
+///moetamer
+  moetamerRegister({
+    required String nameAr,
+    required String nameEn,
+    required String phoneNumber,
+    // required String birthDate,
+    //  required String nationality,
+    required String email,
+    required String visaNo,
+    required String passportNo,
+    required String borderNo,
+    required String maccaHotelName,
+    required String madinahHotelName,
+    required String dateOfBirth,
+    required String dateOfArrival,
+    required String dateOfDeparture,
+    required var password,
+    required var confirmPassword,
+    required File imageFile}) async {
+    emit(RegisterLoadingState());
+    registerLoading = false;
+    try {
+      Dio dio = Dio();
+      String apiUrl = 'https://murshidguide.com/api/pilgrimsumrah/register';
+      FormData formData = FormData.fromMap({
+        'name_ar':nameAr,
+        'name_en':nameEn,
+        'phone_number': phoneNumber,
+        'nationality': chooseNationality,
+        'birthdate': dateOfBirth,
+        'email': email,
+        'visa_number': visaNo,
+        'passport_number': passportNo,
+        'border_number': borderNo,
+        'arrival_date': dateOfArrival,
+        'departure_date': dateOfDeparture,
+        // 'latitude_mina': latMinna,
+        // 'longitude_mina': lngMinna,
+        // 'location_mina': meenaLoc,
+        // 'latitude_mozdalifa': latMozdalifa,
+        // 'longitude__mozdalifa': lngMozdalifa,
+        // 'location_mozdalifa': mozdalifaLoc,
+        // 'latitude_arfat': latArafa,
+        // 'longitude__arfat': lngArafa,
+        // 'location_arfat': arafaLoc,
+        'type_of_disability': isDisability ? chooseDisability : 'لاشيئ',
+        'agent_name': 'chooseCompany',
+        'password': password,
+        'disability':isDisability?1:0,
+        'password_confirmation': confirmPassword,
+        'image': isPickImage
+            ? await MultipartFile.fromFile(imageFile.path,
+            filename: 'image.jpg')
+            : null,
+        'company_id': chooseCompany,
+        'location_makkah_hotel':maccaHotelLocation,
+        'location_madinah_hotel':madinaHotelLocation,
+        'hotel_madinah':madinahHotelName,
+        'hotel_makkah':maccaHotelName,
+        'latitude_makkah':latMaccaHotel,
+        'longitude__makkah':lngMaccaHotel,
+        'latitude_madinah':latMadinaHotel,
+        'longitude__madinah':lngMadinaHotel,
+      });
+      Response userRegister = await dio.post(apiUrl, data: formData);
+      loginModel = LoginModel.fromJson(userRegister.data);
+      print('tokeeeen ${loginModel.token}');
+
+      token = CacheHelper.saveData(key: 'token', value: loginModel.token);
+      accountTypeName=CacheHelper.saveData(key: 'accountTypeName', value: loginModel.data!.accountType);
+      accountTypeName=CacheHelper.getData(key: 'accountTypeName');
+      token = CacheHelper.getData(key: 'token');
+      print('isDisability  /////////////// $isDisability');
+
+
+      emit(RegisterSuccessState());
+      print('<<<<<<<<<<<<<<<<<<<$token>>>>>>>>>>>>>>>>>>>');
+      print('<<<<<<<<<<<<<<<<<<<$accountTypeName>>>>>>>>>>>>>>>>>>>');
+      print('FIRE $fcmToken');
+      registerLoading = true;
+      navigateForwardReplace(MainScreen());
+      sendFcmTokenMoetamer();
+    } on DioError catch (e) {
+      if (e.response != null) {
+        print('Dio error!');
+        print('STATUS: ${e.response?.statusCode}');
+        print('DATA: ${e.response?.data['message']}');
+        print('HEADERS: ${e.response?.headers}');
+        showToast(text: e.response?.data['message'], state: ToastState.ERROR);
+      } else {
+        print('Error sending request!');
+        print('/////////////////////// ${e.message}');
+      }
+      emit(RegisterErrorState(error: e.toString()));
+    }
+    return loginModel;
+  }
+  sendFcmTokenMoetamer() {
+    emit(SendFcmTokenLoadingState());
+    DioHelper.postData(
+        url: 'https://murshidguide.com/api/pilgrimsumrah/fcm-token',
+        data: {
+          'fcm_token': fcmToken,
+        },
+        token: CacheHelper.getData(key: 'token'))
+        .then((value) {
+      print(value.data);
+
+      emit(SendFcmTokenSuccessState());
+      //  getProfileDate();
+    }).catchError((error) {
+      print(error.toString());
+      emit(SendFcmTokenErrorState(error: error.toString()));
+    });
+  }
+
+
+
+
 
   bool isVisable = true;
 

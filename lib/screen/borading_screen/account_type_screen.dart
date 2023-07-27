@@ -8,7 +8,7 @@ import 'package:morshed/bloc/account_type_cubit/state.dart';
 import 'package:morshed/component/auth_header_widget.dart';
 import 'package:morshed/component/component.dart';
 import 'package:morshed/constant/const_color.dart';
-import 'package:morshed/screen/auth_screen/login_screen.dart';
+import 'package:morshed/screen/auth_screen/hajji/login_screen.dart';
 import '../../component/animation_component.dart';
 import '../../component/navigation_functions.dart';
 import '../../models/account_type_model.dart';
@@ -89,12 +89,14 @@ class AccountTypeScreen extends StatelessWidget {
                               showToast(
                                   text: LocaleKeys.pleaseChooseType.tr(),
                                   state: ToastState.WARNING);
+
                               print(
                                   'hijji: ${accountTypeCubit.isHajji} || Umrah: ${accountTypeCubit.isUmrah}');
                             } else if(accountTypeCubit.isUmrah == true) {
-                              showToast(text: 'خدمات المعتمرين ما زالت تحت التطوير', state: ToastState.WARNING);
+                              navigateForward(LoginScreen(index: 0,));
+                              //showToast(text: 'خدمات المعتمرين ما زالت تحت التطوير', state: ToastState.WARNING);
                             }else{
-                              navigateForward(LoginScreen());
+                              navigateForward(LoginScreen(index: 1,));
                               print(
                                   'hijji: ${accountTypeCubit.isHajji} || Umrah: ${accountTypeCubit.isUmrah}');
                             }

@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:morshed/bloc/show_office_provider_info/state.dart';
 import 'package:morshed/utiels/dio_helper.dart';
@@ -49,7 +50,7 @@ class ShowOfficesAndProviderInfoCubit
     for(var data in getAllOffices.offices!)
     {
       final marker= Marker(
-        icon:await BitmapDescriptor.fromAssetImage(ImageConfiguration(size: Size(10,10)), 'assets/images/marker.png'),
+        icon:await BitmapDescriptor.fromAssetImage(ImageConfiguration(size: Size(10,10)), 'assets/images/office_navigation.png'),
         markerId: MarkerId(data.id.toString()),
         position: LatLng(data.latitude!, data.longitude!),
         onTap: (){
