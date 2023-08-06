@@ -460,7 +460,9 @@ class RegisterScreen extends StatelessWidget {
                                       if(val.isEmpty){
                                         return 'برجاء ادخال البريد الالكتروني';
                                       }
-                                      return null;
+                                      else if (!val.contains("@")) {
+                                        return 'من فضلك ادخل اسم المستخدم بطريقه صحيحه';
+                                      }
                                     },
                                     minHeight: 80.h,
                                     maxHeight: 80.h,

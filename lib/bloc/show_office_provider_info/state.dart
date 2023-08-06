@@ -19,3 +19,9 @@ class GetAllProvidersDataErrorState extends ShowOfficesAndProviderInfoState{
   final String error;
   GetAllProvidersDataErrorState({required this.error});
 }
+class SearchOfficesLoadingState extends ShowOfficesAndProviderInfoState{}
+class SearchOfficesSuccessState extends ShowOfficesAndProviderInfoState{}
+class SearchOfficesErrorState extends ShowOfficesAndProviderInfoState{
+  final String error;
+  SearchOfficesErrorState({required this.error});
+}

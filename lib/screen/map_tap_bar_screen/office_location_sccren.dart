@@ -33,6 +33,7 @@ class _OfficesLocationScreenState extends State<OfficesLocationScreen> {
   @override
   void initState() {
     ShowOfficesAndProviderInfoCubit.get(context).getAllOfficesData();
+
     super.initState();
   }
 

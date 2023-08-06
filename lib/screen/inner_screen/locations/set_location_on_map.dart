@@ -39,7 +39,7 @@ class _MapScreenForSetLocationState extends State<MapScreenForSetLocation> {
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
-              automaticallyImplyLeading: false,
+             // automaticallyImplyLeading: false,
               title: Text(widget.i == 0
                   ? 'تحديد موقع مخيم منى'
                   : widget.i == 1
@@ -52,6 +52,7 @@ class _MapScreenForSetLocationState extends State<MapScreenForSetLocation> {
                                   ? 'تحديد موقع الفندق في مكه المكرمه'
                                   : 'تحديد موقع الفندق في المدينه المنوره',style: TextStyle(color: whiteColor),),
               centerTitle: true,
+              iconTheme: IconThemeData(color: whiteColor),
               actions: [
                 IconButton(
                     onPressed: () {

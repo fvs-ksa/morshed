@@ -7,11 +7,13 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:morshed/bloc/show_office_provider_info/cubit.dart';
 import 'package:morshed/component/component.dart';
+import 'package:morshed/component/cutom_text_filed.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/screen/map_tap_bar_screen/office_location_sccren.dart';
 import 'package:morshed/screen/map_tap_bar_screen/provider_location_screen.dart';
 
 import '../../bloc/show_office_provider_info/state.dart';
+import '../../component/animation_component.dart';
 import '../../component/horizontal_dotted_line.dart';
 import '../../component/info_profile_component.dart';
 import '../../translation/locale_keys.g.dart';
@@ -45,6 +47,7 @@ class _MapTabBarScreenState extends State<MapTabBarScreen>
 
   @override
   Widget build(BuildContext context) {
+    var cubit=ShowOfficesAndProviderInfoCubit.get(context);
     return BlocConsumer<ShowOfficesAndProviderInfoCubit,ShowOfficesAndProviderInfoState>(
       listener: (context,state){},
       builder: (context,state) {
@@ -58,33 +61,34 @@ class _MapTabBarScreenState extends State<MapTabBarScreen>
               automaticallyImplyLeading: false,
               backgroundColor: whiteColor,
               centerTitle: true,
-              title: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 30.0),
-                child: TextFormField(
+              title:cubit.index==0? Padding(
+                padding:  const EdgeInsetsDirectional.only(top: 15.0,bottom: 10),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: CustomTextField(labelText: 'بحث عن مكتب ارشاد',controller: searchController,hintText:'بحث' ,prefixIcon:Padding(
+                        padding:  const EdgeInsetsDirectional.only(start: 0,end: 5),
+                        child: backButtonWidget(context: context),
+                      ) ,),
+                    ),
+                    const SizedBox(width: 10,),
+                    Padding(
+                      padding:  EdgeInsetsDirectional.only(bottom: 12.0),
+                      child: mainButton(text: 'بحث', color: darkMainColor, context: context, fct: (){
 
-                  controller: searchController,
-                  decoration: InputDecoration(
-                      constraints: BoxConstraints(
-                          minHeight: 54.h,
-                          minWidth: 330.w,
-                          maxHeight: 54.h,
-                          maxWidth: 360.w),
-                      prefixIcon: backButtonWidget(context: context),
-                      labelText: 'بحث عن مكتب ارشاد',
-                      labelStyle: GoogleFonts.cairo(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w600,
-                          color: greyColor),
-                      hintText: 'بحث',
-                      errorStyle: GoogleFonts.cairo(fontSize: 8, color: Colors.red),
-                      hintStyle: GoogleFonts.cairo(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w600,
-                          color: greyColor),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.sp))),
+                        if(searchController.text.isEmpty){
+                          showToast(text: 'من فضلك أدخل أسم المكتب الذي تود البحث عنه', state: ToastState.ERROR);
+                        }else{
+                          cubit.tabbed=00;
+                          cubit.searchOffices(keyWord: searchController.text);
+
+                        }
+
+                      },width: 60.w,height: 50.h),
+                    )
+                  ],
                 ),
-              ),
+              ):SizedBox(),
               bottom: PreferredSize(
                   child: Stack(
                     alignment: AlignmentDirectional.center,

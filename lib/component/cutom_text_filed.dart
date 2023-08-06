@@ -11,6 +11,7 @@ class CustomTextField extends StatefulWidget {
   final TextEditingController? controller;
   final TextInputType? keyboardType;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
   final Function? onTap;
   final int? length;
   final int? lines;
@@ -29,6 +30,7 @@ class CustomTextField extends StatefulWidget {
     this.hintText,
     this.controller,
     this.secure,
+    this.prefixIcon,
     this.isBig = false,
     this.isEnabled = true,
     this.keyboardType,
@@ -53,6 +55,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return Padding(
       padding: EdgeInsets.only(bottom: 14.h),
       child: TextFormField(
+
         controller: widget.controller,
         style: GoogleFonts.cairo(
             fontSize: 14.sp, fontWeight: FontWeight.w600, color: blackColor),
@@ -73,6 +76,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 maxHeight: widget.maxHeight ?? 54.h,
                 maxWidth: widget.maxWidth ?? 360.w),
             suffixIcon: widget.suffixIcon,
+              prefixIcon: widget.prefixIcon,
             labelText: widget.labelText,
             labelStyle: GoogleFonts.cairo(
                 fontSize: 14.sp, fontWeight: FontWeight.w600, color: greyColor),

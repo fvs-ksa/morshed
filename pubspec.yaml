@@ -42,7 +42,7 @@ dependencies:
   google_fonts: ^4.0.4
   fluttertoast: ^8.2.1
   country_picker: ^2.0.20
-  intl: ^0.18.0
+  intl: ^0.17.0
   connectivity_plus: ^3.0.6
   flutter_launcher_icons: ^0.13.1
   shared_preferences: ^2.1.0
