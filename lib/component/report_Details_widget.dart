@@ -7,9 +7,7 @@ import 'package:morshed/bloc/location_cubit/cubit.dart';
 import 'package:morshed/bloc/location_cubit/state.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_state.dart';
-import 'package:morshed/component/animation_component.dart';
 import 'package:morshed/component/navigation_functions.dart';
-import 'package:morshed/screen/bottom_navigations_screens/main_screen.dart';
 import 'package:morshed/screen/inner_screen/locations/set_location_on_map.dart';
 import 'package:morshed/translation/locale_keys.g.dart';
 import 'component.dart';
@@ -48,7 +46,6 @@ class _ReportDetailsWidgetState extends State<ReportDetailsWidget> {
           TextEditingController reportLocationAnotherPerson = TextEditingController(text: LocationCubit.get(context).address);
           TextEditingController reportLocationController = TextEditingController(text: LocationCubit.get(context).address);
           return BlocConsumer<SubmitReportCubit, SubmitReportState>(
-
             listener: (context, state) {
               // TextEditingController reportLocationAnotherPerson = TextEditingController(text: LocationCubit.get(context).address);
               // TextEditingController reportLocationController = TextEditingController(text: LocationCubit.get(context).address);
@@ -57,9 +54,6 @@ class _ReportDetailsWidgetState extends State<ReportDetailsWidget> {
               // }
             },
             builder: (context, state) {
-
-
-
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
