@@ -87,7 +87,7 @@ class MoreScreen extends StatelessWidget {
               Expanded(
                 child: ListView.builder(
                   padding: EdgeInsets.zero,
-                  physics: const BouncingScrollPhysics(),
+                  //physics: const BouncingScrollPhysics(),
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () => moreList[index].onTap(),

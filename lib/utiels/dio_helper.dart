@@ -22,13 +22,14 @@ class DioHelper {
   }
 
   static Future<Response> getData(
-      {required String url, Map<String, dynamic>? query, String? token}) async {
+      {required String url, Map<String, dynamic>? query, String? token,String? search}) async {
     dio.options.headers = {
       "Authorization": 'Bearer $token' ?? "",
       'Content-Type': 'application/json'
     };
     dio.options.queryParameters={
       'lang': myLocale,
+      'search_query':search
     };
     Response response;
     // return

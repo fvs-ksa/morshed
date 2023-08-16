@@ -1,6 +1,7 @@
 
 
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -38,7 +39,7 @@ clikedLocationWidget({required TextEditingController controller,required Functio
                 child: Padding(
                     padding: EdgeInsets.all(8),
                     child: AutoSizeText(
-                      'اضغط هنا',
+                      "press_here".tr(),
                       style:
                       TextStyle(color: darkMainColor),
                     ))),

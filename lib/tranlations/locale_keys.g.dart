@@ -1,6 +1,6 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
-abstract class LocaleKeys {
+abstract class  LocaleKeys {
   static const boardingTitle1 = 'boardingTitle1';
   static const boardingTitle2 = 'boardingTitle2';
   static const boardingSubTitle1 = 'boardingSubTitle1';
@@ -38,7 +38,8 @@ abstract class LocaleKeys {
   static const mozdalefaNo = 'mozdalefaNo';
   static const hotelAndCampsiteName = 'hotelAndCampsiteName';
   static const officialMissionName = 'officialMissionName';
-  static const haveDisability = 'haveDisability?';
+  static const edit = 'edit';
+  static const haveDisability? = 'haveDisability?';
   static const agentName = 'agentName';
   static const confirmPassword = 'confirmPassword';
   static const whenYouRegisterYouAgree = 'whenYouRegisterYouAgree';
@@ -47,12 +48,10 @@ abstract class LocaleKeys {
   static const maccaHotelName = 'maccaHotelName';
   static const madinaHotelName = 'madinaHotelName';
   static const welcomeToMorshed = 'welcomeToMorshed';
-  static const reportingCaseOfMentalBreakdown =
-      'reportingCaseOfMentalBreakdown';
+  static const reportingCaseOfMentalBreakdown = 'reportingCaseOfMentalBreakdown';
   static const videoCall = 'videoCall';
   static const otherServices = 'otherServices';
-  static const counselingOfficesAndCounselors =
-      'counselingOfficesAndCounselors';
+  static const counselingOfficesAndCounselors = 'counselingOfficesAndCounselors';
   static const home = 'home';
   static const notifications = 'notifications';
   static const myBarcode = 'myBarcode';
@@ -72,31 +71,25 @@ abstract class LocaleKeys {
   static const reportLocation = 'reportLocation';
   static const changeLocation = 'changeLocation';
   static const WhatCanWeDoToAssistYou = 'WhatCanWeDoToAssistYou';
-  static const iWouldLikeHelpWithReachingTheHotel =
-      'iWouldLikeHelpWithReachingTheHotel';
+  static const WhatCanWeDoToAssistHim = 'WhatCanWeDoToAssistHim';
+  static const iWouldLikeHelpWithReachingTheHotel = 'iWouldLikeHelpWithReachingTheHotel';
   static const communicatingThroughVideoCall = 'communicatingThroughVideoCall';
-  static const iWouldLikeHelpWithReachingTheCamp =
-      'iWouldLikeHelpWithReachingTheCamp';
+  static const iWouldLikeHelpWithReachingTheCamp = 'iWouldLikeHelpWithReachingTheCamp';
   static const INeedHelpToJoinTheGroup = 'INeedHelpToJoinTheGroup';
-  static const findingInformationByScanningQrCode =
-      'findingInformationByScanningQrCode';
-  static const findingInformationUsingPassportNumber =
-      'findingInformationUsingPassportNumber';
+  static const findingInformationByScanningQrCode = 'findingInformationByScanningQrCode';
+  static const findingInformationUsingPassportNumber = 'findingInformationUsingPassportNumber';
   static const findingInformationUsingId = 'findingInformationUsingId';
-  static const findingInformationUsingHotelName =
-      'findingInformationUsingHotelName';
-  static const findingInformationUsingVisaNumber =
-      'findingInformationUsingVisaNumber';
+  static const findingInformationUsingHotelName = 'findingInformationUsingHotelName';
+  static const findingInformationUsingVisaNumber = 'findingInformationUsingVisaNumber';
   static const country = 'country';
   static const sex = 'sex';
   static const search = 'search';
   static const scanQrCode = 'scanQrCode';
   static const moetamerInfo = 'moetamerInfo';
+  static const age = 'age';
   static const hajjiInfo = 'hajjiInfo';
-  static const yourComplaintHasBeenReceivedSuccessfully =
-      'yourComplaintHasBeenReceivedSuccessfully';
-  static const subTitleOfReceivedComplaintSuccessfully =
-      'subTitleOfReceivedComplaintSuccessfully';
+  static const yourComplaintHasBeenReceivedSuccessfully = 'yourComplaintHasBeenReceivedSuccessfully';
+  static const subTitleOfReceivedComplaintSuccessfully = 'subTitleOfReceivedComplaintSuccessfully';
   static const findingInfoByNamePHoneOrLang = 'findingInfoByNamePHoneOrLang';
   static const SorryYouMustSubscribe = 'SorryYouMustSubscribe';
   static const moveToPaymentScreen = 'moveToPaymentScreen';
@@ -136,8 +129,7 @@ abstract class LocaleKeys {
   static const contactUs = 'contactUs';
   static const contactViaWhatsApp = 'contactViaWhatsApp';
   static const contactViaEmail = 'contactViaEmail';
-  static const weArePleasedToAnswerYourInquiry =
-      'weArePleasedToAnswerYourInquiry';
+  static const weArePleasedToAnswerYourInquiry = 'weArePleasedToAnswerYourInquiry';
   static const writeHere = 'writeHere';
   static const settings = 'settings';
   static const deleteAccount = 'deleteAccount';
@@ -145,18 +137,28 @@ abstract class LocaleKeys {
   static const logOut = 'logOut';
   static const profile = 'profile';
   static const Companions = 'Companions';
+  static const sendInquiry = 'sendInquiry';
+  static const errorWhileMovingToEmail = 'errorWhileMovingToEmail';
+  static const errorWhileMovingToWhatsApp = 'errorWhileMovingToWhatsApp';
   static const shareMorshed = 'shareMorshed';
   static const morshedSubscription = 'morshedSubscription';
-  static const passportIdResidencePermitNumber =
-      'passportIdResidencePermitNumber';
+  static const passportIdResidencePermitNumber = 'passportIdResidencePermitNumber';
   static const add = 'add';
-  static const edit = 'edit';
-  static const sendInquiry = 'sendInquiry';
+  static const addCompanion = 'addCompanion';
   static const YouMustLoginFirst = 'YouMustLoginFirst';
-  static const errorWhileMovingToEmail = "errorWhileMovingToEmail";
-  static const errorWhileMovingToWhatsApp = "errorWhileMovingToWhatsApp";
-  static const age = "age";
-  static const addCompanion = "addCompanion";
-  static const disabilityType = "disabilityType";
-  static const WhatCanWeDoToAssistHim = "WhatCanWeDoToAssistHim";
+  static const disabilityType = 'disabilityType';
+  static const press_here = 'press_here';
+  static const menna_loc = 'menna_loc';
+  static const arafa_loc = 'arafa_loc';
+  static const mozdalifa_loc = 'mozdalifa_loc';
+  static const macca_hotel_loc = 'macca_hotel_loc';
+  static const madina_hotel_loc = 'madina_hotel_loc';
+  static const service_under_development = 'service_under_development';
+  static const office_search = 'office_search';
+  static const office_guide = 'office_guide';
+  static const guide_service_provider = 'guide_service_provider';
+  static const companions_not_fount = 'companions_not_fount';
+  static const search_by_name = 'search_by_name';
+  static const please_write_companions = 'please_write_companions';
+
 }

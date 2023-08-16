@@ -22,91 +22,115 @@ class MyReports extends StatelessWidget {
     var reportCubit = SubmitReportCubit.get(context);
     return BlocConsumer<SubmitReportCubit, SubmitReportState>(
         listener: (context, state) {},
-        bloc: reportCubit.getMyReports(),
+        // bloc: reportCubit.getMyReports(),
         builder: (context, state) {
           return Scaffold(
             appBar: headerOfTechnicalSupport(
                 context: context, title: LocaleKeys.myReports.tr()),
             backgroundColor: whiteGreyColor,
             body: reportCubit.isGetMyReport
-                ?reportCubit.getMyReportsModel.reports!.isEmpty?Center(child: Text('ليس لديك بلاغات حتى الآن')): ListView.builder(
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: () {
-                          print(reportCubit
-                              .getMyReportsModel.reports![index].status!);
-                          navigateForward(MyReportsDetailsScreen(
-                            reportId: reportCubit
-                                .getMyReportsModel.reports![index].id!,
-                            status:  reportCubit
-                                .getMyReportsModel.reports![index].status!,
-                            index:index,
-                          ));
+                ? reportCubit.getMyReportsModel.reports!.isEmpty
+                    ? Center(child: Text('ليس لديك بلاغات حتى الآن'))
+                    : RefreshIndicator(
+                        onRefresh: () {
+                          return reportCubit.getMyReports();
                         },
-                        child: myReportsContainerWidget(
-                          context: context,
-                          style: reportCubit.getMyReportsModel.reports![index]
-                                      .status! ==
-                                  '3'
-                              ? Theme.of(context).textTheme.bodyLarge
-                              : null,
-                          solutionWidget: reportCubit.getMyReportsModel
-                                      .reports![index].status! ==
-                                  '1'
-                              ? IconButton(
-                                  onPressed: () {},
-                                  icon:
-                                      SvgPicture.asset('assets/svg/delete.svg'))
-                              : reportCubit.getMyReportsModel.reports![index]
-                                          .status! ==
-                                      '2'
-                                  ? Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        circleAvtarWidget(
-                                            svgImage: 'assets/svg/end call.svg',
-                                            fct: () {
-                                              launchCall(context: context,phoneNumber: reportCubit.getMyReportsModel.reports![index].receiverMobile);
-                                            }),
-                                        SizedBox(
-                                          width: 5.w,
-                                        ),
-
-
-                                        circleAvtarWidget(
-                                            svgImage: 'assets/svg/msg.svg',
-                                            fct: () {
-                                              showToast(text: 'الخدمه ما زالت تحت التطوير', state: ToastState.WARNING);
-                                            })
-                                      ],
-                                    )
-                                  : const SizedBox(),
-                          reportStatus: reportCubit.getMyReportsModel
-                                      .reports![index].status! ==
-                                  '1'
-                              ? LocaleKeys.underProcessing.tr()
-                              : reportCubit.getMyReportsModel.reports![index]
-                                          .status! ==
-                                      '2'
-                                  ? LocaleKeys.guideOnTheWay.tr()
-                                  : LocaleKeys.Resolved.tr(),
-                          reportId: reportCubit
-                              .getMyReportsModel.reports![index].id!,
-                          backgroundImage: reportCubit.getMyReportsModel
-                                      .reports![index].status! ==
-                                  '1'
-                              ? 'assets/images/Group 204373.png'
-                              : reportCubit.getMyReportsModel.reports![index]
-                                          .status! ==
-                                      '2'
-                                  ? 'assets/images/Group 204372.png'
-                                  : 'assets/images/Group 204371.png',
+                        child: ListView.builder(
+                          itemBuilder: (context, index) {
+                            return GestureDetector(
+                              onTap: () {
+                                print(reportCubit
+                                    .getMyReportsModel.reports![index].status!);
+                                navigateForward(MyReportsDetailsScreen(
+                                  reportId: reportCubit
+                                      .getMyReportsModel.reports![index].id!,
+                                  status: reportCubit.getMyReportsModel
+                                      .reports![index].status!,
+                                  index: index,
+                                ));
+                              },
+                              child: myReportsContainerWidget(
+                                context: context,
+                                style: reportCubit.getMyReportsModel
+                                            .reports![index].status! ==
+                                        '3'
+                                    ? Theme.of(context).textTheme.bodyLarge
+                                    : null,
+                                solutionWidget: reportCubit.getMyReportsModel
+                                            .reports![index].status! ==
+                                        '1'
+                                    ? IconButton(
+                                        onPressed: () {},
+                                        icon: SvgPicture.asset(
+                                            'assets/svg/delete.svg'))
+                                    : reportCubit.getMyReportsModel
+                                                .reports![index].status! ==
+                                            '2'
+                                        ? Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: [
+                                              circleAvtarWidget(
+                                                  svgImage:
+                                                      'assets/svg/end call.svg',
+                                                  fct: () {
+                                                    launchCall(
+                                                        context: context,
+                                                        phoneNumber: reportCubit
+                                                            .getMyReportsModel
+                                                            .reports![index]
+                                                            .receiverMobile);
+                                                  }),
+                                              SizedBox(
+                                                width: 5.w,
+                                              ),
+                                              circleAvtarWidget(
+                                                  svgImage:
+                                                      'assets/svg/msg.svg',
+                                                  fct: () {
+                                                    showToast(
+                                                        text:
+                                                            'الخدمه ما زالت تحت التطوير',
+                                                        state:
+                                                            ToastState.WARNING);
+                                                  })
+                                            ],
+                                          )
+                                        : const SizedBox(),
+                                reportStatus: reportCubit.getMyReportsModel
+                                            .reports![index].status! ==
+                                        '1'
+                                    ? LocaleKeys.underProcessing.tr()
+                                    : reportCubit.getMyReportsModel
+                                                .reports![index].status! ==
+                                            '2'
+                                        ? LocaleKeys.guideOnTheWay.tr()
+                                        : LocaleKeys.Resolved.tr(),
+                                reportId: reportCubit
+                                    .getMyReportsModel.reports![index].id!,
+                                backgroundImage: reportCubit.getMyReportsModel
+                                            .reports![index].status! ==
+                                        '1'
+                                    ? 'assets/images/Group 204373.png'
+                                    : reportCubit.getMyReportsModel
+                                                .reports![index].status! ==
+                                            '2'
+                                        ? 'assets/images/Group 204372.png'
+                                        : 'assets/images/Group 204371.png',
+                              ),
+                            );
+                          },
+                          itemCount:
+                              reportCubit.getMyReportsModel.reports!.length,
                         ),
-                      );
-                    },
-                    itemCount: reportCubit.getMyReportsModel.reports!.length,
-                  )
-                : Center(child: CircularProgressIndicator()),
+                      )
+                : Center(
+                    child: CircularProgressIndicator.adaptive(
+                    backgroundColor: orangeColor,
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      darkMainColor, //<-- SEE HERE
+                    ),
+                  )),
           );
         });
   }

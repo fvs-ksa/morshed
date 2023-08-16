@@ -73,8 +73,8 @@ List<MoreScreenModel> moreList = [
   MoreScreenModel(
       title: LocaleKeys.settings.tr(),
       onTap: () {
-        showToast(text: 'الخدمه تحت التطوير', state: ToastState.WARNING);
-      //  navigateForward(const SettingScreen());
+       // showToast(text: 'الخدمه تحت التطوير', state: ToastState.WARNING);
+        navigateForward(const SettingScreen());
       },
       svgImage: 'assets/svg/settings.svg'),
   MoreScreenModel(

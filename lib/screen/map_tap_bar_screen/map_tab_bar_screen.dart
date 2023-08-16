@@ -66,7 +66,7 @@ class _MapTabBarScreenState extends State<MapTabBarScreen>
                 child: Row(
                   children: [
                     Expanded(
-                      child: CustomTextField(labelText: 'بحث عن مكتب ارشاد',controller: searchController,hintText:'بحث' ,prefixIcon:Padding(
+                      child: CustomTextField(labelText: 'بحث عن مكتب ارشاد',controller: searchController,hintText:LocaleKeys.search.tr() ,prefixIcon:Padding(
                         padding:  const EdgeInsetsDirectional.only(start: 0,end: 5),
                         child: backButtonWidget(context: context),
                       ) ,),

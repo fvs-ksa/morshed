@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -29,9 +30,11 @@ Widget floatingContainer(
               width: 10.w,
             ),
             FittedBox(
-                child: Text(
+                child: AutoSizeText(
+
               title,
               style: Theme.of(context).textTheme.labelMedium,
+                  presetFontSizes: [12,10,8],
             ))
           ],
         ),

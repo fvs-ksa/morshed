@@ -150,7 +150,7 @@ Widget itemContainerOfGuidesAndEscorts(
             leading: CircleAvatar(
               radius: 30,
               backgroundColor: darkMainColor,
-              child: Image.network(image, fit: BoxFit.cover),
+              child: Image.asset(image, fit: BoxFit.cover),
             ),
           ),
         ),

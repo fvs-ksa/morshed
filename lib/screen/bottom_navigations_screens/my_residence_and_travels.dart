@@ -77,7 +77,7 @@ class MyResidenceAndTravels extends StatelessWidget {
                                 '${generalCubit.profileModel.data!.latitudeMina}, '
                                 '${generalCubit.profileModel.data!.longitudeMina}'
                                 '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
-                      }, context: context, labelText: 'عنوان مخيم منى'),
+                      }, context: context, labelText:"menna_loc".tr()),
 
                       accountTypeName=='pilgrimUmrah'?SizedBox():   clikedLocationWidget(controller: arafaLocationController, fct: (){
                         launchUrl(Uri.parse(
@@ -85,7 +85,7 @@ class MyResidenceAndTravels extends StatelessWidget {
                                 '${generalCubit.profileModel.data!.latitudeArfat}, '
                                 '${generalCubit.profileModel.data!.longitudeArfat}'
                                 '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
-                      }, context: context, labelText: 'عنوان مخيم عرفه'),
+                      }, context: context, labelText: "arafa_loc".tr()),
 
                       accountTypeName=='pilgrimUmrah'?SizedBox():  clikedLocationWidget(controller: mozdalifaLocationController, fct: (){
                         launchUrl(Uri.parse(
@@ -93,7 +93,7 @@ class MyResidenceAndTravels extends StatelessWidget {
                                 '${generalCubit.profileModel.data!.latitudeMozdalifa}, '
                                 '${generalCubit.profileModel.data!.longitudeMozdalifa}'
                                 '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
-                      }, context: context, labelText: 'عنوان مخيم المزدلفه'),
+                      }, context: context, labelText: "mozdalifa_loc".tr()),
 
 
                       clikedLocationWidget(controller: maccaHotelLocationController, fct: (){
@@ -154,7 +154,7 @@ class MyResidenceAndTravels extends StatelessWidget {
                               child: CustomTextField(
                                 isEnabled: false,
                                 controller:arrivalController ,
-                                labelText: 'تاريخ الوصول',
+                                labelText:LocaleKeys.arriveDate.tr(),
                                // hintText: '14/2/1966',
                               ),
                             ),
@@ -183,7 +183,7 @@ class MyResidenceAndTravels extends StatelessWidget {
                               child: CustomTextField(
                                 isEnabled: false,
                                 controller: departureController,
-                                labelText: 'تاريخ المغادرة',
+                                labelText: LocaleKeys.leaveDate.tr(),
                                // hintText: '14/2/1966',
                               ),
                             ),

@@ -145,5 +145,15 @@
   "errorWhileMovingToWhatsApp": "There was an error while moving to WhatsApp",
   "age": "age",
   "addCompanion": "Add companion",
-  "disabilityType": "Disability type"
+  "disabilityType": "Disability type",
+  "press_here": "Press Here",
+  "menna_loc": "Menna Location",
+  "arafa_loc": "Arafat Location",
+  "mozdalifa_loc": "Mozdalifa Location",
+  "macca_hotel_loc": "Makka Hotel's Location",
+  "madina_hotel_loc": "Madina Hotel's Location",
+  "service_under_development": "This service under development",
+  "office_search": "search offices",
+  "office_guide": "Guide's Offices",
+  "guide_service_provider": "Guide Service's Provider"
 }

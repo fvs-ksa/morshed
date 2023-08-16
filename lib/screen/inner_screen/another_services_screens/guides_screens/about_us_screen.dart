@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:morshed/bloc/another_services_cubit/about_us_cubit/cubit.dart';
@@ -37,10 +38,11 @@ class AboutUsScreen extends StatelessWidget {
                       Text(LocaleKeys.aboutMorshed.tr())
                     ],
                   ),
-                  Text(
-                    aboutCubit.aboutModel.data!.content!,
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
+                  Html(data: aboutCubit.aboutModel.data!.content??'',),
+                  // Text(
+                  //   aboutCubit.aboutModel.data!.content!,
+                  //   style: Theme.of(context).textTheme.bodySmall,
+                  // ),
                 ],
               ),
             ),

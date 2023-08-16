@@ -29,7 +29,7 @@ class ContactUs extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.only(start: 30.w, top: 70.h),
+                  padding: EdgeInsetsDirectional.only(start: 30.w, top: 70.h,end: 10.w),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -37,9 +37,12 @@ class ContactUs extends StatelessWidget {
                       SizedBox(
                         height: 64.h,
                       ),
-                      Text(
-                        LocaleKeys.contactUs.tr(),
-                        style: Theme.of(context).textTheme.headlineSmall,
+                      Align(
+                        alignment: AlignmentDirectional.bottomEnd,
+                        child: Text(
+                          LocaleKeys.contactUs.tr(),
+                          style: Theme.of(context).textTheme.headlineSmall,
+                        ),
                       )
                     ],
                   ),

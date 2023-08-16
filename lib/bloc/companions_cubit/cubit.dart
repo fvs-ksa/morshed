@@ -33,9 +33,14 @@ var dateBirth;
     emit(ChooseDateOfBirthState());
   }
   late GetMyCompanions getCompanions;
+  TextEditingController searchController = TextEditingController();
   getMyCompanions(){
     emit(GetCompanionLoadingState());
-    DioHelper.getData(url: 'https://murshidguide.com/api/pilgrims/companions',token: CacheHelper.getData(key: 'token')).then((value) {
+    DioHelper.getData(
+        url: 'https://murshidguide.com/api/pilgrims/companions',
+        token: CacheHelper.getData(key: 'token'),
+    search: searchController.text,
+    ).then((value) {
       print(value.data);
       getCompanions=GetMyCompanions.fromJson(value.data);
       emit(GetCompanionSuccessState());
@@ -63,4 +68,5 @@ var dateBirth;
       print(e.toString());
     });
   }
+
 }

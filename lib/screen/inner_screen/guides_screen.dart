@@ -16,21 +16,27 @@ import '../../bloc/guides_cubit/cubit.dart';
 import '../../component/info_profile_component.dart';
 import '../../constant/const_color.dart';
 
-class GuidesScreen extends StatelessWidget {
+class GuidesScreen extends StatefulWidget {
   int? index;
 
   GuidesScreen({this.index});
 
+  @override
+  State<GuidesScreen> createState() => _GuidesScreenState();
+}
+
+class _GuidesScreenState extends State<GuidesScreen> {
   TextEditingController searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     var guidesCubit = GuidesCubit.get(context);
     return BlocConsumer<GuidesCubit, GuidesState>(
-      bloc: guidesCubit.getAllGuides(),
+        // bloc: guidesCubit.getAllGuides(),
         listener: (context, state) {},
         builder: (context, state) {
           return GestureDetector(
+            behavior: HitTestBehavior.opaque,
             onTap: () {
               FocusManager.instance.primaryFocus?.unfocus();
             },
@@ -78,80 +84,114 @@ class GuidesScreen extends StatelessWidget {
               // ),
               appBar: headerForGuide(
                   context: context,
-                  title: index == 1 ? 'الاتصال المرئي' : LocaleKeys.guides.tr(),
+                  title: widget.index == 1
+                      ? 'الاتصال المرئي'
+                      : LocaleKeys.guides.tr(),
                   searchController: searchController,
-                  dropDownWidget: index == 1
+                  dropDownWidget: widget.index == 1
                       ? SizedBox()
                       : Container(
                           padding: EdgeInsetsDirectional.only(start: 10.w),
                           height: 90.h,
                           width: 88.w,
                           child: dropDownButton(
-                              items: guidesCubit.flags.map((e) {
-                                return DropdownMenuItem(
-                                  child: Image.asset(e["flag"].toString()),
-                                  value: e['id'].toString(),
-                                );
-                              }).toList(),
-                              value: guidesCubit.flag,
-                              isFlag: true,
-                              hint: LocaleKeys.country.tr(),
-                              fct: (onChange) {
-                                guidesCubit.onChangeFlagsSearch(onChange);
-                                print(onChange);
-                              },
-                              context: context,
+                            items: guidesCubit.flags.map((e) {
+                              return DropdownMenuItem(
+                                child: Image.asset(e["flag"].toString()),
+                                value: e['id'].toString(),
+                              );
+                            }).toList(),
+                            value: guidesCubit.flag,
+                            isFlag: true,
+                            hint: LocaleKeys.country.tr(),
+                            fct: (onChange) {
+                              guidesCubit.onChangeFlagsSearch(onChange);
+                              print(onChange);
+                            },
+                            context: context,
                             //  validator: () {}
                           ),
                         ),
                   fct: () {
-                    searchController.text.isEmpty?null:
-                    guidesCubit.searchProvider(name: searchController.text, langId: guidesCubit.flag??'');
+                    searchController.text.isEmpty
+                        ? null
+                        : guidesCubit.searchProvider(
+                            name: searchController.text,
+                            langId: guidesCubit.flag ?? '');
                   }),
               backgroundColor: whiteGreyColor,
-              body:guidesCubit.isProvidersGet?guidesCubit.getProvidersModel.providers!.isEmpty?
-                  Center(child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text('لا يوجد مقدمي خدمه إرشاد',textAlign: TextAlign.center,),
-                  ),)
-                  : Padding(
-                padding:
-                    EdgeInsetsDirectional.only(top: 10.h, start: 8.w, end: 8.w),
-                child: ListView.builder(
-                    itemCount: guidesCubit.getProvidersModel.providers!.length,
-                    itemBuilder: (context, index) {
-                      return itemContainerOfGuidesAndEscorts(
-                          context: context,
-                          image: 'assets/images/profile.png',
-                          name:guidesCubit.getProvidersModel.providers![index].name!,
-                          phone:guidesCubit.getProvidersModel.providers![index].phoneNumber! ,
-                          contactColumn: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              circleAvtarWidget(
-                                  svgImage: 'assets/svg/end call.svg',
-                                  fct: () async{
-                                    makePhoneCall(guidesCubit.getProvidersModel.providers![index].phoneNumber!);
-                                  }),
-                              circleAvtarWidget(
-                                  svgImage: 'assets/svg/msg.svg',
-                                  fct: () {
-                                    showToast(text: 'الخدمه ما زالت تحت التطوير', state: ToastState.WARNING);
-                                  //  navigateForward(ChatWithGuidesScreen());
-                                  })
-                            ],
-                          ));
-                    }),
-              ):Center(child: CircularProgressIndicator.adaptive(
-                backgroundColor: orangeColor,
-                valueColor: AlwaysStoppedAnimation<Color>(
-                  darkMainColor, //<-- SEE HERE
-                ),
-              )),
+              body: guidesCubit.isProvidersGet
+                  ? guidesCubit.getProvidersModel.providers!.isEmpty
+                      ? Center(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              'لا يوجد مقدمي خدمه إرشاد',
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        )
+                      : RefreshIndicator(
+                          onRefresh: () {
+                            return guidesCubit.getAllGuides();
+                          },
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.only(
+                                top: 10.h, start: 8.w, end: 8.w),
+                            child: ListView.builder(
+                                itemCount: guidesCubit
+                                    .getProvidersModel.providers!.length,
+                                itemBuilder: (context, index) {
+                                  return itemContainerOfGuidesAndEscorts(
+                                      context: context,
+                                      image: 'assets/images/profile.png',
+                                      name: guidesCubit.getProvidersModel
+                                          .providers![index].name!,
+                                      phone: guidesCubit.getProvidersModel
+                                          .providers![index].phoneNumber!,
+                                      contactColumn: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          circleAvtarWidget(
+                                              svgImage:
+                                                  'assets/svg/end call.svg',
+                                              fct: () async {
+                                                makePhoneCall(guidesCubit
+                                                    .getProvidersModel
+                                                    .providers![index]
+                                                    .phoneNumber!);
+                                              }),
+                                          circleAvtarWidget(
+                                              svgImage: 'assets/svg/msg.svg',
+                                              fct: () {
+                                                  showToast(text: 'الخدمه ما زالت تحت التطوير', state: ToastState.WARNING);
+                                                // navigateForward(
+                                                //     ChatWithGuidesScreen(
+                                                //   channelName: guidesCubit
+                                                //       .getProvidersModel
+                                                //       .providers![index]
+                                                //       .id
+                                                //       .toString(),
+                                                // ));
+                                              })
+                                        ],
+                                      ));
+                                }),
+                          ),
+                        )
+                  : Center(
+                      child: CircularProgressIndicator.adaptive(
+                      backgroundColor: orangeColor,
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        darkMainColor, //<-- SEE HERE
+                      ),
+                    )),
             ),
           );
         });
   }
+
   Future<void> makePhoneCall(String phoneNumber) async {
     final Uri launchUri = Uri(
       scheme: 'tel',

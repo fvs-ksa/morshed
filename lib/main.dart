@@ -1,3 +1,7 @@
+
+
+import 'dart:io';
+
 import 'package:country_picker/country_picker.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -5,11 +9,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:morshed/bloc/account_type_cubit/cubit.dart';
 import 'package:morshed/bloc/another_services_cubit/about_us_cubit/cubit.dart';
+import 'package:morshed/bloc/another_services_cubit/another_service/cubit.dart';
 import 'package:morshed/bloc/another_services_cubit/terms_cubit/terms_cubit.dart';
 import 'package:morshed/bloc/boarding_cubit/cubit.dart';
 import 'package:morshed/bloc/chat_cubit/chat_with_support_cubit/chat_support_cubit.dart';
@@ -26,22 +32,32 @@ import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
 import 'package:morshed/pallete.dart';
 import 'package:morshed/screen/borading_screen/boarding_screen.dart';
 import 'package:morshed/screen/bottom_navigations_screens/main_screen.dart';
-import 'package:morshed/translation/codegen_loader.g.dart';
+import 'package:morshed/tranlations/codegen_loader.g.dart';
 import 'package:morshed/utiels/navigation_Services.dart';
 import 'package:morshed/utiels/shared_pref.dart';
 import 'package:morshed/utiels/socket.dart';
+import 'dart:convert';
 import 'bloc/companions_cubit/cubit.dart';
 import 'bloc_observe.dart';
 import 'constant/const_color.dart';
 import 'constant/text_theme.dart';
 import 'fcm/fcm.dart';
-
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+FlutterLocalNotificationsPlugin();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
+  await Firebase.initializeApp();
+  final RemoteMessage? remoteMessage =
+  await FirebaseMessaging.instance.getInitialMessage();
+  if (remoteMessage != null) {
+    // _body = NotificationHelper.convertNotification(remoteMessage.data);
+  }
+ // await NotificationHelper.initialize(flutterLocalNotificationsPlugin);
+ // FirebaseMessaging.onBackgroundMessage(myBackgroundMessageHandler);
+ FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
   FlutterNativeSplash.preserve(
       widgetsBinding: WidgetsFlutterBinding.ensureInitialized());
-  await Firebase.initializeApp();
+
 
 
   FirebaseNotifications().setUpFirebase();
@@ -59,7 +75,11 @@ void main() async {
   });
   fcmToken = CacheHelper.getData(key: 'fcmToken');
   print('<<<<<<<<<<<<<$fcmToken>>>>>>>>>>>>>');
+  try {
+    //if (Platform.) {
 
+   // }
+  } catch (e) {}
   Widget widget;
   if (CacheHelper.getData(key: 'token') == null) {
     widget = BoardingScreen();
@@ -84,7 +104,7 @@ void main() async {
 
     return  EasyLocalization(
       //,  Locale('en')
-          supportedLocales:const  [Locale('ar')],
+          supportedLocales:const  [Locale('ar'),Locale('en')],
           path: 'assets/langs',
           assetLoader: const CodegenLoader(),
           startLocale:  Locale('ar'),
@@ -127,6 +147,7 @@ class MyApp extends StatelessWidget {
                 ..getUserCurrentLocation(context)
                 ..getAllCompanies()),
           BlocProvider<LoginCubit>(create: (context) => LoginCubit()),
+          BlocProvider<AnotherServicesCubit>(create: (context) => AnotherServicesCubit()..getTransportation()..getHarameenServices()..getInfoHajjiServices()..getInfoGuideServices()),
           BlocProvider<GeneralCubit>(
               create: (context) =>
               GeneralCubit()
