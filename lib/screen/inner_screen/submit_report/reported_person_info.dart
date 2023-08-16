@@ -6,12 +6,11 @@ import 'package:morshed/bloc/location_cubit/cubit.dart';
 import 'package:morshed/bloc/location_cubit/state.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_state.dart';
-import 'package:morshed/component/component.dart';
-import 'package:morshed/translation/locale_keys.g.dart';
 import '../../../component/cutom_text_filed.dart';
 import '../../../constant/const_color.dart';
 import '../../../component/info_profile_component.dart';
 import '../../../component/report_Details_widget.dart';
+import '../../../tranlations/locale_keys.g.dart';
 
 class ReportedPersonInfo extends StatelessWidget {
   @override

@@ -1,12 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:morshed/screen/inner_screen/another_services_screens/guides_screens/about_us_screen.dart';
 import 'package:morshed/screen/inner_screen/another_services_screens/guides_screens/guide_to_getting_lost.dart';
-import 'package:morshed/translation/locale_keys.g.dart';
 
 import '../component/navigation_functions.dart';
 import '../screen/inner_screen/another_services_screens/guides_screens/haramen_sharefen_services.dart';
 import '../screen/inner_screen/another_services_screens/guides_screens/hijj_omra_info.dart';
 import '../screen/inner_screen/another_services_screens/guides_screens/tourist_attractions_screen.dart';
+import '../tranlations/locale_keys.g.dart';
 
 class GuidesForHajjiModel {
   String image;

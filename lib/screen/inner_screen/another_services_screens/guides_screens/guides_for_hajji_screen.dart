@@ -5,7 +5,7 @@ import 'package:morshed/component/auth_header_widget.dart';
 import 'package:morshed/component/info_profile_component.dart';
 import 'package:morshed/models/guides_for_hajji_model.dart';
 import '../../../../constant/const_color.dart';
-import '../../../../translation/locale_keys.g.dart';
+import '../../../../tranlations/locale_keys.g.dart';
 
 class GuidesForHajjiScreen extends StatelessWidget {
   const GuidesForHajjiScreen({Key? key}) : super(key: key);

@@ -6,7 +6,8 @@ import 'package:morshed/bloc/setting_cubit/cubit.dart';
 import 'package:morshed/bloc/setting_cubit/state.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/component/guide_escorts_component.dart';
-import 'package:morshed/translation/locale_keys.g.dart';
+
+import '../../tranlations/locale_keys.g.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({Key? key}) : super(key: key);

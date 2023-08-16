@@ -7,12 +7,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:morshed/bloc/profile_cubit/cubit.dart';
 import 'package:morshed/bloc/profile_cubit/state.dart';
-import 'package:morshed/bloc/register_cubit/cubit.dart';
 import 'package:morshed/component/component.dart';
 import 'package:morshed/constant/const_color.dart';
-import 'package:morshed/translation/locale_keys.g.dart';
 import '../../component/cutom_text_filed.dart';
 import '../../component/info_profile_component.dart';
+import '../../tranlations/locale_keys.g.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);

@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,6 +11,7 @@ import 'package:morshed/screen/borading_screen/boarding_screen.dart';
 import '../../constant/const_color.dart';
 import '../../models/api_model/profile_model.dart';
 import '../../models/nationality_model.dart';
+import '../../tranlations/locale_keys.g.dart';
 import '../../utiels/dio_helper.dart';
 import '../../utiels/shared_pref.dart';
 import 'dart:io';
@@ -149,12 +151,12 @@ class ProfileCubit extends Cubit<ProfileState> {
         .then((value) {
       print(value.data);
       Navigator.pop(context);
-      showToast(text: 'تم تحديث ملفك الشخصي بنجاح', state: ToastState.SUCCESS);
+      showToast(text:LocaleKeys.profile_update_successfully.tr() , state: ToastState.SUCCESS);
       emit(UpdateProfileSuccessState());
     }).catchError((error) {
       print(error.toString());
       emit(UpdateProfileErrorState(error: error.toString()));
-      showToast(text: 'حدث خطأ أثناء الأتصال بالسيرفر', state: ToastState.ERROR);
+      showToast(text:LocaleKeys.error_occurred.tr(), state: ToastState.ERROR);
       print(error.toString());
     });
   }
@@ -174,7 +176,7 @@ class ProfileCubit extends Cubit<ProfileState> {
         .catchError((error) {
       print(error.toString());
       emit(LogOutErrorState(error: error.toString()));
-      showToast(text: 'فشل في تسجيل الخروج', state: ToastState.ERROR);
+      showToast(text:LocaleKeys.logout_fail.tr(), state: ToastState.ERROR);
     });
   }
   int tabbed=00;

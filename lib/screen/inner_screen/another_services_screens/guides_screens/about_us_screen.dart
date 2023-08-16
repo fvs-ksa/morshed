@@ -7,8 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:morshed/bloc/another_services_cubit/about_us_cubit/cubit.dart';
 import 'package:morshed/bloc/another_services_cubit/about_us_cubit/state.dart';
 import 'package:morshed/component/guide_for_hajj_widget.dart';
-
-import '../../../../translation/locale_keys.g.dart';
+import '../../../../tranlations/locale_keys.g.dart';
 
 class AboutUsScreen extends StatelessWidget {
   const AboutUsScreen({Key? key}) : super(key: key);

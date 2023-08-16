@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:morshed/translation/locale_keys.g.dart';
+
+import '../tranlations/locale_keys.g.dart';
 
 class BoardingModel {
   String image;

@@ -5,7 +5,7 @@ import 'package:morshed/component/component.dart';
 import '../../component/guide_escorts_component.dart';
 import '../../component/navigation_functions.dart';
 import '../../constant/const_color.dart';
-import '../../translation/locale_keys.g.dart';
+import '../../tranlations/locale_keys.g.dart';
 import '../bottom_navigations_screens/main_screen.dart';
 
 class SubscriptionScreen extends StatelessWidget {

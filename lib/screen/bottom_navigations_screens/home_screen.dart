@@ -8,11 +8,10 @@ import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/component/floating_Container.dart';
 import 'package:morshed/component/home_screen_widget.dart';
 import 'package:morshed/screen/inner_screen/add_companions_screen.dart';
-import 'package:morshed/screen/inner_screen/guides_screen.dart';
 import 'package:morshed/screen/inner_screen/my_card_screen.dart';
-import 'package:morshed/translation/locale_keys.g.dart';
 import '../../component/horizontal_dotted_line.dart';
 import '../../component/navigation_functions.dart';
+import '../../tranlations/locale_keys.g.dart';
 import '../inner_screen/another_services_screens/another_services_screen.dart';
 import '../inner_screen/submit_report/tab_submit_report.dart';
 import '../map_tap_bar_screen/map_tab_bar_screen.dart';
@@ -117,7 +116,7 @@ class HomeScreen extends StatelessWidget {
                           height: 151.16.h,
                           fct: () {
                             showToast(
-                                text: 'الخدمه ما زالت تحت التطوير',
+                                text: LocaleKeys.service_under_development.tr(),
                                 state: ToastState.WARNING);
                             // navigateForward(GuidesScreen(
                             //   index: 1,
@@ -147,7 +146,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   floatingContainer(
                       fct: () {
-                        navigateForward(const AddCompanionsScreen());
+                        navigateForward( AddCompanionsScreen());
                       },
                       alignment: AlignmentDirectional.bottomStart,
                       context: context,

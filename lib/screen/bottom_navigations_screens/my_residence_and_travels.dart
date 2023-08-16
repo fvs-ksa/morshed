@@ -7,12 +7,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:morshed/bloc/general_cubit/general_cubit.dart';
 import 'package:morshed/bloc/general_cubit/general_state.dart';
 import 'package:morshed/screen/bottom_navigations_screens/widget/resisdance_Widget.dart';
-import 'package:morshed/translation/locale_keys.g.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../../component/component.dart';
 import '../../component/cutom_text_filed.dart';
 import '../../constant/const_color.dart';
 import '../../component/info_profile_component.dart';
+import '../../tranlations/locale_keys.g.dart';
 
 class MyResidenceAndTravels extends StatelessWidget {
   const MyResidenceAndTravels({Key? key}) : super(key: key);
@@ -77,7 +76,7 @@ class MyResidenceAndTravels extends StatelessWidget {
                                 '${generalCubit.profileModel.data!.latitudeMina}, '
                                 '${generalCubit.profileModel.data!.longitudeMina}'
                                 '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
-                      }, context: context, labelText:"menna_loc".tr()),
+                      }, context: context, labelText:LocaleKeys.menna_loc.tr()),
 
                       accountTypeName=='pilgrimUmrah'?SizedBox():   clikedLocationWidget(controller: arafaLocationController, fct: (){
                         launchUrl(Uri.parse(
@@ -85,7 +84,7 @@ class MyResidenceAndTravels extends StatelessWidget {
                                 '${generalCubit.profileModel.data!.latitudeArfat}, '
                                 '${generalCubit.profileModel.data!.longitudeArfat}'
                                 '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
-                      }, context: context, labelText: "arafa_loc".tr()),
+                      }, context: context, labelText: LocaleKeys.arafa_loc.tr()),
 
                       accountTypeName=='pilgrimUmrah'?SizedBox():  clikedLocationWidget(controller: mozdalifaLocationController, fct: (){
                         launchUrl(Uri.parse(
@@ -93,7 +92,7 @@ class MyResidenceAndTravels extends StatelessWidget {
                                 '${generalCubit.profileModel.data!.latitudeMozdalifa}, '
                                 '${generalCubit.profileModel.data!.longitudeMozdalifa}'
                                 '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
-                      }, context: context, labelText: "mozdalifa_loc".tr()),
+                      }, context: context, labelText: LocaleKeys.mozdalifa_loc.tr()),
 
 
                       clikedLocationWidget(controller: maccaHotelLocationController, fct: (){
@@ -102,7 +101,7 @@ class MyResidenceAndTravels extends StatelessWidget {
                                 '${generalCubit.profileModel.data!.latitudeMakkah}, '
                                 '${generalCubit.profileModel.data!.longitudeMakkah}'
                                 '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
-                      }, context: context, labelText: 'عنوان الفندق في مكه المكرمه'),
+                      }, context: context, labelText: LocaleKeys.macca_hotel_loc.tr()),
 
 
                       clikedLocationWidget(controller: madinahHotelNumberController, fct: (){
@@ -111,7 +110,7 @@ class MyResidenceAndTravels extends StatelessWidget {
                                 '${generalCubit.profileModel.data!.latitudeMadinah}, '
                                 '${generalCubit.profileModel.data!.longitudeMadinah}'
                                 '&key=AIzaSyBVgpiuFIJ2AMh5ZwbgkAu3E47jmyx7_is'));
-                      }, context: context, labelText:  'عنوان الفندق في المدينه المنوره'),
+                      }, context: context, labelText:  LocaleKeys.madina_hotel_loc.tr()),
                       // GestureDetector(
                       //   onTap: ()async{
                       //     await launchUrl(Uri.parse

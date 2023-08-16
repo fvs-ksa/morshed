@@ -4,7 +4,7 @@ import 'package:morshed/screen/inner_screen/another_services_screens/transportat
 
 import '../component/navigation_functions.dart';
 import '../screen/inner_screen/another_services_screens/guides_screens/guides_for_hajji_screen.dart';
-import '../translation/locale_keys.g.dart';
+import '../tranlations/locale_keys.g.dart';
 
 class AnotherServicesModel {
   String image;

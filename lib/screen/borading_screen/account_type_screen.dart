@@ -12,6 +12,7 @@ import 'package:morshed/screen/auth_screen/hajji/login_screen.dart';
 import '../../component/animation_component.dart';
 import '../../component/navigation_functions.dart';
 import '../../models/account_type_model.dart';
+import '../../tranlations/locale_keys.g.dart';
 
 class AccountTypeScreen extends StatelessWidget {
   const AccountTypeScreen({Key? key}) : super(key: key);

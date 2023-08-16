@@ -5,7 +5,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:morshed/bloc/general_cubit/general_cubit.dart';
 import 'package:morshed/bloc/general_cubit/general_state.dart';
 import 'package:morshed/constant/const_color.dart';
-import 'package:morshed/translation/locale_keys.g.dart';
+
+import '../../tranlations/locale_keys.g.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);

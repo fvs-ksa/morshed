@@ -6,9 +6,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:morshed/bloc/notification_cubit/state.dart';
 import 'package:morshed/constant/const_color.dart';
-import 'package:morshed/translation/locale_keys.g.dart';
-
 import '../../bloc/notification_cubit/cubit.dart';
+import '../../tranlations/locale_keys.g.dart';
 
 class NotificationsScreen extends StatelessWidget {
   const NotificationsScreen({Key? key}) : super(key: key);
@@ -31,7 +30,7 @@ class NotificationsScreen extends StatelessWidget {
                         ),
                         Center(
                           child: Text(
-                            'ليس لديك اشعارات حاليا',
+                            LocaleKeys.no_notifications.tr(),
                             style: Theme.of(context).textTheme.displayLarge,
                           ),
                         )

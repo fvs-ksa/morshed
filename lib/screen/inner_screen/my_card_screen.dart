@@ -1,14 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:morshed/bloc/profile_cubit/cubit.dart';
 import 'package:morshed/bloc/profile_cubit/state.dart';
-import 'package:morshed/translation/locale_keys.g.dart';
-
 import '../../component/animation_component.dart';
 import '../../component/guide_escorts_component.dart';
-import '../../constant/const_color.dart';
+import '../../tranlations/locale_keys.g.dart';
 
 class MyCardScreen extends StatelessWidget {
   const MyCardScreen({Key? key}) : super(key: key);

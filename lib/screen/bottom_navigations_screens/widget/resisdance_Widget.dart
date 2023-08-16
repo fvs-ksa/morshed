@@ -38,10 +38,13 @@ clikedLocationWidget({required TextEditingController controller,required Functio
                 height: 54.h,
                 child: Padding(
                     padding: EdgeInsets.all(8),
-                    child: AutoSizeText(
-                      "press_here".tr(),
-                      style:
-                      TextStyle(color: darkMainColor),
+                    child: FittedBox(
+                      child: AutoSizeText(
+                        presetFontSizes: [10,8,6],
+                        "press_here".tr(),
+                        style:
+                        TextStyle(color: darkMainColor),
+                      ),
                     ))),
           ),
         )

@@ -9,7 +9,7 @@ import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_state.dart';
 import 'package:morshed/component/navigation_functions.dart';
 import 'package:morshed/screen/inner_screen/locations/set_location_on_map.dart';
-import 'package:morshed/translation/locale_keys.g.dart';
+import '../tranlations/locale_keys.g.dart';
 import 'component.dart';
 import '../constant/const_color.dart';
 import 'cutom_text_filed.dart';

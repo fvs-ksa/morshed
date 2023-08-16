@@ -6,9 +6,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:morshed/bloc/another_services_cubit/another_service/cubit.dart';
 import 'package:morshed/bloc/another_services_cubit/another_service/state.dart';
 import 'package:morshed/component/guide_for_hajj_widget.dart';
-
 import '../../../../constant/const_color.dart';
-import '../../../../translation/locale_keys.g.dart';
+import '../../../../tranlations/locale_keys.g.dart';
 
 class GuideToGettingLostScreen extends StatelessWidget {
   const GuideToGettingLostScreen({Key? key}) : super(key: key);

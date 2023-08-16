@@ -12,7 +12,7 @@ import '../../../component/cutom_text_filed.dart';
 import '../../../component/navigation_functions.dart';
 import '../../../constant/const_color.dart';
 import '../../../component/guide_escorts_component.dart';
-import '../../../translation/locale_keys.g.dart';
+import '../../../tranlations/locale_keys.g.dart';
 
 class MyReportsDetailsScreen extends StatelessWidget {
   String status;
@@ -37,7 +37,7 @@ class MyReportsDetailsScreen extends StatelessWidget {
           // appBar: headerOfTechnicalSupport(
           //     context: context, title: LocaleKeys.reportDetails.tr()),
           appBar: headerOfTechnicalSupport(
-              context: context, title: 'بلاغ رقم $reportId'),
+              context: context, title: "${LocaleKeys.report_no.tr()} $reportId"),
           body: GestureDetector(
             onTap: () {
               FocusManager.instance.primaryFocus?.unfocus();

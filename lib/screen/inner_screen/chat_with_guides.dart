@@ -6,11 +6,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:morshed/bloc/chat_cubit/chat_with_support_cubit/chat_support_state.dart';
 import 'package:morshed/screen/inner_screen/vedio_chat/room_vedio_screen.dart';
-import 'package:morshed/translation/locale_keys.g.dart';
 import '../../bloc/chat_cubit/chat_with_support_cubit/chat_support_cubit.dart';
 import '../../component/navigation_functions.dart';
 import '../../constant/const_color.dart';
 import '../../component/guide_escorts_component.dart';
+import '../../tranlations/locale_keys.g.dart';
 
 class ChatWithGuidesScreen extends StatefulWidget {
   String channelName;

@@ -157,5 +157,20 @@
   "guide_service_provider": "مقدمي خدمات إرشاد",
   "companions_not_fount": "لا يوجد لديك مرافقين حتى الآن",
   "search_by_name": "البحث عن طريق الأسم",
-  "please_write_companions": "من فضلك أدخل اسم المرافق"
+  "please_write_companions": "من فضلك أدخل اسم المرافق",
+  "no_reports": "لا يوجد لديك بلاغات",
+  "report_no": "رقم البلاغ:",
+  "note_for_report": "ملاحظات البلاغ عن الشخص التائه يمكنك\n تقديم البلاغ بسهوله",
+  "companions_Added_Successfully": "تم اضافه المرافق بنجاح",
+  "please_verify_date": "برجاء التأكد من البيانات المدخله",
+  "enter_date_of_birth": "من فضلك أدخل تاريخ الميلاد",
+  "enter_id": "من فضلك أدخل رقم جواز السفر أو رقم الإقامه",
+  "enter_office_name_for_search": "من فضلك أدخل أسم المكتب الذي تود البحث عنه",
+  "no_notifications": "لا يوجد لديك إشعارات",
+  "error": "حدث خطأ",
+  "no_internet_connection": "لا يوجد اتصال بالانترنت",
+  "retry": "اعاده المحاوله",
+  "profile_update_successfully": "تم تحديث ملفك الشخصي بنجاح",
+  "error_occurred": "حدث خطأ أثناء الأتصال بالسيرفر",
+  "logout_fail": "فشل في تسجيل الخروج"
 }

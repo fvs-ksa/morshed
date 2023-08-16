@@ -225,12 +225,14 @@ Widget mainButton(
           ),
           color: color,
           borderRadius: BorderRadius.circular(35.sp)),
-      child: Align(
-        alignment: Alignment.center,
-        child: Text(
-          textAlign: TextAlign.center,
-          text,
-          style: textStyle ?? Theme.of(context).textTheme.labelLarge,
+      child: FittedBox(
+        child: Align(
+          alignment: Alignment.center,
+          child: Text(
+            textAlign: TextAlign.center,
+            text,
+            style: textStyle ?? Theme.of(context).textTheme.labelLarge,
+          ),
         ),
       ),
     ),

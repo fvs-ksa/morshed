@@ -7,11 +7,10 @@ import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_state.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/component/reports_widgets.dart';
-import 'package:morshed/translation/locale_keys.g.dart';
 import '../../../component/animation_component.dart';
 import '../../../component/guide_escorts_component.dart';
 import '../../../component/navigation_functions.dart';
-import '../../../models/my_reports_model.dart';
+import '../../../tranlations/locale_keys.g.dart';
 import 'my_reports_details.dart';
 
 class MyReports extends StatelessWidget {
@@ -30,7 +29,7 @@ class MyReports extends StatelessWidget {
             backgroundColor: whiteGreyColor,
             body: reportCubit.isGetMyReport
                 ? reportCubit.getMyReportsModel.reports!.isEmpty
-                    ? Center(child: Text('ليس لديك بلاغات حتى الآن'))
+                    ? Center(child: Text(LocaleKeys.report_no.tr()))
                     : RefreshIndicator(
                         onRefresh: () {
                           return reportCubit.getMyReports();

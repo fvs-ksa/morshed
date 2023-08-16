@@ -8,7 +8,7 @@ import 'package:morshed/bloc/another_services_cubit/another_service/state.dart';
 import 'package:morshed/component/info_profile_component.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../constant/const_color.dart';
-import '../../../translation/locale_keys.g.dart';
+import '../../../tranlations/locale_keys.g.dart';
 
 class TransportationScreen extends StatelessWidget {
   const TransportationScreen({Key? key}) : super(key: key);

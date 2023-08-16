@@ -6,7 +6,8 @@ import 'package:morshed/bloc/general_cubit/general_cubit.dart';
 import 'package:morshed/bloc/general_cubit/general_state.dart';
 import 'package:morshed/bloc/login_cubit/login_cubit.dart';
 import 'package:morshed/constant/const_color.dart';
-import 'package:morshed/translation/locale_keys.g.dart';
+
+import '../../tranlations/locale_keys.g.dart';
 
 class QrScreen extends StatelessWidget {
   const QrScreen({Key? key}) : super(key: key);

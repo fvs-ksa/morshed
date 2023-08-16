@@ -173,7 +173,22 @@ class CodegenLoader extends AssetLoader{
   "guide_service_provider": "مقدمي خدمات إرشاد",
   "companions_not_fount": "لا يوجد لديك مرافقين حتى الآن",
   "search_by_name": "البحث عن طريق الأسم",
-  "please_write_companions": "من فضلك أدخل اسم المرافق"
+  "please_write_companions": "من فضلك أدخل اسم المرافق",
+  "no_reports": "لا يوجد لديك بلاغات",
+  "report_no": "رقم البلاغ:",
+  "note_for_report": "ملاحظات البلاغ عن الشخص التائه يمكنك\n تقديم البلاغ بسهوله",
+  "companions_Added_Successfully": "تم اضافه المرافق بنجاح",
+  "please_verify_date": "برجاء التأكد من البيانات المدخله",
+  "enter_date_of_birth": "من فضلك أدخل تاريخ الميلاد",
+  "enter_id": "من فضلك أدخل رقم جواز السفر أو رقم الإقامه",
+  "enter_office_name_for_search": "من فضلك أدخل أسم المكتب الذي تود البحث عنه",
+  "no_notifications": "لا يوجد لديك إشعارات",
+  "error": "حدث خطأ",
+  "no_internet_connection": "لا يوجد اتصال بالانترنت",
+  "retry": "اعاده المحاوله",
+  "profile_update_successfully": "تم تحديث ملفك الشخصي بنجاح",
+  "error_occurred": "حدث خطأ أثناء الأتصال بالسيرفر",
+  "logout_fail": "فشل في تسجيل الخروج"
 };
 static const Map<String,dynamic> en = {
   "boardingTitle1": "Lost person?",
@@ -332,7 +347,25 @@ static const Map<String,dynamic> en = {
   "service_under_development": "This service under development",
   "office_search": "search offices",
   "office_guide": "Guide's Offices",
-  "guide_service_provider": "Guide Service's Provider"
+  "guide_service_provider": "Guide Service's Provider",
+  "companions_not_fount": "there is no Companions Found",
+  "search_by_name": "Search by name",
+  "please_write_companions": "Please write name",
+  "no_reports": "There is no reports found",
+  "report_no": "Report No:",
+  "note_for_report": "Notes you can upload report for lost person normally",
+  "companions_Added_Successfully": "Companions Added Successfully",
+  "please_verify_date": "Please verify The Date",
+  "enter_date_of_birth": "Please enter your date of birth",
+  "enter_id": "Please enter passport no. or Id Residence",
+  "enter_office_name_for_search": "Please enter office name to we can search for you",
+  "no_notifications": "No Notification Found",
+  "error": "An Error Occurred",
+  "no_internet_connection": "No Internet Connection",
+  "retry": "Retry",
+  "error_occurred": "There is an Error Occurred",
+  "profile_update_successfully": "Profile Updated Successfully",
+  "logout_fail": "error occurred while logout"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }

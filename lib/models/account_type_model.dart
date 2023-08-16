@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 
-import '../translation/locale_keys.g.dart';
+import '../tranlations/locale_keys.g.dart';
 
 class AccountTypeModel {
   int id;

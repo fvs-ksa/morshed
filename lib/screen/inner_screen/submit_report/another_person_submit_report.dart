@@ -8,8 +8,8 @@ import 'package:morshed/bloc/submitting_report/submit_report_state.dart';
 import 'package:morshed/component/animation_component.dart';
 import 'package:morshed/component/component.dart';
 import 'package:morshed/component/cutom_text_filed.dart';
-import 'package:morshed/translation/locale_keys.g.dart';
 import '../../../constant/const_color.dart';
+import '../../../tranlations/locale_keys.g.dart';
 
 class SubmitReportAnotherPerson extends StatelessWidget {
   const SubmitReportAnotherPerson({Key? key}) : super(key: key);

@@ -10,10 +10,10 @@ import 'package:morshed/component/cutom_text_filed.dart';
 import 'package:morshed/component/guide_escorts_component.dart';
 import 'package:morshed/component/navigation_functions.dart';
 import 'package:morshed/screen/inner_screen/add_companions_screen.dart';
-import 'package:morshed/translation/locale_keys.g.dart';
 import '../../component/component.dart';
 import '../../component/info_profile_component.dart';
 import '../../constant/const_color.dart';
+import '../../tranlations/locale_keys.g.dart';
 
 class EscortsScreen extends StatelessWidget {
 
@@ -51,7 +51,7 @@ class EscortsScreen extends StatelessWidget {
                           Expanded(
                               child: CustomTextField(
                                 controller: addCompanions.searchController,
-                                  labelText: 'البحث عن طريق الاسم',)),
+                                  labelText: LocaleKeys.search_by_name.tr(),)),
                           SizedBox(
                             width: 12.w,
                           ),
@@ -65,7 +65,7 @@ class EscortsScreen extends StatelessWidget {
                                 context: context,
                                 fct: () {
                                   if(addCompanions.searchController.text.isEmpty){
-                                    showToast(text: 'من فضلك أدخل اسم المرافق', state: ToastState.ERROR);
+                                    showToast(text: LocaleKeys.please_write_companions.tr(), state: ToastState.ERROR);
                                   }else{
                                     addCompanions.getMyCompanions();
                                   }
@@ -97,8 +97,8 @@ class EscortsScreen extends StatelessWidget {
                           padding: EdgeInsetsDirectional.only(
                               top: 10.h, start: 8.w, end: 8.w),
                           child: addCompanions.getCompanions.companions == null
-                              ? const Center(
-                                  child: Text('ليس لديك مرافقين حتى الآن'),
+                              ?  Center(
+                                  child: Text(LocaleKeys.companions_not_fount.tr(),),
                                 )
                               : ListView.builder(
                                   itemCount: addCompanions
@@ -134,7 +134,7 @@ class EscortsScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  navigateForward(const AddCompanionsScreen());
+                  navigateForward( AddCompanionsScreen());
                 },
               ),
             ),

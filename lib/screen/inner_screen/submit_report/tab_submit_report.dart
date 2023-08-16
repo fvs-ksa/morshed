@@ -9,8 +9,8 @@ import 'package:morshed/bloc/submitting_report/submit_report_cubit.dart';
 import 'package:morshed/bloc/submitting_report/submit_report_state.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/component/info_profile_component.dart';
-import 'package:morshed/translation/locale_keys.g.dart';
 import '../../../component/horizontal_dotted_line.dart';
+import '../../../tranlations/locale_keys.g.dart';
 import 'another_person_submit_report.dart';
 import 'my_submit_report.dart';
 

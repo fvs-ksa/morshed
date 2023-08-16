@@ -11,12 +11,11 @@ import 'package:morshed/component/cutom_text_filed.dart';
 import 'package:morshed/constant/const_color.dart';
 import 'package:morshed/screen/map_tap_bar_screen/office_location_sccren.dart';
 import 'package:morshed/screen/map_tap_bar_screen/provider_location_screen.dart';
-
 import '../../bloc/show_office_provider_info/state.dart';
 import '../../component/animation_component.dart';
 import '../../component/horizontal_dotted_line.dart';
 import '../../component/info_profile_component.dart';
-import '../../translation/locale_keys.g.dart';
+import '../../tranlations/locale_keys.g.dart';
 
 class MapTabBarScreen extends StatefulWidget {
   const MapTabBarScreen({super.key});
@@ -66,7 +65,7 @@ class _MapTabBarScreenState extends State<MapTabBarScreen>
                 child: Row(
                   children: [
                     Expanded(
-                      child: CustomTextField(labelText: 'بحث عن مكتب ارشاد',controller: searchController,hintText:LocaleKeys.search.tr() ,prefixIcon:Padding(
+                      child: CustomTextField(labelText: LocaleKeys.searchForGuidanceOffices.tr(),controller: searchController,hintText:LocaleKeys.search.tr() ,prefixIcon:Padding(
                         padding:  const EdgeInsetsDirectional.only(start: 0,end: 5),
                         child: backButtonWidget(context: context),
                       ) ,),
@@ -74,7 +73,9 @@ class _MapTabBarScreenState extends State<MapTabBarScreen>
                     const SizedBox(width: 10,),
                     Padding(
                       padding:  EdgeInsetsDirectional.only(bottom: 12.0),
-                      child: mainButton(text: 'بحث', color: darkMainColor, context: context, fct: (){
+                      child: mainButton(
+                          textStyle: Theme.of(context).textTheme.labelMedium,
+                          text: LocaleKeys.search.tr(), color: darkMainColor, context: context, fct: (){
 
                         if(searchController.text.isEmpty){
                           showToast(text: 'من فضلك أدخل أسم المكتب الذي تود البحث عنه', state: ToastState.ERROR);
@@ -117,7 +118,7 @@ class _MapTabBarScreenState extends State<MapTabBarScreen>
                             controller: tabController, tabs: [
                           Tab(
                             child: AutoSizeText(
-                              'مكاتب الارشاد',
+                              LocaleKeys.office_guide.tr(),
                               presetFontSizes: [15.sp, 13.sp, 9.sp],
                               style: tabController.index == 0
                                   ? Theme.of(context).textTheme.labelLarge
@@ -137,7 +138,7 @@ class _MapTabBarScreenState extends State<MapTabBarScreen>
                           ),
                           Tab(
                             child: AutoSizeText(
-                              'مقدمي خدمه ارشاد',
+                              LocaleKeys.guide_service_provider.tr(),
                               presetFontSizes: [15.sp, 13.sp, 9.sp],
                               style: tabController.index == 1
                                   ? Theme.of(context).textTheme.labelLarge

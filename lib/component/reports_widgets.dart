@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../translation/locale_keys.g.dart';
-import 'component.dart';
 import '../constant/const_color.dart';
+import '../tranlations/locale_keys.g.dart';
 import 'cutom_text_filed.dart';
 import 'info_profile_component.dart';
 
@@ -30,11 +29,11 @@ Widget myReportsContainerWidget(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'بلاغ رقم : #$reportId',
+                "${LocaleKeys.report_no.tr()} #$reportId".tr(),
                 style: Theme.of(context).textTheme.headlineLarge,
               ),
               Text(
-                'ملاحظات البلاغ عن الشخص التائه يمكنك\n تقديم البلاغ بسهوله',
+                LocaleKeys.note_for_report.tr(),
                 style: GoogleFonts.cairo(
                     fontSize: 12.spMax,
                     color: blackColor,

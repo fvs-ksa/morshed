@@ -19,7 +19,7 @@ import 'package:quickalert/quickalert.dart';
 import '../../../component/cutom_text_filed.dart';
 import '../../../component/info_profile_component.dart';
 import '../../../component/navigation_functions.dart';
-import '../../../translation/locale_keys.g.dart';
+import '../../../tranlations/locale_keys.g.dart';
 import '../../inner_screen/privacy_policy.dart';
 import '../hajji/login_screen.dart';
 

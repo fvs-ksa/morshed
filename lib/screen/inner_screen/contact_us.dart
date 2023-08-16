@@ -1,13 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:morshed/component/component.dart';
-import 'package:morshed/component/cutom_text_filed.dart';
 import 'package:morshed/component/cutom_text_filed.dart';
 import 'package:morshed/component/info_profile_component.dart';
-import 'package:morshed/translation/locale_keys.g.dart';
 import '../../component/navigation_functions.dart';
-import '../../constant/const_color.dart';
+import '../../tranlations/locale_keys.g.dart';
 
 class ContactUs extends StatelessWidget {
   const ContactUs({Key? key}) : super(key: key);

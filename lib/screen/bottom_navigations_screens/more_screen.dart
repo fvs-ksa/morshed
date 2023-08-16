@@ -6,14 +6,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:morshed/component/auth_header_widget.dart';
-import 'package:morshed/component/navigation_functions.dart';
 import 'package:morshed/constant/const_color.dart';
-import 'package:morshed/models/api_model/profile_model.dart';
-import 'package:morshed/screen/inner_screen/subscription_screen.dart';
-import 'package:morshed/translation/locale_keys.g.dart';
 import '../../bloc/profile_cubit/cubit.dart';
 import '../../bloc/profile_cubit/state.dart';
 import '../../models/more_screen_model.dart';
+import '../../tranlations/locale_keys.g.dart';
 
 class MoreScreen extends StatelessWidget {
   const MoreScreen({Key? key}) : super(key: key);

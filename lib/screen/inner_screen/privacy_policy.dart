@@ -4,14 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:morshed/bloc/another_services_cubit/about_us_cubit/cubit.dart';
-import 'package:morshed/bloc/another_services_cubit/about_us_cubit/state.dart';
 import 'package:morshed/bloc/another_services_cubit/terms_cubit/terms_cubit.dart';
 import 'package:morshed/bloc/another_services_cubit/terms_cubit/terms_state.dart';
 import 'package:morshed/component/guide_for_hajj_widget.dart';
-
-import '../../../../translation/locale_keys.g.dart';
 import '../../constant/const_color.dart';
+import '../../tranlations/locale_keys.g.dart';
 
 class TermsScreen extends StatelessWidget {
   const TermsScreen({Key? key}) : super(key: key);

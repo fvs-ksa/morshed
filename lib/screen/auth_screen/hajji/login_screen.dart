@@ -17,7 +17,7 @@ import 'package:morshed/screen/auth_screen/mo3tamer/moetamer_register.dart';
 
 import '../../../constant/const_color.dart';
 import '../../../component/navigation_functions.dart';
-import '../../../translation/locale_keys.g.dart';
+import '../../../tranlations/locale_keys.g.dart';
 import '../../bottom_navigations_screens/main_screen.dart';
 
 class LoginScreen extends StatelessWidget {

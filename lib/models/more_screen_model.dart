@@ -11,7 +11,7 @@ import '../screen/inner_screen/contact_us.dart';
 import '../screen/inner_screen/my_reports/my_reports.dart';
 import '../screen/inner_screen/privacy_policy.dart';
 import '../screen/inner_screen/support_screen.dart';
-import '../translation/locale_keys.g.dart';
+import '../tranlations/locale_keys.g.dart';
 
 class MoreScreenModel {
   String title;
@@ -56,7 +56,7 @@ List<MoreScreenModel> moreList = [
   MoreScreenModel(
       title: LocaleKeys.technicalSupport.tr(),
       onTap: () {
-        showToast(text: 'الخدمه تحت التطوير', state: ToastState.WARNING);
+        showToast(text: LocaleKeys.service_under_development.tr(), state: ToastState.WARNING);
        // navigateForward(SupportScreen());
       },
       svgImage: 'assets/svg/support.svg'),

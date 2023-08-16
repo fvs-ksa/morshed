@@ -2,10 +2,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:morshed/constant/const_color.dart';
-
 import '../../../component/another_services_widget.dart';
 import '../../../models/another_services_model.dart';
-import '../../../translation/locale_keys.g.dart';
+import '../../../tranlations/locale_keys.g.dart';
 
 class AnotherServicesScreen extends StatelessWidget {
   const AnotherServicesScreen({Key? key}) : super(key: key);
