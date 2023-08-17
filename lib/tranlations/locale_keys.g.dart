@@ -39,7 +39,7 @@ abstract class  LocaleKeys {
   static const hotelAndCampsiteName = 'hotelAndCampsiteName';
   static const officialMissionName = 'officialMissionName';
   static const edit = 'edit';
-  static const haveDisability? = 'haveDisability?';
+  static const haveDisability = 'haveDisability?';
   static const agentName = 'agentName';
   static const confirmPassword = 'confirmPassword';
   static const whenYouRegisterYouAgree = 'whenYouRegisterYouAgree';
@@ -160,5 +160,20 @@ abstract class  LocaleKeys {
   static const companions_not_fount = 'companions_not_fount';
   static const search_by_name = 'search_by_name';
   static const please_write_companions = 'please_write_companions';
+  static const no_reports = 'no_reports';
+  static const report_no = 'report_no';
+  static const note_for_report = 'note_for_report';
+  static const companions_Added_Successfully = 'companions_Added_Successfully';
+  static const please_verify_date = 'please_verify_date';
+  static const enter_date_of_birth = 'enter_date_of_birth';
+  static const enter_id = 'enter_id';
+  static const enter_office_name_for_search = 'enter_office_name_for_search';
+  static const no_notifications = 'no_notifications';
+  static const error = 'error';
+  static const no_internet_connection = 'no_internet_connection';
+  static const retry = 'retry';
+  static const profile_update_successfully = 'profile_update_successfully';
+  static const error_occurred = 'error_occurred';
+  static const logout_fail = 'logout_fail';
 
 }
